@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 function getAllFrom(string $table_name, SQLite3 $db_inst): array
 {
