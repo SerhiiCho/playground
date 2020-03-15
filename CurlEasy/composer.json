@@ -1,0 +1,5 @@
+{
+    "require": {
+        "stil/curl-easy": "^1.2"
+    }
+}

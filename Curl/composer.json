@@ -1,0 +1,9 @@
+{
+    "name": "Curl App",
+    "description": "Testing Curl App for making curl request",
+    "autoload": {
+        "psr-4": {
+            "Curl\\": "app/Curl"
+        }
+    }
+}

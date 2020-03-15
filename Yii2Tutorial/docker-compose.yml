@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+    yii_php:
+        build: .
+        container_name: yii_php
+        working_dir: /var/www/html
+        ports:
+            - 8181:80
+        volumes:
+            - ./:/var/www/html
+
+    yii_db:
+        image: mysql:8.0
+        container_name: yii_db
+        command: --default-authentication-plugin=mysql_native_password
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: 111111
+            MYSQL_DATABASE: yii
+        ports:
+            - 1200:3306
+        volumes:
+            - ./db/storage:/var/lib/mysql
+
+    yii_composer:
+        image: composer
+        container_name: yii_composer
+        volumes:
+            - ./:/var/www/html
+        working_dir: /var/www/html
+        command: composer install --ignore-platform-reqs

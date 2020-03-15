@@ -1,0 +1,12 @@
+{
+    "name": "serhii/collections",
+    "authors": [
+        {
+            "name": "SerhiiCho",
+            "email": "serhiicho@protonmail.com"
+        }
+    ],
+    "require": {
+        "doctrine/collections": "^1.6"
+    }
+}

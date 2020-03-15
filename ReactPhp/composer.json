@@ -1,0 +1,7 @@
+{
+    "require": {
+        "react/event-loop": "^1.1",
+        "react/stream": "^1.1",
+        "react/socket": "^1.3"
+    }
+}
