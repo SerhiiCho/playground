@@ -9,3 +9,4 @@ Route::get('/', fn() => view('welcome'));
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/items/edit/{item}', 'ItemController@edit');
+Route::delete('/items/delete/{item}', 'ItemController@delete');
