@@ -14,7 +14,13 @@
                         </div>
                     @endif
 
-                    {{ $message }}
+                    <ul class="list-group">
+                        @foreach ($items as $item)
+                            <li class="list-group-item">
+                                <a href="/items/edit/{{ $item->id }}">{{ $item->name }}</a>
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>

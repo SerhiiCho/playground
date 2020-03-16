@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
+use App\Item;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
@@ -17,17 +17,8 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
+    public function index(): View
     {
-        $str = Str::of('Serhii');
-
-        return view('home', [
-            'message' => $str->append(' and Anna'),
-        ]);
+        return view('home', ['items' => Item::get()]);
     }
 }

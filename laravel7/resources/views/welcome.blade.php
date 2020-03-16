@@ -81,11 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="#">{{ $var }}</a>
+                    Laravel example
                 </div>
             </div>
         </div>
