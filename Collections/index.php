@@ -6,7 +6,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$items = new ArrayCollection([
+function collect(array $arr): ArrayCollection {
+    return new ArrayCollection($arr);
+}
+
+$items = collect([
     'nice' => 'hello',
     'nice2' => 'hello2',
 ]);

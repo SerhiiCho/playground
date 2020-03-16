@@ -4,7 +4,11 @@
     <title>Hello</title>
 </head>
 <body>
-    <h1><?php echo "nice"; ?></h1>
+    {{ if $exist }}
+        <h1>{{ $nice }}</h1>
+    {{ else }}
+        <h1>Doesn't exist</h1>
+    {{ end }}
 </body>
 </html>
 

@@ -1,7 +1,12 @@
 <?php
 
-ob_start();
-include 'html.html';
-$string = ob_get_clean();
+require_once __DIR__ . '/vendor/autoload.php';
 
-echo $string;
+use Serhii\GoodbyeHtml\Parser;
+
+$parser = new Parser('html.html', [
+    'nice' => 'Hello world',
+    'exist' => true,
+]);
+
+echo $parser->parseHtml();
