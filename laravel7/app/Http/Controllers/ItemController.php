@@ -21,6 +21,6 @@ class ItemController extends Controller
     public function delete(Item $item): RedirectResponse
     {
         $item->delete();
-        return back();
+        return back()->withStatus("$item->name was deleted!");
     }
 }

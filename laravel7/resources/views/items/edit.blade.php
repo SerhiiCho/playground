@@ -3,7 +3,11 @@
 @section('content')
 
 <div class="container">
-    <h1>Hello {{ $item->name }}</h1>
+    <a href="/home" class="btn btn-primary">Back</a>
+
+    <div class="pt-4">
+        <h1>Hello {{ $item->name }}</h1>
+    </div>
 </div>
 
 @endsection

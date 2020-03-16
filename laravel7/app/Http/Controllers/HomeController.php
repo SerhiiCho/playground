@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Item;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
 {
@@ -20,7 +19,6 @@ class HomeController extends Controller
 
     public function index(): View
     {
-        $res = Http::get('https://jsonplaceholder.ir/users');
-        return view('home', ['items' => Item::get(), 'people' => $res->json()]);
+        return view('home', ['items' => Item::get()]);
     }
 }

@@ -16,24 +16,16 @@
                 <ul class="list-group">
                     @foreach ($items as $item)
                         <li class="list-group-item">
-                            <h4>{{ $item->name }}</h4>
+                            <h3>{{ $item->name }}</h3>
 
                             <a href="/items/edit/{{ $item->id }}" class="btn btn-primary btn-sm">Open</a>
 
                             <form action="{{ action('ItemController@delete', $item) }}" class="d-inline-block" method="post">
                                 @csrf
                                 @method('delete')
-                                <button class="btn btn-primary btn-sm">Delete</button>
+                                <button class="btn bg-danger text-white btn-sm">Delete</button>
                             </form>
                         </li>
-                    @endforeach
-                </ul>
-
-                <h4 class="mt-4 mb-3">Other people</h4>
-
-                <ul class="list-group">
-                    @foreach ($people as $p)
-                        <li class="list-group-item">{{ $p['username'] }}</li>
                     @endforeach
                 </ul>
             </div>
