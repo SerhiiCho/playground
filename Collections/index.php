@@ -20,4 +20,7 @@ $result = $items
     ->filter(fn($item) => $item === 'HELLO2')
     ->toArray();
 
-var_dump($result);
+$list = collect(['awesome_', 'nice_', '_cool']);
+$res = $list->map(fn($i) => str_replace('_', '', $i));
+
+var_dump($res);
