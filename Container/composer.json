@@ -5,6 +5,8 @@
         }
     },
     "require": {
-        "php-di/php-di": "^6.0"
+        "php": "^7.3",
+        "php-di/php-di": "^6.0",
+        "zendframework/zend-diactoros": "^2.2"
     }
 }
