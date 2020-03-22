@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"encoding/json"
+	"html/template"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -11,8 +12,8 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	body := getData()
 	data := convertResponseBody(body)
 
-	tpl.ExecuteTemplate(w, "home.gohtml", map[string]string{
-		"Countries": data.ToHTML(),
+	tpl.ExecuteTemplate(w, "home.gohtml", map[string]interface{}{
+		"Countries": template.HTML(data.ToHTML()),
 	})
 }
 
