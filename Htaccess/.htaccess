@@ -1,0 +1,22 @@
+# Turn Rewrite Engine On
+# RewriteEngine on
+
+# Basic rules to remove index.php from url
+# RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.*)index\.php($|\ |\?)
+# RewriteRule ^ /%1 [R=301,L]
+
+# Replace filename with any word that you want after ^ symbol
+# NC makes the rule non case sensitive
+# L makes this the last rule that this specific condition will match
+# RewriteRule ^posts posts.php [NC,L]
+
+# Delete .php from url
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME}\.php -f
+# RewriteRule ^(.*)$ $1.php [NC,L]
+
+# Rewrite for post.php?post=xxxxx
+# RewriteRule ^post/([0-9]+) post.php?post=$1 [NC,L]
+
+# Rewrite for post.php?post=xxxx&title=xx-xxx-xxx
+# RewriteRule ^post/([0-9]+)/([0-9a-zA-Z_-]+) post.php?post=$1&title=$2 [NC,L]
