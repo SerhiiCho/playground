@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coronavirus stats</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        table tbody tr td {
+            padding: 5px;
+        }
+    </style>
 </head>
 <body>
     <nav style="margin-bottom:25px">
@@ -30,26 +35,26 @@
 
         <div class="divider"></div>
 
-        <div class="row">
-            <div class="col">
-                <table>
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <table style="margin-top: 20px" class="striped">
+            <thead>
+                <tr>
+                    <th>Country</th>
+                    <th>Confirmed</th>
+                    <th>Deaths</th>
+                    <th>Recovered</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($data->locations as $loc): ?>
+                    <tr>
+                        <td><?= $loc->country; ?></td>
+                        <td><?= nice_number($loc->latest->confirmed); ?></td>
+                        <td><?= nice_number($loc->latest->deaths); ?></td>
+                        <td><?= nice_number($loc->latest->recovered); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
