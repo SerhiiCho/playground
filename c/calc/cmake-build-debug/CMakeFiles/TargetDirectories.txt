@@ -1,3 +1,0 @@
-/home/serhii/www/pg/c-code/calc/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/serhii/www/pg/c-code/calc/cmake-build-debug/CMakeFiles/calc.dir
-/home/serhii/www/pg/c-code/calc/cmake-build-debug/CMakeFiles/edit_cache.dir
