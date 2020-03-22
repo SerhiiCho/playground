@@ -13,3 +13,7 @@ if (file_exists('cache')) {
 
 $data = json_decode($content);
 // dd($data);
+
+function nice_number(string $num): string {
+    return number_format((float) $num, 0, '.', ' ');
+}

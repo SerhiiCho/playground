@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
-    <nav style="margin-bottom:17px">
+    <nav style="margin-bottom:25px">
         <div class="nav-wrapper red darken-3">
             <div class="container">
                 <a href="#" class="brand-logo">Coronavirus dashboard</a>
@@ -17,20 +17,34 @@
     </nav>
     <div class="container">
         <div class="row">
-            <div class="col m6">
+            <h5 class="col m4 center">
+                Confirmed: <b><?= nice_number($data->latest->confirmed); ?></b>
+            </h5>
+            <h5 class="col m4 center">
+                Deaths: <b><?= nice_number($data->latest->deaths); ?></b>
+            </h6>
+            <h5 class="col m4 center">
+                Recovered: <b><?= nice_number($data->latest->recovered); ?></b>
+            </h5>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="row">
+            <div class="col">
                 <table>
                     <thead>
                         <tr>
-                            <th>Confirmed</th>
-                            <th>Deaths</th>
-                            <th>Recovered</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><?= $data->latest->confirmed; ?></td>
-                            <td><?= $data->latest->deaths; ?></td>
-                            <td><?= $data->latest->recovered; ?></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>
