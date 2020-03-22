@@ -1,3 +1,0 @@
-/home/serhii/www/pg/c-code/clock/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/serhii/www/pg/c-code/clock/cmake-build-debug/CMakeFiles/clock.dir
-/home/serhii/www/pg/c-code/clock/cmake-build-debug/CMakeFiles/edit_cache.dir

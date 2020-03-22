@@ -5,7 +5,7 @@ import java.net.http.HttpResponse;
 
 public class Request {
     public static void main(String[] args) {
-        makeRequest("https://aqua-m.tk/price-list");
+        makeRequest("https://jsonplaceholder.typicode.com/todos");
     }
 
     private static void makeRequest(String url) {
@@ -18,7 +18,7 @@ public class Request {
             .join();
     }
 
-    public static String parse(String responseBody) {
-        return "String is here";
+    public static void parse(String responseBody) {
+        System.out.println(responseBody);
     }
 }

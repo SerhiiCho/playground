@@ -1,3 +1,0 @@
-/home/serhii/www/pg/c-code/first-program/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/serhii/www/pg/c-code/first-program/cmake-build-debug/CMakeFiles/first_program.dir
-/home/serhii/www/pg/c-code/first-program/cmake-build-debug/CMakeFiles/edit_cache.dir
