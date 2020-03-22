@@ -18,7 +18,7 @@ public class RequestTest {
             .join();
     }
 
-    public static String parse(String reponseBody) {
+    public static String parse(String responseBody) {
         return "String is here";
     }
 }
