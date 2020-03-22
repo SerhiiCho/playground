@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/serhii/www/pg/c-code/first-program/Headers/printer.h
+
+/home/serhii/www/pg/c-code/first-program/main.c
+stdio.h
+-
+stdlib.h
+-
+Headers/printer.h
+/home/serhii/www/pg/c-code/first-program/Headers/printer.h
+

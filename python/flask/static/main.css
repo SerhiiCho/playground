@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+}
+
+h4 {
+    color: darkolivegreen;
+    font-family: arial;
+    margin: 13px 0;
+    margin-top: 0;
+}
+
+.container {
+    max-width: 1100px;
+    padding: 10px 20px;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+ul li {
+    padding: 14px 20px;
+    border-radius: 4px;
+    background-color: #eee;
+    margin-bottom: 7px;
+}
+
+ul li a {
+    background-color: darkolivegreen;
+    color: white;
+    padding: 3px 7px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background-color 200ms;
+    font-size: 14px;
+    font-family: arial;
+}
+
+ul li a:hover {
+    background-color: rgb(71, 90, 37);
+}
+
+input[type=submit] {
+    background-color: rgb(62, 106, 187);
+    border-radius: 4px;
+    padding: 7px 14px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: background-color 200ms;
+}
+
+input[type=submit]:hover {
+    background-color: rgb(47, 87, 161);
+}

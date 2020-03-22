@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Home page</title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h2>Home page title</h2>
+
+    <ul>
+        {% for task in tasks %}
+        <li>
+            <div>
+                <h4>{{ task.content }} <b>{{ task.date_created.date() }}</b></h4>
+            </div>
+            <div>
+                <a href="/delete/{{ task.id }}">Delete</a>
+                <a href="">Update</a>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <form action="/" method="POST">
+        <input type="text" name="content" placeholder="Type text here">
+        <input type="submit" value="Add task">
+    </form>
+</div>
+{% endblock %}

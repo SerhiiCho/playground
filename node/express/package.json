@@ -1,0 +1,17 @@
+{
+    "scripts": {
+        "start": "node dist/index.js",
+        "dev": "nodemon src/index.ts",
+        "build": "tsc -p ."
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.2",
+        "@types/node": "^13.7.0",
+        "nodemon": "^1.19.4",
+        "ts-node": "^8.6.2",
+        "typescript": "^3.7.5"
+    },
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}

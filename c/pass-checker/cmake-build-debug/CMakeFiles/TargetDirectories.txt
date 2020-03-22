@@ -1,0 +1,3 @@
+/home/serhii/www/pg/c-code/pass-checker/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/serhii/www/pg/c-code/pass-checker/cmake-build-debug/CMakeFiles/pass-checker.dir
+/home/serhii/www/pg/c-code/pass-checker/cmake-build-debug/CMakeFiles/edit_cache.dir

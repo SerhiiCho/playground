@@ -1,4 +1,9 @@
-vendor/
+__pycache__/
 node_modules/
+vendor/
 .env
+env/
 composer.lock
+package-lock.json
+.vscode
+.idea
