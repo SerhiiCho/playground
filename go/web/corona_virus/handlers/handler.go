@@ -17,28 +17,6 @@ func init() {
 	tpl = template.Must(template.ParseGlob("templates/*gohtml"))
 }
 
-type ResponseItem struct {
-	Country string `json:"country"`
-	Cases   struct {
-		New       string `json:"new"`
-		Total     int    `json:"total"`
-		Recovered int    `json:"recovered"`
-	} `json:"cases"`
-	Deaths struct {
-		New   string `json:"new"`
-		Total int    `json:"total"`
-	} `json:"deaths"`
-}
-
-// Response from API endpoint
-type Response struct {
-	Get        string         `json:"get"`
-	Parameters []interface{}  `json:"parameters"`
-	Errors     []interface{}  `json:"errors"`
-	Results    int            `json:"results"`
-	Response   []ResponseItem `json:"response"`
-}
-
 // ToHTML returns list of countries with html tags
 func (r *Response) ToHTML() string {
 	title := "<h3>" + strconv.Itoa(len(r.Response)) + " countires</h3>"
