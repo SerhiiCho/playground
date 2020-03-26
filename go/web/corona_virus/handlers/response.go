@@ -22,9 +22,6 @@ type ResponseItem struct {
 
 // Response representation of json from API endpoint
 type Response struct {
-	Get        string         `json:"get"`
-	Parameters []interface{}  `json:"parameters"`
-	Errors     []interface{}  `json:"errors"`
-	Results    int            `json:"results"`
-	Response   []ResponseItem `json:"response"`
+	Results  int            `json:"results"`
+	Response []ResponseItem `json:"response"`
 }
