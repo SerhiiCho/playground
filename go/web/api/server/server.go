@@ -5,11 +5,9 @@ import (
 	"fmt"
 	"net/http"
 
-	"../handlers"
+	"../store"
 	"../store/sqlstore"
-	"github.com/SerhiiCho/reciper/backend/store"
 	"github.com/gorilla/mux"
-	"github.com/gorilla/sessions"
 )
 
 type server struct {
@@ -17,12 +15,16 @@ type server struct {
 	store  store.Store
 }
 
+// ServeHTTP serves http
+func (s server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	s.router.ServeHTTP(w, r)
+}
+
 // newServer configures router and returns pointer to server struct
-func newServer(store store.Store, sessionStore sessions.Store) *server {
+func newServer(store store.Store) *server {
 	s := &server{
-		router:       mux.NewRouter(),
-		store:        store,
-		sessionStore: sessionStore,
+		router: mux.NewRouter(),
+		store:  store,
 	}
 
 	s.configureRouter()
@@ -33,10 +35,10 @@ func newServer(store store.Store, sessionStore sessions.Store) *server {
 func (s server) configureRouter() {
 	router := mux.NewRouter()
 
-	s.router.HandleFunc("/api/books", handlers.GetBooks).Methods("GET")
-	s.router.HandleFunc("/api/books/{id}", handlers.GetBook).Methods("GET")
-	s.router.HandleFunc("/api/books", handlers.CreateBook).Methods("POST")
-	s.router.HandleFunc("/api/books/{id}", handlers.DeleteBook).Methods("DELETE")
+	s.router.HandleFunc("/api/books", s.getBooks()).Methods("GET")
+	s.router.HandleFunc("/api/books/{id}", s.getBook()).Methods("GET")
+	s.router.HandleFunc("/api/books", s.createBook()).Methods("POST")
+	s.router.HandleFunc("/api/books/{id}", s.deleteBook()).Methods("DELETE")
 }
 
 // Start starts the server
@@ -50,7 +52,7 @@ func Start() error {
 	defer db.Close()
 
 	store := sqlstore.New(db)
-	server := newServer(store, sessionStore)
+	server := newServer(store)
 
 	fmt.Println("Serving on http://localhost:8000")
 	return http.ListenAndServe(":8000", server)
