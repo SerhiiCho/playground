@@ -19,24 +19,24 @@ type server struct {
 
 // newServer configures router and returns pointer to server struct
 func newServer(store store.Store, sessionStore sessions.Store) *server {
-	serv := &server{
+	s := &server{
 		router:       mux.NewRouter(),
 		store:        store,
 		sessionStore: sessionStore,
 	}
 
-	serv.configureRouter()
+	s.configureRouter()
 
-	return serv
+	return s
 }
 
-func (serv server) configureRouter() {
+func (s server) configureRouter() {
 	router := mux.NewRouter()
 
-	serv.router.HandleFunc("/api/books", handlers.GetBooks).Methods("GET")
-	serv.router.HandleFunc("/api/books/{id}", handlers.GetBook).Methods("GET")
-	serv.router.HandleFunc("/api/books", handlers.CreateBook).Methods("POST")
-	serv.router.HandleFunc("/api/books/{id}", handlers.DeleteBook).Methods("DELETE")
+	s.router.HandleFunc("/api/books", handlers.GetBooks).Methods("GET")
+	s.router.HandleFunc("/api/books/{id}", handlers.GetBook).Methods("GET")
+	s.router.HandleFunc("/api/books", handlers.CreateBook).Methods("POST")
+	s.router.HandleFunc("/api/books/{id}", handlers.DeleteBook).Methods("DELETE")
 }
 
 // Start starts the server
