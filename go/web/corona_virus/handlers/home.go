@@ -8,6 +8,7 @@ import (
 	"net/http"
 )
 
+// Home handler function
 func Home(w http.ResponseWriter, r *http.Request) {
 	body := getData()
 	data := convertResponseBody(body)
