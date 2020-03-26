@@ -1,7 +1,6 @@
 package server
 
 import (
-	"database/sql"
 	"fmt"
 	"net/http"
 
@@ -56,19 +55,4 @@ func Start() error {
 
 	fmt.Println("Serving on http://localhost:8000")
 	return http.ListenAndServe(":8000", server)
-}
-
-// newDB configures the database connection
-func newDB() (*sql.DB, error) {
-	db, dbErr := sql.Open("mysql", "serhii:111111@/api")
-
-	if dbErr != nil {
-		return nil, dbErr
-	}
-
-	if pingErr := db.Ping(); pingErr != nil {
-		return nil, pingErr
-	}
-
-	return db, nil
 }
