@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"math/rand"
 	"net/http"
-	"strconv"
 
 	"../entities"
 )
@@ -16,7 +15,7 @@ func CreateBook(response http.ResponseWriter, request *http.Request) {
 	var book entities.Book
 	_ = json.NewDecoder(request.Body).Decode(&book)
 
-	book.ID = strconv.Itoa(rand.Intn(1000000))
+	book.ID = rand.Intn(1000000)
 	books = append(books, book)
 
 	json.NewEncoder(response).Encode(book)
