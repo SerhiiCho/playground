@@ -3,11 +3,18 @@ package server
 import (
 	"fmt"
 	"net/http"
+	"text/template"
 
 	"../store"
 	"../store/sqlstore"
 	"github.com/gorilla/mux"
 )
+
+var tpl *template.Template
+
+func init() {
+	tpl = template.Must(template.ParseGlob("templates/*.gohtml"))
+}
 
 type server struct {
 	router *mux.Router
@@ -32,12 +39,11 @@ func newServer(store store.Store) *server {
 }
 
 func (s server) configureRouter() {
-	router := mux.NewRouter()
-
-	s.router.HandleFunc("/api/books", s.getBooks()).Methods("GET")
-	s.router.HandleFunc("/api/books/{id}", s.getBook()).Methods("GET")
-	s.router.HandleFunc("/api/books", s.createBook()).Methods("POST")
-	s.router.HandleFunc("/api/books/{id}", s.deleteBook()).Methods("DELETE")
+	s.router.HandleFunc("/", s.home()).Methods("GET")
+	s.router.HandleFunc("/books", s.getBooks()).Methods("GET")
+	s.router.HandleFunc("/books/{id}", s.getBook()).Methods("GET")
+	s.router.HandleFunc("/books", s.createBook()).Methods("POST")
+	s.router.HandleFunc("/books/{id}", s.deleteBook()).Methods("DELETE")
 }
 
 // Start starts the server
