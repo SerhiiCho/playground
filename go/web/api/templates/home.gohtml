@@ -24,11 +24,11 @@
     </nav>
     <div class="container">
         <ul class="collection">
-            {{ range $key, $book := .Books }}
+            {{range $key, $book := .Books}}
                 <li class="collection-item">
-                    <a href="#">{{ $book.Title }}</a>
+                    <a href="#">{{$book.Title}}</a>
                 </li>
-            {{ end }}
+            {{end}}
         </ul>
     </div>
 </body>
