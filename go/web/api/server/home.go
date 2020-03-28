@@ -7,6 +7,7 @@ import (
 	"../entities"
 )
 
+// home handler is responsible for the home page view
 func (s *server) home() http.HandlerFunc {
 	author := &entities.Author{ID: 1, FirstName: "Ketrin", LastName: "Rowling"}
 
@@ -15,10 +16,7 @@ func (s *server) home() http.HandlerFunc {
 	}
 
 	return func(w http.ResponseWriter, r *http.Request) {
-		err := tpl.ExecuteTemplate(w, "home.gohtml", map[string]interface{}{
-			"Books": books,
-		})
-
+		err := tpl.ExecuteTemplate(w, "home.gohtml", books)
 		log.Printf("Executing template error. Message: %s", err)
 	}
 }
