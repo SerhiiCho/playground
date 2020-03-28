@@ -1,0 +1,21 @@
+{{template "header"}}
+
+<div class="center"><h4>Create book</h4></div>
+
+<div class="row">
+    <div class="col l8 offset-l2">
+        <form method="post" action="/books">
+            <p>
+                <input id="title" name="title" type="text" class="validate" maxlength="255" minlength="2" required>
+                <label for="title">Title</label>
+            </p>
+            <p>
+                <input id="isbn" name="isbn" type="text" class="validate" maxlength="255" minlength="2" required>
+                <label for="isbn">Isbn</label>
+            </p>
+            <button type="submit" class="btn">Create</button>
+        </form>
+    </div>
+</div>
+
+{{template "footer"}}
