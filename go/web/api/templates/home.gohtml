@@ -1,11 +1,28 @@
 {{template "header"}}
 
-<ul class="collection">
-    {{range $key, $book := .Books}}
-        <li class="collection-item">
-            <a href="#">{{$book.Title}}</a>
-        </li>
-    {{end}}
-</ul>
+<h4>Books ({{len .Books}})</h4>
+
+<table class="striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Isbn</th>
+            <th>Author</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{range $key, $book := .Books}}
+            <tr>
+                <td><a href="#">{{$book.Title}}</a></td>
+                <td>{{$book.Isbn}}</td>
+                <td>{{$book.Author.FirstName}} {{$book.Author.LastName}}</td>
+                <td><a href="#">Edit</a></td>
+                <td><a href="#">Delete</a></td>
+            </tr>
+        {{end}}
+    </tbody>
+</table>
 
 {{template "footer"}}
