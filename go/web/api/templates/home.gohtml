@@ -1,6 +1,6 @@
 {{template "header"}}
 
-<h4>Books ({{len .}})</h4>
+<div class="center"><h4>Books ({{len .}})</h4></div>
 
 <table class="striped">
     <thead>
@@ -15,10 +15,10 @@
     <tbody>
         {{range .}}
             <tr>
-                <td><a href="#">{{.Title}}</a></td>
+                <td>{{.Title}}</td>
                 <td>{{.Isbn}}</td>
                 <td>{{.Author.FirstName}} {{.Author.LastName}}</td>
-                <td><a href="#">Edit</a></td>
+                <td><a href="/books/{{.ID}}">Edit</a></td>
                 <td><a href="#">Delete</a></td>
             </tr>
         {{end}}
