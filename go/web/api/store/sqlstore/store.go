@@ -13,5 +13,5 @@ type Store struct {
 
 // New returns pointer on Store
 func New(db *sql.DB) *Store {
-	return &Store{db: db}
+	return &Store{db}
 }
