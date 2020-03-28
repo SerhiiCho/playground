@@ -40,8 +40,8 @@ func newServer(store store.Store) *server {
 
 func (s server) configureRouter() {
 	s.router.HandleFunc("/", s.home()).Methods("GET")
-	s.router.HandleFunc("/books", s.getBooks()).Methods("GET")
-	s.router.HandleFunc("/books/{id}", s.getBook()).Methods("GET")
+	s.router.HandleFunc("/books/{id}", s.editBook()).Methods("GET")
+	s.router.HandleFunc("/books/{id}", s.updateBook()).Methods("PUT")
 	s.router.HandleFunc("/books", s.createBook()).Methods("POST")
 	s.router.HandleFunc("/books/{id}", s.deleteBook()).Methods("DELETE")
 }
