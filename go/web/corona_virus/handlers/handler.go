@@ -14,7 +14,7 @@ const (
 var tpl *template.Template
 
 func init() {
-	tpl = template.Must(template.ParseGlob("templates/*gohtml"))
+	tpl = template.Must(template.ParseGlob("templates/*.html"))
 }
 
 // ToHTML returns list of countries with html tags

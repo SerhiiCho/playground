@@ -14,7 +14,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	body := getData()
 	data := convertResponseBody(body)
 
-	tpl.ExecuteTemplate(w, "home.gohtml", map[string]interface{}{
+	tpl.ExecuteTemplate(w, "home.html", map[string]interface{}{
 		"Countries": template.HTML(data.ToHTML()),
 	})
 }
