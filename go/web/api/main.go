@@ -4,6 +4,7 @@ import (
 	"log"
 
 	"./server"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 func main() {

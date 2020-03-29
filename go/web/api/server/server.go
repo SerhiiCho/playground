@@ -42,6 +42,7 @@ func (s server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 func (s server) configureRouter() {
 	s.router.HandleFunc("/", s.home()).Methods("GET")
+	s.router.HandleFunc("/books", s.home()).Methods("GET")
 	s.router.HandleFunc("/books/create", s.createBook()).Methods("GET")
 	s.router.HandleFunc("/books/{id}", s.editBook()).Methods("GET")
 	s.router.HandleFunc("/books/{id}", s.updateBook()).Methods("PUT")

@@ -3,16 +3,14 @@ package server
 import (
 	"log"
 	"net/http"
-
-	"../entities"
 )
 
 // home handler is responsible for the home page view
 func (s *server) home() http.HandlerFunc {
-	author := &entities.Author{ID: 1, FirstName: "Ketrin", LastName: "Rowling"}
+	books, err := s.store.ShowBooks()
 
-	books := []entities.Book{
-		{ID: 1, Isbn: "2332", Title: "Harry Potter", Author: author},
+	if err != nil {
+		log.Fatalf("Can't query books. Message: %s\n", err)
 	}
 
 	return func(w http.ResponseWriter, r *http.Request) {
