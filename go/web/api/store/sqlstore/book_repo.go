@@ -1,9 +1,8 @@
 package sqlstore
 
 import (
-	"fmt"
-
 	"../../entities"
+	"fmt"
 )
 
 // InsertBook inserts book into a database
@@ -57,4 +56,45 @@ func (store *Store) DeleteBook(bookID string) error {
 	}
 
 	return nil
+}
+
+// UpdateBook removes given book id from database
+func (store *Store) UpdateBook(book *entities.Book) error {
+	query := "UPDATE books SET isbn = ?, title = ? WHERE id = ?"
+	_, err := store.db.Query(query, book.Isbn, book.Title, book.ID)
+
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// FindBook returns the book with provided id
+func (store *Store) FindBook(bookID string) (*entities.Book, error) {
+	q := `
+		select b.id, b.isbn, b.title, a.id, a.first_name, a.last_name
+			from books b left join authors a on b.author_id = a.id
+		where b.id = ?
+	`
+	row, err := store.db.Query(q, bookID)
+
+	if err != nil {
+		return nil, err
+	}
+
+	var b entities.Book
+	var a entities.Author
+
+	for row.Next() {
+		scanErr := row.Scan(&b.ID, &b.Isbn, &b.Title, &a.ID, &a.FirstName, &a.LastName)
+
+		if scanErr != nil {
+			return nil, scanErr
+		}
+	}
+
+	b.Author = &a
+
+	return &b, nil
 }

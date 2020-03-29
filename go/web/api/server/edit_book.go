@@ -1,18 +1,22 @@
 package server
 
 import (
+	"github.com/gorilla/mux"
 	"log"
 	"net/http"
-
-	"../entities"
 )
 
 // editBook handler is responsible for the single book page view
 func (s *server) editBook() http.HandlerFunc {
-	author := &entities.Author{ID: 1, FirstName: "Ketrin", LastName: "Rowling"}
-	book := entities.Book{ID: 1, Isbn: "2332", Title: "Harry Potter", Author: author}
-
 	return func(w http.ResponseWriter, r *http.Request) {
+		log.Println()
+		bookID := mux.Vars(r)["id"]
+		book, findErr := s.store.FindBook(bookID)
+
+		if findErr != nil {
+			log.Printf("Finding book in databse error. Message: %s", findErr)
+		}
+
 		err := tpl.ExecuteTemplate(w, "edit_book.gohtml", book)
 		log.Printf("Executing template error. Message: %s", err)
 	}
