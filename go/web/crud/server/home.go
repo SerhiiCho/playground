@@ -14,7 +14,7 @@ func (s *server) home() http.HandlerFunc {
 			log.Fatalf("Can't query books. Message: %s\n", err)
 		}
 
-		errTpl := tpl.ExecuteTemplate(w, "home.gohtml", books)
+		errTpl := tpl.ExecuteTemplate(w, "home.html", books)
 		log.Printf("Executing template error. Message: %s", errTpl)
 	}
 }

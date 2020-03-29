@@ -22,7 +22,7 @@ func (s *server) editBook() http.HandlerFunc {
 			log.Printf("Finding book in databse error. Message: %s\n", findErr)
 		}
 
-		err := tpl.ExecuteTemplate(w, "edit_book.gohtml", map[string]interface{}{
+		err := tpl.ExecuteTemplate(w, "edit_book.html", map[string]interface{}{
 			"book":    book,
 			"authors": authors,
 		})

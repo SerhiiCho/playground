@@ -13,7 +13,7 @@ func (s *server) createBook() http.HandlerFunc {
 			log.Printf("Getting authors query error. Message: %s\n", authorsErr)
 		}
 
-		err := tpl.ExecuteTemplate(w, "create_book.gohtml", authors)
+		err := tpl.ExecuteTemplate(w, "create_book.html", authors)
 		log.Printf("Executing template error. Message: %s", err)
 	}
 }

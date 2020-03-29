@@ -15,7 +15,7 @@ var tpl *template.Template
 const port = "8000"
 
 func init() {
-	tpl = template.Must(template.ParseGlob("templates/*.gohtml"))
+	tpl = template.Must(template.ParseGlob("templates/*.html"))
 }
 
 type server struct {
