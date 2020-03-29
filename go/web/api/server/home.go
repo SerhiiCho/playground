@@ -16,7 +16,10 @@ func (s *server) home() http.HandlerFunc {
 	}
 
 	return func(w http.ResponseWriter, r *http.Request) {
-		err := tpl.ExecuteTemplate(w, "home.gohtml", books)
+		err := tpl.ExecuteTemplate(w, "home.gohtml", map[string]interface{}{
+			"Books": books,
+			"Page":  "home",
+		})
 		log.Printf("Executing template error. Message: %s", err)
 	}
 }

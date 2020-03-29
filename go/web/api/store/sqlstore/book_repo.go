@@ -2,13 +2,19 @@ package sqlstore
 
 import (
 	"../../entities"
+	"fmt"
 )
 
-// GetBooks returns all books from database
-func (store *Store) GetBooks() []*entities.Book {
-	var books []*entities.Book
+// InsertBook inserts book into a database
+func (store *Store) InsertBook(book *entities.Book) error {
+	query := `INSERT INTO books (title, isbn, author_id) VALUES ($1, $2, $3);`
+	res, err := store.db.Query(query, book.Title, book.Isbn)
 
-	//
+	fmt.Printf("%#v\n", res)
 
-	return books
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

@@ -1,19 +1,15 @@
 package server
 
 import (
+	"log"
 	"net/http"
 )
 
 func (s *server) createBook() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		//w.Header().Set("Content-Type", "application/json")
-		//
-		//var book entities.Book
-		//_ = json.NewDecoder(r.Body).Decode(&book)
-		//
-		//book.ID = rand.Intn(1000000)
-		//books = append(books, book)
-		//
-		//json.NewEncoder(w).Encode(book)
+		err := tpl.ExecuteTemplate(w, "create_book.gohtml", map[string]interface{}{
+			"Page": "create_book",
+		})
+		log.Printf("Executing template error. Message: %s", err)
 	}
 }

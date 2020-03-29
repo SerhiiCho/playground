@@ -12,6 +12,8 @@ import (
 
 var tpl *template.Template
 
+const port = "8000"
+
 func init() {
 	tpl = template.Must(template.ParseGlob("templates/*.gohtml"))
 }
@@ -19,11 +21,6 @@ func init() {
 type server struct {
 	router *mux.Router
 	store  store.Store
-}
-
-// ServeHTTP serves http
-func (s server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	s.router.ServeHTTP(w, r)
 }
 
 // newServer configures router and returns pointer to server struct
@@ -38,11 +35,17 @@ func newServer(store store.Store) *server {
 	return s
 }
 
+// ServeHTTP serves http
+func (s server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	s.router.ServeHTTP(w, r)
+}
+
 func (s server) configureRouter() {
 	s.router.HandleFunc("/", s.home()).Methods("GET")
+	s.router.HandleFunc("/books/create", s.createBook()).Methods("GET")
 	s.router.HandleFunc("/books/{id}", s.editBook()).Methods("GET")
 	s.router.HandleFunc("/books/{id}", s.updateBook()).Methods("PUT")
-	s.router.HandleFunc("/books", s.createBook()).Methods("POST")
+	s.router.HandleFunc("/books", s.insertBook()).Methods("POST")
 	s.router.HandleFunc("/books/{id}", s.deleteBook()).Methods("DELETE")
 }
 
@@ -56,9 +59,8 @@ func Start() error {
 
 	defer db.Close()
 
-	store := sqlstore.New(db)
-	server := newServer(store)
+	s := sqlstore.New(db)
 
-	fmt.Println("Serving on http://localhost:8000")
-	return http.ListenAndServe(":8000", server)
+	fmt.Printf("Serving on http://localhost:%s\n", port)
+	return http.ListenAndServe(":"+port, newServer(s))
 }
