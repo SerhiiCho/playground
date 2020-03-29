@@ -5,16 +5,25 @@
 <div class="row">
     <div class="col l8 offset-l2">
         <form method="post" action="/books/update">
-            <input type="hidden" name="book" value="{{.ID}}">
-            <p>
-                <input id="title" name="title" value="{{.Title}}" type="text" class="validate" maxlength="255" minlength="2" required>
+            <input type="hidden" name="book" value="{{.book.ID}}">
+            <div class="col s12 input-field">
+                <input id="title" name="title" value="{{.book.Title}}" type="text" class="validate" maxlength="255" minlength="2" required>
                 <label for="title">Title</label>
-            </p>
-            <p>
-                <input id="isbn" name="isbn" value="{{.Isbn}}" type="text" class="validate" maxlength="255" minlength="2" required>
+            </div>
+            <div class="col s12 m6 input-field">
+                <input id="isbn" name="isbn" value="{{.book.Isbn}}" type="text" class="validate" maxlength="255" minlength="2" required>
                 <label for="isbn">Isbn</label>
-            </p>
-            <button type="submit" class="btn">Save</button>
+            </div>
+            <div class="col s12 m6 input-field">
+                <select name="authors" id="authors" class="browser-default">
+                    {{range .authors}}
+                        <option value="{{.ID}}">{{.FirstName}} {{.LastName}}</option>
+                    {{end}}
+                </select>
+            </div>
+            <div style="margin-top: 20px" class="col s12">
+                <button type="submit" class="btn">Save</button>
+            </div>
         </form>
     </div>
 </div>

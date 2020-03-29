@@ -37,7 +37,11 @@ func (store *Store) ShowBooks() ([]entities.Book, error) {
 		var b entities.Book
 		var a entities.Author
 
-		row.Scan(&b.ID, &b.Isbn, &b.Title, &a.ID, &a.FirstName, &a.LastName)
+		scanErr := row.Scan(&b.ID, &b.Isbn, &b.Title, &a.ID, &a.FirstName, &a.LastName)
+
+		if scanErr != nil {
+			return nil, scanErr
+		}
 
 		b.Author = &a
 
@@ -73,9 +77,9 @@ func (store *Store) UpdateBook(book *entities.Book) error {
 // FindBook returns the book with provided id
 func (store *Store) FindBook(bookID string) (*entities.Book, error) {
 	q := `
-		select b.id, b.isbn, b.title, a.id, a.first_name, a.last_name
-			from books b left join authors a on b.author_id = a.id
-		where b.id = ?
+		SELECT b.id, b.isbn, b.title, a.id, a.first_name, a.last_name
+			FROM books b LEFT JOIN authors a ON b.author_id = a.id
+		WHERE b.id = ?
 	`
 	row, err := store.db.Query(q, bookID)
 
@@ -97,4 +101,28 @@ func (store *Store) FindBook(bookID string) (*entities.Book, error) {
 	b.Author = &a
 
 	return &b, nil
+}
+
+// GetAuthors returns the slice of books
+func (store *Store) GetAuthors() ([]entities.Author, error) {
+	var authors []entities.Author
+
+	row, err := store.db.Query("SELECT * FROM authors")
+
+	if err != nil {
+		return nil, err
+	}
+
+	for row.Next() {
+		var a entities.Author
+		scanErr := row.Scan(&a.ID, &a.FirstName, &a.LastName)
+
+		if scanErr != nil {
+			return nil, scanErr
+		}
+
+		authors = append(authors, a)
+	}
+
+	return authors, nil
 }

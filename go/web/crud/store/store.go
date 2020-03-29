@@ -9,4 +9,5 @@ type Store interface {
 	DeleteBook(string) error
 	UpdateBook(*entities.Book) error
 	FindBook(string) (*entities.Book, error)
+	GetAuthors() ([]entities.Author, error)
 }
