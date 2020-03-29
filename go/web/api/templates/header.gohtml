@@ -14,11 +14,11 @@
     <nav>
         <div class="nav-wrapper red darken-1">
             <div class="container">
-                <a href="/" class="brand-logo">CRUD</a>
+                <a href="/" class="brand-logo">CRUD {{.Page}}</a>
 
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li {{if eq $page "home"}}class="active"{{end}}><a href="/">Home</a></li>
-                    <li {{if eq $page "edit_book"}}class="active"{{end}}><a href="/books/create">Create book</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/books/create">Create book</a></li>
                 </ul>
             </div>
         </div>
