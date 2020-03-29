@@ -6,8 +6,10 @@ import (
 
 func (s *server) updateBook() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		if r.Method != "PUT" {
+		if r.Method != "POST" || r.URL.Path != "/books/update" {
 			http.Redirect(w, r, "/", 301)
 		}
+
+		//
 	}
 }

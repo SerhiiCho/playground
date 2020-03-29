@@ -42,12 +42,11 @@ func (s server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 func (s server) configureRouter() {
 	s.router.HandleFunc("/", s.home()).Methods("GET")
-	s.router.HandleFunc("/books", s.home()).Methods("GET")
-	s.router.HandleFunc("/books/create", s.createBook()).Methods("GET")
-	s.router.HandleFunc("/books/{id}", s.updateBook()).Methods("PUT")
-	s.router.HandleFunc("/books/delete", s.deleteBook()).Methods("POST")
-	s.router.HandleFunc("/books/{id}", s.editBook()).Methods("GET")
 	s.router.HandleFunc("/books", s.insertBook()).Methods("POST")
+	s.router.HandleFunc("/books/{id}", s.editBook()).Methods("GET")
+	s.router.HandleFunc("/books/create", s.createBook()).Methods("GET")
+	s.router.HandleFunc("/books/update", s.updateBook()).Methods("POST")
+	s.router.HandleFunc("/books/delete", s.deleteBook()).Methods("POST")
 }
 
 // Start starts the server
