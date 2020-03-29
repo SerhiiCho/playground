@@ -12,7 +12,7 @@ import (
 
 var tpl *template.Template
 
-const port = "8000"
+const port = "8080"
 
 func init() {
 	tpl = template.Must(template.ParseGlob("templates/*.html"))
