@@ -64,8 +64,8 @@ func (store *Store) DeleteBook(bookID string) error {
 
 // UpdateBook removes given book id from database
 func (store *Store) UpdateBook(book *entities.Book) error {
-	query := "UPDATE books SET isbn = ?, title = ? WHERE id = ?"
-	_, err := store.db.Query(query, book.Isbn, book.Title, book.ID)
+	query := "UPDATE books SET isbn = ?, title = ?, author_id = ? WHERE id = ?"
+	_, err := store.db.Query(query, book.Isbn, book.Title, book.Author.ID, book.ID)
 
 	if err != nil {
 		return err

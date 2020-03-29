@@ -15,7 +15,7 @@
                 <label for="isbn">Isbn</label>
             </div>
             <div class="col s12 m6 input-field">
-                <select name="authors" id="authors" class="browser-default">
+                <select name="author" id="authors" class="browser-default">
                     {{range .authors}}
                         <option value="{{.ID}}">{{.FirstName}} {{.LastName}}</option>
                     {{end}}

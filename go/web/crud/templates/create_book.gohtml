@@ -14,7 +14,7 @@
                 <input id="isbn" name="isbn" type="text" class="validate" maxlength="255" minlength="2" required>
             </div>
             <div class="col s12 m6 input-field">
-                <select name="authors" id="authors" class="browser-default">
+                <select name="author" id="authors" class="browser-default">
                     {{range .}}
                          <option value="{{.ID}}">{{.FirstName}} {{.LastName}}</option>
                     {{end}}
