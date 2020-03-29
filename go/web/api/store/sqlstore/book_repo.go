@@ -47,3 +47,16 @@ func (store *Store) ShowBooks() ([]entities.Book, error) {
 
 	return books, nil
 }
+
+// DeleteBook removes given book id from database
+func (store *Store) DeleteBook(bookID string) error {
+	res, err := store.db.Exec("DELETE FROM books WHERE id = ?", bookID)
+
+	if err != nil {
+		return err
+	}
+
+	fmt.Printf("%#v\n", res)
+
+	return nil
+}

@@ -18,8 +18,13 @@
                 <td>{{.Title}}</td>
                 <td>{{.Isbn}}</td>
                 <td>{{.Author.FirstName}} {{.Author.LastName}}</td>
-                <td><a href="/books/{{.ID}}">Edit</a></td>
-                <td><a href="#">Delete</a></td>
+                <td><a href="/books/{{.ID}}" class="btn btn-small">Edit</a></td>
+                <td>
+                    <form action="/books/delete" method="post">
+                        <input type="hidden" name="book" value="{{.ID}}">
+                        <button type="submit" class="btn red darken-2 btn-small">Delete</button>
+                    </form>
+                </td>
             </tr>
         {{end}}
     </tbody>
