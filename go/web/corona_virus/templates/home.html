@@ -27,6 +27,7 @@
         <table class="table table-sm">
             <thead class="thead-dark">
                 <tr>
+                    <th scope="col">Country</th>
                     <th scope="col">Cases</th>
                     <th scope="col">New cases</th>
                     <th scope="col">Deaths</th>
@@ -36,6 +37,7 @@
             <tbody>
                 {{range .}}
                     <tr>
+                        <td>{{.Country}}</td>
                         <td>{{.Cases.Total}}</td>
                         <td>{{.Cases.New}}</td>
                         <td style="color: brown">{{.Deaths.Total}}</td>
