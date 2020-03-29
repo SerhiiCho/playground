@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"encoding/json"
-	"html/template"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -12,11 +11,9 @@ import (
 // Home handler function
 func Home(w http.ResponseWriter, r *http.Request) {
 	body := getData()
-	data := convertResponseBody(body)
+	data := convertResponseBody(body).Response
 
-	tpl.ExecuteTemplate(w, "home.html", map[string]interface{}{
-		"Countries": template.HTML(data.ToHTML()),
-	})
+	tpl.ExecuteTemplate(w, "home.html", data)
 }
 
 func convertResponseBody(body []byte) Response {

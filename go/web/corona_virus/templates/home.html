@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous">
     <title>Corona virus countries</title>
     <style>
         .list-group-item {
@@ -11,6 +15,7 @@
         }
     </style>
 </head>
+
 <body>
     <nav class="navbar navbar-dark bg-dark mb-4">
         <div class="container">
@@ -19,7 +24,27 @@
     </nav>
 
     <div class="container">
-        {{.Countries}}
+        <table class="table table-sm">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Cases</th>
+                    <th scope="col">New cases</th>
+                    <th scope="col">Deaths</th>
+                    <th scope="col">Recovered</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{range .}}
+                    <tr>
+                        <td>{{.Cases.Total}}</td>
+                        <td>{{.Cases.New}}</td>
+                        <td style="color: brown">{{.Deaths.Total}}</td>
+                        <td style="color: green">{{.Cases.Recovered}}</td>
+                    </tr>
+                {{end}}
+            </tbody>
+        </table>
     </div>
 </body>
+
 </html>

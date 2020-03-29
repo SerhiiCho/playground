@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"html/template"
-	"strconv"
 )
 
 const (
@@ -15,24 +14,4 @@ var tpl *template.Template
 
 func init() {
 	tpl = template.Must(template.ParseGlob("templates/*.html"))
-}
-
-// ToHTML returns list of countries with html tags
-func (r *Response) ToHTML() string {
-	title := "<h3>" + strconv.Itoa(len(r.Response)) + " countires</h3>"
-	list := title + `<ul class="list-group">`
-
-	for _, item := range r.Response {
-		list += `
-			<li class="list-group-item">
-				<b>` + item.Country + `</b>
-				<br>Cases: ` + strconv.Itoa(item.Cases.Total) + `
-				<br>New cases: ` + item.Cases.New + `
-				<br>Deaths: ` + strconv.Itoa(item.Deaths.Total) + `
-				<br>Recovered: ` + strconv.Itoa(item.Cases.Recovered) + `
-			</li>
-		`
-	}
-
-	return list + "</ul>"
 }
