@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/SerhiiCho/traversy/01/arrays"
+	arrays "../01_arrays"
 )
 
 /*
@@ -44,9 +44,7 @@ func PrintEmails() {
 	}
 }
 
-/*
-Person model
-*/
+// Person model
 type Person struct {
 	name   string
 	age    uint
