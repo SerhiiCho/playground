@@ -9,5 +9,5 @@ func main() {
 		}
 	}()
 
-	panic("Ohhhh it's a panic here!!!")
+	panic("Noo it's a panic here!!!")
 }
