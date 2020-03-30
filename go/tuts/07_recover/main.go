@@ -3,11 +3,13 @@ package main
 import "fmt"
 
 func main() {
-	defer func() {
-		if r := recover(); r != nil {
-			fmt.Printf("Recovered from panic. The message is: '%v'\n", r)
-		}
-	}()
+	defer catch()
 
-	panic("Noo it's a panic here!!!")
+	panic("Panic is here!!!")
+}
+
+func catch() {
+	if r := recover(); r != nil {
+		fmt.Printf("Recovered from panic. The message is: '%s'\n", r)
+	}
 }
