@@ -4,9 +4,9 @@ function nice() {
         const error = true
 
         if (error) {
-            resolve('Some string')
+            resolve('This will be second')
         } else {
-            reject('Error occured')
+            reject('If has error')
         }
     })
 }
@@ -14,3 +14,5 @@ function nice() {
 nice()
     .then(data => console.log(data))
     .catch(err => hello())
+
+console.log('This will be first')
