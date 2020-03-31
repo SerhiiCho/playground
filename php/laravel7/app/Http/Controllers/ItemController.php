@@ -18,9 +18,26 @@ class ItemController extends Controller
         return view('items.edit', compact('item'));
     }
 
-    public function delete(Item $item): RedirectResponse
+    public function create(): View
+    {
+        return view('items.create');
+    }
+
+    public function store(): RedirectResponse
+    {
+        Item::create(['name' => request('name')]);
+        return redirect('home')->withStatus('Item was created');
+    }
+
+    public function destroy(Item $item): RedirectResponse
     {
         $item->delete();
-        return back()->withStatus("$item->name was deleted!");
+        return redirect('home')->withStatus("$item->name was deleted!");
+    }
+
+    public function update(Item $item): RedirectResponse
+    {
+        $item->update(['name' => request('name')]);
+        return redirect('home')->withStatus("$item->name was updated!");
     }
 }

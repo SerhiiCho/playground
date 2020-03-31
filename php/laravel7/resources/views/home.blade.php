@@ -18,9 +18,9 @@
                         <li class="list-group-item">
                             <h3>{{ $item->name }}</h3>
 
-                            <a href="/items/edit/{{ $item->id }}" class="btn btn-primary btn-sm">Open</a>
+                            <a href="/item/{{ $item->id }}/edit" class="btn btn-primary btn-sm">Edit</a>
 
-                            <form action="{{ action('ItemController@delete', $item) }}" class="d-inline-block" method="post">
+                            <form action="{{ action('ItemController@destroy', $item) }}" class="d-inline-block" method="post">
                                 @csrf
                                 @method('delete')
                                 <button class="btn bg-danger text-white btn-sm">Delete</button>
