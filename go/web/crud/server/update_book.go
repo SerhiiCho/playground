@@ -1,11 +1,12 @@
 package server
 
 import (
-	"../entities"
 	"fmt"
 	"log"
 	"net/http"
 	"strconv"
+
+	"../entities"
 )
 
 func (s *server) updateBook() http.HandlerFunc {
@@ -14,8 +15,8 @@ func (s *server) updateBook() http.HandlerFunc {
 			http.Redirect(w, r, "/", 301)
 		}
 
-		bookId, Berr := strconv.Atoi(r.FormValue("book"))
-		authorId, Aerr := strconv.Atoi(r.FormValue("author"))
+		bookID, Berr := strconv.Atoi(r.FormValue("book"))
+		authourID, Aerr := strconv.Atoi(r.FormValue("author"))
 
 		if Berr != nil {
 			log.Fatalf("Error converting book id to int in updateBook method. Message: %s\n", Berr)
@@ -26,10 +27,10 @@ func (s *server) updateBook() http.HandlerFunc {
 		}
 
 		updateErr := s.store.UpdateBook(&entities.Book{
-			ID:     bookId,
+			ID:     bookID,
 			Title:  r.FormValue("title"),
 			Isbn:   r.FormValue("isbn"),
-			Author: &entities.Author{ID: authorId},
+			Author: &entities.Author{ID: authourID},
 		})
 
 		if updateErr != nil {
