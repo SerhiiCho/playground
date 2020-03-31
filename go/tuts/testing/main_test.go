@@ -8,11 +8,13 @@ func Test_calc(t *testing.T) {
 		num2 int
 	}
 
-	tests := []struct {
+	type oneCase struct {
 		name       string
 		args       args
 		wantResult int
-	}{
+	}
+
+	tests := []oneCase{
 		{
 			name:       "simple numbers",
 			args:       args{num1: 1, num2: 1},
