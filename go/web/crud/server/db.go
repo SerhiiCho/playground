@@ -4,7 +4,7 @@ import "database/sql"
 
 // newDB configures the database connection
 func newDB() (*sql.DB, error) {
-	db, dbErr := sql.Open("mysql", "serhii:111111@/api")
+	db, dbErr := sql.Open("mysql", mysqlCredentials)
 
 	if dbErr != nil {
 		return nil, dbErr
