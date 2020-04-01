@@ -1,19 +1,52 @@
 {{template "header"}}
 
-<div class="center"><h4>Books ({{len .}})</h4></div>
+<div class="section">
+    <div class="center"><h4>Currency</h4></div>
 
-<table class="striped">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Isbn</th>
-            <th>Author</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{range .}}
+    <div class="row">
+        <div class="col s12 m4">
+            <div class="card">
+                <div class="card-content">
+                    <p class="card-title">Гривна</p>
+                    <p>Покупка: <b>22.3333</b></p>
+                    <p>Продажа: <b>33.3333</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="card">
+                <div class="card-content">
+                    <p class="card-title">Доллар</p>
+                    <p>I am a very simple card. I am good at containing small bits of information.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="card">
+                <div class="card-content">
+                    <p class="card-title">Евро</p>
+                    <p>I am a very simple card. I am good at containing small bits of information.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="center"><h4>Books {{len .}}</h4></div>
+
+    <table class="striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Isbn</th>
+                <th>Author</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{range .}}
             <tr>
                 <td>{{.Title}}</td>
                 <td>{{.Isbn}}</td>
@@ -26,8 +59,9 @@
                     </form>
                 </td>
             </tr>
-        {{end}}
-    </tbody>
-</table>
+            {{end}}
+        </tbody>
+    </table>
+</div>
 
 {{template "footer"}}
