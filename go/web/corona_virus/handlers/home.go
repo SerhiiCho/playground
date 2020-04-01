@@ -18,13 +18,12 @@ func Home(w http.ResponseWriter, r *http.Request) {
 
 func convertResponseBody(body []byte) Response {
 	resp := Response{}
-	err := json.Unmarshal(body, &resp)
 
-	sort.Sort(sortByCases(resp))
-
-	if err != nil {
+	if err := json.Unmarshal(body, &resp); err != nil {
 		log.Fatalf("Json unmarshal error: %s", err)
 	}
+
+	sort.Sort(sortByCases(resp))
 
 	return resp
 }
