@@ -12,7 +12,10 @@ import (
 
 var tpl *template.Template
 
-const port = "8080"
+const (
+	port           = "8080"
+	getCurrencyURL = "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5"
+)
 
 func init() {
 	tpl = template.Must(template.ParseGlob("templates/*.html"))

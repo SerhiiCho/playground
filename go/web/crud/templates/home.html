@@ -3,65 +3,55 @@
 <div class="section">
     <div class="center"><h4>Currency</h4></div>
 
-    <div class="row">
-        <div class="col s12 m4">
-            <div class="card">
-                <div class="card-content">
-                    <p class="card-title">Гривна</p>
-                    <p>Покупка: <b>22.3333</b></p>
-                    <p>Продажа: <b>33.3333</b></p>
+    <div class="section">
+        <div class="row">
+            {{range .currency}}
+                <div class="col s12 m3">
+                    <div class="card">
+                        <div class="card-content" style="padding:10px 20px">
+                            <p class="card-title">{{.Title}}</p>
+                            <p>Buy: <b>{{.Buy}}</b></p>
+                            <p>Sail: <b>{{.Sale}}</b></p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="col s12 m4">
-            <div class="card">
-                <div class="card-content">
-                    <p class="card-title">Доллар</p>
-                    <p>I am a very simple card. I am good at containing small bits of information.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col s12 m4">
-            <div class="card">
-                <div class="card-content">
-                    <p class="card-title">Евро</p>
-                    <p>I am a very simple card. I am good at containing small bits of information.</p>
-                </div>
-            </div>
+            {{end}}
         </div>
     </div>
 </div>
 
 <div class="section">
-    <div class="center"><h4>Books {{len .}}</h4></div>
+    <div class="center"><h4>Books {{len .books}}</h4></div>
 
-    <table class="striped">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Isbn</th>
-                <th>Author</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{range .}}
-            <tr>
-                <td>{{.Title}}</td>
-                <td>{{.Isbn}}</td>
-                <td>{{.Author.FirstName}} {{.Author.LastName}}</td>
-                <td><a href="/books/{{.ID}}/edit" class="btn btn-small">Edit</a></td>
-                <td>
-                    <form action="/books/delete" method="post">
-                        <input type="hidden" name="book" value="{{.ID}}">
-                        <button type="submit" class="btn red darken-2 btn-small">Delete</button>
-                    </form>
-                </td>
-            </tr>
-            {{end}}
-        </tbody>
-    </table>
+    <div class="section">
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Isbn</th>
+                    <th>Author</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{range .books}}
+                <tr>
+                    <td>{{.Title}}</td>
+                    <td>{{.Isbn}}</td>
+                    <td>{{.Author.FirstName}} {{.Author.LastName}}</td>
+                    <td><a href="/books/{{.ID}}/edit" class="btn btn-small">Edit</a></td>
+                    <td>
+                        <form action="/books/delete" method="post">
+                            <input type="hidden" name="book" value="{{.ID}}">
+                            <button type="submit" class="btn red darken-2 btn-small">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {{end}}
+            </tbody>
+        </table>
+    </div>
 </div>
 
 {{template "footer"}}
