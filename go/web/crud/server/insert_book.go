@@ -1,11 +1,14 @@
 package server
 
 import (
-	"../entities"
 	"log"
 	"net/http"
+
+	"../entities"
 )
 
+// insertBook creates a book record in database
+// and redirects to a home page
 func (s *server) insertBook() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		err := s.store.InsertBook(&entities.Book{

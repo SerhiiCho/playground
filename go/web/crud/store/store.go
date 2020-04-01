@@ -2,7 +2,7 @@ package store
 
 import "../entities"
 
-// Store interface
+// Store is the common interface for all stores
 type Store interface {
 	InsertBook(*entities.Book) error
 	ShowBooks() ([]entities.Book, error)

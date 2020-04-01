@@ -26,7 +26,7 @@ type server struct {
 	store  store.Store
 }
 
-// newServer configures router and returns pointer to server struct
+// newServer configures router and returns pointer to a server struct
 func newServer(store store.Store) *server {
 	s := &server{
 		router: mux.NewRouter(),
