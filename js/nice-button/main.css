@@ -1,0 +1,37 @@
+body {
+    background-color: antiquewhite;
+}
+
+.container {
+    padding: 30px;
+    text-align: center;
+}
+
+button {
+    padding: 80px 92px;
+    background-color: #5b5b5b;
+    border-radius: 100px 100px 2px 2px;
+    border: 6px solid #866c6c;
+    cursor: pointer;
+    transition: background-color 200ms;
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 60px;
+    background: url(go.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: bottom 500ms;
+    right: 50%;
+    bottom: -30px;
+    transform: translateX(50%);
+}
+
+button:hover::before {
+    bottom: 0;
+}
