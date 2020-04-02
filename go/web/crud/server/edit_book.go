@@ -1,9 +1,10 @@
 package server
 
 import (
-	"github.com/gorilla/mux"
 	"log"
 	"net/http"
+
+	"github.com/gorilla/mux"
 )
 
 // editBook handler is responsible for the single book page view
