@@ -1,8 +1,9 @@
 package sqlstore
 
 import (
-	"../../entities"
 	"fmt"
+
+	"../../entities"
 )
 
 // InsertBook inserts book into a database
@@ -19,8 +20,8 @@ func (store *Store) InsertBook(book *entities.Book) error {
 	return nil
 }
 
-// ShowBooks returns the slice of books
-func (store *Store) ShowBooks() ([]entities.Book, error) {
+// GetBooks returns the slice of books
+func (store *Store) GetBooks() ([]entities.Book, error) {
 	var books []entities.Book
 
 	q := `
@@ -101,28 +102,4 @@ func (store *Store) FindBook(bookID string) (*entities.Book, error) {
 	b.Author = &a
 
 	return &b, nil
-}
-
-// GetAuthors returns the slice of books
-func (store *Store) GetAuthors() ([]entities.Author, error) {
-	var authors []entities.Author
-
-	row, err := store.db.Query("SELECT * FROM authors")
-
-	if err != nil {
-		return nil, err
-	}
-
-	for row.Next() {
-		var a entities.Author
-		scanErr := row.Scan(&a.ID, &a.FirstName, &a.LastName)
-
-		if scanErr != nil {
-			return nil, scanErr
-		}
-
-		authors = append(authors, a)
-	}
-
-	return authors, nil
 }

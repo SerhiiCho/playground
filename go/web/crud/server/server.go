@@ -15,7 +15,7 @@ var tpl *template.Template
 const (
 	port             = "8080"
 	getCurrencyURL   = "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5"
-	mysqlCredentials = "serhii:111111@/api"
+	mysqlCredentials = "serhii:111111@/crud"
 )
 
 func init() {
