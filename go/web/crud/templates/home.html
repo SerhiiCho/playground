@@ -54,4 +54,36 @@
     </div>
 </div>
 
+<div class="section">
+    <div class="center"><h4>Authors {{len .authors}}</h4></div>
+
+    <div class="section">
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{range .authors}}
+                <tr>
+                    <td>{{.FirstName}}</td>
+                    <td>{{.LastName}}</td>
+                    <td><a href="/authors/{{.ID}}/edit" class="btn btn-small">Edit</a></td>
+                    <td>
+                        <form action="/authors/delete" method="post">
+                            <input type="hidden" name="author" value="{{.ID}}">
+                            <button type="submit" class="btn red darken-2 btn-small">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {{end}}
+            </tbody>
+        </table>
+    </div>
+</div>
+
 {{template "footer"}}

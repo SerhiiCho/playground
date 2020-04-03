@@ -12,10 +12,16 @@ import (
 // home handler is responsible for the home page view
 func (s *server) home() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		books, Berr := s.store.ShowBooks()
+		books, Berr := s.store.GetBooks()
 
 		if Berr != nil {
 			log.Fatalln("Can't query books.", Berr)
+		}
+
+		authors, Aerr := s.store.GetAuthors()
+
+		if Aerr != nil {
+			log.Fatalln("Can't query authors.", Aerr)
 		}
 
 		currency, Cerr := getCurrencyData()
@@ -26,6 +32,7 @@ func (s *server) home() http.HandlerFunc {
 
 		errTpl := tpl.ExecuteTemplate(w, "home.html", map[string]interface{}{
 			"books":    books,
+			"authors":  authors,
 			"currency": currency,
 		})
 
