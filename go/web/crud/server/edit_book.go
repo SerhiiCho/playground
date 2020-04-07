@@ -28,6 +28,6 @@ func (s *server) editBook() http.HandlerFunc {
 			"authors": authors,
 		})
 
-		log.Printf("Executing template error. Message: %s", err)
+		log.Println("Executing template error.", err)
 	}
 }

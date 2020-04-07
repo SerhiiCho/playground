@@ -2,7 +2,11 @@ package server
 
 import (
 	"fmt"
+	"log"
 	"net/http"
+	"os"
+	"path/filepath"
+	"strings"
 	"text/template"
 
 	"../store"
@@ -19,7 +23,27 @@ const (
 )
 
 func init() {
-	tpl = template.Must(template.ParseGlob("templates/*.html"))
+	tpl = template.Must(ParseTemplates(), nil)
+}
+
+func ParseTemplates() *template.Template {
+	templ := template.New("")
+	err := filepath.Walk("./templates", func(path string, info os.FileInfo, err error) error {
+		if strings.Contains(path, ".html") {
+			_, err = templ.ParseFiles(path)
+			if err != nil {
+				log.Println(err)
+			}
+		}
+
+		return err
+	})
+
+	if err != nil {
+		panic(err)
+	}
+
+	return templ
 }
 
 type server struct {
