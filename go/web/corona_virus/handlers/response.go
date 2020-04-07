@@ -2,26 +2,31 @@ package handlers
 
 // Response representation of json from API endpoint
 type Response struct {
-	Results  int            `json:"results"`
-	Response []ResponseItem `json:"response"`
+	Global    ResponseGlobal
+	Countries []ResponseCountry
+	Date      string
 }
 
-// ResponseCases child of ResponseItem
-type ResponseCases struct {
-	New       string `json:"new"`
-	Total     int    `json:"total"`
-	Recovered int    `json:"recovered"`
+// ResponseGlobal is a child of Response
+type ResponseGlobal struct {
+	NewConfirmed   int
+	TotalConfirmed int
+	NewDeaths      int
+	TotalDeaths    int
+	NewRecovered   int
+	TotalRecovered int
 }
 
-// ResponseDeaths child of ResponseItem
-type ResponseDeaths struct {
-	New   string `json:"new"`
-	Total int    `json:"total"`
-}
-
-// ResponseItem child of Response
-type ResponseItem struct {
-	Country string         `json:"country"`
-	Cases   ResponseCases  `json:"cases"`
-	Deaths  ResponseDeaths `json:"deaths"`
+// ResponseCountry is a child of Response
+type ResponseCountry struct {
+	Country        string
+	CountryCode    string
+	Slug           string
+	NewConfirmed   int
+	TotalConfirmed int
+	NewDeaths      int
+	TotalDeaths    int
+	NewRecovered   int
+	TotalRecovered int
+	Date           string
 }

@@ -31,17 +31,21 @@
                     <th scope="col">Cases</th>
                     <th scope="col">New cases</th>
                     <th scope="col">Deaths</th>
+                    <th scope="col">New deaths</th>
                     <th scope="col">Recovered</th>
+                    <th scope="col">New recovered</th>
                 </tr>
             </thead>
             <tbody>
-                {{range .}}
+                {{range .Countries}}
                     <tr>
-                        <td>{{.Country}}</td>
-                        <td>{{.Cases.Total}}</td>
-                        <td>{{.Cases.New}}</td>
-                        <td style="color: brown">{{.Deaths.Total}}</td>
-                        <td style="color: green">{{.Cases.Recovered}}</td>
+                        <td><img src="../assets/flags/{{ .CountryCode }}.png" alt=""> {{.Country}}</td>
+                        <td>{{.TotalConfirmed}}</td>
+                        <td>{{.NewConfirmed}}</td>
+                        <td style="color: brown">{{.TotalDeaths}}</td>
+                        <td style="color: brown">{{.NewDeaths}}</td>
+                        <td style="color: green">{{.TotalRecovered}}</td>
+                        <td style="color: green">{{.NewRecovered}}</td>
                     </tr>
                 {{end}}
             </tbody>

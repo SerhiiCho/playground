@@ -11,7 +11,7 @@ import (
 // Home handler function
 func Home(w http.ResponseWriter, r *http.Request) {
 	body := getData()
-	data := convertResponseBody(body).Response
+	data := convertResponseBody(body)
 
 	tpl.ExecuteTemplate(w, "home.html", data)
 }
@@ -34,9 +34,6 @@ func getData() []byte {
 	if httpErr != nil {
 		log.Fatalf("Http request error: %s", httpErr)
 	}
-
-	req.Header.Add("x-rapidapi-host", host)
-	req.Header.Add("x-rapidapi-key", key)
 
 	res, err := http.DefaultClient.Do(req)
 
