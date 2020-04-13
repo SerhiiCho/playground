@@ -9,8 +9,6 @@ import (
 )
 
 func main() {
-	http.Handle("/assets/flags/", http.StripPrefix("/assets/flags/",
-		http.FileServer(http.Dir("/assets/flags/"))))
 	http.HandleFunc("/", handlers.Home)
 
 	fmt.Println("Listening on http://localhost:8080")
