@@ -15,7 +15,11 @@ var (
 func main() {
 	connect()
 	defer conn.Close()
-	printName()
+
+	set("name", "Cool name")
+	name := get("name")
+
+	fmt.Println(name)
 }
 
 func connect() {
@@ -26,12 +30,20 @@ func connect() {
 	}
 }
 
-func printName() {
+func get(name string) string {
 	res, err := redis.String(conn.Do("GET", "name"))
 
 	if err != nil {
 		log.Fatalln(err)
 	}
 
-	fmt.Println(res)
+	return res
+}
+
+func set(key, value string) {
+	_, err := conn.Do("SET", key, value)
+
+	if err != nil {
+		log.Println(err)
+	}
 }
