@@ -17,7 +17,7 @@ func (s *server) insertBook() http.HandlerFunc {
 		})
 
 		if err != nil {
-			log.Printf("Inserting a book error. Message: %s", err)
+			log.Println("Inserting a book error.", err)
 		}
 
 		http.Redirect(w, r, "/", http.StatusSeeOther)

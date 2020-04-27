@@ -34,7 +34,7 @@ func (s *server) updateBook() http.HandlerFunc {
 		})
 
 		if updateErr != nil {
-			fmt.Printf("Error updating the book. Message: %s\n", updateErr)
+			fmt.Println("Error updating the book.", updateErr)
 		}
 
 		http.Redirect(w, r, "/", 301)
