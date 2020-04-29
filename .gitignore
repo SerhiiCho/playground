@@ -10,3 +10,4 @@ package-lock.json
 tmp/
 cmake-build-debug/
 *.class
+*.out
