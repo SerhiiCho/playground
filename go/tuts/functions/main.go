@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	arrays "../01_arrays"
+	arrays "../arrays"
 )
 
 /*
@@ -51,6 +51,10 @@ type Person struct {
 	gender string
 }
 
+func (p *Person) getName() string {
+	return p.name
+}
+
 func main() {
 	PrintType()
 	PrintColors()
@@ -62,5 +66,5 @@ func main() {
 		gender: "m",
 	}
 
-	println(admin.name)
+	println(admin.getName())
 }
