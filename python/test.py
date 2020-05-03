@@ -1,10 +1,11 @@
 from Animal import Animal
 from Car import Car
+from Car import User
 
 dog = Animal('Chiksa')
 car = Car('red', 2000)
+user = User('Serhii')
 
-dog_sound = dog.get_sound()
-car_sound = car.get_sound()
-
-print(dog_sound, car_sound)
+print(dog.get_sound())
+print(car.get_sound())
+print(user.get_name())
