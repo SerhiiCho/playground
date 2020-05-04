@@ -37,23 +37,27 @@
                     path: '/contact',
                     view: `<h4>Contact us page</h4>`,
                 },
-            ];
+            ]
+
             class Router {
                 constructor(routes) {
-                    this.routes = routes;
-                    this.view = document.getElementById('app');
-                    this.currentPath = window.location.pathname;
+                    this.routes = routes
+                    this.view = document.getElementById('app')
+                    this.currentPath = window.location.pathname
                 }
+
                 exec() {
-                    const route = this.routes.find(route => route.path === this.currentPath);
-                    if (!route || typeof route === 'undefined') {
-                        return;
-                    }
-                    this.view.innerHTML = route.view;
+                    const route = this.routes.find(route => route.path === this.currentPath)
+
+                    if (!route || typeof route === 'undefined')
+                        return
+
+                    this.view.innerHTML = route.view
                 }
             }
-            const router = new Router(routes);
-            router.exec();
+
+            const router = new Router(routes)
+            router.exec()
         </script>
     </div>
 </body>
