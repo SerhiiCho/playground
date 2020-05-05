@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"log"
 	"os"
+
+	"./storage"
 )
 
 func main() {
@@ -17,16 +19,16 @@ func main() {
 	case "set":
 		handleSetCommand(os.Args[2], os.Args[3])
 	case "get":
-		handleGetCommand(os.Args[4])
+		handleGetCommand(os.Args[2])
 	default:
 		log.Fatalln("Command must be `set` or `get`")
 	}
 }
 
 func handleSetCommand(key, value string) {
-	fmt.Println(key, value)
+	store := storage.NewStore()
+	fmt.Println(store.Items)
 }
 
 func handleGetCommand(key string) {
-	fmt.Println(key)
 }
