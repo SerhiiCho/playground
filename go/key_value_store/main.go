@@ -27,6 +27,8 @@ func main() {
 
 func handleSetCommand(key, value string) {
 	store := storage.NewStore()
+	store.AddItem(storage.StoreItem{Key: key, Value: value})
+
 	fmt.Println(store.Items)
 }
 

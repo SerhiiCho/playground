@@ -28,3 +28,22 @@ func NewStore() *Store {
 
 	return &store
 }
+
+// AddItem adds new item to store
+func (store *Store) AddItem(item StoreItem) {
+	// check if this item is already exist
+
+	store.Items = append(store.Items, item)
+
+	jsonBytes, jsonErr := json.Marshal(store)
+
+	if jsonErr != nil {
+		log.Fatalln(jsonErr)
+	}
+
+	ioErr := ioutil.WriteFile("data", jsonBytes, 0777)
+
+	if ioErr != nil {
+		log.Fatalln(ioErr)
+	}
+}
