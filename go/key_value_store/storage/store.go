@@ -47,3 +47,10 @@ func (store *Store) AddItem(item StoreItem) {
 		log.Fatalln(ioErr)
 	}
 }
+
+// GetItem returns item from storage if it exist
+func (store *Store) GetItem(key string) *StoreItem {
+	//
+
+	return nil
+}
