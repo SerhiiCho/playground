@@ -6,39 +6,14 @@ namespace App;
 
 class Node
 {
-    public ?array $children;
+    public ?Node $left;
+    public ?Node $right;
     public int $number;
     
-    public function __construct(int $number, ?array $children = null)
+    public function __construct(int $number, ?Node $left = null, ?Node $right = null)
     {
         $this->number = $number;
-        $this->children = $children;
-    }
-
-    public function hasChildren(): bool
-    {
-        foreach ($this->children as $item) {
-            if (is_array($item)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    public function getChildren(): array
-    {
-        if (!$this->hasChildren()) {
-            return null;
-        }
-
-        return array_filter($this->children, 'is_array');
-    }
-
-    public function drawNode(int $node_index): string
-    {
-        #
-
-        return '';
+        $this->left = $left;
+        $this->left = $right;
     }
 }
