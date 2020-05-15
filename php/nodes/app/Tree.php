@@ -19,12 +19,20 @@ class Tree
             $node = $this->root;
         }
 
-        $children = '';
+        $children = null;
         $right_node = is_null($node->right) ? '' : $this->getTree($node->right);
         $left_node = is_null($node->left) ? '' : $this->getTree($node->left);
 
         if (!is_null($node->left) || !is_null($node->right)) {
             $children = "<div class='children'>{$left_node}{$right_node}</div>";
+
+            if (!is_null($node->right) && !is_null($node->left)) {
+                if ($node->left->number > $node->right->number) {
+                    $children = "<div class='children'>{$right_node}{$left_node}</div>";
+                } else {
+                    $children = "<div class='children'>{$left_node}{$right_node}</div>";
+                }
+            }
         }
 
         $result = <<<HTML

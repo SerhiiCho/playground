@@ -7,13 +7,13 @@ use App\Tree;
 
 $tree = new Tree(
     new Node(1,
-        new Node(2,
-            new Node(4),
-            new Node(5),
+        new Node(34,
+            new Node(32),
+            new Node(10),
         ),
-        new Node(3,
-            new Node(6),
-            new Node(7),
+        new Node(22,
+            new Node(16),
+            new Node(47),
         )
     )
 );
