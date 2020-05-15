@@ -6,38 +6,11 @@ namespace App;
 
 class Tree
 {
-    public ?Node $root = null;
+    private Node $root;
 
-    public function searchTree(int $number, ?Node &$node): ?Node
+    public function __construct(Node $root)
     {
-        if ($number < $node->number) {
-            if (is_null($node->left)) {
-                $node->left = new Node($number);
-                return null;
-            } else if (!is_null($node->left)) {
-                return $this->searchTree($number, $node->left);
-            }
-        } else if ($number > $node->number) {
-            if (is_null($node->right)) {
-                $node->right = new Node($number);
-                return null;
-            } else if (!is_null($node->right)) {
-                return $this->searchTree($number, $node->right);
-            }
-        }
-        return null;
-    }
-
-    public function add(int $number): ?Node
-    {
-        $node = $this->root;
-
-        if ($node === null) {
-            $this->root = new Node($number);
-            return null;
-        }
-
-        return $this->searchTree($number, $node);
+        $this->root = $root;
     }
 
     public function getTree(?Node $node = null): string
