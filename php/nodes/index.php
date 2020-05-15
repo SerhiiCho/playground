@@ -1,3 +1,23 @@
+<?php
+
+require_once 'vendor/autoload.php';
+
+use App\Node;
+
+$node = [
+    new Node(1, [
+        new Node(2, [
+            new Node(4),
+            new Node(5),
+        ]),
+        new Node(3, [
+            new Node(6),
+            new Node(7),
+        ])
+    ]),
+];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,14 +47,14 @@
                         </div>
                     </div>
                     <div class="node">
-                        <span><b>3</b></span>
+                        <span><b>2</b></span>
 
                         <div class="children">
                             <div class="node">
-                                <span><b>6</b></span>
+                                <span><b>4</b></span>
                             </div>
                             <div class="node">
-                                <span><b>7</b></span>
+                                <span><b>5</b></span>
                             </div>
                         </div>
                     </div>
