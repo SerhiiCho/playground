@@ -12,5 +12,8 @@
             "email": "serhiicho@protonmail.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "require-dev": {
+        "symfony/var-dumper": "^5.0"
+    }
 }

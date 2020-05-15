@@ -14,6 +14,6 @@ class Node
     {
         $this->number = $number;
         $this->left = $left;
-        $this->left = $right;
+        $this->right = $right;
     }
 }
