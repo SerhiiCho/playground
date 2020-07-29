@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/SerhiiCho/go-playground/web/router/handlers"
+	"./handlers"
 )
 
 const (

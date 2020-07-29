@@ -14,6 +14,6 @@ func (s *server) createBook() http.HandlerFunc {
 		}
 
 		err := tpl.ExecuteTemplate(w, "create_book.html", authors)
-		log.Printf("Executing template error. Message: %s", err)
+		log.Println("Executing template error.", err)
 	}
 }
