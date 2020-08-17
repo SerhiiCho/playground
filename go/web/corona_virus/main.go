@@ -16,5 +16,5 @@ func main() {
 	fmt.Println("Listening on http://localhost" + port)
 	err := http.ListenAndServe(port, nil)
 
-	log.Fatal("Listen and serve error:", err)
+	log.Fatalln("Listen and serve error:", err)
 }

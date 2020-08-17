@@ -20,7 +20,7 @@ func convertResponseBody(body []byte) Response {
 	resp := Response{}
 
 	if err := json.Unmarshal(body, &resp); err != nil {
-		log.Fatalf("Json unmarshal error: %s", err)
+		log.Fatalln("Json unmarshal error:", err)
 	}
 
 	sort.Sort(sortByCases(resp))
@@ -32,20 +32,20 @@ func getData() []byte {
 	req, httpErr := http.NewRequest("GET", url, nil)
 
 	if httpErr != nil {
-		log.Fatalf("Http request error: %s", httpErr)
+		log.Fatalln("Http request error:", httpErr)
 	}
 
 	res, err := http.DefaultClient.Do(req)
 
 	if err != nil {
-		log.Fatalf("Http client error: %s", httpErr)
+		log.Fatalln("Http client error:", httpErr)
 	}
 
 	defer res.Body.Close()
 	body, ioErr := ioutil.ReadAll(res.Body)
 
 	if ioErr != nil {
-		log.Fatalf("IO error: %s", ioErr)
+		log.Fatalln("IO error:", ioErr)
 	}
 
 	return body
