@@ -1,6 +1,7 @@
 __pycache__/
 node_modules/
 vendor/
+.exercism/
 .env
 env/
 composer.lock
