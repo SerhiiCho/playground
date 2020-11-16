@@ -15,6 +15,19 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_POST['pass']) || $_POST['p
     exit;
 }
 
+function get_subject($msg)
+{
+    $regex = '/Комментарий<\/th><\/tr><tr><td style="padding: 5px;border:1px solid #999;">([A-zА-я ]+)<\/td><td style=/u';
+
+    preg_match_all($regex, stripslashes($msg), $matches);
+
+    if (isset($matches[1][0])) {
+        return 'Приложение - ' . $matches[1][0];
+    }
+
+    return 'Новый заказ с приложения';
+}
+
 function send_mail($subject, $message)
 {
     $email = 'office@aqua-m.com.ua';
@@ -29,7 +42,7 @@ function send_mail($subject, $message)
     mail($email, $subject, $message, $headers);
 }
 
-$subject = 'Новый заказ с приложения';
+$subject = get_subject($_POST['message']);
 
 if (isset($_POST['subject'])) {
     $subject = $_POST['subject'];
