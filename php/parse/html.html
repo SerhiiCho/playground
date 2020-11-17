@@ -1,14 +1,17 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Hello</title>
+    <title>{{ $show_title ? 'Here is the title' : 'No title' }}</title>
 </head>
 <body>
+    {{ $show_nav ? '<nav>This is nav</nav>' : '' }}
+
     {{ if $exist }}
         <h1>{{ $nice }}</h1>
     {{ else }}
         <h1>Doesn't exist</h1>
     {{ end }}
+    {{ $show_footer ? $footer : '' }}
 </body>
 </html>
 
