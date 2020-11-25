@@ -37,7 +37,7 @@ $her_name = match($name) {
     default => throw new Exception('Doesnt match any names'),
 };
 
-// Named parameters
+// Named
 $html_chars = htmlspecialchars('Some string', double_encode: false);
 
 var_dump($html_chars);
