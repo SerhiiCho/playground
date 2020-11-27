@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 class Name
 {
-    public function __construct(private string $name){
+    public function __construct(private string $name)
+    {
         echo $name;
     }
 
