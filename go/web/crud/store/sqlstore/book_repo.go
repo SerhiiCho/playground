@@ -79,7 +79,8 @@ func (store *Store) UpdateBook(book *entities.Book) error {
 func (store *Store) FindBook(bookID string) (*entities.Book, error) {
 	q := `
 		SELECT b.id, b.isbn, b.title, a.id, a.first_name, a.last_name
-			FROM books b LEFT JOIN authors a ON b.author_id = a.id
+			FROM books b
+			LEFT JOIN authors a ON b.author_id = a.id
 		WHERE b.id = ?
 	`
 	row, err := store.db.Query(q, bookID)

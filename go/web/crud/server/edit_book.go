@@ -16,11 +16,11 @@ func (s *server) editBook() http.HandlerFunc {
 		authors, authorsErr := s.store.GetAuthors()
 
 		if authorsErr != nil {
-			log.Printf("Getting authors query error. Message: %s\n", authorsErr)
+			log.Println("Getting authors query error. Message:", authorsErr)
 		}
 
 		if findErr != nil {
-			log.Printf("Finding book in databse error. Message: %s\n", findErr)
+			log.Println("Finding book in database error. Message:", findErr)
 		}
 
 		err := tpl.ExecuteTemplate(w, "edit_book.html", map[string]interface{}{
