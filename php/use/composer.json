@@ -1,0 +1,17 @@
+{
+    "name": "serhii/use",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "serhii",
+            "email": "serhiicho@protonmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
