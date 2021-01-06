@@ -9,7 +9,7 @@ class Node
     public ?Node $left;
     public ?Node $right;
     public int $number;
-    
+
     public function __construct(int $number, ?Node $left = null, ?Node $right = null)
     {
         $this->number = $number;
