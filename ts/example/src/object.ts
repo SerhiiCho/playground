@@ -5,7 +5,7 @@ interface Person {
 }
 
 const person: Person = {
-    name: 'Mikel',
+    name: 'Mike',
     age: 25,
     getInfo: (): string => {
         return `The name is ${person.name} and age is ${person.age}`
