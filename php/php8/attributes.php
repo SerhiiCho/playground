@@ -3,7 +3,11 @@
 declare(strict_types=1);
 
 #[Attribute]
-class Route {}
+class Route {
+    public function __construct(public string $path)
+    {
+    }
+}
 
 class User
 {
@@ -17,4 +21,6 @@ class User
 }
 
 $reflection = new ReflectionClass(User::class);
-var_dump($reflection->getAttributes(Route::class, ReflectionAttribute::IS_INSTANCEOF));
+$result = $reflection->getMethod('getName');
+$attr = $result->getAttributes(Route::class, ReflectionAttribute::IS_INSTANCEOF)[0];
+var_dump($attr->getTarget());

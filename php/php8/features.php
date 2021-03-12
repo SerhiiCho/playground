@@ -9,10 +9,11 @@ $var_type = get_debug_type($string);
 
 // Match block
 $name = 'Anna';
+
 $her_name = match($name) {
     'Anna' => 'This is Anna',
     'Serhii' => 'This is Serhii',
-    default => throw new Exception('Doesnt match any names'),
+    default => throw new Exception('Does not match any names'),
 };
 
 // Named arguments

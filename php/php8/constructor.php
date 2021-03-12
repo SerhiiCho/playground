@@ -6,7 +6,6 @@ class Name
 {
     public function __construct(private string $name)
     {
-        echo $name;
     }
 
     public function __toString(): string
