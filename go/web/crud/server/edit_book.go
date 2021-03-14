@@ -10,7 +10,6 @@ import (
 // editBook handler is responsible for the single book page view
 func (s *server) editBook() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		log.Println()
 		bookID := mux.Vars(r)["id"]
 		book, findErr := s.store.FindBook(bookID)
 		authors, authorsErr := s.store.GetAuthors()
