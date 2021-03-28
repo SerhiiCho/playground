@@ -1,0 +1,2391 @@
+---
+Головы, помпы и фильтры:
+  XILONG:
+  - article: XL-008
+    name: Голова XL-008
+    description: 8 Вт, 750л/час
+    producer: XILONG
+    price: 132.7
+    image: http://aqua-m.com.ua/image/data/equipment/XL-008-370.jpg
+  - article: XL-070
+    name: Голова XL-070
+    description: 12 Вт, 800л/час
+    producer: XILONG
+    price: 131.2
+    image: http://aqua-m.com.ua/image/data/equipment/XL-008-370.jpg
+  - article: XL-080
+    name: Голова XL-080
+    description: 20 Вт, 800л/час
+    producer: XILONG
+    price: 132.3
+    image: http://aqua-m.com.ua/image/data/equipment/XL-008-370.jpg
+  - article: XL-170
+    name: Голова XL-170
+    description: 20 Вт, 1400л/час
+    producer: XILONG
+    price: 150.1
+    image: http://aqua-m.com.ua/image/data/equipment/XL-008-370.jpg
+  - article: XL-180
+    name: Голова XL-180
+    description: 20 Вт, 1200л/час
+    producer: XILONG
+    price: 149.7
+    image: http://aqua-m.com.ua/image/data/equipment/XL-008-370.jpg
+  - article: XL-280
+    name: Голова XL-280
+    description: 25 Вт, 1800л/час
+    producer: XILONG
+    price: 194.3
+    image: http://aqua-m.com.ua/image/data/equipment/XL-008-370.jpg
+  - article: XL-270
+    name: Голова XL-270
+    description: 30 Вт, 2000л/час
+    producer: XILONG
+    price: 191.8
+    image: http://aqua-m.com.ua/image/data/equipment/XL-008-370.jpg
+  - article: XL-380
+    name: Голова XL-380
+    description: 35 Вт, 2500л/час
+    producer: XILONG
+    price: 210.3
+    image: http://aqua-m.com.ua/image/data/equipment/XL-008-370.jpg
+  - article: XL-370
+    name: Голова XL-370
+    description: 40 Вт, 2800л/час
+    producer: XILONG
+    price: 210.3
+    image: http://aqua-m.com.ua/image/data/equipment/XL-008-370.jpg
+  - article: XL-F070А
+    name: Фильтр XL-F070А
+    description: 12 Вт, 1000л/час
+    producer: XILONG
+    price: 157.3
+    image: http://aqua-m.com.ua/image/data/equipment/XL-F070А.jpg
+  - article: XL-F170А
+    name: Фильтр XL-F170А
+    description: 18 Вт, 1300л/час
+    producer: XILONG
+    price: 209.9
+    image: http://aqua-m.com.ua/image/data/equipment/XL-F170А.jpg
+  - article: XL-F270А
+    name: Фильтр XL-F270А
+    description: 25 Вт, 1800л/час
+    producer: XILONG
+    price: 264.3
+    image: http://aqua-m.com.ua/image/data/equipment/XL-F270А.jpg
+  - article: XL-F370А
+    name: Фильтр XL-F370А
+    description: 35 Вт, 2800л/час
+    producer: XILONG
+    price: 295.8
+    image: http://aqua-m.com.ua/image/data/equipment/XL-F370А.jpg
+  - article: XL-F008
+    name: Фильтр XL-F008
+    description: 15 Вт, 800л/час,акв 60-80л
+    producer: XILONG
+    price: 143.6
+    image: http://aqua-m.com.ua/image/data/equipment/XL-F008.jpg
+  - article: XL-F070
+    name: Фильтр XL-F070
+    description: 12 Вт, 1000л/час, акв до 150л
+    producer: XILONG
+    price: 155.2
+    image: http://aqua-m.com.ua/image/data/equipment/XL-F070.jpg
+  - article: XL-F080
+    name: Фильтр XL-F080
+    description: 18 Вт, 800л/час,акв 60-100л
+    producer: XILONG
+    price: 151.2
+    image: http://aqua-m.com.ua/image/data/equipment/XL-F080.jpg
+  - article: XL-F090
+    name: Фильтр XL-F090
+    description: 12 Вт, 1000л/час, акв до 150л
+    producer: XILONG
+    price: 171.5
+    image: http://aqua-m.com.ua/image/data/equipment/XL-F090.jpg
+  - article: XL-F130
+    name: Фильтр XL-F130
+    description: 8 Вт, 600л/час, акв 10-60л, с дождевалкой
+    producer: XILONG
+    price: 156.2
+    image: http://aqua-m.com.ua/image/data/equipment/XL-F130 XL-F131.jpg
+  - article: XL-F131
+    name: Фильтр XL-F131
+    description: 15 Вт, 1200л/час, акв 70-130л, с дождевалкой
+    producer: XILONG
+    price: 173.3
+    image: http://aqua-m.com.ua/image/data/equipment/XL-F130 XL-F131.jpg
+  - article: XL-F170
+    name: Фильтр XL-F170
+    description: 20 Вт, 1300л/час, акв до 250л
+    producer: XILONG
+    price: 206.6
+    image: http://aqua-m.com.ua/image/data/equipment/XL-F170.jpg
+  - article: XL-F180
+    name: Фильтр XL-F180
+    description: 25 Вт, 1200л/час, акв до 300л
+    producer: XILONG
+    price: 190.7
+    image: http://aqua-m.com.ua/image/data/equipment/XL-F180.jpg
+  - article: XL-F190
+    name: Фильтр XL-F190
+    description: 12 Вт, 1000л/час, акв до 180л
+    producer: XILONG
+    price: 227.3
+    image: http://aqua-m.com.ua/image/data/equipment/XL-F190.jpg
+  - article: XL-F270
+    name: Фильтр XL-F270
+    description: 28 Вт, 1800л/час, акв до 350л
+    producer: XILONG
+    price: 260.3
+    image: http://aqua-m.com.ua/image/data/equipment/XL-F270.jpg
+  - article: XL-F280
+    name: Фильтр XL-F280
+    description: 30 Вт, 1800л/час, акв 180-250л
+    producer: XILONG
+    price: 246.9
+    image: http://aqua-m.com.ua/image/data/equipment/XL-F280.jpg
+  - article: XL-F290
+    name: Фильтр XL-F290
+    description: 12 Вт, 1000л/час, акв до 220л
+    producer: XILONG
+    price: 291.8
+    image: http://aqua-m.com.ua/image/data/equipment/XL-F290.jpg
+  - article: XL-F370
+    name: Фильтр XL-F370
+    description: 38 Вт, 2800л/час, акв до 500л
+    producer: XILONG
+    price: 286.7
+    image: http://aqua-m.com.ua/image/data/equipment/XL-F370.jpg
+  - article: XL-F380
+    name: Фильтр XL-F380
+    description: 40 Вт, 2500л/час, акв 250-500л
+    producer: XILONG
+    price: 266.4
+    image: http://aqua-m.com.ua/image/data/equipment/XL-F380.jpg
+  - article: XL-F580
+    name: Фильтр XL-F580
+    description: 3 Вт, 300л/час, акв 40л
+    producer: XILONG
+    price: 89.2
+    image: http://aqua-m.com.ua/image/data/equipment/XL-F580F680F780.jpg
+  - article: XL-F680
+    name: Фильтр XL-F680
+    description: 5 Вт, 450л/час, акв до 100л
+    producer: XILONG
+    price: 102.6
+    image: http://aqua-m.com.ua/image/data/equipment/XL-F580F680F780.jpg
+  - article: XL-F780
+    name: Фильтр XL-F780
+    description: 8 Вт, 650л/час
+    producer: XILONG
+    price: 146.5
+    image: http://aqua-m.com.ua/image/data/equipment/XL-F580F680F780.jpg
+  - article: XL-666(1 CUP)
+    name: Фильтр XL-666(1CUP)
+    description: 3 Вт, 300л/час
+    producer: XILONG
+    price: 81.2
+    image: http://aqua-m.com.ua/image/data/equipment/XL-666(1CUP).jpg
+  - article: XL-666(2 CUPS)
+    name: Фильтр XL-666(2CUPS)
+    description: 3 Вт, 300л/час, акв 20-40л
+    producer: XILONG
+    price: 92.8
+    image: http://aqua-m.com.ua/image/data/equipment/XL-666(2CUPS).jpg
+  - article: XL-777(2 CUP)
+    name: Фильтр XL-777(2CUP)
+    description: 5 Вт, 600л/час
+    producer: XILONG
+    price: 97.9
+    image: http://aqua-m.com.ua/image/data/equipment/XL-777(2CUP).jpg
+  - article: XL-777А(1 CUP)
+    name: Фильтр XL-777A(1CUP)
+    description: 5 Вт, 600л/час, акв 50-100л
+    producer: XILONG
+    price: 121.8
+    image: http://aqua-m.com.ua/image/data/equipment/XL-777(2CUP).jpg
+  - article: XL-134
+    name: Насос для аквариума XL-134
+    description: 60 Вт, 3000л/ч
+    producer: XILONG
+    price: 560.1
+    image: http://aqua-m.com.ua/image/data/equipment/xl133-136.jpg
+  - article: XL-135
+    name: Насос для аквариума XL-135
+    description: 85 Вт, 4000л/ч
+    producer: XILONG
+    price: 884.5
+    image: http://aqua-m.com.ua/image/data/equipment/xl133-136.jpg
+  - article: XL-138
+    name: Насос для аквариума XL-138
+    description: 75 Вт, 3500л/ч
+    producer: XILONG
+    price: 708.3
+    image: http://aqua-m.com.ua/image/data/equipment/XL-138 139.jpg
+  - article: XL-139
+    name: Насос для аквариума XL-139
+    description: 135 Вт, 5500л/ч
+    producer: XILONG
+    price: 1000.9
+    image: http://aqua-m.com.ua/image/data/equipment/XL-138 139.jpg
+  - article: XL-3340
+    name: Насос для аквариума XL-3340
+    description: 45 Вт, 1800л/ч
+    producer: XILONG
+    price: 360.7
+    image: http://aqua-m.com.ua/image/data/equipment/XL-3340 3350.jpg
+  - article: XL-3350
+    name: Насос для аквариума XL-3350
+    description: 50 Вт, 3000л/ч
+    producer: XILONG
+    price: 452.8
+    image: http://aqua-m.com.ua/image/data/equipment/XL-3340 3350.jpg
+  Resun:
+  - article: B-400
+    name: Голова В-400
+    description: 6 Вт  ,400 л/ч на акв до 60 л
+    producer: Resun
+    price: 139.1
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/B-2000.jpg
+  - article: B-700
+    name: Голова В-700
+    description: 10 Вт, 700 л/ч на акв до 100 л
+    producer: Resun
+    price: 169.8
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/B-2000.jpg
+  - article: B-1000
+    name: Голова В-1000
+    description: 15 Вт, 1000 л/ч на акв до 150 л
+    producer: Resun
+    price: 194
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/B-2000.jpg
+  - article: B-1500
+    name: Голова В-1500
+    description: 25 Вт, 1500 л/ч на акв до 250 л
+    producer: Resun
+    price: 251.8
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/B-2000.jpg
+  - article: B-2000
+    name: Голова В-2000
+    description: 30 Вт, 2000 л/ч на акв до 300 л
+    producer: Resun
+    price: 400.5
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/B-2000.jpg
+  - article: CS-400
+    name: Фильтр CS-400
+    description: 6 Вт, 400л/ч на акв до 100л
+    producer: Resun
+    price: 166.9
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/CS-400.jpg
+  - article: MAGI 200
+    name: Фильтр Magi 200
+    description: 5 Вт, 200л/ч на акв до 50л
+    producer: Resun
+    price: 180.9
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/Magi-380.jpg
+  - article: MAGI 380
+    name: Фильтр Magi 380
+    description: 7 Вт, 380л/ч на акв до 80л
+    producer: Resun
+    price: 197.3
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/Magi-380.jpg
+  - article: MAGI 700
+    name: Фильтр внутренний Magi 700
+    description: 10 Вт, 700 л/ч на акв до 150л
+    producer: Resun
+    price: 267.9
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/Magi-380.jpg
+  - article: MAGI 1000
+    name: Фильтр внутренний Magi 1000
+    description: 20 Вт, 1000 л/ч на акв до 300л
+    producer: Resun
+    price: 465.6
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/Magi-380.jpg
+  - article: MINI
+    name: Фильтр внутренний Mini
+    description: 5 Вт, 200л/ч на акв до 60л
+    producer: Resun
+    price: 155.8
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/Mini.jpg
+  - article: CY-20
+    name: Фильтр наружный CY-20
+    description: 3 Вт, 200 л/час на акв до 60 л
+    producer: Resun
+    price: 405.8
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNESHNIY/CY-20.jpg
+  - article: SF-700
+    name: Фильтр навесной SF-700
+    description: 6 Вт, 630 л/час на акв до 150 л
+    producer: Resun
+    price: 333.2
+    image: http://aqua-m.com.ua/image/data/PRUD/filtr-SF-400.jpg
+  Atman:
+  - article: АТ-201
+    name: Голова АТ-201
+    description: 15 Вт, 650 л/час
+    producer: Atman
+    price: 218.2
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/%D0%90%D0%A2-201.jpg
+  - article: АТ-202
+    name: Голова АТ-202
+    description: 25 Вт, 1200  л/час
+    producer: Atman
+    price: 277.3
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/%D0%90%D0%A2-201.jpg
+  - article: АТ-203
+    name: Голова АТ-203
+    description: 38 Вт, 2000  л/час
+    producer: Atman
+    price: 448.1
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/%D0%90%D0%A2-201.jpg
+  - article: AT-F101
+    name: Фильтр AT-F101
+    description: 5 Вт 350 л/час на акв. до 60 л
+    producer: Atman
+    price: 199.4
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/AT-F101.jpg
+  - article: AT-F102
+    name: Фильтр AT-F102
+    description: 8 Вт, 500 л/час на акв. до 100 л
+    producer: Atman
+    price: 271.2
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/AT-F102.jpg
+  - article: AT-F103
+    name: Фильтр AT-F103
+    description: 12 Вт, 1100 л/час на акв. до 200 л
+    producer: Atman
+    price: 414.7
+    image: http://aqua-m.com.ua/image/data/equipment/AT-F103 104.jpg
+  - article: AT-F104
+    name: Фильтр AT-F104
+    description: 38 Вт, 2000 л/час на акв. до 500 л
+    producer: Atman
+    price: 587.3
+    image: http://aqua-m.com.ua/image/data/equipment/AT-F103 104.jpg
+  - article: AT-F201
+    name: Фильтр AT-F201
+    description: 9 Вт, 650 л/час на акв. до 150 л
+    producer: Atman
+    price: 318.6
+    image: http://aqua-m.com.ua/image/data/equipment/AT-F201 202 203.jpg
+  - article: AT-F202
+    name: Фильтр AT-F202
+    description: 9 Вт, 840 л/час на акв. до 200 л
+    producer: Atman
+    price: 416.5
+    image: http://aqua-m.com.ua/image/data/equipment/AT-F201 202 203.jpg
+  - article: AT-F203
+    name: Фильтр AT-F203
+    description: 38 Вт, 2000 л/час на акв. до 300 л
+    producer: Atman
+    price: 580.7
+    image: http://aqua-m.com.ua/image/data/equipment/AT-F201 202 203.jpg
+  - article: AT-F300
+    name: Фильтр AT-F300
+    description: 2,5 Вт, 250 л/час на акв. до 50 л
+    producer: Atman
+    price: 193.9
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/AT-F300.jpg
+  - article: AT-F301
+    name: Фильтр AT-F301
+    description: 2,5 Вт, 230 л/час на акв. до 50 л
+    producer: Atman
+    price: 174.4
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/AT-F301.jpg
+  - article: AT-F302
+    name: Фильтр AT-F302
+    description: 6,5 Вт, 450 л/час на акв. до 70 л
+    producer: Atman
+    price: 194.3
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/AT-F302.jpg
+  - article: AT-F303
+    name: Фильтр AT-F303
+    description: 12 Вт, 600 л/час на акв. до 100 л
+    producer: Atman
+    price: 285.3
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/AT-F303.jpg
+  - article: AT-F304
+    name: Фильтр AT-F304
+    description: 15 Вт, 800 л/час на акв. до 150 л
+    producer: Atman
+    price: 330.6
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/AT-F301.jpg
+  - article: AT-F305
+    name: Фильтр AT-F305
+    description: 25 Вт, 1200 л/час на акв. до 350 л
+    producer: Atman
+    price: 387.9
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/AT-F303.jpg
+  - article: AT-F306
+    name: Фильтр AT-F306
+    description: 35 Вт, 2000 л/час на акв. до 500 л
+    producer: Atman
+    price: 558.3
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/AT-F303.jpg
+  - article: PF-200
+    name: Фильтр PF-200
+    description: 6 Вт, 360 л/час на акв. до 60 л
+    producer: Atman
+    price: 176.9
+    image: http://aqua-m.com.ua/image/data/equipment/PF-200 400 500 1100 2000 2500
+      3500.jpg
+  - article: PF-400
+    name: Фильтр PF-400
+    description: 8 Вт, 600 л/час на акв. до 100 л
+    producer: Atman
+    price: 216.1
+    image: http://aqua-m.com.ua/image/data/equipment/PF-200 400 500 1100 2000 2500
+      3500.jpg
+  - article: PF-500
+    name: Фильтр PF-500
+    description: 9 Вт, 730 л/час на акв. до 120 л
+    producer: Atman
+    price: 251.6
+    image: http://aqua-m.com.ua/image/data/equipment/PF-200 400 500 1100 2000 2500
+      3500.jpg
+  - article: PF-1100
+    name: Фильтр PF-1100
+    description: 18 Вт, 1100 л/час на акв. до 200 л
+    producer: Atman
+    price: 491.9
+    image: http://aqua-m.com.ua/image/data/equipment/PF-200 400 500 1100 2000 2500
+      3500.jpg
+  - article: PF-2000
+    name: Фильтр PF-2000
+    description: 38 Вт, 2000 л/час на акв. до 300 л
+    producer: Atman
+    price: 660.8
+    image: http://aqua-m.com.ua/image/data/equipment/PF-200 400 500 1100 2000 2500
+      3500.jpg
+  - article: PF-2500
+    name: Фильтр PF-2500
+    description: 45 Вт, 2500 л/час на акв. до 500 л
+    producer: Atman
+    price: 1000.9
+    image: http://aqua-m.com.ua/image/data/equipment/PF-200 400 500 1100 2000 2500
+      3500.jpg
+  - article: PF-3500
+    name: Фильтр PF-3500
+    description: 72 Вт, 3500 л/час на акв. до 800 л
+    producer: Atman
+    price: 1368.1
+    image: http://aqua-m.com.ua/image/data/equipment/PF-200 400 500 1100 2000 2500
+      3500.jpg
+  - article: AT-881
+    name: Фильтр AT-881
+    description: 10 Вт, 600 л/час на акв. до 150 л
+    producer: Atman
+    price: 531.1
+    image: http://aqua-m.com.ua/image/data/equipment/AT-881 882 883.jpg
+  - article: AT-882
+    name: Фильтр AT-882
+    description: 15 Вт, 1200 л/час на акв. до 300 л
+    producer: Atman
+    price: 1053.4
+    image: http://aqua-m.com.ua/image/data/equipment/AT-881 882 883.jpg
+  - article: AT-883
+    name: Фильтр AT-883
+    description: 26 Вт, 1400 л/час на акв. до 450 л
+    producer: Atman
+    price: 1536.3
+    image: http://aqua-m.com.ua/image/data/equipment/AT-881 882 883.jpg
+  - article: AT-2218F
+    name: Фильтр AT-2218F
+    description: 9 Вт, 650 л/час на акв. до 100 л
+    producer: Atman
+    price: 326.6
+    image: http://aqua-m.com.ua/image/data/equipment/AT-2218F.jpg
+  - article: AT-2219F
+    name: Фильтр AT-2219F
+    description: 12 Вт, 1200 л/час на акв. до 300 л
+    producer: Atman
+    price: 427.8
+    image: http://aqua-m.com.ua/image/data/equipment/AT-2219F.jpg
+  - article: AT-2220F
+    name: Фильтр AT-2220F
+    description: 32 Вт, 1800 л/час на акв. до 350 л
+    producer: Atman
+    price: 613.7
+    image: http://aqua-m.com.ua/image/data/equipment/AT-2220F.jpg
+  - article: AT-3335
+    name: Внешний фильтр AT-3335
+    description: 13 Вт, 740 л/ч на аквариум 30-100 л
+    producer: Atman
+    price: 1856
+    image: http://aqua-m.com.ua/image/data/equipment/AT-3336.jpg
+  - article: AT-3336
+    name: Внешний фильтр AT-3336
+    description: 13 Вт, 740 л/ч на аквариум 80-250 л
+    producer: Atman
+    price: 2082.9
+    image: http://aqua-m.com.ua/image/data/equipment/AT-3336.jpg
+  - article: AT-3337
+    name: Внешний фильтр AT-3337
+    description: 28 Вт, 1250 л/ч на аквариум 100-200 л
+    producer: Atman
+    price: 2666.6
+    image: http://aqua-m.com.ua/image/data/equipment/AT-3336.jpg
+  - article: AT-3338
+    name: Внешний фильтр AT-3338
+    description: 28 Вт, 1250 л/ч на аквариум 200-400 л
+    producer: Atman
+    price: 3150.1
+    image: http://aqua-m.com.ua/image/data/equipment/AT-3336.jpg
+  - article: EF-1
+    name: Внешний фильтр EF-1
+    description: 13 Вт, 740 л/ч на аквариум 40-90 л
+    producer: Atman
+    price: 1810
+    image: http://aqua-m.com.ua/image/data/equipment/EF-2.jpg
+  - article: EF-2
+    name: Внешний фильтр EF-2
+    description: 13 Вт, 740 л/ч на аквариум 100-250 л
+    producer: Atman
+    price: 2010.8
+    image: http://aqua-m.com.ua/image/data/equipment/EF-2.jpg
+  - article: EF-3
+    name: Внешний фильтр EF-3
+    description: 28 Вт, 1250 л/ч на аквариум 200-320 л
+    producer: Atman
+    price: 2610.3
+    image: http://aqua-m.com.ua/image/data/equipment/EF-2.jpg
+  - article: EF-4
+    name: Внешний фильтр EF-4
+    description: 28 Вт, 1250 л/ч на аквариум 300-500 л
+    producer: Atman
+    price: 3071.1
+    image: http://aqua-m.com.ua/image/data/equipment/EF-2.jpg
+  - article: CF-600
+    name: Внешний фильтр CF-600
+    description: 18 Вт, 740 л/ч на аквариум до 150 л
+    producer: Atman
+    price: 2020.6
+    image: http://aqua-m.com.ua/image/data/equipment/CF-600.jpg
+  - article: CF-800
+    name: Внешний фильтр CF-800
+    description: 21 Вт, 960 л/ч на аквариум до 200 л
+    producer: Atman
+    price: 2268.9
+    image: http://aqua-m.com.ua/image/data/equipment/CF-600.jpg
+  - article: CF-1000
+    name: Внешний фильтр CF-1000
+    description: 32 Вт, 1350 л/ч на аквариум до 300 л
+    producer: Atman
+    price: 2964.5
+    image: http://aqua-m.com.ua/image/data/equipment/CF-600.jpg
+  - article: CF-1200
+    name: Внешний фильтр CF-1200
+    description: 39 Вт, 1550 л/ч на аквариум до 400 л
+    producer: Atman
+    price: 3264.7
+    image: http://aqua-m.com.ua/image/data/equipment/CF-600.jpg
+  - article: DF-500
+    name: Внешний фильтр DF-500
+    description: 14 Вт, 820 л/ч на аквариум до 170 л
+    producer: Atman
+    price: 2153.6
+    image: http://aqua-m.com.ua/image/data/equipment/DF-500.jpg
+  - article: DF-700
+    name: Внешний фильтр DF-700
+    description: 14 Вт, 820 л/ч на аквариум до 250 л
+    producer: Atman
+    price: 2374.7
+    image: http://aqua-m.com.ua/image/data/equipment/DF-500.jpg
+  - article: DF-1000
+    name: Внешний фильтр DF-1000
+    description: 22 Вт, 1400 л/ч на аквариум до 350 л
+    producer: Atman
+    price: 3113.5
+    image: http://aqua-m.com.ua/image/data/equipment/DF-500.jpg
+  - article: DF-1300
+    name: Внешний фильтр DF-1300
+    description: 22 Вт, 1500 л/ч на аквариум 150-450 л
+    producer: Atman
+    price: 3480.4
+    image: http://aqua-m.com.ua/image/data/equipment/DF-500.jpg
+  - article: CF-2200
+    name: Внешний фильтр CF-2200
+    description: 56 Вт, 2200 л/ч на аквариум до 500 л
+    producer: Atman
+    price: 5391.8
+    image: http://aqua-m.com.ua/image/data/equipment/CF-600.jpg
+  - article: CF-2400
+    name: Внешний фильтр CF-2400
+    description: 62 Вт, 2340 л/ч на аквариум до 800 л
+    producer: Atman
+    price: 5867.4
+    image: http://aqua-m.com.ua/image/data/equipment/CF-600.jpg
+  - article: CF-3200
+    name: Внешний фильтр CF-3200
+    description: 56 Вт, 2200 л/ч на аквариум  600-800 л
+    producer: Atman
+    price: 5341.8
+    image: http://aqua-m.com.ua/image/data/equipment/CF-600.jpg
+  SOBO:
+  - article: WP-950F
+    name: Фильтр внутренний WP-950F
+    description: 6 Вт, 500 л/ч, акв. до 60л
+    producer: SOBO
+    price: 110
+    image: http://aqua-m.com.ua/image/data/equipment/WP-950F.jpg
+  - article: WP-1050F
+    name: Фильтр внутренний WP-1050F
+    description: 4 Вт,400 л/ч, акв. до 50л
+    producer: SOBO
+    price: 110
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/WP-1050F.jpg
+  - article: WP-1150F
+    name: Фильтр внутренний WP-1150F
+    description: 6 Вт, 500 л/ч, акв. до 60л
+    producer: SOBO
+    price: 110
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/WP-1050F.jpg
+  Venus Aqua:
+  - article: VS-2001F
+    name: Фильтр внутренний 2001F
+    description: 3 Вт, 300л/ч, на акв. от 20 до 60л
+    producer: VENUS AQUA
+    price: 97.9
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/VS-2002F.jpg
+  - article: VS-2002F
+    name: Фильтр внутренний  2002F
+    description: 5 Вт, 500л/ч, на акв. от 30 до 60л
+    producer: VENUS AQUA
+    price: 119.6
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/VS-2002F.jpg
+  - article: VS-2001F bio
+    name: Фильтр внутренний  2001F bio
+    description: 3 Вт, 300л/ч, на акв. от 20 до 40л
+    producer: VENUS AQUA
+    price: 97.9
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/VS-2001-bio.jpg
+  - article: VS-2002F bio
+    name: Фильтр внутренний  2002F bio
+    description: 5 Вт, 500л/ч, на акв. от 30 до 60л
+    producer: VENUS AQUA
+    price: 119.6
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/VS-2001-bio.jpg
+  - article: VS-2002/3F
+    name: Фильтр внутренний  2002/3F
+    description: 6,5 Вт, 500 л/ч, на акв. от 70 до 100л
+    producer: VENUS AQUA
+    price: 145
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/VENUSAQUAVS20023F2.jpg
+  - article: VS-2003F
+    name: Фильтр внутренний  2003F
+    description: 12 Вт, 600л/ч,  на акв. от 100л до 150л
+    producer: VENUS AQUA
+    price: 163.1
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/VS-2003F.jpg
+  - article: VS-2004F
+    name: Фильтр внутренний  2004F
+    description: 15 Вт, 800л/ч, на акв. от 150 до 200л
+    producer: VENUS AQUA
+    price: 181.3
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/VS-2003F.jpg
+  - article: VS-2005F
+    name: Фильтр внутренний  2005F
+    description: 25 Вт, 1200л/ч, на акв. от 200 до 300л
+    producer: VENUS AQUA
+    price: 217.5
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/VS-2003F.jpg
+  - article: VS-3001F
+    name: Фильтр внутренний VS-3001F
+    description: 15 Вт, 880л/ч
+    producer: VENUS AQUA
+    price: 145
+    image: http://aqua-m.com.ua/image/data/equipment/VS-3001F-3002F - 7001.jpg
+  - article: VS-3002F
+    name: Фильтр внутренний VS-3002F
+    description: 20 Вт, 1400л/ч
+    producer: VENUS AQUA
+    price: 181.3
+    image: http://aqua-m.com.ua/image/data/equipment/VS-3001F-3002F - 7001.jpg
+  - article: VS-3003F
+    name: Фильтр внутренний VS-3003F
+    description: 30 Вт, 2000л/ч
+    producer: VENUS AQUA
+    price: 290
+    image: http://aqua-m.com.ua/image/data/equipment/VS-3003F.jpg
+  - article: VS-6001F
+    name: Фильтр внутренний VS-6001F
+    description: 15 Вт, 880л/ч
+    producer: VENUS AQUA
+    price: 170.4
+    image: http://aqua-m.com.ua/image/data/equipment/VS-6001F - 6002F.jpg
+  - article: VS-6002F
+    name: Фильтр внутренний VS-6002F
+    description: 15 Вт, 880л/ч
+    producer: VENUS AQUA
+    price: 206.6
+    image: http://aqua-m.com.ua/image/data/equipment/VS-6001F - 6002F.jpg
+  - article: VS-7001F
+    name: Фильтр внутренний VS-7001F
+    description: 20 Вт, 1200л/ч
+    producer: VENUS AQUA
+    price: 253.8
+    image: http://aqua-m.com.ua/image/data/equipment/VS-3001F-3002F - 7001.jpg
+  Atlas:
+  - article: Atlas 800
+    name: Голова Atlas 800
+    description: 7 Вт, 440 л/ч
+    producer: Atlas
+    price: 188.9
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/%D0%90tlas-800.jpg
+  Sun Sun:
+  - article: JP-042
+    name: Голова JP-042
+    description: 5 Вт, 350 л/ч
+    producer: SunSun
+    price: 130.7
+    image: http://aqua-m.com.ua/image/data/equipment/JP-042.jpg
+  - article: JP-022
+    name: Голова JP-022
+    description: 8 Вт, 600 л/ч
+    producer: SunSun
+    price: 148.6
+    image: http://aqua-m.com.ua/image/data/equipment/JP-022-023.jpg
+  - article: JP-023
+    name: Голова JP-023
+    description: 16 Вт, 1000 л/ч
+    producer: SunSun
+    price: 184
+    image: http://aqua-m.com.ua/image/data/equipment/JP-022-023.jpg
+  - article: HJ-111B
+    name: Фильтр внутренний HJ-111B
+    description: 2 Вт, 200 л/ч, акв. до 30л
+    producer: SunSun
+    price: 90.9
+    image: http://aqua-m.com.ua/image/data/equipment/HJ-111B-HJ-952.jpg
+  - article: HJ-311B
+    name: Фильтр внутренний HJ-311B
+    description: 2 Вт, 300 л/ч, акв. до 30л
+    producer: SunSun
+    price: 102.6
+    image: http://aqua-m.com.ua/image/data/equipment/HJ-111B-HJ-952.jpg
+  - article: HJ-411B
+    name: Фильтр внутренний HJ-411B
+    description: 2 Вт, 300 л/ч, акв. До 50л
+    producer: SunSun
+    price: 101.5
+    image: http://aqua-m.com.ua/image/data/equipment/HJ-111B-HJ-952.jpg
+  - article: HJ-611B
+    name: Фильтр внутренний HJ-611B
+    description: 6 Вт, 450 л/ч, акв.50-100л
+    producer: SunSun
+    price: 134.8
+    image: http://aqua-m.com.ua/image/data/equipment/HJ-111B-HJ-952.jpg
+  - article: HJ-732
+    name: Фильтр внутренний HJ-732
+    description: 8 Вт, 550 л/ч, акв. до 110л
+    producer: SunSun
+    price: 164.9
+    image: http://aqua-m.com.ua/image/data/equipment/HJ-111B-HJ-952.jpg
+  - article: HJ-752
+    name: Фильтр внутренний HJ-752
+    description: 10 Вт, 600 л/ч, акв. до 100л
+    producer: SunSun
+    price: 153.6
+    image: http://aqua-m.com.ua/image/data/equipment/HJ-111B-HJ-952.jpg
+  - article: HJ-952
+    name: Фильтр внутренний HJ-952
+    description: 16 Вт, 800 л/ч, акв. 100-150л
+    producer: SunSun
+    price: 253
+    image: http://aqua-m.com.ua/image/data/equipment/HJ-111B-HJ-952.jpg
+  - article: JP-012F
+    name: Фильтр внутренний JP-012F
+    description: 3 Вт, 300 л/ч, акв. до 50л
+    producer: SunSun
+    price: 109
+    image: http://aqua-m.com.ua/image/data/equipment/JP-012F-033F.jpg
+  - article: JP-013F
+    name: Фильтр внутренний JP-013F
+    description: 8 Вт, 600 л/ч, акв. до 100л
+    producer: SunSun
+    price: 134.4
+    image: http://aqua-m.com.ua/image/data/equipment/JP-012F-033F.jpg
+  - article: JP-014F
+    name: Фильтр внутренний JP-014F
+    description: 16Вт, 800 л/ч, акв. до 100-150л
+    producer: SunSun
+    price: 209.5
+    image: http://aqua-m.com.ua/image/data/equipment/JP-012F-033F.jpg
+  - article: JP-022F
+    name: Фильтр внутренний JP-022F
+    description: 8 Вт, 600л/ч, акв.100л
+    producer: SunSun
+    price: 167.7
+    image: http://aqua-m.com.ua/image/data/equipment/JP-012F-033F.jpg
+  - article: JP-023F
+    name: Фильтр внутренний JP-023F
+    description: 16 Вт, 1000л/ч, акв.150-200л
+    producer: SunSun
+    price: 225.7
+    image: http://aqua-m.com.ua/image/data/equipment/JP-012F-033F.jpg
+  - article: JP-024F
+    name: Фильтр внутренний JP-024F
+    description: 22 Вт, 1200л/ч, акв.300л
+    producer: SunSun
+    price: 260.4
+    image: http://aqua-m.com.ua/image/data/equipment/JP-012F-033F.jpg
+  - article: JP-032F
+    name: Фильтр внутренний JP-032F
+    description: 5 Вт, 350 л/ч, акв. до 50л
+    producer: SunSun
+    price: 105.4
+    image: http://aqua-m.com.ua/image/data/equipment/JP-012F-033F.jpg
+  - article: JP-033F
+    name: Фильтр внутренний JP-033F
+    description: 8 Вт, 600 л/ч, акв.100л
+    producer: SunSun
+    price: 120.7
+    image: http://aqua-m.com.ua/image/data/equipment/JP-012F-033F.jpg
+  - article: JP-073
+    name: Фильтр внутренний JP-073
+    description: 5 Вт, 300л/ч, акв.30л
+    producer: SunSun
+    price: 121.8
+    image: http://aqua-m.com.ua/image/data/equipment/JP-073.jpg
+  - article: JP-092
+    name: Фильтр внутренний угловой JP-092
+    description: 5 Вт, 350л/ч, акв.50 л
+    producer: SunSun
+    price: 142.2
+    image: http://aqua-m.com.ua/image/data/equipment/JP-092-094.jpg
+  - article: JP-093
+    name: Фильтр внутренний угловой JP-093
+    description: 5 Вт, 450л/ч, акв.100 л
+    producer: SunSun
+    price: 172.3
+    image: http://aqua-m.com.ua/image/data/equipment/JP-092-094.jpg
+  - article: JP-094
+    name: Фильтр внутренний угловой JP-094
+    description: 7 Вт, 650л/ч, акв.150 л
+    producer: SunSun
+    price: 256.7
+    image: http://aqua-m.com.ua/image/data/equipment/JP-092-094.jpg
+  - article: JUP-22
+    name: Фильтр внутренний-ультрафиолет 9Вт JUP-22
+    description: 8 Вт, 800л/ч,акв.250 л
+    producer: SunSun
+    price: 762.8
+    image: http://aqua-m.com.ua/image/data/equipment/JUP-01-23.jpg
+  - article: HBL-301
+    name: Фильтр навесной HBL-301
+    description: 2 Вт, 300 л/час на акв до 60 л
+    producer: SunSun
+    price: 140.1
+    image: http://aqua-m.com.ua/image/data/equipment/HBL-301- 701.jpg
+  - article: HBL-501
+    name: Фильтр навесной HBL-501
+    description: 5 Вт, 400 л/час на акв до 80 л
+    producer: SunSun
+    price: 202
+    image: http://aqua-m.com.ua/image/data/equipment/HBL-301- 701.jpg
+  - article: HBL-601
+    name: Фильтр навесной HBL-601
+    description: 5 Вт, 500 л/час на акв до 100 л
+    producer: SunSun
+    price: 255
+    image: http://aqua-m.com.ua/image/data/equipment/HBL-301- 701.jpg
+  - article: HBL-701
+    name: Фильтр навесной HBL-701
+    description: 8 Вт, 600 л/час на акв до 120 л
+    producer: SunSun
+    price: 313
+    image: http://aqua-m.com.ua/image/data/equipment/HBL-301- 701.jpg
+  - article: HW-702A FULL
+    name: Внешний фильтр HW-702A FULL
+    description: 18Вт, 1000 л/ч на аквариум до 400 л
+    producer: SunSun
+    price: 1905.2
+    image: http://aqua-m.com.ua/image/data/equipment/HW-702A-704B.jpg
+  - article: HW-703A FULL
+    name: Внешний фильтр HW-703A FULL
+    description: 30Вт, 1400 л/ч на аквариум до 500 л
+    producer: SunSun
+    price: 2428.1
+    image: http://aqua-m.com.ua/image/data/equipment/HW-702A-704B.jpg
+  - article: HW-704A FULL
+    name: Внешний фильтр HW-704A FULL
+    description: 45Вт, 2000 л/ч на аквариум до 800 л
+    producer: SunSun
+    price: 3051.2
+    image: http://aqua-m.com.ua/image/data/equipment/HW-702A-704B.jpg
+  - article: HW-702B FULL
+    name: Внешний фильтр HW-702B FULL
+    description: 15Вт, 1000 л/ч на аквариум до 300 л, Уф 9Вт
+    producer: SunSun
+    price: 2321.6
+    image: http://aqua-m.com.ua/image/data/equipment/HW-702A-704B.jpg
+  - article: HW-703B FULL
+    name: Внешний фильтр HW-703B FULL
+    description: 30Вт, 1400 л/ч на аквариум до 500 л, Уф 9Вт
+    producer: SunSun
+    price: 2902.2
+    image: http://aqua-m.com.ua/image/data/equipment/HW-702A-704B.jpg
+  - article: HW-704B FULL
+    name: Внешний фильтр HW-704B FULL
+    description: 45Вт, 2000 л/ч на аквариум до 700 л, Уф 9Вт
+    producer: SunSun
+    price: 3432.6
+    image: http://aqua-m.com.ua/image/data/equipment/HW-702A-704B.jpg
+  - article: HW-602
+    name: Внешний фильтр HW-602
+    description: 6Вт, 300 л/ч на аквариум до 60 л
+    producer: SunSun
+    price: 328.3
+    image: http://aqua-m.com.ua/image/data/equipment/HW-602-603B.jpg
+  - article: HW-603
+    name: Внешний фильтр HW-603
+    description: 400 л/ч на аквариум до 120 л
+    producer: SunSun
+    price: 458.2
+    image: http://aqua-m.com.ua/image/data/equipment/HW-602-603B.jpg
+  - article: HW-603B
+    name: Внешний фильтр HW-603B
+    description: 6вт, 400 л/ч на аквариум до 100 л
+    producer: SunSun
+    price: 728.1
+    image: http://aqua-m.com.ua/image/data/equipment/HW-602-603B.jpg
+  Dophin:
+  - article: '044591/Dophin'
+    name: Фильтр биопомпа КF-150
+    description: 3 Вт, 200 л/ч на акв до 30 л
+    producer: Dophin
+    price: 131.5
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/DoPhin-150.jpg
+  - article: 044607/Dophin
+    name: Фильтр биопомпа КF-200
+    description: 3,2 Вт, 240 л/ч на акв до 40 л
+    producer: Dophin
+    price: 139.6
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/DoPhin-150.jpg
+  - article: 044614/Dophin
+    name: Фильтр биопомпа КF-350
+    description: 4,5 Вт, 280 л/ч на акв до 50 л
+    producer: Dophin
+    price: 154.2
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/DoPhin-150.jpg
+  - article: 042160/Dophin
+    name: Фильтр биопомпа F-800
+    description: 5 Вт, 410 л/ч на акв до 50 л
+    producer: Dophin
+    price: 263.8
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/DoPhin-800F.jpg
+  - article: 042177/Dophin
+    name: Фильтр биопомпа F-1200
+    description: 6 Вт, 580 л/ч на акв до 100 л
+    producer: Dophin
+    price: 301
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/DoPhin-800F.jpg
+  - article: '042184/Dophin'
+    name: Фильтр биопомпа F-2000
+    description: 14 Вт, 750 л/ч на акв до 150 л
+    producer: Dophin
+    price: 236.9
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNUTRENIY/FiltrDophinF2000.jpg
+  Sicce (Италия) www.sicce.com.ua:
+  - article: Synkra Silent 1.0
+    name: Фонтанная помпа SYNCRA SILENT 1.0
+    description: 16 Вт, 950л/ч, высота подъема воды 150см, кабель 1,5м
+    producer: Sicce
+    price: 755
+    image: http://aqua-m.com.ua/image/data/PRUD/NasosSyncraSilent10.jpg
+Освещение:
+- article: ADP-300J
+  name: Светильник LED  ADP-300J
+  description: 4,5 w
+  producer: SunSun
+  price: 323
+  image: http://aqua-m.com.ua/image/data/equipment/ADP-300J-500J.jpg
+- article: ADP-400J
+  name: Светильник LED ADP-400J
+  description: 6,5 w
+  producer: SunSun
+  price: 354.9
+  image: http://aqua-m.com.ua/image/data/equipment/ADP-300J-500J.jpg
+- article: ADP-500J
+  name: Светильник LED ADP-500J
+  description: 8 w
+  producer: SunSun
+  price: 408.5
+  image: http://aqua-m.com.ua/image/data/equipment/ADP-300J-500J.jpg
+- article: AD-150
+  name: Светильник LED AD-150
+  description: 5 w
+  producer: SunSun
+  price: 171.6
+  image: http://aqua-m.com.ua/image/data/equipment/AD-150.jpg
+- article: ADE-300C
+  name: Светильник LED ADE-300C
+  description: 18 w бело-синий
+  producer: SunSun
+  price: 516.6
+  image: http://aqua-m.com.ua/image/data/equipment/ADE-300C-500C.jpg
+- article: ADE-400C
+  name: Светильник LED ADE-400C
+  description: 20 w бело-синий
+  producer: SunSun
+  price: 579.2
+  image: http://aqua-m.com.ua/image/data/equipment/ADE-300C-500C.jpg
+- article: ADE-500C
+  name: Светильник LED ADE-500C
+  description: 24 w бело-синий
+  producer: SunSun
+  price: 652.1
+  image: http://aqua-m.com.ua/image/data/equipment/ADE-300C-500C.jpg
+- article: ADS-300C
+  name: Светильник LED ADS-300C
+  description: 14 w
+  producer: SunSun
+  price: 780.1
+  image: http://aqua-m.com.ua/image/data/equipment/ADS.jpg
+- article: SL-400
+  name: Светильник LED SL-400
+  description: 10 w
+  producer: SunSun
+  price: 574.9
+  image: http://aqua-m.com.ua/image/data/equipment/SL-400-1200.jpg
+- article: SL-600
+  name: Светильник LED SL-600
+  description: 12 w
+  producer: SunSun
+  price: 643.6
+  image: http://aqua-m.com.ua/image/data/equipment/SL-400-1200.jpg
+- article: LED-MS20
+  name: Светильник LED-MS20
+  description: 20см на ножках,5w
+  producer: XILONG
+  price: 219.3
+  image: http://aqua-m.com.ua/image/data/equipment/LED-MS20-60.jpg
+- article: LED-MS30
+  name: Светильник LED-MS30
+  description: 30см на ножках,8w
+  producer: XILONG
+  price: 259.2
+  image: http://aqua-m.com.ua/image/data/equipment/LED-MS20-60.jpg
+- article: LED-MS40
+  name: Светильник LED-MS40
+  description: 40см на ножках,10w
+  producer: XILONG
+  price: 312.5
+  image: http://aqua-m.com.ua/image/data/equipment/LED-MS20-60.jpg
+- article: LED-MS50
+  name: Светильник LED-MS50
+  description: 50см на ножках,13w
+  producer: XILONG
+  price: 379.9
+  image: http://aqua-m.com.ua/image/data/equipment/LED-MS20-60.jpg
+- article: LED-MS60
+  name: Светильник LED-MS60
+  description: 60см на ножках,16w
+  producer: XILONG
+  price: 431.4
+  image: http://aqua-m.com.ua/image/data/equipment/LED-MS20-60.jpg
+- article: LED-D20
+  name: Светильник для аквариума 6w
+  description: 6w, металлический
+  producer: XILONG
+  price: 230.9
+  image: http://aqua-m.com.ua/image/data/equipment/LED-D20-10.jpg
+- article: LED-D10
+  name: Светильник для аквариума 4w
+  description: 4w, металлический
+  producer: XILONG
+  price: 219.3
+  image: http://aqua-m.com.ua/image/data/equipment/LED-D20-10.jpg
+Внешние фильтры:
+  JBL:
+  - article: JBL-60212
+    name: Фильтр Кристалпрофи Е 1501 ГринЛайн
+    description: 1400 л/час (аквариум 160-600л)
+    producer: JBL
+    price: 4220.4
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNESHNIY/KristalProfiE1501jbl.jpg
+  Hagen:
+  - article: Fluval FX4
+    name: Внешний фильтр FLUVAL FX4
+    description: 1700 л/ч
+    producer: Sicce
+    price: 7671
+    image: http://aqua-m.com.ua/image/data/equipment/Fluval FX4-6.jpg
+  - article: Fluval FX6
+    name: Внешний фильтр FLUVAL FX6
+    description: 2130 л/ч
+    producer: Sicce
+    price: 9986
+    image: http://aqua-m.com.ua/image/data/equipment/Fluval FX4-6.jpg
+Стериллизаторы и UV лампы:
+- article: UV 7 W
+  name: Лампа к стерилизатору UV 7 W
+  description: 7 Вт
+  producer: SunSun
+  price: 148.6
+  image: http://aqua-m.com.ua/image/data/STERILIZATOR.POPMA TECHENIYA/UV11W.jpg
+- article: UV 9 W
+  name: Лампа к стерилизатору UV 9 W
+  description: 9 Вт
+  producer: SunSun
+  price: 148.6
+  image: http://aqua-m.com.ua/image/data/STERILIZATOR.POPMA TECHENIYA/UV11W.jpg
+- article: UV 11 W
+  name: Лампа к стерилизатору UV 11 W
+  description: 11 Вт
+  producer: SunSun
+  price: 179.7
+  image: http://aqua-m.com.ua/image/data/STERILIZATOR.POPMA TECHENIYA/UV11W.jpg
+- article: CUV207-7 Вт
+  name: Стерилизатор СUV 207
+  description: 7 Вт
+  producer: SunSun
+  price: 717.9
+  image: http://aqua-m.com.ua/image/data/equipment/CUV 207.jpg
+- article: CUV209-9 Вт
+  name: Стерилизатор СUV 209
+  description: 9 Вт
+  producer: SunSun
+  price: 958.1
+  image: http://aqua-m.com.ua/image/data/equipment/CUV 209-211.jpg
+- article: CUV211-11 Вт
+  name: Стерилизатор СUV 211
+  description: 11 Вт
+  producer: SunSun
+  price: 1057.5
+  image: http://aqua-m.com.ua/image/data/equipment/CUV 209-211.jpg
+- article: CUV136-36 Вт
+  name: Стерилизатор СUV 136
+  description: 36 Вт
+  producer: SunSun
+  price: 1695.4
+  image: http://aqua-m.com.ua/image/data/equipment/CUV136-155.jpg
+- article: Atman-UF 5 W
+  name: Стерилизатор UV 5 W
+  description: 5 Вт, для объема аквариума до 250л, пруд до 3000л
+  producer: Atman
+  price: 1309.1
+  image: http://aqua-m.com.ua/image/data/STERILIZATOR.POPMA TECHENIYA/AtmanUF5W.jpg
+- article: Atman-UF 9 W
+  name: Стерилизатор UV 9 W
+  description: 9 Вт, для объема аквариума до 450л, пруд до 7000л
+  producer: Atman
+  price: 1436.4
+  image: http://aqua-m.com.ua/image/data/STERILIZATOR.POPMA TECHENIYA/AtmanUF5W.jpg
+- article: Atman-UF 11 W
+  name: Стерилизатор UV 11 W
+  description: 11 Вт, для объема аквариума до 550л, пруд до 10000л
+  producer: Atman
+  price: 1623.2
+  image: http://aqua-m.com.ua/image/data/STERILIZATOR.POPMA TECHENIYA/ViaAquaTERMINATORUV.jpg
+- article: Atman-UF 18 W
+  name: Стерилизатор UV 18 W
+  description: 18 Вт, для объема аквариума до 900л, пруд до 20000л
+  producer: Atman
+  price: 1893.7
+  image: http://aqua-m.com.ua/image/data/STERILIZATOR.POPMA TECHENIYA/ViaAquaTERMINATORUV.jpg
+- article: Atman-UF 36 W
+  name: Стерилизатор UV 36 W
+  description: 36 Вт, для объема аквариума до 1800л, пруд до 35000л
+  producer: Atman
+  price: 2275.1
+  image: http://aqua-m.com.ua/image/data/STERILIZATOR.POPMA TECHENIYA/ViaAquaTERMINATORUV.jpg
+Компрессора:
+  XILONG:
+  - article: XL/AD-2000
+    name: Компрессор AD-2000
+    description: 6 Вт, на аккамуляторе
+    producer: XILONG
+    price: 1003
+    image: http://aqua-m.com.ua/image/data/equipment/XL-AD-2000.jpg
+  - article: AP-772
+    name: Компрессор AP-772
+    description: 3,5 Вт, 220 л/ч, одноканальный с регулировкой
+    producer: XILONG
+    price: 136.3
+    image: http://aqua-m.com.ua/image/data/equipment/AP-771-773.jpg
+  - article: AP-773
+    name: Компрессор AP-773
+    description: 4,5 Вт, 220 л/ч, двухканальный с регулировкой
+    producer: XILONG
+    price: 190.3
+    image: http://aqua-m.com.ua/image/data/equipment/AP-771-773.jpg
+  - article: XL-008A
+    name: Компрессор XL-008A
+    description: 3 Вт, для акв 100л, 150 л/ч, одноканальный с регулировкой
+    producer: XILONG
+    price: 113.5
+    image: http://aqua-m.com.ua/image/data/equipment/XL-008A.jpg
+  - article: XL-008B
+    name: Компрессор XL-008В
+    description: 6 Вт, для акв 300л, 300 л/ч, двухканальный с регулировкой
+    producer: XILONG
+    price: 271.2
+    image: http://aqua-m.com.ua/image/data/equipment/XL-008B.jpg
+  - article: XL-008C
+    name: Компрессор XL-008С
+    description: 12 Вт, 300 л/ч, 4канала с регулировкой
+    producer: XILONG
+    price: 381
+    image: http://aqua-m.com.ua/image/data/equipment/XL-008C.jpg
+  - article: XL-770
+    name: Компрессор XL-770
+    description: 3,5 Вт,210 л/ч, двухканальный с регулировкой
+    producer: XILONG
+    price: 192.9
+    image: http://aqua-m.com.ua/image/data/equipment/XL-770.jpg
+  - article: AP-004
+    name: Компрессор  AP-004
+    description: 2Вт, для акв. до 50 л, 90л/ч двухканальный
+    producer: XILONG
+    price: 65.3
+    image: http://aqua-m.com.ua/image/data/equipment/AP-004.jpg
+  - article: AP-005
+    name: Компрессордля AP-005
+    description: 5 Вт, 300 л/ч, двухканальный
+    producer: XILONG
+    price: 106.6
+    image: http://aqua-m.com.ua/image/data/equipment/AP-005.jpg
+  - article: DC-800
+    name: Компрессор на батарейках DC-800
+    description: 5 Вт, 2л/мин, одноканальный
+    producer: XILONG
+    price: 97.5
+    image: http://aqua-m.com.ua/image/data/equipment/DC-800.jpg
+  - article: DC-900
+    name: Компрессор на батарейках DC-900
+    description: 5 Вт, 2л/мин, одноканальный
+    producer: XILONG
+    price: 84.1
+    image: http://aqua-m.com.ua/image/data/equipment/DC-900.jpg
+  Resun:
+  - article: DS-160
+    name: Компрессор DS-160
+    description: 3 Вт, одноканальный, на батарейках
+    producer: Resun
+    price: 148.6
+    image: http://aqua-m.com.ua/image/data/KOMPRESSOR/kompressor-na-bataree.jpg
+  - article: AC-500
+    name: Компрессор AC-500
+    description: 2 Вт, для акв. до 45 л,  72 л/ч
+    producer: Resun
+    price: 83.1
+    image: http://aqua-m.com.ua/image/data/KOMPRESSOR/ResunAirPump.jpg
+  - article: AC-1000
+    name: Компрессор AC-1000
+    description: 2,5 Вт, для акв. до 50 л, 108 л/ч
+    producer: Resun
+    price: 100.5
+    image: http://aqua-m.com.ua/image/data/KOMPRESSOR/ResunAirPump.jpg
+  - article: AC-1500
+    name: Компрессор AC-1500
+    description: 3 Вт, для акв. до 50-300 л, 180 л/ч
+    producer: Resun
+    price: 158
+    image: http://aqua-m.com.ua/image/data/KOMPRESSOR/ResunAirPump.jpg
+  - article: AC-2000
+    name: Компрессор AC-2000
+    description: 3 Вт, для акв. до 50-200 л, 216 л/ч, двухканальный
+    producer: Resun
+    price: 169.2
+    image: http://aqua-m.com.ua/image/data/KOMPRESSOR/ResunAirPump.jpg
+  - article: AC-9600
+    name: Компрессор AC-9600
+    description: 2.5 Вт, для акв. до 50 л, 90 л/ч, одноканальный
+    producer: Resun
+    price: 101.5
+    image: http://aqua-m.com.ua/image/data/KOMPRESSOR/ResunAc9601.jpg
+  - article: AC-9601
+    name: Компрессор AC-9601
+    description: 3 Вт, для акв. до 100 л, 108 л/ч, одноканальный
+    producer: Resun
+    price: 139.5
+    image: http://aqua-m.com.ua/image/data/KOMPRESSOR/ResunAc9601.jpg
+  - article: AC-9602
+    name: Компрессор AC-9602
+    description: 5 Вт, для акв. до 200 л, 210 л/ч, двухканальный
+    producer: Resun
+    price: 213.4
+    image: http://aqua-m.com.ua/image/data/KOMPRESSOR/ResunAc9602.jpg
+  - article: AC-9603
+    name: Компрессор AC-9603
+    description: 5 Вт, для акв. до 300 л, 270 л/ч, двухканальный
+    producer: Resun
+    price: 276
+    image: http://aqua-m.com.ua/image/data/KOMPRESSOR/ResunAc9602.jpg
+  - article: AIR-500
+    name: Компрессор AIR-500
+    description: 1,8 Вт, для акв. до 50 л, одноканальный
+    producer: Resun
+    price: 87.2
+    image: http://aqua-m.com.ua/image/data/KOMPRESSOR/ResunAir.jpg
+  - article: AIR-1000
+    name: Компрессор AIR-1000
+    description: 2 Вт, для акв. до 60 л, 60л/час, одноканальный
+    producer: Resun
+    price: 109.7
+    image: http://aqua-m.com.ua/image/data/KOMPRESSOR/ResunAir.jpg
+  - article: AIR-2000
+    name: Компрессор AIR-2000
+    description: 3 Вт, для акв. до 100 л, 108 л/ч, одноканальный
+    producer: Resun
+    price: 145.7
+    image: http://aqua-m.com.ua/image/data/KOMPRESSOR/ResunAir.jpg
+  - article: AIR-3000
+    name: Компрессор AIR-3000
+    description: 3.5 Вт, для акв. до 180 л, 180 л/ч, двухканальный
+    producer: Resun
+    price: 173.4
+    image: http://aqua-m.com.ua/image/data/KOMPRESSOR/ResunAir3000.jpg
+  - article: AIR-4000
+    name: Компрессор AIR-4000
+    description: 4 Вт, для акв. до 320 л, 320 л/ч, двухканальный
+    producer: Resun
+    price: 273.9
+    image: http://aqua-m.com.ua/image/data/KOMPRESSOR/ResunAir4000.jpg
+  - article: AIR-8000
+    name: Компрессор AIR-8000
+    description: 8 Вт, для акв. до 400 л, 9л/мин, четырехканальный
+    producer: Resun
+    price: 461.6
+    image: http://aqua-m.com.ua/image/data/KOMPRESSOR/ResunAir8000.jpg
+  Venus Aqua:
+  - article: АР-128
+    name: Компрессор одноканальный с переключателем АР-128
+    description: 2,5 Вт, 3 л/мин
+    producer: Venus Aqua
+    price: 94.3
+    image: http://aqua-m.com.ua/image/data/equipment/AР-128.jpg
+  Atman:
+  - article: АТ-А 1500
+    name: Компрессор АТ-А 1500
+    description: 2,5 Вт, 2л/мин, без регулировки, с переключателем
+    producer: Atman
+    price: 105.1
+    image: http://aqua-m.com.ua/image/data/KOMPRESSOR/AT-A-1500.jpg
+  - article: АТ-А 2500
+    name: Компрессор АТ-А 2500
+    description: 3 Вт, 2л/мин, без регулировки, с переключателем
+    producer: Atman
+    price: 120.7
+    image: http://aqua-m.com.ua/image/data/KOMPRESSOR/AT-A-1500.jpg
+  - article: АТ-А 3500
+    name: Компрессор АТ-А 3500
+    description: 3 Вт, 2л/мин, без регулировки, с переключателем
+    producer: Atman
+    price: 128.7
+    image: http://aqua-m.com.ua/image/data/KOMPRESSOR/AT-A-1500.jpg
+  - article: АТ-А 6500
+    name: Компрессор АТ-А 6500
+    description: 4 Вт, 180л/ч, двухканальный, с переключателем
+    producer: Atman
+    price: 200.1
+    image: http://aqua-m.com.ua/image/data/equipment/AТ-А 6500-9500.jpg
+  - article: АТ-А 7500
+    name: Компрессор АТ-А 7500
+    description: 4 Вт, 180л/ч, двухканальный
+    producer: Atman
+    price: 232.7
+    image: http://aqua-m.com.ua/image/data/equipment/AТ-А 6500-9500.jpg
+  - article: АТ-А 8500
+    name: Компрессор АТ-А 8500
+    description: 4,8 Вт, 270л/ч, двухканальный
+    producer: Atman
+    price: 274.4
+    image: http://aqua-m.com.ua/image/data/equipment/AТ-А 6500-9500.jpg
+  - article: АТ-А 9500
+    name: Компрессор АТ-А 9500
+    description: 5 Вт, 270л/ч, двухканальный
+    producer: Atman
+    price: 294.7
+    image: http://aqua-m.com.ua/image/data/equipment/AТ-А 6500-9500.jpg
+  - article: CR-10
+    name: Компрессор CR-10
+    description: 3 Вт, 70л/ч
+    producer: Atman
+    price: 117.8
+    image: http://aqua-m.com.ua/image/data/equipment/CR-10.jpg
+  - article: CR-20
+    name: Компрессор CR-20
+    description: 3,4 Вт, 70л/ч
+    producer: Atman
+    price: 141.4
+    image: http://aqua-m.com.ua/image/data/equipment/CR-20-40.jpg
+  - article: CR-20R
+    name: Компрессор CR-20R
+    description: 3,5 Вт, 1,5л/мин
+    producer: Atman
+    price: 158.1
+    image: http://aqua-m.com.ua/image/data/equipment/CR-20R-40R.jpg
+  - article: CR-30
+    name: Компрессор CR-30
+    description: 4 Вт, 3л/мин
+    producer: Atman
+    price: 165.3
+    image: http://aqua-m.com.ua/image/data/equipment/CR-20-40.jpg
+  - article: CR-30R
+    name: Компрессор CR-30R
+    description: 4 Вт, 120л/ч
+    producer: Atman
+    price: 183.4
+    image: http://aqua-m.com.ua/image/data/equipment/CR-20R-40R.jpg
+  - article: CR-40
+    name: Компрессор CR-40
+    description: 4,5 Вт, 3л/мин
+    producer: Atman
+    price: 201.9
+    image: http://aqua-m.com.ua/image/data/equipment/CR-20-40.jpg
+  - article: CR-40R
+    name: Компрессор CR-40R
+    description: 4,5 Вт, 120л/час
+    producer: Atman
+    price: 209.2
+    image: http://aqua-m.com.ua/image/data/equipment/CR-20R-40R.jpg
+  - article: НР-1000
+    name: Компрессор HP-1000
+    description: 2,5 Вт, 3л/мин, c переключателем
+    producer: Atman
+    price: 105.5
+    image: http://aqua-m.com.ua/image/data/equipment/HР-1000.jpg
+  - article: НР-2000
+    name: Компрессор HP-2000
+    description: 3,5 Вт, 300л/час, двухканальный
+    producer: Atman
+    price: 201.9
+    image: http://aqua-m.com.ua/image/data/equipment/HР-2000.jpg
+  - article: НР-5000
+    name: Компрессор HP-5000
+    description: 5 Вт, 480л/час, четырехканальный
+    producer: Atman
+    price: 347.6
+    image: http://aqua-m.com.ua/image/data/equipment/HР-5000.jpg
+  - article: НР-6000
+    name: Компрессор HP-6000
+    description: 5,5 Вт, 600л/час, шестиканальный
+    producer: Atman
+    price: 416.2
+    image: http://aqua-m.com.ua/image/data/equipment/HР-6000.jpg
+  - article: НР-4000
+    name: Компрессор HP-4000
+    description: 20 Вт, 35л/мин, однокональный
+    producer: Atman
+    price: 1108.9
+    image: http://aqua-m.com.ua/image/data/equipment/HР-4000-8000.jpg
+  - article: НР-8000
+    name: Компрессор HP-8000
+    description: 48 Вт, 70л/мин, однокональный
+    producer: Atman
+    price: 2148.9
+    image: http://aqua-m.com.ua/image/data/equipment/HР-4000-8000.jpg
+  - article: В-1500
+    name: Компрессор В-1500
+    description: 14 Вт, 4*3 л/мин, четырехканальный
+    producer: Atman
+    price: 656.5
+    image: https://i.ibb.co/9tpYXHz/fish-placeholder.jpg
+  - article: АТОМ-2
+    name: Компрессор АТОМ-20
+    description: 3 Вт, 2л/мин,  на батарейках
+    producer: Atman
+    price: 106.2
+    image: https://i.ibb.co/9tpYXHz/fish-placeholder.jpg
+  Sun Sun:
+  - article: ACO-01
+    name: Компрессор ACO-001
+    description: 20 Вт, поршневой для прудов до 1,5 м., 20л/мин
+    producer: SunSun
+    price: 615.6
+    image: http://aqua-m.com.ua/image/data/equipment/ACO-01.jpg
+  - article: YT-8000
+    name: Компрессор YT-8000
+    description: на аккумуляторе двухканальный
+    producer: SunSun
+    price: 1256
+    image: http://aqua-m.com.ua/image/data/equipment/YT-8000.jpg
+  - article: CQ-1000
+    name: Компрессор CQ-1000
+    description: 16л/мин
+    producer: SunSun
+    price: 935.5
+    image: http://aqua-m.com.ua/image/data/equipment/CQ-1000.jpg
+Обогреватели:
+  Sicce (Италия) www.sicce.com.ua:
+  - article: TSL300
+    name: Терморегулятор SCUBA TSL300
+    description: 300 Вт
+    producer: Sicce
+    price: 150
+    image: http://aqua-m.com.ua/image/data/TERMOOBOGREV/TSL200.jpg
+  Atman:
+  - article: АТ-50W
+    name: Обогреватель АТ-50W
+    description: 50 Вт
+    producer: Atman
+    price: 189.3
+    image: http://aqua-m.com.ua/image/data/TERMOOBOGREV/%D0%90%D0%A2250W.jpg
+  - article: АТ-75W
+    name: Обогреватель АТ-75W
+    description: 75 Вт
+    producer: Atman
+    price: 194.2
+    image: http://aqua-m.com.ua/image/data/TERMOOBOGREV/%D0%90%D0%A2250W.jpg
+  - article: АТ-100W
+    name: Обогреватель АТ-100W
+    description: 100 Вт
+    producer: Atman
+    price: 189
+    image: http://aqua-m.com.ua/image/data/TERMOOBOGREV/%D0%90%D0%A2250W.jpg
+  - article: АТ-150W
+    name: Обогреватель АТ-150W
+    description: 150 Вт
+    producer: Atman
+    price: 194.2
+    image: http://aqua-m.com.ua/image/data/TERMOOBOGREV/%D0%90%D0%A2250W.jpg
+  - article: АТ-200W
+    name: Обогреватель АТ-200W
+    description: 200 Вт
+    producer: Atman
+    price: 199.8
+    image: http://aqua-m.com.ua/image/data/TERMOOBOGREV/%D0%90%D0%A2250W.jpg
+  - article: АТ-250W
+    name: Обогреватель АТ-250W
+    description: 250 Вт
+    producer: Atman
+    price: 218.8
+    image: http://aqua-m.com.ua/image/data/TERMOOBOGREV/%D0%90%D0%A2250W.jpg
+  - article: АТ-300W
+    name: Обогреватель АТ-300W
+    description: 300 Вт
+    producer: Atman
+    price: 231.9
+    image: http://aqua-m.com.ua/image/data/TERMOOBOGREV/%D0%90%D0%A2250W.jpg
+  XILONG:
+  - article: XL404-50W
+    name: Терморегулятор XL404-50W
+    description: 50 Вт  (в пластиковом чехле для защиты)
+    producer: XILONG
+    price: 129.3
+    image: http://aqua-m.com.ua/image/data/equipment/XL404.jpg
+  - article: XL404-100W
+    name: Терморегулятор XL404-100W
+    description: 100 Вт (в пластиковом чехле для защиты)
+    producer: XILONG
+    price: 133.1
+    image: http://aqua-m.com.ua/image/data/equipment/XL404.jpg
+  - article: XL404-200W
+    name: Терморегулятор XL404-200W
+    description: 200 Вт (в пластиковом чехле для защиты)
+    producer: XILONG
+    price: 143.7
+    image: http://aqua-m.com.ua/image/data/equipment/XL404.jpg
+  - article: XL404-300W
+    name: Терморегулятор XL404-300W
+    description: 300 Вт (в пластиковом чехле для защиты)
+    producer: XILONG
+    price: 152
+    image: http://aqua-m.com.ua/image/data/equipment/XL404.jpg
+  - article: XL/AT700-25W
+    name: Терморегулятор XL/AT700-25W
+    description: 25Вт
+    producer: XILONG
+    price: 80.7
+    image: http://aqua-m.com.ua/image/data/equipment/XL-AT700.jpg
+  - article: XL/AT700-50W
+    name: Терморегулятор XL/AT700-50W
+    description: 50 Вт
+    producer: XILONG
+    price: 85.6
+    image: http://aqua-m.com.ua/image/data/equipment/XL-AT700.jpg
+  - article: XL/AT700-75W
+    name: Терморегулятор XL/AT700-75W
+    description: 75 Вт
+    producer: XILONG
+    price: 85.6
+    image: http://aqua-m.com.ua/image/data/equipment/XL-AT700.jpg
+  - article: XL/AT700-100W
+    name: Терморегулятор XL/AT700-100W
+    description: 100 Вт
+    producer: XILONG
+    price: 87.5
+    image: http://aqua-m.com.ua/image/data/equipment/XL-AT700.jpg
+  - article: XL/AT700-150W
+    name: Терморегулятор XL/AT700-150W
+    description: 150 Вт
+    producer: XILONG
+    price: 87.5
+    image: http://aqua-m.com.ua/image/data/equipment/XL-AT700.jpg
+  - article: XL/AT700-200W
+    name: Терморегулятор XL/AT700-200W
+    description: 200 Вт
+    producer: XILONG
+    price: 90.9
+    image: http://aqua-m.com.ua/image/data/equipment/XL-AT700.jpg
+  - article: XL/AT700-250W
+    name: Терморегулятор XL/AT700-250W
+    description: 250 Вт
+    producer: XILONG
+    price: 90.9
+    image: http://aqua-m.com.ua/image/data/equipment/XL-AT700.jpg
+  - article: XL/AT700-300W
+    name: Терморегулятор XL/AT700-300W
+    description: 300 Вт
+    producer: XILONG
+    price: 92.4
+    image: http://aqua-m.com.ua/image/data/equipment/XL-AT700.jpg
+  - article: XL-282
+    name: Терморегулятор XL-282-50W
+    description: 50 Вт (стекло)
+    producer: XILONG
+    price: 167.8
+    image: http://aqua-m.com.ua/image/data/equipment/XL-282.jpg
+  - article: XL-282
+    name: Терморегулятор XL-282-100W
+    description: 100 Вт (стекло)
+    producer: XILONG
+    price: 167.8
+    image: http://aqua-m.com.ua/image/data/equipment/XL-282.jpg
+  - article: XL-282
+    name: Терморегулятор XL-282-200W
+    description: 200 Вт (стекло)
+    producer: XILONG
+    price: 172.3
+    image: http://aqua-m.com.ua/image/data/equipment/XL-282.jpg
+  - article: XL-282
+    name: Терморегулятор XL-282-300W
+    description: 300 Вт (стекло)
+    producer: XILONG
+    price: 176.1
+    image: http://aqua-m.com.ua/image/data/equipment/XL-282.jpg
+  - article: XL-282
+    name: Терморегулятор XL-282-500W
+    description: 500 Вт (стекло)
+    producer: XILONG
+    price: 204
+    image: http://aqua-m.com.ua/image/data/equipment/XL-282.jpg
+Помпы течения:
+  Sicce (Италия) www.sicce.com.ua:
+  - article: RVOG03E
+    name: VOYAGER 3 PUMP
+    description: 10 Вт, 4500л/ч, на акв. 300-470л
+    producer: Sicce
+    price: 1487
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNESHNIY/VOYAGER-3-PUMP.jpg
+  - article: RVOG04E
+    name: VOYAGER 4 PUMP
+    description: 14 Вт, 6000л/ч, на акв. 400-730л
+    producer: Sicce
+    price: 1837
+    image: http://aqua-m.com.ua/image/data/FILTR%20VNESHNIY/VOYAGER-3-PUMP.jpg
+  - article: RVOG08E
+    name: VOYAGER HP  8 PUMP
+    description: 18 Вт, 12000л/ч, на акв. 800-1500л
+    producer: Sicce
+    price: 3131
+    image: http://aqua-m.com.ua/image/data/STERILIZATOR.POPMA%20TECHENIYA/VOYAGERHP9PUMP.jpg
+  - article: RVOG09E
+    name: VOYAGER HP  9 PUMP
+    description: 24 Вт, 13500л/ч, на акв. 900-1700л
+    producer: Sicce
+    price: 3515
+    image: http://aqua-m.com.ua/image/data/STERILIZATOR.POPMA%20TECHENIYA/VOYAGERHP9PUMP.jpg
+  - article: RVOG10E
+    name: VOYAGER HP 10 PUMP
+    description: 25 Вт, 15000л/ч, на акв. 1000-2000л
+    producer: Sicce
+    price: 3865
+    image: http://aqua-m.com.ua/image/data/STERILIZATOR.POPMA%20TECHENIYA/VOYAGERHP9PUMP.jpg
+Фильтрующие элементы и наполнители:
+- article: Rikka-WT211
+  name: Карбон Актив
+  description: 200 грамм на 200 л,  10 мешочков по 20 г
+  producer: Rikka
+  price: 38.7
+  image: http://aqua-m.com.ua/image/data/KOMPRESSOR/aktivirovanuy-ygol.jpg
+- article: БШ-16
+  name: Биошарики 16 мм
+  description: с губкой
+  producer: Китай
+  price: 2.1
+  image: http://aqua-m.com.ua/image/data/FILTR ELEMENT/bioshar16.jpg
+- article: БШ-46
+  name: Биошарики 46 мм
+  description: с губкой
+  producer: Китай
+  price: 5.8
+  image: http://aqua-m.com.ua/image/data/FILTR ELEMENT/bioshar46.jpg
+- article: БШ-56
+  name: Биошарики 56 мм
+  description: с губкой
+  producer: Китай
+  price: 8.7
+  image: http://aqua-m.com.ua/image/data/FILTR ELEMENT/bioshar56.jpg
+- article: БШ-76
+  name: Биошарики 76 мм
+  description: с губкой
+  producer: Китай
+  price: 16.5
+  image: http://aqua-m.com.ua/image/data/FILTR ELEMENT/bioshar76.jpg
+- article: K-10*10*15/30
+  name: Губка черная K-10*10*15/30
+  description: 30 ppi (крупнопористая) квадратная 10*10*15см
+  producer: Китай
+  price: 62.5
+  image: http://aqua-m.com.ua/image/data/FILTR ELEMENT/K10101530.jpg
+- article: K-10*10*20/30
+  name: Губка черная K-10*10*20/30
+  description: 30 ppi (крупнопористая) квадратная 10*10*20см
+  producer: Китай
+  price: 69
+  image: http://aqua-m.com.ua/image/data/FILTR ELEMENT/K10102030.jpg
+- article: R-10*10*15/35
+  name: Губка черная R-10*10*15/35
+  description: 35 ppi (среднепористая) квадратная 10*10*15см
+  producer: Resun
+  price: 46.9
+  image: http://aqua-m.com.ua/image/data/equipment/губка Resun Квадрат.jpg
+- article: R-10*10*20/35
+  name: Губка черная R-10*10*20/35
+  description: 35 ppi (среднепористая) квадратная  10*10*20см
+  producer: Resun
+  price: 56.4
+  image: http://aqua-m.com.ua/image/data/equipment/губка Resun Квадрат.jpg
+- article: R-8*8*14/35
+  name: Губка черная R-8*8*14/35
+  description: 35 ppi (среднепористая) квадратная  8*8*14см
+  producer: Resun
+  price: 37.3
+  image: http://aqua-m.com.ua/image/data/equipment/губка Resun Квадрат.jpg
+- article: R-10*20/35
+  name: Губка черная R-10*20/35
+  description: 35 ppi (среднепористая) круглая 10*20см
+  producer: Resun
+  price: 56.4
+  image: http://aqua-m.com.ua/image/data/equipment/Губка чёрная Цилиндр.jpg
+- article: R-10*15/35
+  name: Губка черная R-10*15/35
+  description: 36 ppi (среднепористая) круглая 10*15см
+  producer: Resun
+  price: 47.6
+  image: http://aqua-m.com.ua/image/data/equipment/Губка чёрная Цилиндр.jpg
+- article: R-8*14/35
+  name: Губка черная R-8*14/35
+  description: 37 ppi (среднепористая) круглая 8*14см
+  producer: Resun
+  price: 35.1
+  image: http://aqua-m.com.ua/image/data/equipment/Губка чёрная Цилиндр.jpg
+- article: Т-4*5*10
+  name: Губка серая Т-4*5*10
+  description: 40 ppi (среднепористая, гладкая) 4*5*10см
+  producer: Турция
+  price: 12
+  image: http://aqua-m.com.ua/image/data/FILTR%20ELEMENT/T101015gl.jpg
+- article: Т-7*7*10гл
+  name: Губка серая Т-7*7*10
+  description: 40 ppi (среднепористая, гладкая) 7*7*10см
+  producer: Турция
+  price: 18.5
+  image: http://aqua-m.com.ua/image/data/FILTR%20ELEMENT/T101015gl.jpg
+- article: Т-7*7*10пр
+  name: Губка серая Т-7*7*10
+  description: 40 ppi (среднепористая, с прорезями) 7*7*10см
+  producer: Турция
+  price: 25
+  image: http://aqua-m.com.ua/image/data/FILTR%20ELEMENT/T101015pr.jpg
+- article: Т-8*8*12гл
+  name: Губка серая Т-8*8*12
+  description: 40 ppi (среднепористая, гладкая) 8*8*12см
+  producer: Турция
+  price: 25
+  image: http://aqua-m.com.ua/image/data/FILTR%20ELEMENT/T101015gl.jpg
+- article: Т-8*8*12пр
+  name: Губка серая Т-8*8*12
+  description: 40 ppi (среднепористая, с прорезями) 8*8*12см
+  producer: Турция
+  price: 30
+  image: http://aqua-m.com.ua/image/data/FILTR%20ELEMENT/T101015pr.jpg
+- article: Т-9*9*15гл
+  name: Губка серая Т-9*9*15
+  description: 40 ppi (среднепористая, гладкая) 9*9*15см
+  producer: Турция
+  price: 31.5
+  image: http://aqua-m.com.ua/image/data/FILTR%20ELEMENT/T101015gl.jpg
+- article: Т-9*9*15пр
+  name: Губка серая Т-9*9*15
+  description: 40 ppi (среднепористая, с прорезями) 9*9*15см
+  producer: Турция
+  price: 38
+  image: http://aqua-m.com.ua/image/data/FILTR%20ELEMENT/T101015pr.jpg
+- article: Т-10*10*20гл
+  name: Губка серая Т-10*10*20
+  description: 40 ppi (среднепористая, гладкая) 10*10*20см
+  producer: Турция
+  price: 36.5
+  image: http://aqua-m.com.ua/image/data/FILTR%20ELEMENT/T101020gl.jpg
+- article: Т-10*10*20пр
+  name: Губка серая Т-10*10*20
+  description: 40 ppi (среднепористая, с прорезями) 10*10*20см
+  producer: Турция
+  price: 47
+  image: http://aqua-m.com.ua/image/data/FILTR%20ELEMENT/T8812pr.jpg
+Аквариумные растения:
+- article: '103003'
+  name: Набор растений 30 см
+  description: 10 шт. в упаковке
+  producer: Китай
+  price: 235
+  image: https://i.ibb.co/9tpYXHz/fish-placeholder.jpg
+- article: SE-8"
+  name: Растение пластик 20см
+  description: в индивидуальной упаковке
+  producer: Китай
+  price: 21.8
+  image: https://i.ibb.co/9tpYXHz/fish-placeholder.jpg
+- article: JEKA-12"
+  name: Растение пластик 30см
+  description: в индивидуальной упаковке
+  producer: JEKA
+  price: 27
+  image: http://aqua-m.com.ua/image/data/RASTENIYA/JEKA-12-1.jpg
+- article: SE-16"
+  name: Растение пластик 40 см
+  description: в индивидуальной упаковке
+  producer: Китай
+  price: 45.5
+  image: https://i.ibb.co/9tpYXHz/fish-placeholder.jpg
+- article: SE-20"
+  name: Растение пластик 50 см
+  description: в индивидуальной упаковке
+  producer: Китай
+  price: 59.8
+  image: https://i.ibb.co/9tpYXHz/fish-placeholder.jpg
+Упаковка:
+- article: РУ
+  name: Резинки для упаковки
+  description: 1 кг
+  producer: Украина
+  price: 160
+  image: http://aqua-m.com.ua/image/data/equipment/Резинки для упаковки.jpg
+- article: У-13*40
+  name: Пакет для рыбы 13*40см
+  description: 100 шт
+  producer: Украина
+  price: 140
+  image: http://aqua-m.com.ua/image/data/equipment/У 24-20-18-16-13.jpg
+- article: У-16*45
+  name: Пакет для рыбы 16*45см
+  description: 100 шт
+  producer: Украина
+  price: 160
+  image: http://aqua-m.com.ua/image/data/equipment/У 24-20-18-16-13.jpg
+- article: У-18*50
+  name: Пакет для рыбы 18*50см
+  description: 100 шт
+  producer: Украина
+  price: 180
+  image: http://aqua-m.com.ua/image/data/equipment/У 24-20-18-16-13.jpg
+- article: У 20*50
+  name: Пакет для рыбы 20*50см
+  description: 100 шт
+  producer: Украина
+  price: 190
+  image: http://aqua-m.com.ua/image/data/equipment/У 24-20-18-16-13.jpg
+- article: У 24*55
+  name: Пакет для рыбы 24*55см
+  description: 100 шт
+  producer: Украина
+  price: 250
+  image: http://aqua-m.com.ua/image/data/equipment/У 24-20-18-16-13.jpg
+- article: П-10х30
+  name: Пакет для рыбы 10*30см
+  description: 100 шт
+  producer: Польша
+  price: 75
+  image: https://aqua-m.com.ua/image/data/UPAKOVKA/10-30.jpg
+- article: П-14х40
+  name: Пакет для рыбы 14*40см
+  description: 100 шт
+  producer: Польша
+  price: 165
+  image: https://aqua-m.com.ua/image/data/UPAKOVKA/14-40.jpg
+- article: П-14х50
+  name: Пакет для рыбы 14*50см
+  description: 100 шт
+  producer: Польша
+  price: 170
+  image: https://aqua-m.com.ua/image/data/UPAKOVKA/14-40.jpg
+- article: П-16х40
+  name: Пакет для рыбы 16*40см
+  description: 100 шт
+  producer: Польша
+  price: 205
+  image: https://aqua-m.com.ua/image/data/UPAKOVKA/16-40.jpg
+- article: П-16х50
+  name: Пакет для рыбы 16*50см
+  description: 100 шт
+  producer: Польша
+  price: 220
+  image: https://aqua-m.com.ua/image/data/UPAKOVKA/16-50.jpg
+- article: П-18х40
+  name: Пакет  для рыбы 18*40см
+  description: 100 шт
+  producer: Польша
+  price: 190
+  image: https://aqua-m.com.ua/image/data/UPAKOVKA/18-50.jpg
+- article: П-18х50
+  name: Пакет  для рыбы 18*50см
+  description: 100 шт
+  producer: Польша
+  price: 260
+  image: https://aqua-m.com.ua/image/data/UPAKOVKA/18-50.jpg
+- article: П-20х50
+  name: Пакет  для рыбы 20*50см
+  description: 100 шт
+  producer: Польша
+  price: 260
+  image: https://aqua-m.com.ua/image/data/UPAKOVKA/20-50.jpg
+- article: П-22х60
+  name: Пакет  для рыбы 22*60см
+  description: 100 шт
+  producer: Польша
+  price: 360
+  image: https://aqua-m.com.ua/image/data/UPAKOVKA/22-60.jpg
+Аксессуары:
+- article: R/AF- 2005 D
+  name: Кормушка AF 2005 D
+  description: автоматическая
+  producer: Resun
+  price: 454.4
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RAF-2005D.jpg
+- article: R/AF- 2009 D
+  name: Кормушка  AF 2009 D
+  description: автоматическая
+  producer: Resun
+  price: 431.9
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/AF-2009D.jpg
+- article: R/FR-01
+  name: Кормушка  квадратная
+  description: с присоской
+  producer: Resun
+  price: 16.4
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RFR-01.jpg
+- article: R/WB-01
+  name: Кормушка  конусная
+  description: с присоской
+  producer: Resun
+  price: 16.4
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RWB-01.jpg
+- article: TX-8055
+  name: Кормушка для рыб конусная
+  description:
+  producer: TRIXIE
+  price: 20.9
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/TX-8055.jpg
+- article: TX-8057
+  name: Кормушка для рыб квадратная
+  description: 7,5х7,5 см
+  producer: TRIXIE
+  price: 24.1
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/TX-8057.jpg
+- article: KRV
+  name: Кран винтовой
+  description:
+  producer: Украина
+  price: 5.7
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/KRV.jpg
+- article: KRF
+  name: Кран флажковый
+  description:
+  producer: Украина
+  price: 4.6
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/KRF.jpg
+- article: R/ACV-01
+  name: Краник-тройник
+  description:
+  producer: Китай
+  price: 9.1
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RACV-01.jpg
+- article: KRT
+  name: Крестовина
+  description:
+  producer: Украина
+  price: 4.1
+  image: http://aqua-m.com.ua/image/data/equipment/KRT.jpg
+- article: R/MB-S
+  name: Магнитный скребок малый
+  description:
+  producer: Resun
+  price: 60.5
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RMB-S.jpg
+- article: R/MB-M
+  name: Магнитный скребок средний
+  description:
+  producer: Resun
+  price: 101.8
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RMB-M.jpg
+- article: R/MB-L
+  name: Магнитный скребок большой
+  description:
+  producer: Resun
+  price: 147.1
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RMB-L.jpg
+- article: R/CV-C
+  name: Обратный клапан CV-C
+  description:
+  producer: Resun
+  price: 11.3
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RCV-C.jpg
+- article: R/FH -02
+  name: Отсадник для живородящих рыб
+  description: малый
+  producer: Resun
+  price: 49.3
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RFH-02.jpg
+- article: R/FH -01
+  name: Отсадник для живородящих рыб
+  description: большой
+  producer: Resun
+  price: 55.6
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RFH-01.jpg
+- article: SS1
+  name: Отсадник для животворящих рыб
+  description:
+  producer: Sun Sun
+  price: 78.4
+  image: https://i.ibb.co/9tpYXHz/fish-placeholder.jpg
+- article: PR/A-105
+  name: Присоска
+  description: под зеленый распылитель
+  producer: Украина
+  price: 6.8
+  image: http://aqua-m.com.ua/image/data/equipment/PRA-105.jpg
+- article: PR/A-100
+  name: Присоска
+  description: под термометр/трубку 4 мм
+  producer: Украина
+  price: 8.1
+  image: https://i.ibb.co/9tpYXHz/fish-placeholder.jpg
+- article: PRS-003
+  name: Присоска
+  description: под термометр А-003
+  producer: Китай
+  price: 5
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/PR%D0%90-003.jpg
+- article: PRS-004
+  name: Присоска
+  description: под термометр А-004
+  producer: Китай
+  price: 2.4
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/PR%D0%90-004.jpg
+- article: PRS-007
+  name: Присоска
+  description: под термометр с кольцом А-007
+  producer: Китай
+  price: 2.4
+  image: http://aqua-m.com.ua/image/data/equipment/PRS-007.jpg
+- article: TX-8948
+  name: Разноцветные ракушки
+  description: акриловые 24 шт
+  producer: TRIXIE
+  price: 112.4
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/TX-8948.jpg
+- article: R/AS-30
+  name: Распылитель воздуха гибкий
+  description: 30см
+  producer: Resun
+  price: 40.3
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RAC30.jpg
+- article: R/AS-45
+  name: Распылитель воздуха гибкий
+  description: 45см
+  producer: Resun
+  price: 48.3
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RAC45.jpg
+- article: R/AS-60
+  name: Распылитель воздуха гибкий
+  description: 60см
+  producer: Resun
+  price: 57.1
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RAC60.jpg
+- article: R/AS-75
+  name: Распылитель воздуха гибкий
+  description: 75см
+  producer: Resun
+  price: 68.8
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RAC75.jpg
+- article: R/AS-90
+  name: Распылитель воздуха гибкий
+  description: 90см
+  producer: Resun
+  price: 81.3
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RAC90.jpg
+- article: RZ-5
+  name: Распылитель твердый зеленый
+  description: 5 см с 1 с присоской
+  producer: Украина
+  price: 13.7
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RZ-5.jpg
+- article: RZ-10
+  name: Распылитель твердый зеленый
+  description: 10 см с 1 присоской
+  producer: Украина
+  price: 20.4
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RZ-10.jpg
+- article: RZ-15
+  name: Распылитель твердый зеленый
+  description: 15 см с 1 присоской
+  producer: Украина
+  price: 25.8
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RZ-15.jpg
+- article: RZ-20
+  name: Распылитель твердый зеленый
+  description: 20 см с 1 присоской
+  producer: Украина
+  price: 30.9
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RZ-20.jpg
+- article: RZ-25
+  name: Распылитель твердый зеленый
+  description: 25 см с 2-мя присосками
+  producer: Украина
+  price: 44.9
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RZ-25.jpg
+- article: RZ-30
+  name: Распылитель твердый зеленый
+  description: 30 см с 2-мя присосками
+  producer: Украина
+  price: 50
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RZ-30.jpg
+- article: RZ-40
+  name: Распылитель твердый зеленый
+  description: 40 см с 2-мя присосками
+  producer: Украина
+  price: 60.8
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RZ-40.jpg
+- article: RZ-50
+  name: Распылитель твердый зеленый
+  description: 50 см с 2-мя присосками
+  producer: Украина
+  price: 84.6
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RZ-50.jpg
+- article: RZ-60
+  name: Распылитель твердый зеленый
+  description: 60 см с 3-мя присосками
+  producer: Украина
+  price: 102.4
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RZ-60.jpg
+- article: RZ-70
+  name: Распылитель твердый зеленый
+  description: 70 см с 3-мя присосками
+  producer: Украина
+  price: 120.6
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RZ-70.jpg
+- article: RZ-80
+  name: Распылитель твердый зеленый
+  description: 80 см с 3-мя присосками
+  producer: Украина
+  price: 136.7
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RZ-80.jpg
+- article: RZ-90
+  name: Распылитель твердый зеленый
+  description: 90 см с 4-мя присосками
+  producer: Украина
+  price: 154.7
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RZ-90.jpg
+- article: RZ-100
+  name: Распылитель твердый зеленый
+  description: 1 м с 4-мя присосками
+  producer: Украина
+  price: 167.1
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RZ-100.jpg
+- article: AS107
+  name: Распылитель цилиндр
+  description: 12*25мм
+  producer: Resun
+  price: 4.4
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RАS-107.jpg
+- article: AS108
+  name: Распылитель цилиндр
+  description: 15*25мм
+  producer: Resun
+  price: 4.4
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RАS-108.jpg
+- article: R/AS111
+  name: Распылитель шар №1
+  description:
+  producer: Resun
+  price: 4.4
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RАS-109.jpg
+- article: R/AS110
+  name: Распылитель шар №2
+  description:
+  producer: Resun
+  price: 4.4
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RАS-109.jpg
+- article: R/AS109
+  name: Распылитель шар №3
+  description:
+  producer: Resun
+  price: 4.4
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RАS-109.jpg
+- article: AS 35
+  name: Распылитель Tetratec AS 35  цилиндр
+  description:
+  producer: Tetra
+  price: 25.48
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/raspulitel-Tetratec.jpg
+- article: FN-30
+  name: Сачок 3" (длина ручки 25 см)
+  description:
+  producer: Resun
+  price: 12.4
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/FN-30.jpg
+- article: С-1203/45
+  name: Сачок 3" (длина ручки 45 см)
+  description:
+  producer: Китай
+  price: 19.3
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/B1205.jpg
+- article: FN-40
+  name: Сачок 4" (длина ручки 25 см)
+  description:
+  producer: Resun
+  price: 13.9
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/FN-40.jpg
+- article: А-1204/35
+  name: Сачок 4" (длина ручки 35 см)
+  description:
+  producer: Китай
+  price: 19.3
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/B1205.jpg
+- article: С-1204/45
+  name: Сачок 4" (длина ручки 45 см)
+  description:
+  producer: Китай
+  price: 21.8
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/B1205.jpg
+- article: FN-50
+  name: Сачок 5" (длина ручки 25 см)
+  description:
+  producer: Resun
+  price: 16.1
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/FN-50.jpg
+- article: В-1205
+  name: Сачок 5" (длина ручки 32 см)
+  description:
+  producer: Китай
+  price: 16.7
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/B1205.jpg
+- article: А-1205/35
+  name: Сачок 5" (длина ручки 35 см)
+  description:
+  producer: Китай
+  price: 21.8
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/B1205.jpg
+- article: С-1205/45
+  name: Сачок 5" (длина ручки 45 см)
+  description:
+  producer: Китай
+  price: 25.5
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/B1205.jpg
+- article: В-1206
+  name: Сачок 6" (длина ручки 32 см)
+  description:
+  producer: Китай
+  price: 20.2
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/B1205.jpg
+- article: А-1206/35
+  name: Сачок 6" (длина ручки 35 см)
+  description:
+  producer: Китай
+  price: 28
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/B1205.jpg
+- article: С-1206/45
+  name: Сачок 6" (длина ручки 45 см)
+  description:
+  producer: Китай
+  price: 31.7
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/B1205.jpg
+- article: SX-18
+  name: Сифон для чистки грунта с грушей
+  description:
+  producer: Sun Sun
+  price: 47.1
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/sifon-2.jpg
+- article: SC-200
+  name: Сифон для чистки грунта зеленый
+  description:
+  producer: Resun
+  price: 60
+  image: https://i.ibb.co/9tpYXHz/fish-placeholder.jpg
+- article: SC-210
+  name: Сифон для чистки грунта с грушей
+  description:
+  producer: Resun
+  price: 54.2
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/sifon-2.jpg
+- article: SC-210 L
+  name: Сифон для чистки грунта с грушей
+  description:
+  producer: Resun
+  price: 84.9
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/sifon-2.jpg
+- article: JX-001
+  name: Сифон для чистки грунта с грушей
+  description: синий
+  producer: Китай
+  price: 43.5
+  image: https://i.ibb.co/9tpYXHz/fish-placeholder.jpg
+- article: JX-002
+  name: Сифон для чистки грунта с грушей
+  description: малый
+  producer: Китай
+  price: 43.5
+  image: https://i.ibb.co/9tpYXHz/fish-placeholder.jpg
+- article: В210020
+  name: Скребок с губкой
+  description: металическая ручка 47 см
+  producer: Китай
+  price: 33.9
+  image: https://i.ibb.co/9tpYXHz/fish-placeholder.jpg
+- article: SKR-80
+  name: Скребок с губкой/лезвием
+  description: металическая ручка 80 см
+  producer: Китай
+  price: 63.53
+  image: https://i.ibb.co/9tpYXHz/fish-placeholder.jpg
+- article: HJS-305c
+  name: Термометр SunSun HJS-305c
+  description: желтый
+  producer: SunSun
+  price: 15.9
+  image: http://aqua-m.com.ua/image/data/equipment/HJS-305c.jpg
+- article: WDJ-02
+  name: Термометр SunSun WDJ-02
+  description: белый
+  producer: SunSun
+  price: 15.9
+  image: http://aqua-m.com.ua/image/data/equipment/WDJ-02.jpg
+- article: ТХ-8600
+  name: Термометр жидкокристалический
+  description:
+  producer: TRIXIE
+  price: 35.75
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/TX-8600.jpg
+- article: TX-8605
+  name: Термометр (стекло) с присоской
+  description:
+  producer: TRIXIE
+  price: 26.4
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/termometr-steklo.jpg
+- article: AY
+  name: Тройник
+  description:
+  producer: Украина
+  price: 3.8
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/AY.jpg
+- article: R/PF-01
+  name: Шланг для воздуха силиконовый
+  description: 4мм бухта 100м
+  producer: Resun
+  price: 409.3
+  image: http://aqua-m.com.ua/image/data/ACSESSORAIS/RPF-01.jpg
