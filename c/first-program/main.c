@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "Headers/printer.h"
+#include "headers/printer.h"
 
 int main()
 {
