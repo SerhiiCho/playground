@@ -2,12 +2,14 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 )
 
 func main() {
 	http.HandleFunc("/", homePage)
+	fmt.Println("Server is started on port 8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
