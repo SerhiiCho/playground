@@ -9,7 +9,7 @@ var default_1 = /** @class */ (function () {
             var split = this.name.split(' ');
             return split.length > 0 ? split[0] : '';
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(default_1.prototype, "getLast", {
@@ -17,7 +17,7 @@ var default_1 = /** @class */ (function () {
             var split = this.name.split(' ');
             return split.length >= 2 ? split[1] : '';
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return default_1;

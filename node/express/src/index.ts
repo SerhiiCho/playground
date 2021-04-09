@@ -1,14 +1,9 @@
-import members from './members'
-import express, {
-    Application,
-    Request,
-    Response
-} from 'express'
+import routes from './routes'
+import express, { Application } from 'express'
 
 const app: Application = express()
 const port = process.env.PORT || 4000
 
-app.get('/', (req: Request, res: Response) => res.send(`<h1>go to /api/members</h1>`))
-app.get('/api/members', (req: Request, res: Response) => res.json(members))
+routes(app)
 
 app.listen(port, () => console.log(`server started on ${port}`))

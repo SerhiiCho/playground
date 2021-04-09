@@ -1,9 +1,5 @@
-import User from "./User"
-
-interface MembersInterface {
-    first: string
-    last: string
-}
+import MembersInterface from "./interfaces/MembersInterface"
+import User from "./models/User"
 
 const serhii = new User('Serhii Cho')
 const anna = new User('Anna Korotchaeva')
