@@ -4,9 +4,9 @@
 
 char *getResult()
 {
-    static char wordd[7];
+    static char word[7];
 
-    return wordd;
+    return word;
 }
 
 int main()
