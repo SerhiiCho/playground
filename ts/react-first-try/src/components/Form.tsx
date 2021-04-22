@@ -3,10 +3,6 @@ import FormProps from '../interfaces/FormProps'
 import Todo from '../interfaces/Todo'
 
 export default class Form extends React.Component<FormProps> {
-    public constructor(props: FormProps) {
-        super(props)
-    }
-
     private inputTextHandler = (e: React.FormEvent<HTMLInputElement>): void => {
         const target = e.target as HTMLInputElement
         this.props.setInputText(target.value)

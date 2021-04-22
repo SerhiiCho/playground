@@ -19,7 +19,7 @@ export default class App extends React.Component {
         this.setState(({ inputText }: AppState) => ({ inputText: text }))
     }
 
-    render() {
+    public render() {
         return (
             <div className="App">
                 <header>
