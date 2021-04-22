@@ -19,12 +19,26 @@ export default class App extends React.Component {
         this.setState({ inputText: text })
     }
 
+    public removeTodo = (todo: Todo): void => {
+        const newTodos: Todo[] = this.state.todos.filter(el => el.id !== todo.id)
+        this.setState({ todos: newTodos })
+    }
+
+    public completeTodo = (todo: Todo): void => {
+        const newTodos: Todo[] = this.state.todos.map(el => {
+            if (el.id === todo.id) {
+                el.completed = !el.completed
+            }
+
+            return el
+        })
+        this.setState({ todos: newTodos })
+    }
+
     public render() {
         return (
             <div className="App">
-                <header>
-                    <h1>Serhii's Todo List</h1>
-                </header>
+                <header><h1>Serhii's Todo List</h1></header>
 
                 <Form todos={this.state.todos}
                     inputText={this.state.inputText}
@@ -32,7 +46,10 @@ export default class App extends React.Component {
                     setInputText={this.setInputText}
                 />
 
-                <TodoList todos={this.state.todos} />
+                <TodoList todos={this.state.todos}
+                    removeTodo={this.removeTodo}
+                    completeTodo={this.completeTodo}
+                />
             </div>
         )
     }
