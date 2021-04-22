@@ -23,7 +23,7 @@ export default class App extends React.Component {
         return (
             <div className="App">
                 <header>
-                    <h1>Serhii's Todo List {this.state.inputText}</h1>
+                    <h1>Serhii's Todo List</h1>
                 </header>
 
                 <Form todos={this.state.todos}
