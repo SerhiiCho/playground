@@ -10,11 +10,24 @@ export default class App extends React.Component {
     state: AppState = {
         inputText: '',
         todos: [],
+        filteredTodos: [],
         status: 'all',
     }
 
     public changeStatus = (status: TodoStatus): void => {
         this.setState({ status })
+
+        const filteredTodos: Todo[] = this.state.todos.filter(todo => {
+            switch (status) {
+                case 'completed':
+                    return todo.completed
+                case 'uncompleted':
+                    return !todo.completed
+            }
+            return true
+        })
+
+        this.setState({ filteredTodos })
     }
 
     public addTodo = (todo: Todo): void => {
