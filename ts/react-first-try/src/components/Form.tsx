@@ -17,6 +17,10 @@ export default class Form extends React.Component<FormProps> {
             completed: false,
         }
 
+        if (this.props.inputText === '') {
+            return
+        }
+
         this.props.addTodo(todo)
         this.props.setInputText('')
     }

@@ -4,8 +4,6 @@ import Todo from './Todo'
 
 export default class TodoList extends React.Component<TodoListProps> {
     render() {
-        console.log(this.props.todos)
-
         return (
             <div className="todo-container">
                 <ul className="todo-list">
