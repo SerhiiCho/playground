@@ -12,11 +12,11 @@ export default class App extends React.Component {
     }
 
     public addTodo = (todo: Todo): void => {
-        this.setState(({ todos }: AppState) => ({ todos: { ...todos, todo } }))
+        this.setState({ todos: [...this.state.todos, todo] })
     }
 
     public setInputText = (text: string): void => {
-        this.setState(({ inputText }: AppState) => ({ inputText: text }))
+        this.setState({ inputText: text })
     }
 
     public render() {
@@ -32,7 +32,7 @@ export default class App extends React.Component {
                     setInputText={this.setInputText}
                 />
 
-                <TodoList />
+                <TodoList todos={this.state.todos} />
             </div>
         )
     }
