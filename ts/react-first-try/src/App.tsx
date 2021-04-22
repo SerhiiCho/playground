@@ -4,11 +4,17 @@ import Form from './components/Form'
 import TodoList from './components/TodoList'
 import AppState from './interfaces/AppState'
 import Todo from './interfaces/Todo'
+import { TodoStatus } from './types'
 
 export default class App extends React.Component {
     state: AppState = {
         inputText: '',
         todos: [],
+        status: 'all',
+    }
+
+    public changeStatus = (status: TodoStatus): void => {
+        this.setState({ status })
     }
 
     public addTodo = (todo: Todo): void => {
@@ -44,6 +50,7 @@ export default class App extends React.Component {
                     inputText={this.state.inputText}
                     addTodo={this.addTodo}
                     setInputText={this.setInputText}
+                    changeStatus={this.changeStatus}
                 />
 
                 <TodoList todos={this.state.todos}

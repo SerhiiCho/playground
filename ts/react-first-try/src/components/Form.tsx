@@ -1,6 +1,7 @@
 import React from 'react'
 import FormProps from '../interfaces/FormProps'
 import Todo from '../interfaces/Todo'
+import { TodoStatus } from '../types'
 
 export default class Form extends React.Component<FormProps> {
     private inputTextHandler = (e: React.FormEvent<HTMLInputElement>): void => {
@@ -25,6 +26,18 @@ export default class Form extends React.Component<FormProps> {
         this.props.setInputText('')
     }
 
+    private changeTodoStatusHandler = (e: React.FormEvent<HTMLSelectElement>) => {
+        const target = e.target as HTMLSelectElement
+        const value = target.value
+        const validStatuses = ['all', 'completed', 'uncompleted']
+
+        if (!validStatuses.includes(value)) {
+            throw new Error('Selected value must be ' + validStatuses.join(' '))
+        }
+
+        this.props.changeStatus(value as TodoStatus)
+    }
+
     public render() {
         return (
             <form>
@@ -35,7 +48,7 @@ export default class Form extends React.Component<FormProps> {
                 </button>
 
                 <div className="select">
-                    <select name="todos" className="filter-todo">
+                    <select name="todos" className="filter-todo" onChange={this.changeTodoStatusHandler}>
                         <option value="all">All</option>
                         <option value="completed">Completed</option>
                         <option value="uncompleted">Uncompleted</option>
