@@ -1,1 +1,0 @@
-export type TodoStatus = 'all' | 'completed' | 'uncompleted'
