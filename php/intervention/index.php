@@ -1,3 +1,24 @@
+<?php
+
+require('vendor/autoload.php');
+
+use Intervention\Image\ImageManager;
+
+if (isset($_FILES['file'])) {
+    function resizeImage(string $image_path): void {
+        (new ImageManager(['driver' => 'imagick']))
+            ->make($image_path)
+	    ->trim('transparent', ['right', 'left', 'top', 'bottom'])
+	    ->resize(720, null, fn($constraint) => $constraint->aspectRatio())
+            ->save(sprintf('files/%s-up.jpg', time()));
+    }
+
+    resizeImage($_FILES['file']['tmp_name']);
+    header('Location: /?msg=ok');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +36,7 @@
             <div class="col-md-6 offset-md-3">
                 <h3>Image manipulation with PHP</h3>
 
-                <form action="upload.php" method="post" enctype="multipart/form-data" class="mt-3">
+                <form method="post" enctype="multipart/form-data" class="mt-3">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <button type="submit" class="input-group-text bg-primary text-light">Upload</button>
