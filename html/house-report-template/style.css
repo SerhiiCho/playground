@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    background-color: rgb(223, 223, 223);
+}
+
+.document {
+    width: 96%;
+    padding: 20px;
+    background-color: white;
+    margin: 2%;
+    border-radius: 5px;
+    box-shadow: 4px 4px 13px rgba(0, 0, 0, 0.062);
+}
+
+/* HEADER  */
+.header {
+    display: flex;
+    padding: 30px;
+}
+
+.header-image,
+.header-info {
+    width: 50%;
+}
+
+.header-image {
+    margin-right: 40px;
+}
+
+.header-image img {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgb(202, 202, 202);
+}
+
+.header-info {
+}
+
+.header-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.header-info ul li {
+    margin-bottom: 7px;
+}
+
+.header-info ul li b {
+}
+
+.header-info ul li:last-child {
+    display: flex;
+    height: 60px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.header-info ul li:last-child section {
+    display: flex;
+    margin-right: 20px;
+}
+
+.header-info ul li:last-child section img {
+    width: 80px;
+}
+
+.splitter {
+    display: block;
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(237,237,237,1) 0%, rgba(0, 0, 0, 0.331) 47%, rgba(237,237,237,1) 100%);
+    margin: auto;
+    opacity: .5;
+}
+
+/* BUBBLES */
+.bubbles {
+    margin: 20px 50px 30px 50px;
+}
+
+.bubbles-title {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 25px;
+    font-size: 1.4rem;
+}
+
+.bubbles-blocks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bubbles-block {
+    text-align: center;
+}
+
+.bubbles-circle {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: 4px solid;
+    margin: 6px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-weight: bold;
+    outline: 2px solid;
+    outline-offset: -7px;
+    font-size: .9rem;
+}
+
+.bubbles-circle.green {
+    border-color: rgba(81, 212, 81, 0.752);
+    outline-color: rgba(69, 180, 69, 0.517);
+    color: darkgreen;
+}
+
+.bubbles-circle.red {
+    border-color: rgba(224, 89, 89, 0.745);
+    outline-color: rgba(185, 72, 72, 0.848);
+    color: brown;
+}
+
+.bubbles-value,
+.bubbles-year {
+    font-size: .92rem;
+}
+
+.bubbles-arrow {
+    background: url("https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/arrow-right.png");
+    background-size: cover;
+    background-position: center;
+    width: 25px;
+    height: 25px;
+    opacity: .8;
+}
+
+/* CARDS */
+.cards {
+}
