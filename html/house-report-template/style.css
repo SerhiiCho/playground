@@ -24,11 +24,15 @@ body {
 .header {
     display: flex;
     padding: 30px;
+    padding-bottom: 5px
 }
 
 .header-image,
 .header-info {
     width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .header-image {
@@ -50,13 +54,27 @@ body {
 }
 
 .header-info ul li {
-    margin-bottom: 7px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgb(228, 228, 228);
+    padding-bottom: 6px;
+}
+
+.header-info ul li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
 .header-info ul li b {
 }
 
-.header-info ul li:last-child {
+.header-info ul li span {
+    display: block;
+    margin-top: 3px;
+    font-size: 1.1rem;
+}
+
+.header-sources {
     display: flex;
     height: 60px;
     align-items: center;
