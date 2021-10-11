@@ -13,7 +13,7 @@ body {
 
 .document {
     width: 96%;
-    padding: 20px;
+    padding: 0 20px;
     background-color: white;
     margin: 2%;
     border-radius: 5px;
@@ -23,8 +23,8 @@ body {
 /* HEADER  */
 .header {
     display: flex;
-    padding: 30px;
-    padding-bottom: 5px
+    padding: 20px 30px;
+    padding-bottom: 5px;
 }
 
 .header-image,
@@ -54,7 +54,7 @@ body {
 }
 
 .header-info ul li {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     border-bottom: 1px solid rgb(228, 228, 228);
     padding-bottom: 6px;
 }
@@ -78,7 +78,7 @@ body {
     display: flex;
     height: 60px;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 .header-info ul li:last-child section {
@@ -101,13 +101,13 @@ body {
 
 /* BUBBLES */
 .bubbles {
-    margin: 20px 50px 30px 50px;
+    margin: 20px 50px;
 }
 
 .bubbles-title {
     text-align: center;
     font-weight: bold;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     font-size: 1.4rem;
 }
 
@@ -122,8 +122,8 @@ body {
 }
 
 .bubbles-circle {
-    width: 65px;
-    height: 65px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     border: 4px solid;
     margin: 6px 0;
@@ -132,20 +132,18 @@ body {
     align-items: center;
     color: black;
     font-weight: bold;
-    outline: 2px solid;
-    outline-offset: -7px;
     font-size: .9rem;
 }
 
 .bubbles-circle.green {
     border-color: rgba(81, 212, 81, 0.752);
-    outline-color: rgba(69, 180, 69, 0.517);
+    box-shadow: 0 0 0 2pt rgba(69, 180, 69, 0.517);
     color: darkgreen;
 }
 
 .bubbles-circle.red {
     border-color: rgba(224, 89, 89, 0.745);
-    outline-color: rgba(185, 72, 72, 0.848);
+    box-shadow: 0 0 0 2pt rgba(185, 72, 72, 0.848);
     color: brown;
 }
 
@@ -165,6 +163,8 @@ body {
 
 /* CARDS */
 .cards {
+    margin-top: 10px;
+    padding-bottom: 20px;
 }
 
 .cards-row {
@@ -173,14 +173,14 @@ body {
 
 .cards-item {
     width: 50%;
-    padding: 20px;
+    padding: 7px 60px;
 }
 
 .cards-title {
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
     display: block;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     font-family: arial;
 }
 
