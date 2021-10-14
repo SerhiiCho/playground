@@ -112,6 +112,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .bubbles-blocks.missing::before {
