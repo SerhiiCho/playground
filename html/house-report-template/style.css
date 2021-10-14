@@ -112,6 +112,24 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+}
+
+.bubbles-blocks.missing::before {
+    content: attr(data-title);
+    position: absolute;
+    left: -5px;
+    right: -5px;
+    top: 0;
+    bottom: 0;
+    font-size: 2rem;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.834);
+    padding: 30px 80px;
+    z-index: 3;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    color: rgba(0, 0, 0, 0.738);
 }
 
 .bubbles-block {
@@ -142,6 +160,12 @@ body {
     border-color: rgba(224, 89, 89, 0.745);
     box-shadow: 0 0 0 2pt rgba(185, 72, 72, 0.848);
     color: brown;
+}
+
+.bubbles-circle.gray {
+    border-color: rgba(145, 145, 145, 0.745);
+    box-shadow: 0 0 0 2pt rgba(129, 129, 129, 0.848);
+    color: rgb(44, 44, 44);
 }
 
 .bubbles-value,
