@@ -68,7 +68,7 @@ body {
 .header-info ul li span {
     display: block;
     margin-top: 3px;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .header-sources {
@@ -112,7 +112,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
 }
 
 .bubbles-blocks.missing::before {
@@ -147,7 +146,7 @@ body {
     align-items: center;
     color: black;
     font-weight: bold;
-    font-size: .9rem;
+    font-size: .85rem;
 }
 
 .bubbles-circle.green {
@@ -177,8 +176,8 @@ body {
     background: url("https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/arrow-right.png");
     background-size: cover;
     background-position: center;
-    width: 25px;
-    height: 25px;
+    width: 16px;
+    height: 16px;
     opacity: .8;
 }
 
@@ -218,7 +217,6 @@ body {
 /* SECOND PAGE */
 
 .second-page {
-    padding-top: 30px;
 }
 
 /* ENERGY */
