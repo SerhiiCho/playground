@@ -47,7 +47,7 @@ body {
 
 .header-image img {
     height: 220px;
-    border-radius: 0 25px;
+    border-radius: 4px;
     box-shadow: 2px 2px 10px rgb(202, 202, 202);
     object-fit: cover;
     object-position: center;
