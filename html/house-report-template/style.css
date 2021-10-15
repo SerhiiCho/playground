@@ -36,7 +36,7 @@ body {
 
 .header-image img {
     height: 220px;
-    border-radius: 5px;
+    border-radius: 0 25px;
     box-shadow: 2px 2px 10px rgb(202, 202, 202);
     object-fit: cover;
     object-position: center;
@@ -101,10 +101,12 @@ body {
     margin: 20px 50px 30px 50px;
 }
 
-.bubbles-title {
+.bubbles-title,
+.analysis-title {
     text-align: center;
     font-weight: bold;
     margin-bottom: 15px;
+    margin-top: 5px;
     font-size: 1.4rem;
 }
 
@@ -182,6 +184,53 @@ body {
     opacity: .8;
 }
 
+/* ANALYSIS */
+
+.analysis {
+    margin: 20px 50px 30px 50px;
+}
+
+.analysis-title {
+    margin-bottom: 25px;
+}
+
+.analysis-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.analysis-image {
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.analysis-image img {
+    width: 100%;
+    border-radius: 0 18px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.analysis-content {
+    margin: 0;
+    list-style: none;
+    width: 65%;
+}
+
+.analysis-content li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.analysis-content li b {
+    font-size: 1.4rem;
+    color: rgb(34, 119, 78);
+}
+
 /* CARDS */
 .cards {
     margin-top: 20px;
@@ -212,7 +261,7 @@ body {
 
 .cards-image img {
     width: 100%;
-    border-radius: 4px;
+    border-radius: 0 25px;
 }
 
 /* SECOND PAGE */
