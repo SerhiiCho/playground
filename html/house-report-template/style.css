@@ -379,9 +379,12 @@ body {
 }
 
 .top-table-section {
+    padding: 10px;
 }
 
 .top-table-section__column {
+    width: 49%;
+    padding: 10px;
 }
 
 .top-table-section__column img {
@@ -389,7 +392,10 @@ body {
 }
 
 .top-table-section__first {
+    float: left;
 }
 
 .top-table-section__second {
+    float: right;
+    text-align: right;
 }
