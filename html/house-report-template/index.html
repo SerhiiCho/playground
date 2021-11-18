@@ -8,206 +8,225 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="document">
-        <div class="first-page">
-            <div class="header">
-                <div class="header-image">
-                    <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
-                </div>
-                <div class="header-info">
-                    <ul>
-                        <li><b>Адрес:</b><span>Some value is here</span></li>
-                        <li><b>Дата запроса:</b><span>Some date</span></li>
-                        <li>
-                            <b>Источники данных:</b>
-                            <div class="header-sources">
-                                <section><img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/logo-1.png"></section>
-                                <section><img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/logo-2.png"></section>
-                                <section><img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/logo-3.png"></section>
-                            </div>
-                        </li>
-                    </ul>
-                </div> <!--/ .header-info -->
-            </div> <!--/ .header -->
-
-            <div class="splitter"></div>
-
-            <div class="bubbles">
-                <h4 class="bubbles-title">WOZ WAARDE</h4>
-
-                <div class="bubbles-blocks" data-title="Не найдено">
-                    <div class="bubbles-block">
-                        <b class="bubbles-year">2016</b>
-                        <div class="bubbles-circle gray">24.03%</div>
-                        <b class="bubbles-value">150.000</b>
-                    </div>
-
-                    <div class="bubbles-arrow"></div>
-
-                    <div class="bubbles-block">
-                        <b class="bubbles-year">2016</b>
-                        <div class="bubbles-circle red">-335.41%</div>
-                        <b class="bubbles-value">150.000</b>
-                    </div>
-
-                    <div class="bubbles-arrow"></div>
-
-                    <div class="bubbles-block">
-                        <b class="bubbles-year">2016</b>
-                        <div class="bubbles-circle red">-775.32%</div>
-                        <b class="bubbles-value">150.000</b>
-                    </div>
-
-                    <div class="bubbles-arrow"></div>
-
-                    <div class="bubbles-block">
-                        <b class="bubbles-year">2016</b>
-                        <div class="bubbles-circle green">675.13%</div>
-                        <b class="bubbles-value">150.000</b>
-                    </div>
-
-                    <div class="bubbles-arrow"></div>
-
-                    <div class="bubbles-block">
-                        <b class="bubbles-year">2016</b>
-                        <div class="bubbles-circle green">1111.32%</div>
-                        <b class="bubbles-value">150.000</b>
-                    </div>
-                </div>
-            </div> <!--/ .bubbles -->
-
-            <div class="splitter"></div>
-
-            <div class="analysis">
-                <h4 class="analysis-title">AI анализ стоимости объекта</h4>
-
-                <div class="analysis-items">
-                    <div class="analysis-image">
-                        <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/1.png">
-                    </div>
-                    <ul class="analysis-content">
-                        <li><span>Рыночная стоимость (AVM):</span> <b>0 €</b></li>
-                        <li><span>Стоимость:</span> <b>23 €</b></li>
-                        <li><span>Оценка стоимости:</span> <b>23 €</b></li>
-                    </ul>
-                </div>
+<div class="document">
+    <div class="first-page">
+        <div class="header">
+            <div class="header-image">
+                <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/1.png">
             </div>
-
-            <div class="splitter"></div>
-
-            <div class="cards">
-                <div class="cards-row">
-                    <div class="cards-item">
-                        <span class="cards-title"><b>Тип дома:</b><br>Квартира<br>Appartament</span>
-                        <div class="cards-image">
-                            <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/Terraced-house.jpg">
+            <div class="header-info">
+                <ul>
+                    <li><b>{{ $_address }}:</b><span>{{ $full_address }}</span></li>
+                    <li><b>{{ $_request_date }}:</b><span>{{ $date }}</span></li>
+                    <li>
+                        <b>{{ $_data_source }}:</b>
+                        <div class="header-sources">
+                            <section><img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/logo-1.png"></section>
+                            <section><img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/logo-2.png"></section>
+                            <section><img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/logo-3.png"></section>
                         </div>
-                    </div> <!--/ .cards-item -->
-                    <div class="cards-item">
-                        <span class="cards-title"><b>Оценочная цена аренды:</b><br>234 euros<br> 234 Евро</span>
-                        <div class="cards-image">
-                            <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/2.png">
-                        </div>
-                    </div> <!--/ .cards-item -->
-                </div> <!--/ .cards-row -->
-            </div> <!--/ .cards -->
-        </div> <!--/ .first-page -->
+                    </li>
+                </ul>
+            </div> <!--/ .header-info -->
+        </div> <!--/ .header -->
 
-        <div class="second-page">
-            <div class="cards">
-                <div class="cards-row">
-                    <div class="cards-item">
-                        <span class="cards-title"><b><br>Год постройки:</b><br>1990</span>
-                        <div class="cards-image">
-                            <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/building-1990-1994.jpg">
-                        </div>
-                    </div> <!--/ .cards-item -->
-                    <div class="cards-item">
-                        <span class="cards-title"><b>Тип жильца:</b><br>Some value<br>Another value</span>
-                        <div class="cards-image">
-                            <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/Owner-occupied-home.jpg">
-                        </div>
-                    </div> <!--/ .cards-item -->
-                </div> <!--/ .cards-row -->
+        <div class="splitter"></div>
 
-                <div class="cards-row">
-                    <div class="cards-item">
-                        <span class="cards-title"><b>Жилая площадь:</b><br>234.3</span>
-                        <div class="cards-image">
-                            <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/square.jpg">
-                        </div>
-                    </div> <!--/ .cards-item -->
-                    <div class="cards-item">
-                        <span class="cards-title"><b>Размер сада:</b><br>2345</span>
-                        <div class="cards-image">
-                            <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/garden.jpg">
-                        </div>
-                    </div> <!--/ .cards-item -->
-                </div> <!--/ .cards-row -->
-            </div> <!--/ .cards -->
+        <div class="bubbles">
+            <h4 class="bubbles-title">WOZ WAARDE</h4>
 
-            <div class="energy">
-                <h2 class="energy-title">Оценка энергоэффективности дома:</h2>
+            <div class="bubbles-blocks {{ $has_bubbles_data ? '' : 'missing' }}" data-title="{{ $_not_found }}">
+                <div class="bubbles-block">
+                    <b class="bubbles-year">2020</b>
+                    <div class="bubbles-circle green">32%</div>
+                    <b class="bubbles-value">23 234</b>
+                </div>
+                <div class="bubbles-arrow"></div>
+                <div class="bubbles-block">
+                    <b class="bubbles-year">2020</b>
+                    <div class="bubbles-circle red">32%</div>
+                    <b class="bubbles-value">23 234</b>
+                </div>
+                <div class="bubbles-arrow"></div>
+                <div class="bubbles-block">
+                <b class="bubbles-year">2020</b>
+                <div class="bubbles-circle gray">32%</div>
+                <b class="bubbles-value">23 234</b>
+            </div>
+            <div class="bubbles-arrow"></div>
+            <div class="bubbles-block">
+                <b class="bubbles-year">2020</b>
+                <div class="bubbles-circle green">32%</div>
+                <b class="bubbles-value">23 234</b>
+            </div>
+            <div class="bubbles-arrow"></div>
+            <div class="bubbles-block">
+                <b class="bubbles-year">2020</b>
+                <div class="bubbles-circle green">32%</div>
+                <b class="bubbles-value">23 234</b>
+            </div>
+            <div class="bubbles-arrow"></div>
+            </div>
+        </div> <!--/ .bubbles -->
 
-                <div class="energy-items">
-                    <div class="energy-image">
-                        <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/Scale-G.jpg">
+        <div class="splitter"></div>
+
+        <div class="analysis">
+            <h4 class="analysis-title">{{ $_ai_analysis }}</h4>
+
+            <div class="analysis-items">
+                <div class="analysis-image">
+                    <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/1.png">
+                </div>
+                <ul class="analysis-content">
+                    <li><span>{{ $_market_price }}:</span> <b>{{ $price_estimation }} €</b></li>
+                    <li><span>{{ $_average_price }}:</span> <b>{{ $average_price }} €</b></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="splitter"></div>
+
+        <div class="cards">
+            <div class="cards-row">
+                <div class="cards-item">
+                    <span class="cards-title"><b>{{ $_house_type }}:</b><br>{{ $property_type }}</span>
+                    <div class="cards-image">
+                        <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/building-indefinite.jpg">
                     </div>
-                    <div class="energy-rates">
-                        <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/energy-rates.png">
+                </div> <!--/ .cards-item -->
+                <div class="cards-item">
+                    <span class="cards-title">
+                        <b>{{ $_estimated_rental_price }}:</b><br>{{ $rental_value }}
+                    </span>
+                    <div class="cards-image">
+                        <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/2.png">
                     </div>
-                </div> <!--/ .energy-items -->
-            </div> <!--/ .energy -->
-        </div> <!--/ .second-page -->
+                </div> <!--/ .cards-item -->
+            </div> <!--/ .cards-row -->
+        </div> <!--/ .cards -->
+    </div> <!--/ .first-page -->
 
-        <div class="third-page">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Название</th>
-                        <th>Значение</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Размер семьи</td>
-                        <td>HouseholdSize</td>
-                    </tr>
-                    <tr>
-                        <td>Семейное положение</td>
-                        <td>MaritalStatus</td>
-                    </tr>
-                    <tr>
-                        <td>Этап жизни</td>
-                        <td>Lifestage</td>
-                    </tr>
-                    <tr>
-                        <td>Общий доход семьи</td>
-                        <td>GrossFamilyIncome</td>
-                    </tr>
-                    <tr>
-                        <td>Образование</td>
-                        <td>Education</td>
-                    </tr>
-                    <tr>
-                        <td>Социальный класс</td>
-                        <td>SocialClass</td>
-                    </tr>
-                    <tr>
-                        <td>Количество машин</td>
-                        <td>NumberOfCarsInHousehold</td>
-                    </tr>
-                    <tr>
-                        <td>Индекс покупательной способности</td>
-                        <td>SpendingPowerIndex</td>
-                    </tr>
-                    <tr>
-                        <td>Стандартная бизнес-классификация</td>
-                        <td>StandardBusinessClassification</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div> <!--/ .third-page -->
-    </div> <!--/ .document -->
+    <div class="second-page">
+        <div class="cards">
+            <div class="cards-row">
+                <div class="cards-item">
+                    <span class="cards-title"><b>{{ $_year_built }}:</b><br>{{ $year_built }}</span>
+                    <div class="cards-image">
+                        <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/building-indefinite.jpg">
+                    </div>
+                </div> <!--/ .cards-item -->
+                <div class="cards-item">
+                    <span class="cards-title"><b>{{ $_object_purpose }}:</b><br>{{ $object_purpose }}</span>
+                    <div class="cards-image">
+                        <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/building-indefinite.jpg">
+                    </div>
+                </div> <!--/ .cards-item -->
+            </div> <!--/ .cards-row -->
+            <div class="cards-row">
+                <div class="cards-item">
+                    <span class="cards-title"><b>{{ $_living_space }}:</b><br>{{ $living_area }} m2</span>
+                    <div class="cards-image">
+                        <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/square.jpg">
+                    </div>
+                </div> <!--/ .cards-item -->
+                <div class="cards-item">
+                    <span class="cards-title"><b>{{ $_outdoor_area }}:</b><br>{{ $outdoor_area }}</span>
+                    <div class="cards-image">
+                        <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/garden.jpg">
+                    </div>
+                </div> <!--/ .cards-item -->
+            </div> <!--/ .cards-row -->
+        </div> <!--/ .cards -->
+
+        <div class="energy">
+            <h2 class="energy-title">{{ $_energy_efficiency_assessment }}:</h2>
+
+            <div class="energy-items">
+                <div class="energy-image">
+                    <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/Scale-{{ $energy_label }}.jpg">
+                </div>
+                <div class="energy-rates">
+                    <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/energy-rates.png">
+                </div>
+            </div> <!--/ .energy-items -->
+        </div> <!--/ .energy -->
+    </div> <!--/ .second-page -->
+
+    <div class="third-page">
+        <div class="top-table-section">
+            <div class="top-table-section__column top-table-section__first">
+                <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/icons/suit.jpg">
+                <span>Men: <b>23</b></span>
+            </div>
+            <div class="top-table-section__column top-table-section__second">
+                <span>Women: <b>23</b></span>
+                <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/icons/woman.jpg">
+            </div>
+        </div>
+
+        <div class="center">
+            <h3>Lorem ipsum dolor sit amet some text.</h3>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>test</th>
+                    <th>test</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="#">Lorem, ipsum dolor.</a></td>
+                    <td><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum molestias aut soluta reprehenderit nisi facere voluptatem ad quis esse fuga.</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">Lorem, ipsum dolor.</a></td>
+                    <td><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum molestias aut soluta reprehenderit nisi facere voluptatem ad quis esse fuga.</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">Lorem, ipsum dolor.</a></td>
+                    <td><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum molestias aut soluta reprehenderit nisi facere voluptatem ad quis esse fuga.</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">Lorem, ipsum dolor.</a></td>
+                    <td><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum molestias aut soluta reprehenderit nisi facere voluptatem ad quis esse fuga.</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="center">
+            <h3>Lorem ipsum dolor sit amet some text.</h3>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>test</th>
+                    <th>test</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="#">Lorem, ipsum dolor.</a></td>
+                    <td><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum molestias aut soluta reprehenderit nisi facere voluptatem ad quis esse fuga.</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">Lorem, ipsum dolor.</a></td>
+                    <td><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum molestias aut soluta reprehenderit nisi facere voluptatem ad quis esse fuga.</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">Lorem, ipsum dolor.</a></td>
+                    <td><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum molestias aut soluta reprehenderit nisi facere voluptatem ad quis esse fuga.</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">Lorem, ipsum dolor.</a></td>
+                    <td><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum molestias aut soluta reprehenderit nisi facere voluptatem ad quis esse fuga.</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div> <!--/ .third-page -->
+</div> <!--/ .document -->
 </body>
 </html>

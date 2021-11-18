@@ -13,7 +13,16 @@
 }
 
 .third-page {
-    padding-top: 100px;
+    padding-top: 70px;
+}
+
+.center {
+    text-align: center;
+}
+
+table td a {
+    color: #333;
+    text-decoration: none;
 }
 
 body {
@@ -330,7 +339,7 @@ body {
     width: 100%;
     border: 0;
     padding: 0;
-    margin: 10px 0 0 0;
+    margin: 10px 0 70px 0;
     border-spacing: 0;
     font-size: 1rem;
 }
@@ -367,4 +376,20 @@ body {
 
 .table tbody tr:nth-child(odd) td {
     background-color: #f2f2f2;
+}
+
+.top-table-section {
+}
+
+.top-table-section__column {
+}
+
+.top-table-section__column img {
+    width: 70px;
+}
+
+.top-table-section__first {
+}
+
+.top-table-section__second {
 }
