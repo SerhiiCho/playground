@@ -13,20 +13,23 @@
 }
 
 .third-page {
-    padding-top: 70px;
+    padding-top: 100px;
+}
+
+.forth-page {
 }
 
 .center {
     text-align: center;
 }
 
+h2 {
+    margin: 10px auto 20px auto;
+}
+
 table td a {
     color: #333;
     text-decoration: none;
-}
-
-h2 {
-    margin: 10px auto;
 }
 
 body {
@@ -463,7 +466,6 @@ body {
 .info-block li:last-child {
     margin-bottom: 0;
 }
-
 
 .info-block li b {
     color: #333;
