@@ -3,6 +3,7 @@
 
 * {
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 .first-page {
@@ -13,7 +14,7 @@
 }
 
 .third-page {
-    padding-top: 30px;
+    padding-top: 40px;
 }
 
 .forth-page {
@@ -47,6 +48,7 @@ body {
 .header {
     display: flex;
     padding: 0 30px 5px 30px;
+    height: 250px;
 }
 
 .header-image,
@@ -103,6 +105,12 @@ body {
     height: 60px;
     align-items: center;
     margin-top: 15px;
+}
+
+.header-sources img {
+    width: auto;
+    max-height: 50px;
+    object-fit: contain;
 }
 
 .header-info ul li:last-child section {
@@ -304,7 +312,7 @@ body {
 /* ENERGY */
 
 .energy {
-    margin-bottom: 20px;
+    margin-bottom: 100px;
 }
 
 .energy-title {
