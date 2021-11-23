@@ -1,7 +1,7 @@
 const axios = require('axios')
 const fs = require('fs')
 
-const html = fs.readFileSync('./index.html', { encoding: 'utf-8' })
+const html = fs.readFileSync('./generated.html', { encoding: 'utf-8' })
 const css = fs.readFileSync('./style.css', { encoding: 'utf-8' })
 
 axios.post('https://hub.nalog.nl/api/v1/generators/pdf-file', {
