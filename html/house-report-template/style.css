@@ -471,20 +471,22 @@ body {
     color: #333;
 }
 
-
 .cards {
+    margin-top: 40px;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
-    gap: 15px;
+    gap: 20px 0;
 }
 
 .cards-card {
-    width: 300px;
+    width: 80%;
+    margin: 0 10%;
     display: flex;
     background-color: white;
     border-radius: 0 10px 10px 0;
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.124);
+    position: relative;
 }
 
 .cards-card:nth-child(1) .cards-image-col {
@@ -500,7 +502,7 @@ body {
 }
 
 .cards-image-col {
-    padding: 14px;
+    padding: 0 5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -508,7 +510,11 @@ body {
 }
 
 .cards-image-col img {
-    width: 90px;
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: .2;
 }
 
 .cards-content-col {
@@ -519,15 +525,31 @@ body {
 .cards-content-col h3 {
     margin: 0;
     font-size: 1.2em;
-    margin-bottom: 8px;
+    margin-bottom: 14px;
 }
 
 .cards-content-col ul {
     margin: 0;
     padding-left: 19px;
-    list-style: circle;
+    list-style: none;
 }
 
 .cards-content-col li {
     margin-bottom: 3px;
+    position: relative;
+}
+
+.cards-content-col li::before {
+    content: "";
+    background: url('https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/icons/angle-right.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 5px;
+    height: 10px;
+    display: block;
+    position: absolute;
+    left: -17px;
+    top: 5px;
+    opacity: .8;
 }
