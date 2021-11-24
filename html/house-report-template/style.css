@@ -257,10 +257,12 @@ body {
 }
 
 .analysis-content li {
+    min-height: 40px;
     margin-bottom: 7px;
     font-size: 1rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     border-bottom: 1px solid rgb(226, 226, 226);
     padding-bottom: 5px
 }
@@ -274,6 +276,17 @@ body {
 .analysis-content li b {
     font-size: 1.1rem;
     color: rgb(34, 119, 78);
+}
+
+.analysis-content li small,
+.table tbody td a small {
+    font-size: .9rem;
+    border: 1px solid rgb(255, 237, 137);
+    background-color: rgb(255, 255, 227);
+    padding: 1px 13px;
+    border-radius: 5px;
+    width: 150px;
+    text-align: center;
 }
 
 /* CARDS */
@@ -317,6 +330,17 @@ body {
 
 .energy-title {
     text-align: center;
+    margin-bottom: 10px;
+}
+
+.energy-subtitle {
+    text-align: center;
+    margin-top: 0;
+}
+
+.energy-subtitle b {
+    color: #db6a5c;
+    font-size: 1.2em;
 }
 
 .energy-items {
