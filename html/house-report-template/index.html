@@ -12,14 +12,14 @@
     <div class="first-page">
         <div class="header">
             <div class="header-image">
-                <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/1.png">
+                <img src="https://cloud.funda.nl/valentina_media/146/403/396_1440x960.jpg">
             </div>
             <div class="header-info">
                 <ul>
-                    <li><b>{{ $_address }}:</b><span>{{ $full_address }}</span></li>
-                    <li><b>{{ $_request_date }}:</b><span>{{ $date }}</span></li>
+                    <li><b>Адрес:</b><span>Nieuwegein, Prof. Aalbersestraat 6</span></li>
+                    <li><b>Дата запроса:</b><span>2021/11/23</span></li>
                     <li>
-                        <b>{{ $_data_source }}:</b>
+                        <b>Источники данных:</b>
                         <div class="header-sources">
                             <section><img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/logo-1.png"></section>
                             <section><img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/logo-2.png"></section>
@@ -72,15 +72,17 @@
         <div class="splitter"></div>
 
         <div class="analysis">
-            <h4 class="analysis-title">{{ $_ai_analysis }}</h4>
+            <h4 class="analysis-title">AI анализ стоимости объекта</h4>
 
             <div class="analysis-items">
                 <div class="analysis-image">
                     <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/1.png">
                 </div>
                 <ul class="analysis-content">
-                    <li><span>{{ $_market_price }}:</span> <b>{{ $price_estimation }} €</b></li>
-                    <li><span>{{ $_average_price }}:</span> <b>{{ $average_price }} €</b></li>
+                    <li><span>Рыночная стоимость (AVM):</span> <b>378 818€</b></li>
+                    <li><span>Средный woz-waarde в районе:</span> <b>323 000€</b></li>
+                    <li><span>Последняя цена покупки:</span> <small>Доступно в платной версии</small></li>
+                    <li><span>Средный woz-waarde в районе:</span> <small>Доступно в платной версии</small></li>
                 </ul>
             </div>
         </div>
@@ -90,14 +92,14 @@
         <div class="cards">
             <div class="cards-row">
                 <div class="cards-item">
-                    <span class="cards-title"><b>{{ $_house_type }}:</b><br>{{ $property_type }}</span>
+                    <span class="cards-title"><b>Тип дома</b><br>2 onder 1 kap woning</span>
                     <div class="cards-image">
                         <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/building-indefinite.jpg">
                     </div>
                 </div> <!--/ .cards-item -->
                 <div class="cards-item">
                     <span class="cards-title">
-                        <b>{{ $_estimated_rental_price }}:</b><br>{{ $rental_value }}
+                        <b>Оценочная цена аренды:</b><br>1055€
                     </span>
                     <div class="cards-image">
                         <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/2.png">
@@ -111,13 +113,13 @@
         <div class="cards">
             <div class="cards-row">
                 <div class="cards-item">
-                    <span class="cards-title"><b>{{ $_year_built }}:</b><br>{{ $year_built }}</span>
+                    <span class="cards-title"><b>Год постройки:</b><br>1920</span>
                     <div class="cards-image">
                         <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/building-indefinite.jpg">
                     </div>
                 </div> <!--/ .cards-item -->
                 <div class="cards-item">
-                    <span class="cards-title"><b>{{ $_object_purpose }}:</b><br>{{ $object_purpose }}</span>
+                    <span class="cards-title"><b>Назначение объекта:</b><br>woonfunctie</span>
                     <div class="cards-image">
                         <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/building-indefinite.jpg">
                     </div>
@@ -125,13 +127,13 @@
             </div> <!--/ .cards-row -->
             <div class="cards-row">
                 <div class="cards-item">
-                    <span class="cards-title"><b>{{ $_living_space }}:</b><br>{{ $living_area }} m2</span>
+                    <span class="cards-title"><b>Жилая площадь:</b><br>86 м2</span>
                     <div class="cards-image">
                         <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/square.jpg">
                     </div>
                 </div> <!--/ .cards-item -->
                 <div class="cards-item">
-                    <span class="cards-title"><b>{{ $_outdoor_area }}:</b><br>{{ $outdoor_area }}</span>
+                    <span class="cards-title"><b>Придомовая площадь:</b><br>19 м2</span>
                     <div class="cards-image">
                         <img src="https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/garden.jpg">
                     </div>
@@ -140,7 +142,7 @@
         </div> <!--/ .cards -->
 
         <div class="energy">
-            <h2 class="energy-title">{{ $_energy_efficiency_assessment }}:</h2>
+            <h2 class="energy-title">Оценка энергоэффективности дома</h2>
 
             <div class="energy-items">
                 <div class="energy-image">
@@ -155,7 +157,7 @@
 
     <div class="third-page">
         <div class="center">
-            <h2>Lorem ipsum dolor sit amet some text.</h2>
+            <h2>Информация о районе</h2>
         </div>
 
         <div class="top-table-section">
