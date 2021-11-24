@@ -293,7 +293,7 @@ body {
 
 .cards-title {
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.2rem;
     display: block;
     margin-bottom: 8px;
     font-family: arial;
@@ -485,7 +485,7 @@ body {
     color: #333;
 }
 
-.cards {
+.house-cards {
     margin-top: 40px;
     display: flex;
     flex-direction: row;
@@ -494,7 +494,7 @@ body {
     gap: 10px;
 }
 
-.cards-card {
+.house-cards-card {
     width: 350px;
     margin: 0;
     display: flex;
@@ -503,41 +503,41 @@ body {
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.124);
 }
 
-.cards-card:nth-child(1) .cards-image-col {
+.house-cards-card:nth-child(1) .house-cards-image-col {
     background-color: #b7dac8;
 }
 
-.cards-card:nth-child(2) .cards-image-col {
+.house-cards-card:nth-child(2) .house-cards-image-col {
     background-color: #b7d1da;
 }
 
-.cards-card:nth-child(3) .cards-image-col {
+.house-cards-card:nth-child(3) .house-cards-image-col {
     background-color: #d8b7da;
 }
 
-.cards-content-col {
+.house-cards-content-col {
     padding: 20px 30px;
     width: 100%;
 }
 
-.cards-content-col h3 {
+.house-cards-content-col h3 {
     margin: 0;
     font-size: 1.2em;
     margin-bottom: 14px;
 }
 
-.cards-content-col ul {
+.house-cards-content-col ul {
     margin: 0;
     padding-left: 19px;
     list-style: none;
 }
 
-.cards-content-col li {
+.house-cards-content-col li {
     margin-bottom: 3px;
     position: relative;
 }
 
-.cards-content-col li::before {
+.house-cards-content-col li::before {
     content: "";
     background: url('https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/icons/angle-right.png');
     background-size: cover;
