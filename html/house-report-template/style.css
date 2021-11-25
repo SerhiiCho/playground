@@ -26,6 +26,26 @@
 
 h2 {
     margin: 10px auto 20px auto;
+    font-size: 1rem;
+}
+
+h2 a {
+    color: #111;
+    text-decoration: none;
+    position: relative;
+    font-weight: bold;
+}
+
+h2 a::after {
+    content: "";
+    display: block;
+    width: 10px;
+    aspect-ratio: 1/1;
+    background: url(https://nalog.ams3.digitaloceanspaces.com/public-images/house-pdf-report/icons/link-icon.png) no-repeat center;
+    background-size: cover;
+    position: absolute;
+    right: -16px;
+    top: 2px;
 }
 
 table td a {
@@ -329,7 +349,7 @@ body {
 /* ENERGY */
 
 .energy {
-    margin-bottom: 100px;
+    margin-bottom: 30px;
 }
 
 .energy-title {
@@ -587,6 +607,7 @@ body {
     text-align: center;
     margin-bottom: 20px;
     border-radius: 4px;
+    position: relative;
 }
 
 .house-tax-range h2 {
@@ -600,6 +621,22 @@ body {
     font-weight: bold;
     letter-spacing: 1px;
     color: #05a708;
+}
+.house-tax-range p {
+    font-size: 1.1em;
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+
+.house-tax-range p.no-restrictions img {
+    margin-right: 4px;
+    width: 40px;
+    aspect-ratio: 1/1;
+    position: absolute;
+    left: 180px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: .5;
 }
 
 .house-tax-range span small {
