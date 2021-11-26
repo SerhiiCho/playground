@@ -26,7 +26,7 @@
 
 h2 {
     margin: 10px auto 20px auto;
-    font-size: 1rem;
+    font-size: 1.2em;
 }
 
 h2 a {
@@ -69,6 +69,7 @@ body {
     display: flex;
     padding: 0 30px 5px 30px;
     height: 250px;
+    margin-bottom: 20px;
 }
 
 .header-image,
@@ -162,7 +163,7 @@ body {
     font-weight: bold;
     margin-bottom: 15px;
     margin-top: 5px;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 .bubbles-blocks {
@@ -242,7 +243,7 @@ body {
 /* ANALYSIS */
 
 .analysis {
-    margin: 20px 50px 30px 50px;
+    margin: 30px 50px 50px 50px;
 }
 
 .analysis-title {
@@ -300,7 +301,8 @@ body {
 
 .analysis-content li small,
 .table tbody td a small,
-.house-tax-range span small {
+.house-tax-range span small,
+.in-paid-version-title {
     font-size: .7rem;
     font-weight: bold;
     border: 2px dashed rgb(133, 133, 133);
@@ -311,6 +313,7 @@ body {
     text-align: center;
     text-transform: uppercase;
     position: relative;
+    text-align: center;
 }
 
 /* CARDS */
@@ -603,15 +606,14 @@ body {
 .house-tax-range {
     background-color: rgb(239, 245, 255);
     border: 1px solid rgb(224, 230, 255);
-    padding: 10px 20px;
+    padding: 20px 20px;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     border-radius: 4px;
     position: relative;
 }
 
 .house-tax-range h2 {
-    font-size: 1.2em;
     margin-bottom: 8px;
     margin-top: 0;
 }
