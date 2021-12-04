@@ -1,38 +1,19 @@
 <?php
 
+namespace PHP81;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
 // RFC: https://wiki.php.net/rfc/first_class_callable_syntax
 
-namespace ExcelTools
-{
-    require_once __DIR__.'/../vendor/autoload.php';
+$names = ['Anna', 'Alex', 'Sam', 'Billy', 'Taylor', 'Rasmus'];
 
-    function normalizeString(string $string): string
-    {
-        return str_replace(\chr(194).\chr(160), ' ', $string);
-    }
-}
+$result = array_map(strtoupper(...), $names);
 
-namespace PHP80
-{
-    use function ExcelTools\normalizeString;
+dump($result);
 
-    dump(
-        array_map(
-            'ExcelTools\\normalizeString',
-            ['a', 'b'],
-        )
-    );
-}
+$names = ['An na', 'A lex', 'Sa m', 'B illy', 'Taylo r', 'R asmus'];
 
+$result = array_map(static fn(string $name) => str_replace(' ', '', $name), $names);
 
-namespace PHP81
-{
-    use function ExcelTools\normalizeString;
-
-    dump(
-        array_map(
-            normalizeString(...),
-            ['a', 'b'],
-        )
-    );
-}
+dd($result);

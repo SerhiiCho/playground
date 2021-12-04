@@ -2,12 +2,10 @@
 
 namespace PHP81;
 
-use Symfony\Polyfill\Php81\Php81;
+require_once __DIR__ . '/../vendor/autoload.php';
 
 // RFC: https://wiki.php.net/rfc/is_list
 
-// composer require symfony/polyfill-php81
+$result = array_is_list(['a', 'b']);
 
-Php81::array_is_list(['a', 'b']);
-
-/** @var list<int> */
+dd($result);

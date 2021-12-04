@@ -2,6 +2,8 @@
 
 namespace PHP81;
 
+use Fiber;
+
 require_once __DIR__.'/../vendor/autoload.php';
 error_reporting(E_ALL ^ E_DEPRECATED);
 
@@ -25,7 +27,7 @@ function parseLargeExcel(): void
     foreach (new \LimitIterator($reader->getSheetIterator(), limit: 1) as $sheet) {
         foreach ($sheet->getRowIterator() as $row) {
             // do parse Excel ...
-            \Fiber::suspend();
+            Fiber::suspend();
         }
     }
 
@@ -36,7 +38,7 @@ function parseLargeExcel(): void
     ->setName('Import large Excel file')
     ->setCode(function (InputInterface $input, OutputInterface $output) {
         $progressBar = new ProgressBar($output);
-        $fiber = new \Fiber(parseLargeExcel(...));
+        $fiber = new Fiber(parseLargeExcel(...));
 
         $progressBar->start();
         $progressBar->setFormat("%current% rows [%bar%] %elapsed:6s% %memory:6s%");

@@ -2,31 +2,25 @@
 
 namespace PHP81;
 
-use Traversable;
-
 require_once __DIR__.'/../vendor/autoload.php';
 
 // RFC: https://wiki.php.net/rfc/enumerations
 
-enum Locale: int implements \IteratorAggregate
-{
-    case RU = 1;
-    case EN = 2;
-    case FR = 3;
+enum Availability: string {
+    case IN_STOCK = 'in';
+    case OUT_OF_STOCK = 'out';
+    case ORDER = 'order';
 
     public static function title(self $value): string
     {
         return match ($value) {
-            self::RU => 'Русский',
-            self::EN => 'Английский',
-            self::FR => 'Французский',
+            self::IN_STOCK => 'In stock',
+            self::OUT_OF_STOCK => 'Out of stock',
+            self::ORDER => 'By order',
         };
-    }
-
-    public function getIterator(): Traversable
-    {
-       yield from self::cases();
     }
 }
 
-dump(iterator_to_array(Locale::FR));
+$availability = Availability::from('in');
+
+dd(Availability::title($availability));
