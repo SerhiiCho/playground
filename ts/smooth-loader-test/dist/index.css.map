@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://smooth-loader-test/./open/smooth-loader/lib/css/index.css"],"names":[],"mappings":"AAAC,eACG,SAAU,CACV,wBACJ,CAEA,eACI,SACJ,C","file":"dist/index.css","sourcesContent":[" .smooth-loader {\n    opacity: 0;\n    transition: opacity 777ms;\n}\n\n.smooth-loaded {\n    opacity: 1;\n}"],"sourceRoot":""}

@@ -1,7 +1,6 @@
 let mix = require('laravel-mix')
 
 mix.js('src/index.ts', 'dist/index.js')
-    .sass('src/index.scss', 'dist/index.css')
     .options({
         processCssUrls: false,
         uglify: {
