@@ -1,4 +1,19 @@
 /**
+ * Tokenizer specification
+ */
+const Spec = [
+    // Whitespace
+    [/^\s+/, null],
+    // Single line comments
+    [/^\/\/.*/, null],
+    // Multi-line comments
+    [/^\/\*[\s\S]*?\*\//, null],
+    [/^\d+/, 'NUMBER'],
+    [/^"[^"]*"/, "STRING"],
+    [/^'[^']*'/, "STRING"],
+]
+
+/**
  * Tokenizer class
  *
  * Lazily pulls a token from a stream
@@ -36,35 +51,37 @@ class Tokenizer {
 
         const string = this._string.slice(this._cursor)
 
-        // Numbers:
-        if (this._isNumber(string[0])) {
-            let number = ''
+        for (const [regexp, tokenType] of Spec) {
+            const tokenValue = this._match(regexp, string)
 
-            while (this._isNumber(string[this._cursor])) {
-                number += string[this._cursor++]
+            if (tokenValue === null) {
+                continue
+            }
+
+            // Should skip whitespace
+            if (tokenType === null) {
+                return this.getNextToken()
             }
 
             return {
-                type: 'NUMBER',
-                value: number,
+                type: tokenType,
+                value: tokenValue,
             }
         }
 
-        // Strings:
-        if (this._isQuote(string[0])) {
-            let str = ''
+        throw new SyntaxError(`Unexpected token: "${string[0]}"`)
+    }
 
-            do {
-                str += string[this._cursor++]
-            } while (!this._isQuote(string[this._cursor]) && !this.isEOF())
+    _match(regexp, string) {
+        const matched = regexp.exec(string)
 
-            str += string[this._cursor++] // add " or ' character to the end
-
-            return {
-                type: 'STRING',
-                value: str,
-            }
+        if (matched === null) {
+            return null
         }
+
+        this._cursor += matched[0].length
+
+        return matched[0]
     }
 
     _isQuote(str) {
