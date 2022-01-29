@@ -8,6 +8,8 @@ const Spec = [
     [/^\/\/.*/, null],
     // Multi-line comments
     [/^\/\*[\s\S]*?\*\//, null],
+    // Symbols, delimeters
+    [/^;/, ';'],
     [/^\d+/, 'NUMBER'],
     [/^"[^"]*"/, "STRING"],
     [/^'[^']*'/, "STRING"],
