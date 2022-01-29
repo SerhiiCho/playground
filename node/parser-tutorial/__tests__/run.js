@@ -10,6 +10,7 @@ const tests = [
     require('./statement-list-test'),
     require('./block-test'),
     require('./empty-statement-test'),
+    require('./math-test'),
 ]
 
 const parser = new Parser()
