@@ -8,6 +8,8 @@ const assert = require('assert')
 const tests = [
     require('./literal-test'),
     require('./statement-list-test'),
+    require('./block-test'),
+    require('./empty-statement-test'),
 ]
 
 const parser = new Parser()
