@@ -1,23 +1,35 @@
 /**
- * Tokenizer specification
+ * Tokenizer specification.
+ * The order is very important.
  */
 const Spec = [
     // Whitespace
     [/^\s+/, null],
-    // Single line comments
+
+    // Comments
     [/^\/\/.*/, null],
-    // Multi-line comments
     [/^\/\*[\s\S]*?\*\//, null],
-    // Symbols, delimiters
+
+    // Symbols, delimiter: ;, {, }, (, )
     [/^;/, ';'],
     [/^\{/, '{'],
     [/^\}/, '}'],
     [/^\(/, '('],
     [/^\)/, ')'],
+
+    // Numbers: 1, 2, 3, 4...
+    [/^\d+/, 'NUMBER'],
+
+    // Identifiers
+    [/^\w+/, 'IDENTIFIER'],
+
+    // Assignment operators: =, *=, /=, +=, -=
+    [/^=/, 'SIMPLE_ASSIGN'],
+    [/^[\*\/\+\-]=/, 'COMPLEX_ASSIGN'],
+
     // Math operators: +, -, *, /
     [/^[+\-]/, 'ADDITIVE_OPERATOR'],
     [/^[*\/]/, 'MULTIPLICATIVE_OPERATOR'],
-    [/^\d+/, 'NUMBER'],
     [/^"[^"]*"/, "STRING"],
     [/^'[^']*'/, "STRING"],
 ]
