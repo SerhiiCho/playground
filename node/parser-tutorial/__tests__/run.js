@@ -13,13 +13,20 @@ const tests = [
     require('./math-test'),
     require('./assignment-test'),
     require('./variable-test'),
+    require('./if-test'),
+    require('./relational-test'),
 ]
 
 const parser = new Parser()
 
 function exec() {
     const program = `
-    23 = 42;
+        if (age) {
+            age = 32;
+
+            if (name)
+                name = 'Anna';
+        }
     `
 
     const ast = parser.parse(program)
