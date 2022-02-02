@@ -15,18 +15,15 @@ const tests = [
     require('./variable-test'),
     require('./if-test'),
     require('./relational-test'),
+    require('./equality-test'),
+    require('./logical-test'),
 ]
 
 const parser = new Parser()
 
 function exec() {
     const program = `
-        if (age) {
-            age = 32;
-
-            if (name)
-                name = 'Anna';
-        }
+        x + 5 > 10 == true;
     `
 
     const ast = parser.parse(program)

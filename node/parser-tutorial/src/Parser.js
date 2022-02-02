@@ -235,12 +235,12 @@ class Parser {
 
     /**
      * AssignmentExpression
-     *   : RelationalExpression
+     *   : LogicalOrExpression
      *   | LeftHandSideExpression AssignmentOperator AssignmentExpression
      *   ;
      */
     AssignmentExpression() {
-        const left = this.RelationalExpression()
+        const left = this.LogicalOrExpression()
 
         if (!this._isAssignmentOperator(this._lookahead.type)) {
             return left
@@ -252,6 +252,21 @@ class Parser {
             left: this._checkValidAssignmentTarget(left),
             right: this.AssignmentExpression(),
         }
+    }
+
+    /**
+     * EQUALITY_OPERATOR: ==, !=
+     *
+     * EqualityOperator
+     *   : RelationalExpression EQUALITY_OPERATOR EqualityExpression
+     *   | RelationalExpression
+     *   ;
+     */
+    EqualityExpression() {
+        return this._BinaryExpression(
+            'RelationalExpression',
+            'EQUALITY_OPERATOR',
+        )
     }
 
     /**
@@ -308,6 +323,30 @@ class Parser {
     }
 
     /**
+     * Logical OR expression.
+     *
+     * LogicalOrExpression
+     *   : LogicalAndExpression LOGICAL_OR LogicalOrExpression
+     *   | LogicalOrExpression
+     *   ;
+     */
+    LogicalOrExpression() {
+        return this._LogicalExpression('LogicalAndExpression', 'LOGICAL_OR')
+    }
+
+    /**
+     * Logical AND expression.
+     *
+     * LogicalAndExpression
+     *   : EqualityExpression LOGICAL_AND LogicalAndExpression
+     *   | EqualityExpression
+     *   ;
+     */
+    LogicalAndExpression() {
+        return this._LogicalExpression('EqualityExpression', 'LOGICAL_AND')
+    }
+
+    /**
      * AdditiveExpression
      *   : MultiplicativeExpression
      *   | AdditiveExpression ADDITIVE_OPERATOR MultiplicativeExpression -> MultiplicativeExpression ADDITIVE_OPERATOR MultiplicativeExpression
@@ -337,13 +376,31 @@ class Parser {
         let left = this[builderName]()
 
         while (this._lookahead.type === operatorToken) {
-            // Operator: *, /
             const operator = this._eat(operatorToken).value
 
             const right = this[builderName]()
 
             left = {
                 type: 'BinaryExpression',
+                operator,
+                left,
+                right,
+            }
+        }
+
+        return left
+    }
+
+    _LogicalExpression(builderName, operatorToken) {
+        let left = this[builderName]()
+
+        while (this._lookahead.type === operatorToken) {
+            const operator = this._eat(operatorToken).value
+
+            const right = this[builderName]()
+
+            left = {
+                type: 'LogicalExpression',
                 operator,
                 left,
                 right,
@@ -390,6 +447,8 @@ class Parser {
      * Literal
      *   : NumericLiteral
      *   | StringLiteral
+     *   | BooleanLiteral
+     *   | NullLiteral
      *   ;
      */
     Literal() {
@@ -398,9 +457,43 @@ class Parser {
                 return this.NumericLiteral()
             case 'STRING':
                 return this.StringLiteral()
+            case 'true':
+                return this.BooleanLiteral(true)
+            case 'false':
+                return this.BooleanLiteral(false)
+            case 'null':
+                return this.NullLiteral()
         }
 
         throw new SyntaxError(`Literal: unexpected literal production`)
+    }
+
+    /**
+     * BooleanLiteral
+     *   : 'true'
+     *   | 'false'
+     *   ;
+     */
+    BooleanLiteral(value) {
+        this._eat(value ? 'true' : 'false')
+        return {
+            type: 'BooleanLiteral',
+            value,
+        }
+    }
+
+    /**
+     * NullLiteral
+     *   : 'null'
+     *   ;
+     */
+    NullLiteral() {
+        this._eat('null')
+
+        return {
+            type: 'NullLiteral',
+            value: null
+        }
     }
 
     /**
@@ -468,7 +561,7 @@ class Parser {
     }
 
     _isLiteral(tokenType) {
-        return ['NUMBER', 'STRING'].includes(tokenType)
+        return ['NUMBER', 'STRING', 'true', 'false', 'null'].includes(tokenType)
     }
 }
 
