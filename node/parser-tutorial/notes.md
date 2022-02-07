@@ -8,9 +8,39 @@
 
 ## Ast node
 
-> **S-expression** is an AST (abstract syntax tree) format that fits the best for interpreters.
-
 > **AST** is an abstract syntax tree.
+
+```
+String: "7 + 3 * 4"
+```
+
+```js
+{
+    type: "Program",
+    body: [
+        {
+            type: "BinaryExpression",
+            operator: "+",
+            left: {
+                type: "NumericLiteral",
+                value: 7,
+            },
+            right: {
+                type: "BinaryExpression",
+                operator: "*",
+                left: {
+                    type: 'NumericLiteral',
+                    value: 3,
+                },
+                right: {
+                    type: 'NumericLiteral',
+                    value: 4,
+                },
+            },
+        }
+    ],
+}
+```
 
 ## Parsing pipeline
 
@@ -64,3 +94,4 @@ FunctionDeclaration
 
 - The program is just a list of expression statements or variable statements.
 - Every expression statement has expression as a key.
+- **S-expression** is an AST (abstract syntax tree) format that fits the best for interpreters.
