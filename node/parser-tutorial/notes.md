@@ -63,7 +63,11 @@ String: "7 + 3 * 4"
 
 > The purpose of the parser is validation of the input. But on practice, the parser produces the next intermediate representation known as Abstract Syntax Tree (AST).
 
-- Parser is defined as Backus-Naur form (BNF).
+- `Parser` is defined as Backus-Naur form (BNF);
+- `Parser` should enforce the correct precedence of operations;
+- `Parsers` can be `Hand-written` and `Automatically generated`;
+- The most practical (and the most powerful) parser is known as `Recursive-descent parser`;
+- [Parser generator tool](https://github.com/dmitrysoshnikov/syntax) is the language agnostic parser generator;
 
 ## Backus-Naur form grammar
 
