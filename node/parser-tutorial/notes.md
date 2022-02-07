@@ -8,7 +8,9 @@
 
 ## Ast node
 
-> **AST** is an abstract syntax tree.
+> **AST** is an abstract syntax tree. It can be in any format like S-expression or JSON.
+
+- You can abstract AST from the parser and make it support any AST nodes using factories;
 
 ```
 String: "7 + 3 * 4"
@@ -66,8 +68,8 @@ String: "7 + 3 * 4"
 - `Parser` is defined as Backus-Naur form (BNF);
 - `Parser` should enforce the correct precedence of operations;
 - `Parsers` can be `Hand-written` and `Automatically generated`;
-- The most practical (and the most powerful) parser is known as `Recursive-descent parser`;
-- [Parser generator tool](https://github.com/dmitrysoshnikov/syntax) is the language agnostic parser generator;
+- The most practical (and the most powerful) parser is known as `Recursive-descent parser` (RDP);
+- Automated parsers. [Parser generator tool](https://github.com/dmitrysoshnikov/syntax) is the language agnostic parser generator;
 
 ## Backus-Naur form grammar
 
