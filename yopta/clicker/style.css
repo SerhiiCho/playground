@@ -1,0 +1,30 @@
+body {
+    padding: 20px 50px;
+}
+
+.result {
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.result b {
+    font-size: 2em;
+    margin-left: 16px;
+}
+
+#btn {
+    width: 170px;
+    aspect-ratio: 1/1;
+    font-size: 1.6em;
+    border-radius: 50%;
+    border: none;
+    background-color: rgb(219, 181, 219);
+    margin-left: 70px;
+    cursor: pointer;
+}
+
+#btn:hover {
+    background-color: rgb(212, 170, 212);
+}
