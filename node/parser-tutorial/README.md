@@ -1,10 +1,12 @@
 # Parsers
 
+- [Link to the lessons](https://www.udemy.com/course/parser-from-scratch)
 - [Ast node](#ast-node)
 - [Parsing pipeline](#parsing-pipeline)
 - [Parser](#parser)
 - [Backus-Naur form grammar](#backus-naur-form-grammar)
 - [Other notes](#other-notes)
+- [Recursive-descent parser](#recursive-descent-parser-rdp)
 
 ## Ast node
 
@@ -56,20 +58,16 @@ String: "7 + 3 * 4"
 
 -> `[AST: <Call name="print" args=["hello"]/>]`
 
-> **Tokenizer** defines lexical analysis. The purpose of Tokenizer is to group individual characters into recognizable stream of tokens. The purpose is just to group the characters into higher abstracted entities. Since it's more convenient to work with tokens versus the individual characters.
-
-- Tokenizer uses regular expressions;
-- Tokenizer is not responsible for validation, the Parser does;
-
-# Parser
+## Parser
 
 > The purpose of the parser is validation of the input. But on practice, the parser produces the next intermediate representation known as Abstract Syntax Tree (AST).
 
-- `Parser` is defined as Backus-Naur form (BNF);
-- `Parser` should enforce the correct precedence of operations;
-- `Parsers` can be `Hand-written` and `Automatically generated`;
-- The most practical (and the most powerful) parser is known as `Recursive-descent parser` (RDP);
+- **Parser** is defined as Backus-Naur form (BNF);
+- **Parser** should enforce the correct precedence of operations;
+- **Parsers** can be `Hand-written` and `Automatically generated`;
+- The most practical (and the most powerful) parser is known as [Recursive-descent parser (RDP)](#recursive-descent-parser-rdp);
 - Automated parsers. [Parser generator tool](https://github.com/dmitrysoshnikov/syntax) is the language agnostic parser generator;
+- **Parser** module is using `tokenizer` for getting tokens from the input string;
 
 ## Backus-Naur form grammar
 
@@ -101,3 +99,17 @@ FunctionDeclaration
 - The program is just a list of expression statements or variable statements.
 - Every expression statement has expression as a key.
 - **S-expression** is an AST (abstract syntax tree) format that fits the best for interpreters.
+
+## Tokenizer
+
+**Tokenizer** defines lexical analysis. The purpose of the **Tokenizer** is to group individual characters into recognizable stream of tokens. The purpose is just to group the characters into higher abstracted entities. Since it's more convenient to work with tokens versus the individual characters.
+
+- **Tokenizer** uses regular expressions;
+- **Tokenizer** is not responsible for validation, the **Parser** does;
+- **Tokenizer** tracks the position of each character;
+
+## Recursive-descent parser RDP
+
+**Recursive-descent parser** is known as **Predictive parser**. It means it can predict specific production based on looking ahead at the current token. First token in tokenizer is our lookahead. The lookahead is used for predictive parsing. We extract the first token and based on this token will will be able to route parsing process accordingly.
+
+Because we need only one token to lookahead, such parser corresponds to the LL(1) parser in the automated parsing theory, that is we need only one lookahead to correctly predict which production to parse.
