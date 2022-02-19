@@ -116,4 +116,4 @@ Because we need only one token to lookahead, such parser corresponds to the LL(1
 - Every expression statement has expression as a key.
 - **S-expression** is an AST (abstract syntax tree) format that fits the best for interpreters.
 - **Program** AST node returns list of statements **StatementList**. Statements will be multiple types;
-- The lowest precedence is always on the top of the EST node, in program it will be executed at the end. For example `x = 10 + 1`, in this example identifier `x` has the lowest precedence, it will be the first in EST code in the expression.
+- The lowest precedence is always on the top of the EST node, in program it will be executed at the end. For example `x = 10 + 1`, in this example assignment has the lowest precedence, it will be the first in EST code in the expression. Because first we need is to execute `10 + 1`, and after we get the result `11`, we should assign it to the identifier `x`.
