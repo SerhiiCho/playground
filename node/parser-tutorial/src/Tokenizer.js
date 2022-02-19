@@ -25,6 +25,9 @@ const Spec = [
     [/^\btrue\b/, 'true'],
     [/^\bfalse\b/, 'false'],
     [/^\bnull\b/, 'null'],
+    [/^\while\b/, 'while'],
+    [/^\bdo\b/, 'do'],
+    [/^\bfor\b/, 'for'],
 
     // Numbers: 1, 2, 3, 4...
     [/^\d+/, 'NUMBER'],
