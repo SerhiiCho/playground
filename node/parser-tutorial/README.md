@@ -1,5 +1,6 @@
 # Building a Parser from scratch
 
+- [Link to the github repo](https://github.com/DmitrySoshnikov/letter-rdp-source)
 - [Link to the lessons](https://www.udemy.com/course/parser-from-scratch)
 - [Ast node](#ast-node)
 - [Parsing pipeline](#parsing-pipeline)
