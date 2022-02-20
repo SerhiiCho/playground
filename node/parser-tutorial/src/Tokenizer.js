@@ -28,6 +28,8 @@ const Spec = [
     [/^\while\b/, 'while'],
     [/^\bdo\b/, 'do'],
     [/^\bfor\b/, 'for'],
+    [/^\bdef\b/, 'def'],
+    [/^\breturn\b/, 'return'],
 
     // Numbers: 1, 2, 3, 4...
     [/^\d+/, 'NUMBER'],

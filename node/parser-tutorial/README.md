@@ -118,3 +118,4 @@ Because we need only one token to lookahead, such parser corresponds to the LL(1
 - **Program** AST node returns list of statements **StatementList**. Statements will be multiple types;
 - The lowest precedence is always on the top of the EST node, in program it will be executed at the end. For example `x = 10 + 1`, in this example assignment has the lowest precedence, it will be the first in EST code in the expression. Because first we need is to execute `10 + 1`, and after we get the result `11`, we should assign it to the identifier `x`;
 - **Unary expression** is the expression that has only one operand, in JavaScript it's logical not `!` and minus `-` operators that we put before the expression. They called **unary operators**;
+- For the **left recursion** we use while loop;
