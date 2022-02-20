@@ -24,6 +24,7 @@ const tests = [
     require('./function-declaration-test'),
     require('./member-test'),
     require('./call-test'),
+    require('./class-test'),
 ]
 
 const parser = new Parser()
@@ -44,7 +45,7 @@ function exec() {
     console.log(JSON.stringify(ast, null, 2))
 }
 
-exec()
+// exec()
 
 function test(program, expected) {
     const ast = parser.parse(program)
