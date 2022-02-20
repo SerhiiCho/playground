@@ -152,6 +152,49 @@ class Parser {
     }
 
     /**
+     * ForStatement
+     *   : 'for' '(' OptForStatementInit ';' OptExpression ';' OptExpression' ')' Statement
+     *   ;
+     */
+    ForStatement() {
+        this._eat('for')
+        this._eat('(')
+
+        const init = this._lookahead.type !== ';' ? this.ForStatementInit() : null
+        this._eat(';')
+
+        const test = this._lookahead.type !== ';' ? this.Expression() : null
+        this._eat(';')
+
+        const update = this._lookahead.type !== ')' ? this.Expression() : null
+        this._eat(')')
+
+        const body = this.Statement()
+
+        return {
+            type: 'ForStatement',
+            init,
+            test,
+            update,
+            body,
+        }
+    }
+
+    /**
+     * ForStatementInit
+     *   : VariableStatementInit
+     *   | Expression
+     *   ;
+     */
+    ForStatementInit() {
+        if (this._lookahead.type === 'let') {
+            return this.VariableStatementInit()
+        }
+
+        return this.Expression()
+    }
+
+    /**
      * IfStatement
      *   : 'if' '(' Expression ')' Statement
      *   | 'if' '(' Expression ')' Statement 'else' Statement
@@ -182,21 +225,31 @@ class Parser {
     }
 
     /**
-     * VariableStatement
-     *   : 'let' VariableDeclarationList ';'
+     * VariableStatementInit
+     *   : 'let' VariableDeclarationList
      *   ;
      */
-    VariableStatement() {
+    VariableStatementInit() {
         this._eat('let')
 
         const declarations = this.VariableDeclarationList()
-
-        this._eat(';')
 
         return {
             type: 'VariableStatement',
             declarations,
         }
+    }
+
+    /**
+     * VariableStatement
+     *   : 'let' VariableDeclarationList ';'
+     *   ;
+     */
+    VariableStatement() {
+        const variableStatement = this.VariableStatementInit()
+        this._eat(';')
+
+        return variableStatement
     }
 
     /**

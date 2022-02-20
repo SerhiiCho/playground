@@ -27,8 +27,8 @@ const parser = new Parser()
 
 function exec() {
     const program = `
-        while (x > 10) {
-            x -= 1;
+        for (let i = 0; i < 10; i += 1) {
+            x += i;
         }
     `
 
@@ -37,7 +37,7 @@ function exec() {
     console.log(JSON.stringify(ast, null, 2))
 }
 
-exec()
+// exec()
 
 function test(program, expected) {
     const ast = parser.parse(program)
