@@ -1,9 +1,18 @@
 <template>
-    <ul>
-        <li><NuxtLink to="/">Home</NuxtLink></li>
-        <li><NuxtLink to="/about">About me</NuxtLink></li>
-    </ul>
-    <div>
-        <NuxtPage />
-    </div>
+    <Header />
+    <hr>
+    <NuxtPage />
+    <hr>
+    <Footer />
 </template>
+
+<style>
+.router-link-active {
+    color: red;
+}
+
+.router-link-active:after {
+    content: " <<";
+    color: red;
+}
+</style>
