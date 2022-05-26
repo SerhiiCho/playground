@@ -12,3 +12,4 @@ tmp/
 cmake-build-debug/
 *.class
 *.out
+.DS_Store

@@ -1,0 +1,38 @@
+body {
+    background-color: #373d43;
+    font-family: sans-serif;
+}
+
+section {
+    max-width: 54rem;
+    margin: 4rem auto 0;
+    padding: 1.2rem;
+    background-color: #32343c;
+    color: white;
+
+    display: grid;
+}
+
+@media screen and (min-width: 480px) {
+    section {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 720px) {
+    section {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+section > div {
+    padding: 1.2rem;
+}
+
+section > div > h2 {
+    color: #03dac6;
+}
+
+section > div > p {
+    margin-top: 1rem;
+}
