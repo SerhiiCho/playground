@@ -1,0 +1,29 @@
+body {
+    font-family: sans-serif;
+}
+
+section {
+    max-width: 30rem;
+    margin: 4rem auto 0;
+    padding: 2rem;
+    background-color: #32343c;
+    color: white;
+
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.icon {
+    font-size: 3rem;
+    padding-top: 1rem;
+}
+
+.item  {
+    margin: 1rem 2rem 1rem 0;
+}
+
+h3 {
+    padding-bottom: 0.2rem;
+    color: rgb(255, 220, 132);
+    font-weight: bold;
+}
