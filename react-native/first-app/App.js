@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button, StyleSheet, Text, View, TextInput, FlatList } from 'react-native'
+import { StyleSheet, View, FlatList } from 'react-native'
 import Note from './components/Note'
 import NoteInput from './components/NoteInput'
 
