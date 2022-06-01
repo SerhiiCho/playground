@@ -1,7 +1,6 @@
 import { View, StyleSheet, Text } from 'react-native'
 
 export default function Note({ note }) {
-    console.log(note)
     return (
         <View style={styles.note}>
             <Text>{note.text}</Text>
