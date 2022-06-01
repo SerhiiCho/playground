@@ -19,7 +19,7 @@ export default function App() {
                 <Button title="Add note" />
             </View>
 
-            <View>
+            <View style={styles.notesContainer}>
                 <Text>List of notes...</Text>
             </View>
         </View>
@@ -28,18 +28,28 @@ export default function App() {
 
 const styles = StyleSheet.create({
     appContainer: {
-        padding: 50,
+        paddingTop: 50,
+        paddingHorizontal: 16,
+        flex: 1,
     },
     inputContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 15,
+        borderBottomWidth: 1,
+        borderBottomColor: '#ddd',
+        flex: 1,
     },
     textInput: {
-        width: '80%',
+        width: '70%',
         borderWidth: 1,
         borderColor: '#999',
-        borderRadius: 6,
+        borderRadius: 4,
         padding: 8,
         marginRight: 7,
+    },
+    notesContainer: {
+        flex: 10,
     },
 })
