@@ -1,13 +1,27 @@
 import { View, TextInput, Button, StyleSheet } from 'react-native'
+import { useState } from 'react'
 
-export default function NoteInput({ noteInputHandler, addNoteHandler }) {
+export default function NoteInput({ addNoteHandler }) {
+    const [noteText, setNoteText] = useState('')
+
+    function noteInputHandler(enteredText) {
+        setNoteText(enteredText)
+    }
+
+    function addingNoteHandler() {
+        addNoteHandler(noteText)
+        setNoteText('')
+    }
+
     return (
         <View style={styles.inputContainer}>
             <TextInput style={styles.textInput}
                 placeholder='Write a note...'
                 onChangeText={noteInputHandler}
+                value={noteText}
             />
-            <Button title="Add note" onPress={addNoteHandler} />
+
+            <Button title="Add note" onPress={addingNoteHandler} />
         </View>
     )
 }

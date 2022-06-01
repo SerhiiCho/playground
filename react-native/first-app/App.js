@@ -4,23 +4,18 @@ import Note from './components/Note'
 import NoteInput from './components/NoteInput'
 
 export default function App() {
-    const [noteText, setNoteText] = useState('')
     const [notes, setNotes] = useState([])
 
-    function noteInputHandler(enteredText) {
-        setNoteText(enteredText)
-    }
-
-    function addNoteHandler() {
+    function addNoteHandler(enteredNoteText) {
         setNotes(currNotes => [
             ...currNotes,
-            { text: noteText, id: Math.random().toString() },
+            { text: enteredNoteText, id: Math.random().toString() },
         ])
     }
 
     return (
         <View style={styles.appContainer}>
-            <NoteInput noteInputHandler={noteInputHandler} addNoteHandler={addNoteHandler} />
+            <NoteInput addNoteHandler={addNoteHandler} />
 
             <View style={styles.notesContainer}>
                 <FlatList data={notes}
