@@ -2,25 +2,29 @@ import React, { useState } from 'react'
 import { Button, StyleSheet, Text, View, TextInput } from 'react-native'
 
 export default function App() {
-    const [goal, setGoal] = useState('Before click')
+    const [noteText, setNoteText] = useState('')
+    const [notes, setNotes] = useState([])
 
-    function goalInputHandler() {
-        //
+    function noteInputHandler(enteredText) {
+        setNoteText(enteredText)
     }
 
-    function addGoalHandler() {
-        //
+    function addNoteHandler() {
+        setNotes(currNotes => [...currNotes, noteText])
     }
 
     return (
         <View style={styles.appContainer}>
             <View style={styles.inputContainer}>
-                <TextInput style={styles.textInput} placeholder='Write a note' />
-                <Button title="Add note" />
+                <TextInput style={styles.textInput}
+                    placeholder='Write a note...'
+                    onChangeText={noteInputHandler}
+                />
+                <Button title="Add note" onPress={addNoteHandler} />
             </View>
 
             <View style={styles.notesContainer}>
-                <Text>List of notes...</Text>
+                {notes.map(note => <Text key={note}>{note}</Text>)}
             </View>
         </View>
     )
