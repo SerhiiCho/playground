@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Button, StyleSheet, Text, View, TextInput, ScrollView } from 'react-native'
+import { Button, StyleSheet, Text, View, TextInput, FlatList } from 'react-native'
+import Note from './components/Note'
 
 export default function App() {
     const [noteText, setNoteText] = useState('')
@@ -10,7 +11,10 @@ export default function App() {
     }
 
     function addNoteHandler() {
-        setNotes(currNotes => [...currNotes, noteText])
+        setNotes(currNotes => [
+            ...currNotes,
+            { text: noteText, key: Math.random().toString() },
+        ])
     }
 
     return (
@@ -24,15 +28,10 @@ export default function App() {
             </View>
 
             <View style={styles.notesContainer}>
-                <ScrollView>
-                    {notes.map(note => {
-                        return (
-                            <View style={styles.note}>
-                                <Text key={note}>{note}</Text>
-                            </View>
-                        )
-                    })}
-                </ScrollView>
+                <FlatList data={notes}
+                    renderItem={itemData => <Note note={itemData.item} />}
+                    alwaysBounceVertical={false}
+                />
             </View>
         </View>
     )
@@ -63,13 +62,5 @@ const styles = StyleSheet.create({
     },
     notesContainer: {
         flex: 10,
-    },
-    note: {
-        marginBottom: 8,
-        borderRadius: 10,
-        backgroundColor: '#eee',
-        padding: 10,
-        borderWidth: 1,
-        borderColor: '#ddd',
     },
 })
