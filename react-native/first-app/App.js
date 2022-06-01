@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, StyleSheet, Text, View, TextInput } from 'react-native'
+import { Button, StyleSheet, Text, View, TextInput, ScrollView } from 'react-native'
 
 export default function App() {
     const [noteText, setNoteText] = useState('')
@@ -24,13 +24,15 @@ export default function App() {
             </View>
 
             <View style={styles.notesContainer}>
-                {notes.map(note => {
-                    return (
-                        <View style={styles.note}>
-                            <Text key={note}>{note}</Text>
-                        </View>
-                    )
-                })}
+                <ScrollView>
+                    {notes.map(note => {
+                        return (
+                            <View style={styles.note}>
+                                <Text key={note}>{note}</Text>
+                            </View>
+                        )
+                    })}
+                </ScrollView>
             </View>
         </View>
     )
