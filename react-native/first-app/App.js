@@ -2,37 +2,44 @@ import React, { useState } from 'react'
 import { Button, StyleSheet, Text, View, TextInput } from 'react-native'
 
 export default function App() {
-    const [outputText, setOutputText] = useState('Before click')
+    const [goal, setGoal] = useState('Before click')
+
+    function goalInputHandler() {
+        //
+    }
+
+    function addGoalHandler() {
+        //
+    }
 
     return (
-        <View style={{ padding: 50 }}>
-            <View style={{ display: 'flex' }}>
-                <Text style={styles.title}>My notes</Text>
+        <View style={styles.appContainer}>
+            <View style={styles.inputContainer}>
+                <TextInput style={styles.textInput} placeholder='Write a note' />
+                <Button title="Add note" />
+            </View>
 
-                <TextInput
-                    placeholder='Write a note'
-                    style={styles.input}
-                />
-                <Button title="Add a note"
-                    onPress={() => setOutputText('After click')}
-                />
+            <View>
+                <Text>List of notes...</Text>
             </View>
         </View>
     )
 }
 
-const styles = {
-    input: {
-        borderColor: 'gray',
+const styles = StyleSheet.create({
+    appContainer: {
+        padding: 50,
+    },
+    inputContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    textInput: {
+        width: '80%',
         borderWidth: 1,
-        padding: 10,
-        marginBottom: 10,
-        marginTop: 20,
-        borderRadius: 7,
+        borderColor: '#999',
+        borderRadius: 6,
+        padding: 8,
+        marginRight: 7,
     },
-    title: {
-        textAlign: 'center',
-        fontSize: 30,
-        marginTop: 10,
-    },
-}
+})
