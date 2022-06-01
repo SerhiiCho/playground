@@ -13,8 +13,10 @@ export default function App() {
         ])
     }
 
-    function deleteNoteHandler() {
-        console.log('DELETE')
+    function deleteNoteHandler(id) {
+        setNotes(currNotes => {
+            return currNotes.filter(currNote => currNote.id !== id)
+        })
     }
 
     return (
