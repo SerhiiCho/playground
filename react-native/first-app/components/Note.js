@@ -1,10 +1,12 @@
-import { View, StyleSheet, Text } from 'react-native'
+import { View, StyleSheet, Text, Pressable } from 'react-native'
 
-export default function Note({ note }) {
+export default function Note({ note, onDeleteNote }) {
     return (
-        <View style={styles.note}>
-            <Text>{note.text}</Text>
-        </View>
+        <Pressable onPress={onDeleteNote}>
+            <View style={styles.note}>
+                <Text>{note.text}</Text>
+            </View>
+        </Pressable>
     )
 }
 

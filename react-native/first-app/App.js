@@ -13,13 +13,21 @@ export default function App() {
         ])
     }
 
+    function deleteNoteHandler() {
+        console.log('DELETE')
+    }
+
     return (
         <View style={styles.appContainer}>
-            <NoteInput addNoteHandler={addNoteHandler} />
+            <NoteInput onAddNote={addNoteHandler} />
 
             <View style={styles.notesContainer}>
                 <FlatList data={notes}
-                    renderItem={itemData => <Note note={itemData.item} />}
+                    renderItem={itemData => {
+                        return (
+                            <Note note={itemData.item} onDeleteNote={deleteNoteHandler} />
+                        )
+                    }}
                     alwaysBounceVertical={false}
                     keyExtractor={(item, index) => item.id}
                 />
