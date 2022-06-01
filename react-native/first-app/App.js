@@ -24,7 +24,13 @@ export default function App() {
             </View>
 
             <View style={styles.notesContainer}>
-                {notes.map(note => <Text key={note}>{note}</Text>)}
+                {notes.map(note => {
+                    return (
+                        <View style={styles.note}>
+                            <Text key={note}>{note}</Text>
+                        </View>
+                    )
+                })}
             </View>
         </View>
     )
@@ -55,5 +61,13 @@ const styles = StyleSheet.create({
     },
     notesContainer: {
         flex: 10,
+    },
+    note: {
+        marginBottom: 8,
+        borderRadius: 10,
+        backgroundColor: '#eee',
+        padding: 10,
+        borderWidth: 1,
+        borderColor: '#ddd',
     },
 })
