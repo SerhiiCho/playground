@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { StyleSheet, View, FlatList, Button } from 'react-native'
+import { StyleSheet, View, FlatList, Image } from 'react-native'
 import Btn from './components/Btn'
 import Note from './components/Note'
 import NoteInput from './components/NoteInput'
@@ -28,6 +28,10 @@ export default function App() {
 
     return (
         <View style={styles.appContainer}>
+            <View style={styles.imageContainer}>
+                <Image source={require('./assets/logo.png')} />
+            </View>
+
             <NoteInput modalIsVisible={modalIsVisible}
                 onAddNote={addNoteHandler}
                 onModalHide={setModalIsVisible}
@@ -57,11 +61,15 @@ export default function App() {
 
 const styles = StyleSheet.create({
     appContainer: {
-        paddingTop: 50,
+        paddingTop: 60,
         paddingHorizontal: 16,
         flex: 1,
     },
     notesContainer: {
         flex: 10,
+    },
+    imageContainer: {
+        alignItems: 'center',
+        marginBottom: 8,
     },
 })
