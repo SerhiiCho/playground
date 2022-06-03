@@ -2,7 +2,7 @@ import { View, TextInput, Text, StyleSheet, Modal } from 'react-native'
 import { useState } from 'react'
 import Btn from './Btn'
 
-export default function NoteInput({ onAddNote }) {
+export default function NoteInput(props) {
     const [noteText, setNoteText] = useState('')
 
     function noteInputHandler(enteredText) {
@@ -10,12 +10,16 @@ export default function NoteInput({ onAddNote }) {
     }
 
     function addNoteHandler() {
-        onAddNote(noteText)
+        props.onAddNote(noteText)
         setNoteText('')
     }
 
+    function hideModalHandler() {
+        props.onModalHide(false)
+    }
+
     return (
-        <Modal>
+        <Modal visible={props.modalIsVisible} animationType="slide">
             <View style={styles.modalContainer}>
                 <View>
                     <Text style={styles.header}>Write a note</Text>
@@ -24,12 +28,14 @@ export default function NoteInput({ onAddNote }) {
                 <TextInput style={styles.textInput}
                     placeholder='Write a note...'
                     onChangeText={noteInputHandler}
+                    multiline
+                    numberOfLines={10}
                     value={noteText}
                 />
 
                 <View style={styles.buttonContainer}>
                     <Btn title="Add note" style={{ marginRight: 10 }} onPress={addNoteHandler} />
-                    <Btn title="Cancel" />
+                    <Btn title="Cancel" onPress={hideModalHandler} />
                 </View>
             </View>
         </Modal>
@@ -51,10 +57,12 @@ const styles = StyleSheet.create({
     },
     textInput: {
         width: '100%',
+        height: 200,
+        fontSize: 17,
         borderWidth: 1,
         borderColor: '#999',
         borderRadius: 5,
-        padding: 18,
+        padding: 20,
         marginBottom: 23,
     },
     buttonContainer: {

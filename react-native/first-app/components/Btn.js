@@ -1,9 +1,9 @@
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
 
-export default function Btn({ title, style }) {
+export default function Btn(props) {
     return (
-        <TouchableOpacity style={{ ...styles.btn, ...style }}>
-            <Text style={styles.text}>{title}</Text>
+        <TouchableOpacity style={{ ...styles.btn, ...props.style }} onPress={props.onPress}>
+            <Text style={styles.text}>{props.title}</Text>
         </TouchableOpacity>
     )
 }
