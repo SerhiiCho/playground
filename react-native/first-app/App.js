@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import { StyleSheet, View, FlatList, Image } from 'react-native'
+import { StyleSheet, View, FlatList, Image, Alert } from 'react-native'
 import Btn from './components/Btn'
 import Note from './components/Note'
 import NoteInput from './components/NoteInput'
+import { StatusBar } from 'expo-status-bar'
 
 export default function App() {
     const [notes, setNotes] = useState([])
@@ -17,9 +18,26 @@ export default function App() {
     }
 
     function deleteNoteHandler(id) {
-        setNotes(currNotes => {
-            return currNotes.filter(currNote => currNote.id !== id)
-        })
+        Alert.alert(
+            'Sure?',
+            'Are you sure you want to delete the note?',
+            [
+                {
+                    text: "I'm sure",
+                    onPress: () => {
+                        setNotes(currNotes => {
+                            return currNotes.filter(currNote => currNote.id !== id)
+                        })
+                    },
+                    style: 'default',
+                },
+                {
+                    text: "No",
+                    onPress: () => { },
+                    style: 'destructive',
+                },
+            ],
+        )
     }
 
     function showModalHandler() {
@@ -27,35 +45,39 @@ export default function App() {
     }
 
     return (
-        <View style={styles.appContainer}>
-            <View style={styles.imageContainer}>
-                <Image source={require('./assets/logo.png')} />
-            </View>
+        <>
+            <StatusBar style='dark' />
 
-            <NoteInput modalIsVisible={modalIsVisible}
-                onAddNote={addNoteHandler}
-                onModalHide={setModalIsVisible}
-            />
+            <View style={styles.appContainer}>
+                <View style={styles.imageContainer}>
+                    <Image source={require('./assets/logo.png')} />
+                </View>
 
-            <View style={{ alignItems: 'center' }}>
-                <Btn title="+ Add a note"
-                    onPress={showModalHandler}
-                    style={{ marginVertical: 20, width: 200 }}
+                <NoteInput modalIsVisible={modalIsVisible}
+                    onAddNote={addNoteHandler}
+                    onModalHide={setModalIsVisible}
                 />
-            </View>
 
-            <View style={styles.notesContainer}>
-                <FlatList data={notes}
-                    renderItem={itemData => {
-                        return (
-                            <Note note={itemData.item} onDeleteNote={deleteNoteHandler} />
-                        )
-                    }}
-                    alwaysBounceVertical={false}
-                    keyExtractor={(item, index) => item.id}
-                />
+                <View style={{ alignItems: 'center' }}>
+                    <Btn title="+ Add a note"
+                        onPress={showModalHandler}
+                        style={{ marginVertical: 20, width: 200 }}
+                    />
+                </View>
+
+                <View style={styles.notesContainer}>
+                    <FlatList data={notes}
+                        renderItem={itemData => {
+                            return (
+                                <Note note={itemData.item} onDeleteNote={deleteNoteHandler} />
+                            )
+                        }}
+                        alwaysBounceVertical={false}
+                        keyExtractor={(item, index) => item.id}
+                    />
+                </View>
             </View>
-        </View>
+        </>
     )
 }
 
