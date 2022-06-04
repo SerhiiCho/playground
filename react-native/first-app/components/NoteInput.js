@@ -1,4 +1,4 @@
-import { View, TextInput, Text, StyleSheet, Modal } from 'react-native'
+import { View, TextInput, Text, StyleSheet, Modal, Alert } from 'react-native'
 import { useState } from 'react'
 import Btn from './Btn'
 
@@ -10,6 +10,11 @@ export default function NoteInput(props) {
     }
 
     function addNoteHandler() {
+        if (noteText === '') {
+            Alert.alert('Warning!', "Your note is empty")
+            return
+        }
+
         props.onAddNote(noteText)
         setNoteText('')
     }
