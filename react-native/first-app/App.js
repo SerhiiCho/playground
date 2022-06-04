@@ -89,6 +89,9 @@ const styles = StyleSheet.create({
     },
     notesContainer: {
         flex: 10,
+        borderTopWidth: 1,
+        borderTopColor: 'pink',
+        paddingTop: 20,
     },
     imageContainer: {
         alignItems: 'center',
