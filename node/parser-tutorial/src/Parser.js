@@ -494,7 +494,6 @@ class Parser {
      *   ;
      */
     RelationalExpression() {
-
         return this._BinaryExpression(
             'AdditiveExpression',
             'RELATIONAL_OPERATOR',
