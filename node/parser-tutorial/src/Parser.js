@@ -2,7 +2,7 @@
  * Letter parser: recursive descent implementation
  */
 
-const {Tokenizer} = require('./Tokenizer')
+const { Tokenizer } = require('./Tokenizer')
 
 class Parser {
     constructor() {
@@ -494,6 +494,7 @@ class Parser {
      *   ;
      */
     RelationalExpression() {
+
         return this._BinaryExpression(
             'AdditiveExpression',
             'RELATIONAL_OPERATOR',
