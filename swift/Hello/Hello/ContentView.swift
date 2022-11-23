@@ -7,7 +7,9 @@ struct ContentView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             
-            Text("Apple is awesome")
+            Spacer()
+            
+            Text("Made by Serhii Cho")
         }
     }
 }
