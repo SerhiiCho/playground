@@ -7,7 +7,7 @@ struct ContentView: View {
     @State private var cpuScore = 0
     
     var body: some View {
-        return ZStack {
+        ZStack {
             Image("background")
                 .resizable()
                 .ignoresSafeArea()
@@ -21,13 +21,11 @@ struct ContentView: View {
                 HStack {
                     Spacer()
                     
-                    Image(playerCard)
-                        .cornerRadius(4.0)
+                    getCard(cardName: playerCard)
                     
                     Spacer()
                     
-                    Image(cpuCard)
-                        .cornerRadius(4.0)
+                    getCard(cardName: cpuCard)
                     
                     Spacer()
                 }
@@ -60,6 +58,11 @@ struct ContentView: View {
                 Spacer()
             }
         }
+    }
+    
+    func getCard(cardName: String) -> some View {
+        Image(cardName)
+            .cornerRadius(4.0)
     }
     
     func getPlayerSection(player: String, score: Int) -> some View {
