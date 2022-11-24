@@ -1,62 +1,76 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var playerCard = "card7"
-    @State private var cpuCard = "card5"
-    @State private var playerScore = 0
-    @State private var cpuScore = 0
+    @State private var human = Player(card: "back", score: 0)
+    @State private var cpu = Player(card: "back", score: 0)
+    
+    var dealButton: some View {
+        Button(action: handleDealButtonClick, label: {
+            Text("DEAL")
+                .padding(.vertical, 15)
+                .padding(.horizontal, 40)
+                .border(Color.white, width: 1.0)
+                .cornerRadius(10.0)
+                .foregroundColor(Color.white)
+        })
+    }
     
     var body: some View {
         ZStack {
-            Image("background")
-                .resizable()
-                .ignoresSafeArea()
+            background
             
             VStack {
                 Image("logo")
                 
                 Spacer()
                 
-
-                HStack {
-                    Spacer()
-                    
-                    getCard(cardName: playerCard)
-                    
-                    Spacer()
-                    
-                    getCard(cardName: cpuCard)
-                    
-                    Spacer()
-                }
+                cardsSection
                 
                 Spacer()
                 
-                // Deal button
-                Button(action: handleDealButtonClick, label: {
-                    Image("dealbutton")
-                        .padding(1)
-                        .border(Color.red)
-                        .cornerRadius(4.0)
-                })
+                dealButton
                 
                 Spacer()
                 
-                // Points dashboard
-                HStack {
-                    Spacer()
-                    
-                    getPlayerSection(player: "Player", score: playerScore)
-                    
-                    Spacer()
-                    
-                    getPlayerSection(player: "CPU", score: cpuScore)
-                    
-                    Spacer()
-                }
+                pointsDashbard
                 
                 Spacer()
             }
+        }
+    }
+    
+    var background: some View {
+        Image("background")
+            .resizable()
+            .ignoresSafeArea()
+            
+    }
+    
+    var cardsSection: some View {
+        HStack {
+            Spacer()
+                
+            getCard(cardName: human.card)
+            
+            Spacer()
+            
+            getCard(cardName: cpu.card)
+            
+            Spacer()
+        }
+    }
+    
+    var pointsDashbard: some View {
+        HStack {
+            Spacer()
+            
+            getPlayerSection(player: "Player", score: human.score)
+            
+            Spacer()
+            
+            getPlayerSection(player: "CPU", score: cpu.score)
+            
+            Spacer()
         }
     }
     
@@ -83,19 +97,15 @@ struct ContentView: View {
         let playerRand = Int.random(in: range)
         let cpuRand = Int.random(in: range)
         
-        playerCard = "card" + String(playerRand)
-        cpuCard = "card" + String(cpuRand)
+        human.card = "card" + String(playerRand)
+        cpu.card = "card" + String(cpuRand)
         
         if playerRand > cpuRand {
-            playerScore += 1
+            human.score += 1
         }
         
         if cpuRand > playerRand {
-            cpuScore += 1
-        }
-        
-        if cpuRand == playerRand {
-            
+            cpu.score += 1
         }
     }
 }
