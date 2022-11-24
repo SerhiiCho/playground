@@ -6,12 +6,7 @@ struct ContentView: View {
     
     var dealButton: some View {
         Button(action: handleDealButtonClick, label: {
-            Text("DEAL")
-                .padding(.vertical, 15)
-                .padding(.horizontal, 40)
-                .border(Color.white, width: 1.0)
-                .cornerRadius(10.0)
-                .foregroundColor(Color.white)
+            Image("dealbutton")
         })
     }
     
