@@ -14,7 +14,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E5952ED5292E54DD0092BEDE /* WarChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WarChallenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5952ED5292E54DD0092BEDE /* WarChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WarChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5952ED8292E54DD0092BEDE /* WarChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarChallengeApp.swift; sourceTree = "<group>"; };
 		E5952EDA292E54DD0092BEDE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E5952EDC292E54DD0092BEDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,8 +82,8 @@
 			);
 			dependencies = (
 			);
-			name = "WarChallenge";
-			productName = "WarChallenge";
+			name = WarChallenge;
+			productName = WarChallenge;
 			productReference = E5952ED5292E54DD0092BEDE /* WarChallenge.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -279,7 +279,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.serhii.WarChallenge";
+				PRODUCT_BUNDLE_IDENTIFIER = io.serhii.WarChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -307,7 +307,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.serhii.WarChallenge";
+				PRODUCT_BUNDLE_IDENTIFIER = io.serhii.WarChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
