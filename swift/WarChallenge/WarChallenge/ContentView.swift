@@ -24,7 +24,7 @@ struct ContentView: View {
                 Spacer()
                 
                 dealButton
-                
+
                 Spacer()
                 
                 pointsDashbard
