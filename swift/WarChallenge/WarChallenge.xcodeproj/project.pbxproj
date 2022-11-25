@@ -12,6 +12,11 @@
 		E5952EDB292E54DD0092BEDE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5952EDA292E54DD0092BEDE /* ContentView.swift */; };
 		E5952EDD292E54DD0092BEDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5952EDC292E54DD0092BEDE /* Assets.xcassets */; };
 		E5952EE0292E54DD0092BEDE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5952EDF292E54DD0092BEDE /* Preview Assets.xcassets */; };
+		E5D76F2529310E5200D55DE4 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D76F2429310E5200D55DE4 /* SoundManager.swift */; };
+		E5D76F282931107400D55DE4 /* flip-card.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E5D76F272931107400D55DE4 /* flip-card.mp3 */; };
+		E5D76F2A293111B300D55DE4 /* SoundOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D76F29293111B300D55DE4 /* SoundOption.swift */; };
+		E5D76F2E29311FDA00D55DE4 /* complete.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E5D76F2D29311FDA00D55DE4 /* complete.mp3 */; };
+		E5D76F302931214900D55DE4 /* HeaderText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D76F2F2931214900D55DE4 /* HeaderText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +26,11 @@
 		E5952EDA292E54DD0092BEDE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E5952EDC292E54DD0092BEDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5952EDF292E54DD0092BEDE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E5D76F2429310E5200D55DE4 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		E5D76F272931107400D55DE4 /* flip-card.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "flip-card.mp3"; sourceTree = "<group>"; };
+		E5D76F29293111B300D55DE4 /* SoundOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundOption.swift; sourceTree = "<group>"; };
+		E5D76F2D29311FDA00D55DE4 /* complete.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = complete.mp3; sourceTree = "<group>"; };
+		E5D76F2F2931214900D55DE4 /* HeaderText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +66,12 @@
 				E5952ED8292E54DD0092BEDE /* WarChallengeApp.swift */,
 				E5952EDA292E54DD0092BEDE /* ContentView.swift */,
 				E58B75C7292F9DF8008F7029 /* Player.swift */,
+				E5D76F2429310E5200D55DE4 /* SoundManager.swift */,
+				E5D76F29293111B300D55DE4 /* SoundOption.swift */,
+				E5D76F262931103300D55DE4 /* Sounds */,
 				E5952EDC292E54DD0092BEDE /* Assets.xcassets */,
 				E5952EDE292E54DD0092BEDE /* Preview Content */,
+				E5D76F2F2931214900D55DE4 /* HeaderText.swift */,
 			);
 			path = WarChallenge;
 			sourceTree = "<group>";
@@ -68,6 +82,15 @@
 				E5952EDF292E54DD0092BEDE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E5D76F262931103300D55DE4 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				E5D76F272931107400D55DE4 /* flip-card.mp3 */,
+				E5D76F2D29311FDA00D55DE4 /* complete.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,6 +153,8 @@
 			files = (
 				E5952EE0292E54DD0092BEDE /* Preview Assets.xcassets in Resources */,
 				E5952EDD292E54DD0092BEDE /* Assets.xcassets in Resources */,
+				E5D76F282931107400D55DE4 /* flip-card.mp3 in Resources */,
+				E5D76F2E29311FDA00D55DE4 /* complete.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,8 +166,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5952EDB292E54DD0092BEDE /* ContentView.swift in Sources */,
+				E5D76F2529310E5200D55DE4 /* SoundManager.swift in Sources */,
 				E58B75C8292F9DF8008F7029 /* Player.swift in Sources */,
+				E5D76F2A293111B300D55DE4 /* SoundOption.swift in Sources */,
 				E5952ED9292E54DD0092BEDE /* WarChallengeApp.swift in Sources */,
+				E5D76F302931214900D55DE4 /* HeaderText.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,13 +299,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WarChallenge/Preview Content\"";
+				DEVELOPMENT_TEAM = R948DJ32BN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "War Challenge";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -285,6 +314,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.serhii.WarChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -299,13 +331,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WarChallenge/Preview Content\"";
+				DEVELOPMENT_TEAM = R948DJ32BN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "War Challenge";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -313,6 +346,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.serhii.WarChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

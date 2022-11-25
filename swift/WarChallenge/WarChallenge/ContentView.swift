@@ -3,6 +3,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var human = Player(card: "back", score: 0)
     @State private var cpu = Player(card: "back", score: 0)
+    @State private var headerText: HeaderText = .welcome
     
     var dealButton: some View {
         Button(action: handleDealButtonClick, label: {
@@ -16,6 +17,13 @@ struct ContentView: View {
             
             VStack {
                 Image("logo")
+                
+                Spacer()
+                
+                Text(headerText.rawValue)
+                    .foregroundColor(.white)
+                    .font(.title)
+                    .fontWeight(.bold)
                 
                 Spacer()
                 
@@ -88,6 +96,8 @@ struct ContentView: View {
     }
     
     func handleDealButtonClick() -> Void {
+        SoundManager.instance.playSound(sound: .flip)
+        
         let range = 2...14
         let playerRand = Int.random(in: range)
         let cpuRand = Int.random(in: range)
@@ -97,10 +107,17 @@ struct ContentView: View {
         
         if playerRand > cpuRand {
             human.score += 1
+            headerText = .won
+            SoundManager.instance.playSound(sound: .complete)
         }
         
         if cpuRand > playerRand {
+            headerText = .lost
             cpu.score += 1
+        }
+        
+        if cpuRand == playerRand {
+            headerText = .draw
         }
     }
 }
