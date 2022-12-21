@@ -1,12 +1,13 @@
-const target = document.getElementById('target')
+const images = document.querySelectorAll('section img')
 
-const observer = new IntersectionObserver()
-observer.observe(target)
-
-function observerHandler(entries, observer) {
-    for (const entry of entries) {
-        if (entry.intersectionRatio > 0) {
-            console.log('appear')
+images.forEach(img => {
+    const observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+            if (entry.intersectionRatio > 0) {
+                img.src = img.dataset.src
+            }
         }
-    }
-}
+    })
+
+    observer.observe(img)
+})
