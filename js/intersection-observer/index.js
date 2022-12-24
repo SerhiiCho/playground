@@ -1,4 +1,6 @@
-const observer = new IntersectionObserver(observerHandler)
+const observer = new IntersectionObserver(observerHandler, {
+    threshold: .5,
+})
 
 function observerHandler(entries) {
     for (const entry of entries) {
