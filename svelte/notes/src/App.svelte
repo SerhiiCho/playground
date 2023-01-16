@@ -7,7 +7,7 @@
         { id: 1, checked: false, content: 'This is a first note'},
         { id: 2, checked: false, content: 'This is a second note'},
         { id: 3, checked: false, content: 'This is a third note'},
-        { id: 4, checked: false, content: 'This is a fourth note'},
+        { id: 4, checked: true, content: 'This is a fourth note'},
         { id: 5, checked: false, content: 'This is a fifth note'},
     ]
 
