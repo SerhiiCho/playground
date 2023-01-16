@@ -23,10 +23,6 @@
             },
         ]
     }
-
-    function deleteNote(e: CustomEvent): void {
-        notes = notes.filter((note) => note.id !== e.detail)
-    }
 </script>
 
 <main class="p-10 max-w-5xl">
@@ -35,6 +31,6 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-7">
         <CreateForm on:create={createNewNote} />
 
-        <Notes {notes} on:delete={deleteNote} />
+        <Notes {notes} />
     </div>
 </main>

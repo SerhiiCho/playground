@@ -1,14 +1,11 @@
 <script lang="ts">
     import type { Note as NoteType } from '../types'
     import Note from './Note.svelte'
-    import { createEventDispatcher } from 'svelte'
 
     export let notes: NoteType[]
 
-    const dispatch = createEventDispatcher()
-
     function deleteNote(e: CustomEvent): void {
-        dispatch('delete', e.detail)
+        notes = notes.filter((note) => note.id !== e.detail)
     }
 </script>
 

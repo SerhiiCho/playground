@@ -20,6 +20,7 @@
         type="checkbox"
         class="absolute bottom-1 right-1 h-5 w-5"
         checked={note.checked}
+        on:input={() => note.checked = !note.checked}
     />
 
     <button
