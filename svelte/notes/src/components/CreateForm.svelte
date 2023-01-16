@@ -3,17 +3,17 @@
 
     const dispatch = createEventDispatcher()
 
-    let note = ''
+    let text = ''
 
     function createNote(): void {
-        dispatch('create', note)
-        note = ''
+        dispatch('create', text)
+        text = ''
     }
 </script>
 
 <form on:submit|preventDefault={createNote} class="mt-5">
     <textarea
-        bind:value={note}
+        bind:value={text}
         class="w-full p-3 mb-3 border border-gray-300 rounded-md resize-none"
         placeholder="Start writing your note..."
     ></textarea>
