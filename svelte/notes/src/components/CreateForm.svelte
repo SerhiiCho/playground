@@ -6,6 +6,10 @@
     let text = ''
 
     function createNote(): void {
+        if (text === '') {
+            return
+        }
+
         dispatch('create', text)
         text = ''
     }
