@@ -3,11 +3,7 @@
     import Notes from './components/Notes.svelte'
     import CreateForm from './components/CreateForm.svelte'
 
-    let notes: Note[] = [
-        {id: 1, content: 'Note 1 some text is here', checked: false},
-        {id: 2, content: 'Note 2 some text is here', checked: false},
-        {id: 3, content: 'Note 3 some text is here', checked: false},
-    ]
+    let notes: Note[] = []
 
     $: notesAmount = notes.length
 
@@ -39,13 +35,13 @@
     }
 </script>
 
-<main class="p-10 max-w-5xl">
+<main class="p-10 max-w-6xl">
     <h3 class="text-4xl">
         {notesAmount > 0 ? notesAmount : 'No'}
         {notes.length === 1 ? 'note' : 'notes'}
     </h3>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-7">
+    <div class="flex gap-10">
         <CreateForm
             on:create={createNewNote}
             on:delete-selected={deleteCheckedNotes}

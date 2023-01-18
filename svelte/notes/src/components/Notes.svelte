@@ -19,7 +19,13 @@
     }
 </script>
 
-<div class="bg-gray-100 p-10 rounded-md min-h-[1000px] space-y-4">
+<div class="bg-gray-100 p-10 rounded-md min-h-[1000px] space-y-4 w-full">
+    {#if notes.length > 0}
+        <h3 class="text-gray-500 mb-7">
+            Tip: Double click on note to start editing
+        </h3>
+    {/if}
+
     {#each notes as note (note.id)}
         <Note {note} on:delete={deleteNote} on:save={saveNote} />
     {:else}

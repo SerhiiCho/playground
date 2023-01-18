@@ -8,7 +8,6 @@
 
     $: checkedNote = note.checked ? 'opacity-40' : ''
 
-    let editMode = false
     let newContent = note.content
 
     function deleteNote(): void {
@@ -26,15 +25,11 @@
 </script>
 
 <div class="bg-white p-3 pb-8 rounded-md shadow-md h-[120px] relative {checkedNote}">
-    {#if editMode}
-        <textarea
-            bind:value={newContent}
-            on:blur={saveNote}
-            class="w-full h-full resize-none"
-        ></textarea>
-    {:else}
-        <p on:dblclick={() => editMode = !editMode}>{note.content}</p>
-    {/if}
+    <textarea
+        bind:value={newContent}
+        on:blur={saveNote}
+        class="w-full h-full resize-none text-lg p-1"
+    ></textarea>
 
     <input
         type="checkbox"

@@ -16,7 +16,7 @@
     }
 </script>
 
-<form on:submit|preventDefault={createNote} class="mt-5">
+<form on:submit|preventDefault={createNote} class="mt-5 w-[800px]">
     <textarea
         bind:value={text}
         class="w-full p-3 mb-3 border border-gray-300 rounded-md resize-none"
