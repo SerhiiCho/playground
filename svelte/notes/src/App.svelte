@@ -23,13 +23,21 @@
             },
         ]
     }
+
+    function deleteCheckedNotes(): void {
+        if (!confirm('Are you sure you want to delete all selected notes?')) {
+            return
+        }
+
+        notes = notes.filter((note) => !note.checked)
+    }
 </script>
 
 <main class="p-10 max-w-5xl">
     <h3 class="text-4xl">Notes ({notesAmount})</h3>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-7">
-        <CreateForm on:create={createNewNote} />
+        <CreateForm on:create={createNewNote} on:delete-all={deleteCheckedNotes} />
 
         <Notes {notes} />
     </div>

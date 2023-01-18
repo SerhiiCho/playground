@@ -1,5 +1,6 @@
 <script lang="ts">
     import {createEventDispatcher} from 'svelte'
+    import FormButton from '../templates/FormButton.svelte'
 
     const dispatch = createEventDispatcher()
 
@@ -22,10 +23,17 @@
         placeholder="Start writing your note..."
     ></textarea>
 
-    <button
-        type=submit
-        class="w-full p-2 text-white bg-green-600 rounded-md hover:bg-green-700 transition-colors"
-    >
-        Create new note
-    </button>
+    <div class="space-y-2">
+        <FormButton type=submit color="bg-green-600 hover:bg-green-700">
+            Create new note
+        </FormButton>
+
+        <FormButton
+            on:clicked={() => dispatch('delete-all')}
+            type=button
+            color="bg-red-600 hover:bg-red-700"
+        >
+            Delete selected notes
+        </FormButton>
+    </div>
 </form>
