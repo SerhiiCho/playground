@@ -8,13 +8,33 @@
 
     $: checkedNote = note.checked ? 'opacity-40' : ''
 
+    let editMode = false
+    let newContent = note.content
+
     function deleteNote(): void {
         dispatch('delete', note.id)
     }
+
+    function saveNote(): void {
+        if (newContent === '') {
+            return
+        }
+
+        dispatch('save', { id: note.id, content: newContent })
+        editMode = !editMode
+    }
 </script>
 
-<div class="bg-white p-3 rounded-md shadow-md min-h-[100px] relative {checkedNote}">
-    <p>{note.content}</p>
+<div class="bg-white p-3 pb-8 rounded-md shadow-md h-[120px] relative {checkedNote}">
+    {#if editMode}
+        <textarea
+            bind:value={newContent}
+            on:blur={saveNote}
+            class="w-full h-full resize-none"
+        ></textarea>
+    {:else}
+        <p on:dblclick={() => editMode = !editMode}>{note.content}</p>
+    {/if}
 
     <input
         type="checkbox"
@@ -24,6 +44,7 @@
     />
 
     <button
+        type=button
         class="pointer absolute -right-1 -top-1 flex items-center justify-center bg-red-500 transition-colors hover:bg-red-600 w-6 h-6 text-white rounded-full shadow-md"
         on:click={deleteNote}
     >

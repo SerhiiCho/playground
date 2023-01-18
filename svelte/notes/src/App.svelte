@@ -3,7 +3,11 @@
     import Notes from './components/Notes.svelte'
     import CreateForm from './components/CreateForm.svelte'
 
-    let notes: Note[] = []
+    let notes: Note[] = [
+        {id: 1, content: 'Note 1 some text is here', checked: false},
+        {id: 2, content: 'Note 2 some text is here', checked: false},
+        {id: 3, content: 'Note 3 some text is here', checked: false},
+    ]
 
     $: notesAmount = notes.length
 
