@@ -3,13 +3,7 @@
     import Notes from './components/Notes.svelte'
     import CreateForm from './components/CreateForm.svelte'
 
-    let notes: Note[] = [
-        { id: 1, checked: false, content: 'This is a first note'},
-        { id: 2, checked: false, content: 'This is a second note'},
-        { id: 3, checked: false, content: 'This is a third note'},
-        { id: 4, checked: true, content: 'This is a fourth note'},
-        { id: 5, checked: false, content: 'This is a fifth note'},
-    ]
+    let notes: Note[] = []
 
     $: notesAmount = notes.length
 
@@ -31,13 +25,28 @@
 
         notes = notes.filter((note) => !note.checked)
     }
+
+    function deleteAll(): void {
+        if (!confirm('Are you sure you want to delete all notes?')) {
+            return
+        }
+
+        notes = []
+    }
 </script>
 
 <main class="p-10 max-w-5xl">
-    <h3 class="text-4xl">Notes ({notesAmount})</h3>
+    <h3 class="text-4xl">
+        {notesAmount > 0 ? notesAmount : 'No'}
+        {notes.length === 1 ? 'note' : 'notes'}
+    </h3>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-7">
-        <CreateForm on:create={createNewNote} on:delete-all={deleteCheckedNotes} />
+        <CreateForm
+            on:create={createNewNote}
+            on:delete-selected={deleteCheckedNotes}
+            on:delete-all={deleteAll}
+        />
 
         <Notes {notes} />
     </div>
