@@ -20,7 +20,6 @@
         }
 
         dispatch('save', { id: note.id, content: newContent })
-        editMode = !editMode
     }
 </script>
 
