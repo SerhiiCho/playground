@@ -10,4 +10,3 @@ class Animal:
             f'Then name of the dog is: {self.name}',
             'Something else is here'
         ]
-
