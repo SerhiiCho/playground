@@ -19,7 +19,10 @@
             return
         }
 
-        dispatch('save', { id: note.id, content: newContent })
+        dispatch('save', {
+            id: note.id,
+            content: newContent,
+        })
     }
 </script>
 
