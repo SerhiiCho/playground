@@ -18,11 +18,7 @@ const { notes } = defineProps<Props>()
 
 <template>
     <div class="bg-gray-100 p-10 rounded-md min-h-[1000px] space-y-4 w-full">
-        <h3 v-if="notes.length > 0" class="text-gray-500 mb-7">
-            Tip: Double click on note to start editing
-        </h3>
-
-        <p v-else class="text-center text-2xl">No notes yet</p>
+        <p v-if="notes.length === 0" class="text-center text-2xl">No notes yet</p>
 
         <Note
             v-for="note in notes"
