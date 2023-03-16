@@ -1,8 +1,8 @@
-<script setup lang="ts">
+<script setup>
 import { onMounted, ref } from 'vue'
 import AppearTransition from './Transitions/AppearTransition.vue'
 
-const rootElement = ref<Element | null>(null)
+const rootElement = ref(null)
 const renderComponent = ref(false)
 
 onMounted(() => {
@@ -11,7 +11,7 @@ onMounted(() => {
     }
 })
 
-function createIntersectionObserver(): IntersectionObserver {
+function createIntersectionObserver() {
     return new IntersectionObserver(entries => {
         for (const entry of entries) {
             if (entry.isIntersecting) {
