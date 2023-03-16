@@ -24,8 +24,8 @@ function createIntersectionObserver(): IntersectionObserver {
 
 <template>
     <div ref="rootElement">
-        <appear-transition>
+        <AppearTransition>
             <slot v-if="renderComponent" />
-        </appear-transition>
+        </AppearTransition>
     </div>
 </template>

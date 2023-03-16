@@ -4,17 +4,19 @@
     </transition>
 </template>
 
-<style lang="sass" scoped>
-.smooth-appear
-    &-enter-active,
-    &-leave-active
-        transition: opacity .4s ease
+<style scoped>
+.smooth-appear-enter-active,
+.smooth-appear-leave-active {
+    transition: opacity .4s ease;
+}
 
-    &-enter-from,
-    &-leave-to
-        opacity: 0
+.smooth-appear-enter-from,
+.smooth-appear-leave-to {
+    opacity: 0;
+}
 
-    &-enter-to,
-    &-leave-from
-        opacity: 1
+.smooth-appear-enter-to,
+.smooth-appear-leave-from {
+    opacity: 1;
+}
 </style>
