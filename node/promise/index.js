@@ -16,3 +16,6 @@ nice()
     .catch(err => hello())
 
 console.log('This will be first')
+
+let myName = 'Serhii'
+let upperName = myName.toUpperCase()
