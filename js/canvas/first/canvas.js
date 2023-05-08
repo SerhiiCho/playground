@@ -32,8 +32,12 @@ class FlowFieldEffect {
      */
     constructor(ctx, width, height) {
         this.#ctx = ctx
+        this.#ctx.strokeStyle = 'white'
         this.#width = width
         this.#height = height
+
+        this.x = 0
+        this.y = 0
     }
 
     /**
@@ -61,9 +65,11 @@ class FlowFieldEffect {
     }
 
     animate() {
-        this.#ctx.strokeStyle = 'white'
+        this.#ctx.clearRect(0, 0, this.#width, this.#height)
+        this.#draw(this.x, this.y)
+        this.x += 1
+        this.y += .5
 
-        this.#draw(150, 150)
-        this.#draw(300, 300)
+        requestAnimationFrame(this.animate.bind(this))
     }
 }
