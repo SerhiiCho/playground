@@ -3,10 +3,11 @@
 ## Tips
 
 - We don't wont to use global variables inside classes;
+- JavaScript has private properties and methods. We can use them with `#property`
+and `#method` syntax;
 
 ## Memorize
 
-###  Incapsulation
-Incapsulating is the bundling data and methods that act on that data in a way
-that access to the data is restricted from outside the bundle, and only the
-methods inside the bundle can access it.
+- Encapsulating is the process of hiding the internal details of an object from the
+rest of the application. It is a way of protecting the data stored in an object
+from being modified by accident.
