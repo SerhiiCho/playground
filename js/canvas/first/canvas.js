@@ -6,6 +6,7 @@ window.onload = () => {
     canvas.height = window.innerHeight
 
     const flowField = new FlowFieldEffect(ctx, canvas.width, canvas.height)
+    flowField.animate()
 }
 
 class FlowFieldEffect {
@@ -44,10 +45,25 @@ class FlowFieldEffect {
      * @returns {void}
      */
     #draw(x, y) {
+        const lineLength = 100
+
         // We want to start drawing a new path
         this.#ctx.beginPath()
 
-        // Tell the context that we want to start drawing at this point
+        // We want to start drawing at this point
         this.#ctx.moveTo(x, y)
+
+        // We want to draw a line to this point
+        this.#ctx.lineTo(x + lineLength, y + lineLength)
+
+        // Draw the line
+        this.#ctx.stroke()
+    }
+
+    animate() {
+        this.#ctx.strokeStyle = 'white'
+
+        this.#draw(150, 150)
+        this.#draw(300, 300)
     }
 }

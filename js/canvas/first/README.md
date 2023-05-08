@@ -1,8 +1,6 @@
-# Learning Canvas and Improving JavaScript
+# Learning Canvas and improving OOP skills
 
-## Canvas tips
-
-## Other tips
+## Tips
 
 - We don't wont to use global variables inside classes;
 - JavaScript has private properties and methods. We can use them with `#property`
