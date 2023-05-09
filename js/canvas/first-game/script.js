@@ -9,18 +9,18 @@ const images = {}
 images.player = new Image()
 images.player.src = 'assets/character.png'
 
-const actions = ['up', 'right', 'jump', 'down right']
+const actions = ['up', 'right', 'jump', 'down right', 'up right', 'down']
 const numberOfCharacters = 10
 
 class Character {
-    constructor() {
+    constructor(action) {
         this.width = 103.0625
         this.height = 113.125
         this.frameX = 3
         this.x = Math.random() * (canvas.width - this.width)
         this.y = Math.random() * (canvas.height - this.height)
-        this.speed = (Math.random() * 5) + 1.5
-        this.action = actions[Math.floor(Math.random() * actions.length)]
+        this.speed = (Math.random() * 5) + 3
+        this.action = action
 
         if (this.action === 'right') {
             this.frameY = 3
@@ -38,6 +38,14 @@ class Character {
             this.frameY = 4
             this.minFrame = 4
             this.maxFrame = 15
+        } else if (this.action === 'up right') {
+            this.frameY = 1
+            this.minFrame = 3
+            this.maxFrame = 14
+        } else if (this.action === 'down') {
+            this.frameY = 6
+            this.minFrame = 0
+            this.maxFrame = 12
         }
     }
 
@@ -61,6 +69,10 @@ class Character {
             this.#runUp()
         } else if (this.action === 'down right') {
             this.#runDownRight()
+        } else if (this.action === 'up right') {
+            this.#runUpRight()
+        } else if (this.action === 'down') {
+            this.#runDown()
         }
     }
 
@@ -82,6 +94,15 @@ class Character {
         }
     }
 
+    #runDown() {
+        if (this.y < canvas.height + this.height) {
+            this.y += this.speed
+        } else {
+            this.y = 0 - this.height
+            this.x = Math.random() * (canvas.width - this.width)
+        }
+    }
+
     #runDownRight() {
         if (this.y > canvas.height + this.height && this.x > this.width + canvas.width) {
             this.x = 0 - this.height
@@ -91,13 +112,23 @@ class Character {
             this.y += this.speed
         }
     }
+
+    #runUpRight() {
+        if (this.y < 0 - this.height && this.x > this.width + canvas.width) {
+            this.x = 0 - this.height
+            this.y = Math.random() * (canvas.width / 2)
+        } else {
+            this.x += this.speed
+            this.y -= this.speed
+        }
+    }
 }
 
 const characters = []
 
-for (let i = 0; i < numberOfCharacters; i++) {
-    characters.push(new Character())
-}
+actions.forEach(action => {
+    characters.push(new Character(action))
+})
 
 /**
  * @param {Image} img
