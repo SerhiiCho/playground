@@ -1,5 +1,10 @@
 # Learning Canvas and improving OOP skills
 
+## Canvas context
+
+- `strokeStyle` - changes the color of the stroke;
+- `strokeWidth` - changes the width of the stroke;
+
 ## Tips
 
 - We don't wont to use global variables inside classes;
@@ -17,3 +22,6 @@ draw it again. It creates an illusion of motion.
 frame will be visible. You do it by calling `clearRect(0, 0, width, height)` method in the beginning of the
 function that draws a frame. `0, 0` is the top left corner of the canvas, `width` and `height` are the width and height of the entire canvas.
 - `cancelAnimationFrame()` function is used to stop the animation. It takes the ID of the animation frame as an argument.
+- `Math.sin()` returns a value between -1 and 1. Use it for wave-like motion. If you pass ever increasing value to it, it will return
+a value that oscillates between -1 and 1. Like going up and down. It starts at 0 and goes up to 1, then down to -1, then up to 1 again.
+- `Math.cos()` does the same thing as `Math.sin()`, but it starts at 1 and goes down to -1. Multiply this value by the radius of the circle, for example 100, and you will get a circle.
