@@ -13,6 +13,10 @@ export default class PlayScene extends Phaser.Scene {
         })
     }
 
+    preload(): void {
+        //
+    }
+
     create(): void {
         //
     }
