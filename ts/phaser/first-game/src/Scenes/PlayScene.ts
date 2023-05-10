@@ -4,15 +4,15 @@ import imagePlayer from '../assets/player.png'
 import imageEnemy from '../assets/enemy.png'
 
 export default class PlayScene extends Phaser.Scene {
+    #player: Phaser.GameObjects.Sprite | undefined
+    #enemy1: Phaser.GameObjects.Sprite | undefined
+    #canvasWidth: number = 0
+    #canvasHeight: number = 0
+    #playerSpeed: number = 10
+
     constructor() {
         super({
             key: 'play',
-            physics: {
-                arcade: {
-                    gravity: { y: 300 },
-                    debug: false
-                }
-            }
         })
     }
 
@@ -20,27 +20,49 @@ export default class PlayScene extends Phaser.Scene {
         this.load.image('background', imageBackground)
         this.load.image('player', imagePlayer)
         this.load.image('enemy', imageEnemy)
+
+        this.#canvasWidth = Number(this.sys.game.config.width)
+        this.#canvasHeight = Number(this.sys.game.config.height)
     }
 
     create(): void {
-        const canvasWidth = Number(this.sys.game.config.width)
-        const canvasHeight = Number(this.sys.game.config.height)
-
         this.add.sprite(0, 0, 'background')
-            .setPosition(canvasWidth / 2, canvasHeight / 2)
+            .setPosition(this.#canvasWidth / 2, this.#canvasHeight / 2)
 
-        this.add.sprite(0, 0, 'player')
-            .setPosition(45, canvasHeight / 2)
-
-        this.#createEnemies(canvasWidth, canvasHeight)
+        this.#createPlayer()
+        this.#createEnemies()
     }
 
     update(): void {
         //
     }
 
-    #createEnemies(canvasWidth: number, canvasHeight: number): void {
-        this.add.sprite(canvasWidth - 90, canvasHeight / 2, 'enemy')
-        this.add.sprite(canvasWidth - 200, canvasHeight / 2, 'enemy')
+    #createPlayer(): void {
+        this.#player = this.add.sprite(0, 0, 'player')
+        this.#player.setPosition(45, this.#canvasHeight / 2)
+        this.#player.setInteractive()
+        this.#handlePlayerMovement()
+    }
+
+    #handlePlayerMovement(): void {
+        this.input.keyboard!.on('keydown-D', e => {
+            this.#player!.x += this.#playerSpeed
+        })
+
+        this.input.keyboard!.on('keydown-A', e => {
+            this.#player!.x -= this.#playerSpeed
+        })
+
+        this.input.keyboard!.on('keydown-S', e => {
+            this.#player!.y += this.#playerSpeed
+        })
+
+        this.input.keyboard!.on('keydown-W', e => {
+            this.#player!.y -= this.#playerSpeed
+        })
+    }
+
+    #createEnemies(): void {
+        this.#enemy1 = this.add.sprite(this.#canvasWidth - 90, this.#canvasHeight / 2, 'enemy')
     }
 }
