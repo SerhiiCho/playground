@@ -3,8 +3,8 @@ import PlayScene from './Scenes/PlayScene'
 
 export default {
     type: Phaser.AUTO,
-    width: 800,
-    height: 400,
+    width: 640,
+    height: 360,
     title: 'First game',
     scene: [PlayScene]
 }
