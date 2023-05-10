@@ -1,8 +1,10 @@
 const canvas = document.getElementById('canvas')
 const ctx = canvas.getContext('2d')
 
-canvas.width = window.innerWidth
-canvas.height = window.innerHeight
+canvas.width = 1024
+canvas.height = 576
+
+const gravity = .5
 
 const playerImages = {
     attack: {
@@ -37,97 +39,169 @@ function createImage(src) {
     return image
 }
 
-class Player {
-    constructor() {
-        this.width = 130
-        this.height = 105
-        this.frame = 0
-        this.maxFrame = 6
-        this.x = 0
-        this.y = 0
-        this.speed = 10
+class Position {
+    /**
+     * @param {{x: number, y: number}} params
+     */
+    constructor(params) {
+        this.x = params.x
+        this.y = params.y
+    }
+}
 
-        /**
-         * @type {'attack' | 'die' | 'idle-blink' | 'spell' | 'walk' }
-         */
-        this.animation = 'idle'
+class Velocity {
+    /**
+     * @param {{ x: number, y: number, speed: number}} params
+     */
+    constructor(params) {
+        this.x = params.x
+        this.y = params.y
+        this.speed = params.speed
+    }
+}
 
-        /**
-         * @type {'left' | 'right'}
-         */
-        this.direction = 'left'
+class Dimension {
+    /**
+     * @param {{ width: number, height: number }} params
+     */
+    constructor(params) {
+        this.width = params.width
+        this.height = params.height
+    }
+}
 
-        this.#animate()
+class Sprite {
+    /**
+     * @param {{ imageSrc: string, position: Position }} params
+     */
+    constructor(params) {
+        this.image = new Image()
+        this.image.src = params.imageSrc
+        this.position = params.position
     }
 
-    draw() {
-        this.maxFrame = playerImages[this.animation].frames
-
-        if (this.frame < this.maxFrame) {
-            this.frame++
-        } else {
-            this.frame = 0
+    #draw() {
+        if (!this.image.complete) {
+            return
         }
 
-        const sX = this.frame * this.width
-
-        ctx.drawImage(playerImages[this.animation].img, sX, 0, this.width, this.height, this.x, this.y, this.width, this.height)
+        ctx.drawImage(this.image, this.position.x, this.position.y)
     }
 
     update() {
-        if (this.animation === 'walk') {
-            if (this.direction === 'right') {
-                this.x += this.speed
-            } else if (this.direction === 'left') {
-                this.x -= this.speed
-            }
-        }
-
-        // if (this.animation === 'idle') {
-        // } else if (this.animation === 'walk') {
-        //     this.maxFrame = 7
-
-        //     if (this.direction === 'right') {
-        //         this.x += this.speed
-        //     } else if (this.direction === 'left') {
-        //         this.x -= this.speed
-        //     }
-        // }
-    }
-
-    #animate() {
-        window.addEventListener('keydown', e => {
-            if (e.key === 'ArrowRight') {
-                this.frame = 0
-                this.animation = 'walk'
-                this.direction = 'right'
-            } else if (e.key === 'ArrowLeft') {
-                this.frame = 0
-                this.animation = 'walk'
-                this.direction = 'left'
-            }
-        })
-
-        window.addEventListener('keyup', e => {
-            this.frame = 0
-            this.frameY = 0
-            this.animation = 'idle'
-        })
+        this.#draw()
     }
 }
 
-const player = new Player()
+class Player {
+    /**
+     *
+     * @param {Position} position
+     * @param {Velocity} velocity
+     * @param {Dimension} dimension
+     */
+    constructor(position, velocity, dimension) {
+        this.position = position
+        this.velocity = velocity
+        this.dimension = dimension
+    }
+
+    #draw() {
+        ctx.drawImage(
+            playerImages.idle.img,
+            0,
+            0,
+            this.dimension.width,
+            this.dimension.height,
+            this.position.x,
+            this.position.y,
+            this.dimension.width,
+            this.dimension.height,
+        )
+    }
+
+    update() {
+        this.#draw()
+
+        this.position.x += this.velocity.x
+        this.position.y += this.velocity.y
+
+        if (this.#isAboveTheGround()) {
+            this.velocity.y += gravity
+        } else {
+            this.velocity.y = 0
+        }
+    }
+
+    #isAboveTheGround() {
+        return (this.position.y + this.dimension.height + this.velocity.y) < canvas.height
+    }
+}
+
+const player = new Player(
+    new Position({ x: 100, y: 100 }),
+    new Velocity({ x: 0, y: 1, speed: 3 }),
+    new Dimension({ width: 130, height: 105 }),
+)
+
+const background = new Sprite({
+    imageSrc: '/assets/background.png',
+    position: new Position({ x: 0, y: 0 }),
+})
+
+const scaledCanvas = new Dimension({
+    width: canvas.width / 4,
+    height: canvas.height / 4,
+})
 
 function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    ctx.fillStyle = 'gray'
+    ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-    player.draw()
+    ctx.save()
+    ctx.scale(4, 4)
+    ctx.translate(0, -background.image.height + scaledCanvas.height)
+    background.update()
+    ctx.restore()
+
     player.update()
+
+    player.velocity.x = 0
+
+    if (keys.ArrowRight.pressed) {
+        player.velocity.x = player.velocity.speed
+    } else if (keys.ArrowLeft.pressed) {
+        player.velocity.x = -player.velocity.speed
+    }
+
+    window.requestAnimationFrame(animate)
 }
 
-window.onload = setInterval(animate, 1000 / 30)
+window.onload = animate
 
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth
-    canvas.height = window.innerHeight
+const keys = {
+    ArrowRight: {
+        pressed: false,
+    },
+    ArrowLeft: {
+        pressed: false,
+    },
+}
+
+window.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') {
+        keys.ArrowRight.pressed = true
+    } else if (e.key === 'ArrowLeft') {
+        keys.ArrowLeft.pressed = true
+    } else if (e.key === 'ArrowUp' && player.velocity.y === 0) {
+        player.velocity.y = -15
+    }
+})
+
+window.addEventListener('keyup', e => {
+    if (e.key === 'ArrowRight') {
+        keys.ArrowRight.pressed = false
+    } else if (e.key === 'ArrowLeft') {
+        keys.ArrowLeft.pressed = false
+    }
 })
