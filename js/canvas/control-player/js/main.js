@@ -6,33 +6,6 @@ canvas.height = 576
 
 const gravity = .5
 
-const playerImages = {
-    attack: {
-        img: createImage('assets/player/attack.png'),
-        frames: 11,
-    },
-    die: {
-        img: createImage('assets/player/die.png'),
-        frames: 14,
-    },
-    idleBlink: {
-        img: createImage('assets/player/idle-blink.png'),
-        frames: 11,
-    },
-    idle: {
-        img: createImage('assets/player/idle.png'),
-        frames: 11,
-    },
-    spell: {
-        img: createImage('assets/player/spell.png'),
-        frames: 17,
-    },
-    walk: {
-        img: createImage('assets/player/walk.png'),
-        frames: 11,
-    },
-}
-
 function createImage(src) {
     const image = new Image()
     image.src = src
