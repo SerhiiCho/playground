@@ -6,10 +6,11 @@ class Player extends Sprite {
      *     floorCollisionMap: CollisionBlock[],
      *     imageSrc: string,
      *     frameRate: number | undefined,
+     *     scale: number | undefined,
      * }} params
      */
-    constructor({ position, velocity, floorCollisionMap, imageSrc, frameRate }) {
-        super({ imageSrc, position, frameRate })
+    constructor({ position, velocity, floorCollisionMap, imageSrc, frameRate, scale = .5 }) {
+        super({ imageSrc, position, frameRate, scale })
         this.position = position
         this.velocity = velocity
         this.floorCollisionMap = floorCollisionMap

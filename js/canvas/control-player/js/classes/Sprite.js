@@ -3,21 +3,23 @@ class Sprite {
      * @param {{
      *     imageSrc: string,
      *     position: Position,
-     *     frameRate: number,
+     *     frameRate: number | undefined,
+     *     frameBuffer: number | undefined,
      * }} params
      */
-    constructor({ imageSrc, position, frameRate = 1 }) {
+    constructor({ imageSrc, position, frameRate = 1, frameBuffer = 3, scale = 1 }) {
         this.image = new Image()
         this.image.src = imageSrc
         this.image.onload = () => {
-            this.width = this.image.width / frameRate
-            this.height = this.image.height
+            this.width = (this.image.width / frameRate) * scale
+            this.height = this.image.height * scale
         }
 
+        this.scale = scale
         this.position = position
         this.frameRate = frameRate
+        this.frameBuffer = frameBuffer
         this.currentFrame = 0
-        this.frameBuffer = 4
         this.elapsedFrames = 0
     }
 
