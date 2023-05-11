@@ -5,9 +5,9 @@
  */
 function collision(player, block) {
     const playerSides = {
-        bottom: player.position.y + player.dimension.height,
+        bottom: player.position.y + player.height,
         top: player.position.y,
-        right: player.position.x + player.dimension.width,
+        right: player.position.x + player.width,
         left: player.position.x,
     }
 

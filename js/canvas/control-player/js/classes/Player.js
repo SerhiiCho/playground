@@ -1,25 +1,23 @@
-class Player {
+class Player extends Sprite {
     /**
-     *
-     * @param {Position} position
-     * @param {Velocity} velocity
-     * @param {Dimension} dimension
-     * @param {CollisionBlock[]} floorCollisionMap
+     * @param {{
+     *     position: Position,
+     *     velocity: Velocity,
+     *     floorCollisionMap: CollisionBlock[],
+     *     imageSrc: string,
+     *     frameRate: number | undefined,
+     * }} params
      */
-    constructor(position, velocity, dimension, floorCollisionMap) {
+    constructor({ position, velocity, floorCollisionMap, imageSrc, frameRate }) {
+        super({ imageSrc, position, frameRate })
         this.position = position
         this.velocity = velocity
-        this.dimension = dimension
         this.floorCollisionMap = floorCollisionMap
     }
 
-    #draw() {
-        ctx.fillStyle = 'red'
-        ctx.fillRect(this.position.x, this.position.y, this.dimension.width, this.dimension.height)
-    }
-
     update() {
-        this.#draw()
+        this.draw()
+        this.updateFrames()
 
         this.position.x += this.velocity.x
 
@@ -38,7 +36,7 @@ class Player {
             if (collision(this, block)) {
                 if (this.velocity.y > 0) {
                     this.velocity.y = 0
-                    this.position.y = block.position.y - this.dimension.height - 0.01
+                    this.position.y = block.position.y - this.height - 0.01
                     break
                 }
 
@@ -56,7 +54,7 @@ class Player {
             if (collision(this, block)) {
                 if (this.velocity.x > 0) {
                     this.velocity.x = 0
-                    this.position.x = block.position.x - this.dimension.width - 0.01
+                    this.position.x = block.position.x - this.width - 0.01
                     break
                 }
 

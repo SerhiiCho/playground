@@ -42,12 +42,13 @@ collisions.platforms.forEach((row, y) => {
     })
 })
 
-const player = new Player(
-    new Position({ x: 90, y: 0 }),
-    new Velocity({ x: 0, y: 0, speed: 2 }),
-    new Dimension({ width: 25, height: 25 }),
+const player = new Player({
+    position: new Position({ x: 90, y: 0 }),
+    velocity: new Velocity({ x: 0, y: 0, speed: 2 }),
     floorCollisionMap,
-)
+    imageSrc: '/assets/warrior/idle.png',
+    frameRate: 8,
+})
 
 const background = new Sprite({
     imageSrc: '/assets/background.png',
