@@ -14,33 +14,58 @@ class Player {
     }
 
     #draw() {
-        ctx.drawImage(
-            playerImages.idle.img,
-            0,
-            0,
-            this.dimension.width,
-            this.dimension.height,
-            this.position.x,
-            this.position.y,
-            this.dimension.width,
-            this.dimension.height,
-        )
+        ctx.fillStyle = 'red'
+        ctx.fillRect(this.position.x, this.position.y, this.dimension.width, this.dimension.height)
     }
 
     update() {
         this.#draw()
 
         this.position.x += this.velocity.x
-        this.position.y += this.velocity.y
 
-        if (this.#isAboveTheGround()) {
-            this.velocity.y += gravity
-        } else {
-            this.velocity.y = 0
+        this.#checkForHorizontalCollision()
+        this.#applyGravity()
+        this.#checkForVerticalCollision()
+    }
+
+    #applyGravity() {
+        this.position.y += this.velocity.y
+        this.velocity.y += gravity
+    }
+
+    #checkForVerticalCollision() {
+        for (const block of this.floorCollisionMap) {
+            if (collision(this, block)) {
+                if (this.velocity.y > 0) {
+                    this.velocity.y = 0
+                    this.position.y = block.position.y - this.dimension.height - 0.01
+                    break
+                }
+
+                if (this.velocity.y < 0) {
+                    this.velocity.y = 0
+                    this.position.y = block.position.y + block.height + 0.01
+                    break
+                }
+            }
         }
     }
 
-    #isAboveTheGround() {
-        return this.position.y + this.dimension.height < canvas.height
+    #checkForHorizontalCollision() {
+        for (const block of this.floorCollisionMap) {
+            if (collision(this, block)) {
+                if (this.velocity.x > 0) {
+                    this.velocity.x = 0
+                    this.position.x = block.position.x - this.dimension.width - 0.01
+                    break
+                }
+
+                if (this.velocity.x < 0) {
+                    this.velocity.x = 0
+                    this.position.x = block.position.x + block.width + 0.01
+                    break
+                }
+            }
+        }
     }
 }

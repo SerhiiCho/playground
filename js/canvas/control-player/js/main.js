@@ -70,9 +70,9 @@ collisions.platforms.forEach((row, y) => {
 })
 
 const player = new Player(
-    new Position({ x: 500, y: 0 }),
-    new Velocity({ x: 0, y: 0, speed: 3 }),
-    new Dimension({ width: 130, height: 105 }),
+    new Position({ x: 90, y: 0 }),
+    new Velocity({ x: 0, y: 0, speed: 2 }),
+    new Dimension({ width: 25, height: 25 }),
     floorCollisionMap,
 )
 
@@ -100,8 +100,6 @@ function animate() {
     floorCollisionMap.forEach(block => block.update())
     platformCollisionMap.forEach(block => block.update())
 
-    ctx.restore()
-
     player.update()
 
     player.velocity.x = 0
@@ -111,6 +109,8 @@ function animate() {
     } else if (keys.ArrowLeft.pressed) {
         player.velocity.x = -player.velocity.speed
     }
+
+    ctx.restore()
 
     window.requestAnimationFrame(animate)
 }
@@ -131,8 +131,8 @@ window.addEventListener('keydown', e => {
         keys.ArrowRight.pressed = true
     } else if (e.key === 'ArrowLeft') {
         keys.ArrowLeft.pressed = true
-    } else if (e.key === 'ArrowUp' && player.velocity.y === 0) {
-        player.velocity.y = -15
+    } else if (e.key === 'ArrowUp') {
+        player.velocity.y = -8
     }
 })
 
