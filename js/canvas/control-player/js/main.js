@@ -39,109 +39,41 @@ function createImage(src) {
     return image
 }
 
-class Position {
-    /**
-     * @param {{x: number, y: number}} params
-     */
-    constructor(params) {
-        this.x = params.x
-        this.y = params.y
-    }
-}
+const floorCollisionMap = []
 
-class Velocity {
-    /**
-     * @param {{ x: number, y: number, speed: number}} params
-     */
-    constructor(params) {
-        this.x = params.x
-        this.y = params.y
-        this.speed = params.speed
-    }
-}
-
-class Dimension {
-    /**
-     * @param {{ width: number, height: number }} params
-     */
-    constructor(params) {
-        this.width = params.width
-        this.height = params.height
-    }
-}
-
-class Sprite {
-    /**
-     * @param {{ imageSrc: string, position: Position }} params
-     */
-    constructor(params) {
-        this.image = new Image()
-        this.image.src = params.imageSrc
-        this.position = params.position
-    }
-
-    #draw() {
-        if (!this.image.complete) {
-            return
+collisions.floor.forEach((row, y) => {
+    row.forEach((symbol, x) => {
+        if (symbol === 202) {
+            floorCollisionMap.push(new CollisionBlock(
+                new Position({
+                    x: x * 16,
+                    y: y * 16,
+                }),
+            ))
         }
+    })
+})
 
-        ctx.drawImage(this.image, this.position.x, this.position.y)
-    }
+const platformCollisionMap = []
 
-    update() {
-        this.#draw()
-    }
-}
-
-class Player {
-    /**
-     *
-     * @param {Position} position
-     * @param {Velocity} velocity
-     * @param {Dimension} dimension
-     */
-    constructor(position, velocity, dimension) {
-        this.position = position
-        this.velocity = velocity
-        this.dimension = dimension
-    }
-
-    #draw() {
-        ctx.drawImage(
-            playerImages.idle.img,
-            0,
-            0,
-            this.dimension.width,
-            this.dimension.height,
-            this.position.x,
-            this.position.y,
-            this.dimension.width,
-            this.dimension.height,
-        )
-    }
-
-    update() {
-        this.#draw()
-
-        this.position.x += this.velocity.x
-        this.position.y += this.velocity.y
-
-        if (this.#isAboveTheGround()) {
-            this.velocity.y += gravity
-        } else {
-            this.velocity.y = 0
+collisions.platforms.forEach((row, y) => {
+    row.forEach((symbol, x) => {
+        if (symbol === 202) {
+            platformCollisionMap.push(new CollisionBlock(
+                new Position({
+                    x: x * 16,
+                    y: y * 16,
+                }),
+            ))
         }
-    }
-
-    #isAboveTheGround() {
-        return (this.position.y + this.dimension.height + this.velocity.y) < canvas.height
-    }
-}
+    })
+})
 
 const player = new Player(
-    new Position({ x: 100, y: 100 }),
-    new Velocity({ x: 0, y: 1, speed: 3 }),
+    new Position({ x: 500, y: 0 }),
+    new Velocity({ x: 0, y: 0, speed: 3 }),
     new Dimension({ width: 130, height: 105 }),
+    floorCollisionMap,
 )
 
 const background = new Sprite({
@@ -159,9 +91,15 @@ function animate() {
     ctx.fillRect(0, 0, canvas.width, canvas.height)
 
     ctx.save()
+
     ctx.scale(4, 4)
     ctx.translate(0, -background.image.height + scaledCanvas.height)
+
     background.update()
+
+    floorCollisionMap.forEach(block => block.update())
+    platformCollisionMap.forEach(block => block.update())
+
     ctx.restore()
 
     player.update()
