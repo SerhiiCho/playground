@@ -4,6 +4,7 @@ import imageBackground from '@/assets/start.jpg'
 import startGameImage from '@/assets/start-game-button.png'
 import startGameImageHover from '@/assets/start-game-button-hover.png'
 import startMusic from '@/assets/audio/menu.mp3'
+import buttonClick from '@/assets/audio/button-click.mp3'
 import mainTitle from '@/assets/title.png'
 import StartButton from '@/Models/Button'
 import MainTitle from '@/Models/MainTitle'
@@ -19,36 +20,37 @@ export default class StartScene extends Phaser.Scene {
     }
 
     public preload(): void {
-        this.load.image('start-background', imageBackground)
-        this.load.image('start-game', startGameImage)
-        this.load.image('start-game-hover', startGameImageHover)
-        this.load.image('main-title', mainTitle)
-        this.load.audio('start-music', startMusic)
+        this.load.image('startBackground', imageBackground)
+        this.load.image('startGame', startGameImage)
+        this.load.image('startGameHover', startGameImageHover)
+        this.load.image('mainTitle', mainTitle)
+        this.load.audio('startMusic', startMusic)
+        this.load.audio('buttonClick', buttonClick)
 
         this.canvasWidth = Number(this.sys.game.config.width)
         this.canvasHeight = Number(this.sys.game.config.height)
     }
 
     public create(): void {
-        this.add.sprite(0, 0, 'start-background')
+        this.add.sprite(0, 0, 'startBackground')
             .setPosition(this.canvasWidth / 2, this.canvasHeight / 2)
 
-        this.sound.play('start-music', {
-            loop: true,
-        })
+        this.sound.play('startMusic', { loop: true })
 
-        this.mainTitle = new MainTitle(this.add.sprite(0, 0, 'main-title'))
+        this.mainTitle = new MainTitle(this.add.sprite(0, 0, 'mainTitle'))
         this.mainTitle.create()
 
         this.startButton = new StartButton(
-            this.drawButton('start-game'),
-            this.drawButton('start-game-hover'),
+            this.drawButton('startGame'),
+            this.drawButton('startGameHover'),
         )
 
         this.startButton.create()
 
         this.startButton.handleButtonClick(() => {
             this.scene.start(sceneConfig.play.key)
+            this.sound.play('buttonClick')
+            this.sound.stopByKey('startMusic')
         })
     }
 

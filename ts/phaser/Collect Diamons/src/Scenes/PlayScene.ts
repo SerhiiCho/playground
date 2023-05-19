@@ -4,6 +4,7 @@ import { sceneConfig } from '@/config'
 import imageBackground from '@/assets/background.png'
 import imagePlayer from '@/assets/player.png'
 import imageEnemy from '@/assets/enemy.png'
+import actionMusic from '@/assets/audio/action.mp3'
 import Player from '@/Models/Player'
 import Enemy from '@/Models/Enemy'
 import Position from '@/Models/Position'
@@ -20,17 +21,20 @@ export default class PlayScene extends Phaser.Scene {
     }
 
     public preload(): void {
-        this.load.image('play-background', imageBackground)
+        this.load.image('playBackground', imageBackground)
         this.load.image('player', imagePlayer)
         this.load.image('enemy', imageEnemy)
+        this.load.audio('actionMusic', actionMusic)
 
         this.canvasWidth = Number(this.sys.game.config.width)
         this.canvasHeight = Number(this.sys.game.config.height)
     }
 
     public create(): void {
-        this.add.sprite(0, 0, 'play-background')
+        this.add.sprite(0, 0, 'playBackground')
             .setPosition(this.canvasWidth / 2, this.canvasHeight / 2)
+
+        this.sound.play('actionMusic', { loop: true })
 
         this.createCharacters()
         this.handleMovement()
