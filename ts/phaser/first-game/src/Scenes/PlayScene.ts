@@ -20,7 +20,7 @@ export default class PlayScene extends Phaser.Scene {
     }
 
     public preload(): void {
-        this.load.image('background', imageBackground)
+        this.load.image('play-background', imageBackground)
         this.load.image('player', imagePlayer)
         this.load.image('enemy', imageEnemy)
 
@@ -29,7 +29,7 @@ export default class PlayScene extends Phaser.Scene {
     }
 
     public create(): void {
-        this.add.sprite(0, 0, 'background')
+        this.add.sprite(0, 0, 'play-background')
             .setPosition(this.canvasWidth / 2, this.canvasHeight / 2)
 
         this.createCharacters()
