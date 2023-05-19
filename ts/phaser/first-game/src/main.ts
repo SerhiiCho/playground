@@ -1,5 +1,5 @@
 import './style.css'
 import Phaser from 'phaser'
-import config from './config'
+import { gameConfig } from './config'
 
-new Phaser.Game(config)
+new Phaser.Game(gameConfig)

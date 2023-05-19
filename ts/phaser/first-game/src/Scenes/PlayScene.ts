@@ -1,85 +1,58 @@
+import type { KeysPressed } from '../types'
 import Phaser from 'phaser'
+import { sceneConfig } from '../config'
 import imageBackground from '../assets/background.png'
 import imagePlayer from '../assets/player.png'
 import imageEnemy from '../assets/enemy.png'
+import Player from '../Models/Player'
 
 export default class PlayScene extends Phaser.Scene {
-    #player: Phaser.GameObjects.Sprite | undefined
-    #enemy1: Phaser.GameObjects.Sprite | undefined
-    #canvasWidth: number = 0
-    #canvasHeight: number = 0
-    #playerSpeed: number = 3
-    #keysPressed: { [key: string]: boolean } = {}
+    private player: Player | undefined
+    private enemy1: Phaser.GameObjects.Sprite | undefined
+    private canvasWidth: number = 0
+    private canvasHeight: number = 0
+    private keysPressed: KeysPressed = {}
 
     constructor() {
-        super({
-            key: 'play',
-        })
+        super(sceneConfig.play)
     }
 
-    preload(): void {
+    public preload(): void {
         this.load.image('background', imageBackground)
         this.load.image('player', imagePlayer)
         this.load.image('enemy', imageEnemy)
 
-        this.#canvasWidth = Number(this.sys.game.config.width)
-        this.#canvasHeight = Number(this.sys.game.config.height)
+        this.canvasWidth = Number(this.sys.game.config.width)
+        this.canvasHeight = Number(this.sys.game.config.height)
     }
 
-    create(): void {
+    public create(): void {
         this.add.sprite(0, 0, 'background')
-            .setPosition(this.#canvasWidth / 2, this.#canvasHeight / 2)
+            .setPosition(this.canvasWidth / 2, this.canvasHeight / 2)
 
-        this.#createPlayer()
-        this.#createEnemies()
+        this.player = new Player(this.add.sprite(0, 0, 'player'))
+        this.player.create(45, this.canvasHeight / 2)
+
+
+        this.createEnemies()
+        this.handleMovement()
     }
 
-    update(): void {
-        this.#movePlayer()
+    public update(): void {
+        this.player!.update(this.keysPressed)
     }
 
-    #createPlayer(): void {
-        this.#player = this.add.sprite(0, 0, 'player')
-        this.#player.setPosition(45, this.#canvasHeight / 2)
-        this.#player.setInteractive()
-        this.#handlePlayerMovement()
+    private createEnemies(): void {
+        this.enemy1 = this.add.sprite(this.canvasWidth - 90, this.canvasHeight / 2, 'enemy')
     }
 
-    #movePlayer(): void {
-        if (this.#keysPressed['ArrowRight'] && this.#keysPressed['ArrowUp']) {
-            this.#player!.x += this.#playerSpeed
-            this.#player!.y -= this.#playerSpeed
-        } else if (this.#keysPressed['ArrowRight'] && this.#keysPressed['ArrowDown']) {
-            this.#player!.x += this.#playerSpeed
-            this.#player!.y += this.#playerSpeed
-        } else if (this.#keysPressed['ArrowLeft'] && this.#keysPressed['ArrowUp']) {
-            this.#player!.x -= this.#playerSpeed
-            this.#player!.y -= this.#playerSpeed
-        } else if (this.#keysPressed['ArrowLeft'] && this.#keysPressed['ArrowDown']) {
-            this.#player!.x -= this.#playerSpeed
-            this.#player!.y += this.#playerSpeed
-        } else if (this.#keysPressed['ArrowRight']) {
-            this.#player!.x += this.#playerSpeed
-        } else if (this.#keysPressed['ArrowLeft']) {
-            this.#player!.x -= this.#playerSpeed
-        } else if (this.#keysPressed['ArrowDown']) {
-            this.#player!.y += this.#playerSpeed
-        } else if (this.#keysPressed['ArrowUp']) {
-            this.#player!.y -= this.#playerSpeed
-        }
-    }
-
-    #handlePlayerMovement(): void {
+    private handleMovement(): void {
         this.input.keyboard!.on('keydown', (e: KeyboardEvent) => {
-            this.#keysPressed[e.key] = true
+            this.keysPressed[e.key] = true
         })
 
         this.input.keyboard!.on('keyup', (e: KeyboardEvent) => {
-            this.#keysPressed[e.key] = false
+            this.keysPressed[e.key] = false
         })
-    }
-
-    #createEnemies(): void {
-        this.#enemy1 = this.add.sprite(this.#canvasWidth - 90, this.#canvasHeight / 2, 'enemy')
     }
 }
