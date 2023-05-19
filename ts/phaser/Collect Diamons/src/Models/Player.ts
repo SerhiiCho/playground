@@ -3,11 +3,9 @@ import Position from '@/Models/Position'
 import Phaser from 'phaser'
 
 export default class {
-    public sprite: Phaser.GameObjects.Sprite
     private speed: number = 3
 
-    constructor(sprite: Phaser.GameObjects.Sprite) {
-        this.sprite = sprite
+    constructor(public sprite: Phaser.GameObjects.Sprite) {
     }
 
     public create(position: Position): void {

@@ -3,12 +3,12 @@ import { sceneConfig } from '@/config'
 import imageBackground from '@/assets/start.jpg'
 import startGameImage from '@/assets/start-game-button.png'
 import startGameImageHover from '@/assets/start-game-button-hover.png'
+import StartButton from '@/Models/StartButton'
 
 export default class StartScene extends Phaser.Scene {
     private canvasWidth: number = 0
     private canvasHeight: number = 0
-    private startButton: Phaser.GameObjects.Sprite | undefined
-    private startButtonHover: Phaser.GameObjects.Sprite | undefined
+    private startButton: StartButton | undefined
 
     constructor() {
         super(sceneConfig.start)
@@ -28,11 +28,16 @@ export default class StartScene extends Phaser.Scene {
             .sprite(0, 0, 'start-background')
             .setPosition(this.canvasWidth / 2, this.canvasHeight / 2)
 
-        this.startButton = this.drawButton('start-game')
-        this.startButtonHover = this.drawButton('start-game-hover')
+        this.startButton = new StartButton(
+            this.drawButton('start-game'),
+            this.drawButton('start-game-hover'),
+        )
 
-        this.handleButtonHover()
-        this.startGameWhenClicked()
+        this.startButton.create()
+
+        this.startButton.handleButtonClick(() => {
+            this.scene.start(sceneConfig.play.key)
+        })
     }
 
     private drawButton(button: string): Phaser.GameObjects.Sprite {
@@ -44,27 +49,5 @@ export default class StartScene extends Phaser.Scene {
         btn.scale = 0.4
 
         return btn
-    }
-
-    private handleButtonHover(): void {
-        this.startButton!
-            .on('pointerover', () => {
-                this.startButton!.setVisible(false)
-                this.startButtonHover!.setVisible(true)
-            })
-
-        this.startButtonHover!
-            .setVisible(false)
-            .on('pointerout', () => {
-                this.startButton!.setVisible(true)
-                this.startButtonHover!.setVisible(false)
-            })
-    }
-
-    private startGameWhenClicked(): void {
-        this.startButtonHover!
-            .on('pointerdown', () => {
-                this.scene.start(sceneConfig.play.key)
-            })
     }
 }
