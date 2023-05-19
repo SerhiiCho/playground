@@ -1,5 +1,5 @@
 import Phaser from 'phaser'
-import type Position from './Position'
+import type Position from '@/Models/Position'
 
 export default class {
     public sprite: Phaser.GameObjects.Sprite

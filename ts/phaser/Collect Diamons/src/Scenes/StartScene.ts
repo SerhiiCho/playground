@@ -1,8 +1,8 @@
 import Phaser from 'phaser'
-import { sceneConfig } from '../config'
-import imageBackground from '../assets/start.jpg'
-import startGameImage from '../assets/start-game-button.png'
-import startGameImageHover from '../assets/start-game-button-hover.png'
+import { sceneConfig } from '@/config'
+import imageBackground from '@/assets/start.jpg'
+import startGameImage from '@/assets/start-game-button.png'
+import startGameImageHover from '@/assets/start-game-button-hover.png'
 
 export default class StartScene extends Phaser.Scene {
     private canvasWidth: number = 0

@@ -1,12 +1,12 @@
-import type { KeysPressed } from '../types'
+import type { KeysPressed } from '@/types'
 import Phaser from 'phaser'
-import { sceneConfig } from '../config'
-import imageBackground from '../assets/background.png'
-import imagePlayer from '../assets/player.png'
-import imageEnemy from '../assets/enemy.png'
-import Player from '../Models/Player'
-import Enemy from '../Models/Enemy'
-import Position from '../Models/Position'
+import { sceneConfig } from '@/config'
+import imageBackground from '@/assets/background.png'
+import imagePlayer from '@/assets/player.png'
+import imageEnemy from '@/assets/enemy.png'
+import Player from '@/Models/Player'
+import Enemy from '@/Models/Enemy'
+import Position from '@/Models/Position'
 
 export default class PlayScene extends Phaser.Scene {
     private player: Player | undefined

@@ -1,5 +1,5 @@
-import type { KeysPressed } from '../types'
-import Position from './Position'
+import type { KeysPressed } from '@/types'
+import Position from '@/Models/Position'
 import Phaser from 'phaser'
 
 export default class {
