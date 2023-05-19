@@ -5,10 +5,12 @@ import imageBackground from '../assets/background.png'
 import imagePlayer from '../assets/player.png'
 import imageEnemy from '../assets/enemy.png'
 import Player from '../Models/Player'
+import Enemy from '../Models/Enemy'
+import Position from '../Models/Position'
 
 export default class PlayScene extends Phaser.Scene {
     private player: Player | undefined
-    private enemy1: Phaser.GameObjects.Sprite | undefined
+    private enemy: Enemy | undefined
     private canvasWidth: number = 0
     private canvasHeight: number = 0
     private keysPressed: KeysPressed = {}
@@ -30,20 +32,21 @@ export default class PlayScene extends Phaser.Scene {
         this.add.sprite(0, 0, 'background')
             .setPosition(this.canvasWidth / 2, this.canvasHeight / 2)
 
-        this.player = new Player(this.add.sprite(0, 0, 'player'))
-        this.player.create(45, this.canvasHeight / 2)
-
-
-        this.createEnemies()
+        this.createCharacters()
         this.handleMovement()
     }
 
     public update(): void {
         this.player!.update(this.keysPressed)
+        this.enemy!.update(this.player!.position)
     }
 
-    private createEnemies(): void {
-        this.enemy1 = this.add.sprite(this.canvasWidth - 90, this.canvasHeight / 2, 'enemy')
+    private createCharacters(): void {
+        this.player = new Player(this.add.sprite(0, 0, 'player'))
+        this.player.create(new Position(45, this.canvasHeight / 2))
+
+        this.enemy = new Enemy(this.add.sprite(0, 0, 'enemy'))
+        this.enemy.create(new Position(this.canvasWidth - 90, this.canvasHeight / 2))
     }
 
     private handleMovement(): void {
