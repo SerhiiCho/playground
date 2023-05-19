@@ -8,7 +8,8 @@ export default class PlayScene extends Phaser.Scene {
     #enemy1: Phaser.GameObjects.Sprite | undefined
     #canvasWidth: number = 0
     #canvasHeight: number = 0
-    #playerSpeed: number = 10
+    #playerSpeed: number = 3
+    #keysPressed: { [key: string]: boolean } = {}
 
     constructor() {
         super({
@@ -34,7 +35,7 @@ export default class PlayScene extends Phaser.Scene {
     }
 
     update(): void {
-        //
+        this.#movePlayer()
     }
 
     #createPlayer(): void {
@@ -44,21 +45,37 @@ export default class PlayScene extends Phaser.Scene {
         this.#handlePlayerMovement()
     }
 
-    #handlePlayerMovement(): void {
-        this.input.keyboard!.on('keydown-D', e => {
+    #movePlayer(): void {
+        if (this.#keysPressed['ArrowRight'] && this.#keysPressed['ArrowUp']) {
             this.#player!.x += this.#playerSpeed
-        })
-
-        this.input.keyboard!.on('keydown-A', e => {
-            this.#player!.x -= this.#playerSpeed
-        })
-
-        this.input.keyboard!.on('keydown-S', e => {
-            this.#player!.y += this.#playerSpeed
-        })
-
-        this.input.keyboard!.on('keydown-W', e => {
             this.#player!.y -= this.#playerSpeed
+        } else if (this.#keysPressed['ArrowRight'] && this.#keysPressed['ArrowDown']) {
+            this.#player!.x += this.#playerSpeed
+            this.#player!.y += this.#playerSpeed
+        } else if (this.#keysPressed['ArrowLeft'] && this.#keysPressed['ArrowUp']) {
+            this.#player!.x -= this.#playerSpeed
+            this.#player!.y -= this.#playerSpeed
+        } else if (this.#keysPressed['ArrowLeft'] && this.#keysPressed['ArrowDown']) {
+            this.#player!.x -= this.#playerSpeed
+            this.#player!.y += this.#playerSpeed
+        } else if (this.#keysPressed['ArrowRight']) {
+            this.#player!.x += this.#playerSpeed
+        } else if (this.#keysPressed['ArrowLeft']) {
+            this.#player!.x -= this.#playerSpeed
+        } else if (this.#keysPressed['ArrowDown']) {
+            this.#player!.y += this.#playerSpeed
+        } else if (this.#keysPressed['ArrowUp']) {
+            this.#player!.y -= this.#playerSpeed
+        }
+    }
+
+    #handlePlayerMovement(): void {
+        this.input.keyboard!.on('keydown', (e: KeyboardEvent) => {
+            this.#keysPressed[e.key] = true
+        })
+
+        this.input.keyboard!.on('keyup', (e: KeyboardEvent) => {
+            this.#keysPressed[e.key] = false
         })
     }
 
