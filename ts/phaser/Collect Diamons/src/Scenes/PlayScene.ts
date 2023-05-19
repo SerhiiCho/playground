@@ -43,6 +43,11 @@ export default class PlayScene extends Phaser.Scene {
     public update(): void {
         this.player!.update(this.keysPressed)
         this.enemy!.update(this.player!.position)
+
+        if (this.enemy!.isCollidingWith(this.player!.sprite)) {
+            this.sound.stopByKey('actionMusic')
+            this.scene.start(sceneConfig.gameOver.key)
+        }
     }
 
     private createCharacters(): void {

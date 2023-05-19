@@ -1,13 +1,14 @@
 import Phaser from 'phaser'
-import PlayScene from './Scenes/PlayScene'
-import StartScene from './Scenes/StartScene'
+import PlayScene from '@/Scenes/PlayScene'
+import StartScene from '@/Scenes/StartScene'
+import GameOverScene from '@/Scenes/GameOverScene'
 
 export const gameConfig = {
     type: Phaser.AUTO,
     width: 640,
     height: 360,
     title: 'Collect Diamonds',
-    scene: [StartScene, PlayScene]
+    scene: [StartScene, PlayScene, GameOverScene],
 }
 
 export const sceneConfig = {
@@ -16,5 +17,8 @@ export const sceneConfig = {
     },
     play: {
         key: 'play',
+    },
+    gameOver: {
+        key: 'gameOver',
     },
 }

@@ -11,7 +11,7 @@ export default class {
         this.handleButtonHover()
     }
 
-    public handleButtonClick(callback: Function): void {
+    public onClick(callback: Function): void {
         this.spriteHover.on('pointerdown', callback)
     }
 

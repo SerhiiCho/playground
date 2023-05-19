@@ -47,10 +47,10 @@ export default class StartScene extends Phaser.Scene {
 
         this.startButton.create()
 
-        this.startButton.handleButtonClick(() => {
-            this.scene.start(sceneConfig.play.key)
+        this.startButton.onClick(() => {
             this.sound.play('buttonClick')
             this.sound.stopByKey('startMusic')
+            this.scene.start(sceneConfig.play.key)
         })
     }
 

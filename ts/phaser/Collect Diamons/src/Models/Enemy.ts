@@ -16,11 +16,24 @@ export default class {
         this.moveTowardsPlayer(playerPosition)
     }
 
+    public isCollidingWith(object: Phaser.GameObjects.Sprite): boolean {
+        const distance = Phaser.Math.Distance.Between(
+            this.sprite.x,
+            this.sprite.y,
+            object.x,
+            object.y
+        )
+
+        return distance < 20
+    }
+
     private moveTowardsPlayer(playerPosition: Position): void {
         if (this.sprite.x < playerPosition.x) {
             this.sprite.x += this.speed
+            this.sprite.flipX = true
         } else if (this.sprite.x > playerPosition.x) {
             this.sprite.x -= this.speed
+            this.sprite.flipX = false
         }
 
         if (this.sprite.y < playerPosition.y) {

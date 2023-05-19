@@ -25,19 +25,25 @@ export default class {
         if (keysPressed['ArrowRight'] && keysPressed['ArrowUp']) {
             this.sprite.x += this.speed
             this.sprite.y -= this.speed
+            this.sprite.flipX = false
         } else if (keysPressed['ArrowRight'] && keysPressed['ArrowDown']) {
             this.sprite.x += this.speed
             this.sprite.y += this.speed
+            this.sprite.flipX = false
         } else if (keysPressed['ArrowLeft'] && keysPressed['ArrowUp']) {
             this.sprite.x -= this.speed
             this.sprite.y -= this.speed
+            this.sprite.flipX = true
         } else if (keysPressed['ArrowLeft'] && keysPressed['ArrowDown']) {
             this.sprite.x -= this.speed
             this.sprite.y += this.speed
+            this.sprite.flipX = true
         } else if (keysPressed['ArrowRight']) {
             this.sprite.x += this.speed
+            this.sprite.flipX = false
         } else if (keysPressed['ArrowLeft']) {
             this.sprite.x -= this.speed
+            this.sprite.flipX = true
         } else if (keysPressed['ArrowDown']) {
             this.sprite.y += this.speed
         } else if (keysPressed['ArrowUp']) {
