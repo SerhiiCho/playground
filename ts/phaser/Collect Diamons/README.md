@@ -1,4 +1,4 @@
-# First Phaser game
+# Collect Diamonds game
 
 ## Notes
 

@@ -67,8 +67,4 @@ export default class StartScene extends Phaser.Scene {
                 this.scene.start(sceneConfig.play.key)
             })
     }
-
-    public update(): void {
-        //
-    }
 }
