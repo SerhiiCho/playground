@@ -5,7 +5,7 @@ import startGameImage from '@/assets/start-game-button.png'
 import startGameImageHover from '@/assets/start-game-button-hover.png'
 import startMusic from '@/assets/audio/menu.mp3'
 import mainTitle from '@/assets/title.png'
-import StartButton from '@/Models/StartButton'
+import StartButton from '@/Models/Button'
 import MainTitle from '@/Models/MainTitle'
 
 export default class StartScene extends Phaser.Scene {
