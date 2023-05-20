@@ -1,3 +1,3 @@
 export type KeysPressed = {
-    [key: string]: boolean
+  [key: string]: boolean
 }

@@ -2,8 +2,10 @@ import type { KeysPressed } from '@/types'
 import Phaser from 'phaser'
 import { sceneConfig } from '@/config'
 import imageBackground from '@/assets/background.png'
-import imagePlayer from '@/assets/player.png'
-import imageEnemy from '@/assets/enemy.png'
+import imagePlayerIdle from '@/assets/player/Idle.png'
+import imagePlayerRun from '@/assets/player/Run.png'
+import imageEnemyIdle from '@/assets/enemy/Idle.png'
+import imageEnemyWalk from '@/assets/enemy/Walk.png'
 import actionMusic from '@/assets/audio/action.mp3'
 import Player from '@/Models/Player'
 import Enemy from '@/Models/Enemy'
@@ -22,9 +24,27 @@ export default class PlayScene extends Phaser.Scene {
 
     public preload(): void {
         this.load.image('playBackground', imageBackground)
-        this.load.image('player', imagePlayer)
-        this.load.image('enemy', imageEnemy)
         this.load.audio('actionMusic', actionMusic)
+
+        this.load.spritesheet('enemyIdle', imageEnemyIdle, {
+            frameWidth: 128,
+            frameHeight: 128,
+        })
+
+        this.load.spritesheet('enemyWalk', imageEnemyWalk, {
+            frameWidth: 128,
+            frameHeight: 128,
+        })
+
+        this.load.spritesheet('playerIdle', imagePlayerIdle, {
+            frameWidth: 128,
+            frameHeight: 128,
+        })
+
+        this.load.spritesheet('playerRun', imagePlayerRun, {
+            frameWidth: 128,
+            frameHeight: 128,
+        })
 
         this.canvasWidth = Number(this.sys.game.config.width)
         this.canvasHeight = Number(this.sys.game.config.height)
@@ -51,10 +71,10 @@ export default class PlayScene extends Phaser.Scene {
     }
 
     private createCharacters(): void {
-        this.player = new Player(this.add.sprite(0, 0, 'player'))
+        this.player = new Player(this.add.sprite(0, 0, 'playerIdle'))
         this.player.create(new Position(45, this.canvasHeight / 2))
 
-        this.enemy = new Enemy(this.add.sprite(0, 0, 'enemy'))
+        this.enemy = new Enemy(this.add.sprite(0, 0, 'enemyIdle'))
         this.enemy.create(new Position(this.canvasWidth - 90, this.canvasHeight / 2))
     }
 
