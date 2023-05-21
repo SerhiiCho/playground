@@ -6,14 +6,14 @@ export default class {
     private speed: number = 2
     private isMoving: boolean = false
 
-    private moveKeys = {
+    private readonly moveKeys = {
         right: 'ArrowRight',
         left: 'ArrowLeft',
         up: 'ArrowUp',
         down: 'ArrowDown',
     }
 
-    private animations = {
+    private readonly anims = {
         idle: 'playerIdle',
         run: 'playerRun',
     }
@@ -31,9 +31,9 @@ export default class {
         this.movePlayer(keysPressed)
 
         if (this.isMoving) {
-            this.sprite.anims.play(this.animations.run, true)
+            this.sprite.anims.play(this.anims.run, true)
         } else {
-            this.sprite.anims.play(this.animations.idle, true)
+            this.sprite.anims.play(this.anims.idle, true)
         }
     }
 
@@ -43,16 +43,16 @@ export default class {
 
     private createAnimations(): void {
         this.sprite.anims.create({
-            key: this.animations.idle,
-            frames: this.sprite.anims.generateFrameNumbers(this.animations.idle, {
+            key: this.anims.idle,
+            frames: this.sprite.anims.generateFrameNumbers(this.anims.idle, {
                 start: 0,
                 end: 4,
             }),
         })
 
         this.sprite.anims.create({
-            key: this.animations.run,
-            frames: this.sprite.anims.generateFrameNumbers(this.animations.run, {
+            key: this.anims.run,
+            frames: this.sprite.anims.generateFrameNumbers(this.anims.run, {
                 start: 0,
                 end: 5,
             }),
@@ -64,7 +64,7 @@ export default class {
             .some(key => keysPressed[key])
 
         if (this.isMoving) {
-            this.sprite.anims.play(this.animations.run, true)
+            this.sprite.anims.play(this.anims.run, true)
         }
 
         if (keysPressed[this.moveKeys.right] && keysPressed[this.moveKeys.up]) {

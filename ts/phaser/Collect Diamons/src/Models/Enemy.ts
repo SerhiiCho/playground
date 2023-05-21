@@ -5,7 +5,7 @@ export default class {
     private speed: number = 1
     private isMoving: boolean = false
 
-    private animations = {
+    public readonly animations = {
         idle: 'enemyIdle',
         walk: 'enemyWalk',
     }
