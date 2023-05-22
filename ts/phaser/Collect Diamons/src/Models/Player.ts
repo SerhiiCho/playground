@@ -4,7 +4,7 @@ import Position from '@/Models/Position'
 import Phaser from 'phaser'
 
 export default class {
-    private speed: number = 2
+    private speed: number = 5
     private isMoving: boolean = false
 
     private readonly moveKeys = {
@@ -68,6 +68,10 @@ export default class {
             this.sprite.x = 0
         } else if (this.sprite.x > Number(gameConfig.width)) {
             this.sprite.x = Number(gameConfig.width)
+        } else if (this.sprite.y < 0) {
+            this.sprite.y = 0
+        } else if (this.sprite.y > Number(gameConfig.height) - playerHalfHeight) {
+            this.sprite.y = Number(gameConfig.height) - playerHalfHeight
         }
     }
 
