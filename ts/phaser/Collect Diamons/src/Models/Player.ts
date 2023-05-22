@@ -4,7 +4,7 @@ import Position from '@/Models/Position'
 import Phaser from 'phaser'
 
 export default class {
-    private speed: number = 5
+    private speed: number = 3
     private isMoving: boolean = false
 
     private readonly moveKeys = {
