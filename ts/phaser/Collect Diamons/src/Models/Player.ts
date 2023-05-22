@@ -1,4 +1,5 @@
 import type { KeysPressed } from '@/types'
+import { gameConfig } from '@/config'
 import Position from '@/Models/Position'
 import Phaser from 'phaser'
 
@@ -29,6 +30,7 @@ export default class {
 
     public update(keysPressed: KeysPressed): void {
         this.movePlayer(keysPressed)
+        this.preventPlayerFromLeavingTheScreen()
 
         if (this.isMoving) {
             this.sprite.anims.play(this.anims.run, true)
@@ -57,6 +59,16 @@ export default class {
                 end: 5,
             }),
         })
+    }
+
+    private preventPlayerFromLeavingTheScreen(): void {
+        const playerHalfHeight = this.sprite.height / 2
+
+        if (this.sprite.x < 0) {
+            this.sprite.x = 0
+        } else if (this.sprite.x > Number(gameConfig.width)) {
+            this.sprite.x = Number(gameConfig.width)
+        }
     }
 
     private movePlayer(keysPressed: KeysPressed): void {
