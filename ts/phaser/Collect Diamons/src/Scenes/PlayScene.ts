@@ -51,6 +51,8 @@ export default class PlayScene extends Phaser.Scene {
     }
 
     public create(): void {
+        this.keysPressed = {}
+
         this.add.sprite(0, 0, 'playBackground')
             .setPosition(this.canvasWidth / 2, this.canvasHeight / 2)
 
