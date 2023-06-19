@@ -3,8 +3,7 @@ import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-    <smooth-loader-img sm="./assets/logo.png" lg="./assets/logo.png" />
-    <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+    <HelloWorld />
 </template>
 
 <style>
