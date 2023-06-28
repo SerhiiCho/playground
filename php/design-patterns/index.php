@@ -8,7 +8,7 @@ use App\AbstractFactory\Manufacturer\AsusManufacturer;
 require_once __DIR__ . '/vendor/autoload.php';
 
 function abstractFactory(): void {
-    echo "<-- Testing Abstract Factory pattern... -->\n";
+    echo "<--- Testing Abstract Factory pattern... --->\n";
 
     $msi = new MsiManufacturer();
 
@@ -26,7 +26,7 @@ function abstractFactory(): void {
     $asusGpu->assemble();
     $asusMonitor->assemble();
 
-    echo "<-- Abstract Factory pattern test done! -->\n";
+    echo "<--- Abstract Factory pattern test done! --->\n";
 }
 
 abstractFactory();
