@@ -33,7 +33,7 @@ def delete(id):
         db.session.commit()
         return redirect('/')
     except:
-        return 'Can\'t delete this task'
+        return "Can't delete this task"
 
 if __name__ == '__main__':
     app.run(debug=True)

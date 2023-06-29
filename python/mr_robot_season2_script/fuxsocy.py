@@ -1,3 +1,6 @@
+# This script is a fake ransomware script that is used in the movie Mr. Robot
+# This script is for educational purposes only
+
 from time import sleep
 
 def loading():
@@ -12,6 +15,7 @@ def loading():
     sleep(1)
 
 print("Executing FuxSocy")
+sleep(1)
 print("Loading Source of Entropy")
 loading()
 
