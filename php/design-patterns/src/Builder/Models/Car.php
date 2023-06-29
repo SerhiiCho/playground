@@ -17,4 +17,44 @@ readonly class Car implements Model
         private float $height,
     ) {
     }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function getBrand(): string
+    {
+        return $this->brand;
+    }
+
+    public function getModel(): string
+    {
+        return $this->model;
+    }
+
+    public function getColor(): string
+    {
+        return $this->color;
+    }
+
+    public function getDoors(): int
+    {
+        return $this->doors;
+    }
+
+    public function getScreenType(): string
+    {
+        return $this->screenType;
+    }
+
+    public function getWeight(): float
+    {
+        return $this->weight;
+    }
+
+    public function getHeight(): float
+    {
+        return $this->height;
+    }
 }
