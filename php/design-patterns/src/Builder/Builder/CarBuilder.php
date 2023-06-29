@@ -6,7 +6,7 @@ namespace App\Builder\Builder;
 
 use App\Builder\Models\Car;
 
-class CarBuilder
+class CarBuilder implements Builder
 {
     private ?int $id;
     private ?string $brand;

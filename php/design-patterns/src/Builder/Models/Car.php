@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Builder\Models;
 
-readonly class Car
+readonly class Car implements Model
 {
     public function __construct(
         private int $id,
