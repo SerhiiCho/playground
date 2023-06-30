@@ -12,21 +12,20 @@ struct ArriveDate
 
 struct Product
 {
-    public:
-        ArriveDate arriveDate;
-        int amount;
-        string companyProvider;
-        string countryProvider;
-        double price;
-        int hasProduct;
+    ArriveDate arriveDate;
+    int amount;
+    string companyProvider;
+    string countryProvider;
+    double price;
+    int hasProduct;
 
-        string filter() {
-            bool companyMatch = companyProvider == "монітори";
-            bool priceMatch = price <= 1500;
-            bool dateMatch = arriveDate.Month == "березень" && arriveDate.Year == 2015;
+    string filter() {
+        bool companyMatch = companyProvider == "монітори";
+        bool priceMatch = price <= 1500;
+        bool dateMatch = arriveDate.Month == "березень" && arriveDate.Year == 2015;
 
-            return companyMatch && priceMatch && dateMatch ? companyProvider : "";
-        };
+        return companyMatch && priceMatch && dateMatch ? companyProvider : "";
+    };
 };
 
 int main()
