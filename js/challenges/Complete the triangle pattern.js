@@ -15,10 +15,19 @@ class Triangle {
         }
 
         const triangles = this.generateTriangles(this.m, rowLength)
+        const toRows = this.toRows(triangles, rowLength)
+
+        console.log(toRows)
+
+        return ''
+    }
+
+    toRows(triangles, rowsLength) {
+        const rows = []
 
         console.log(triangles)
 
-        return ''
+        return rows
     }
 
     generateTriangles(startFrom, rowLength) {
@@ -74,23 +83,6 @@ class Triangle {
         return this.getRowsAmount(newRow, newRow + numbers)
     }
 }
-
-// function isValidNumber(m, n) {
-//     const diff = n - m + 1
-//     console.log(diff)
-
-//     let valid = 3
-
-//     for (let i = 3; i < diff; i++) {
-//         if (valid === diff) {
-//             return true
-//         }
-
-//         valid += i
-//     }
-
-//     return false
-// }
 
 function test(m, n, expect) {
     const res = makeTriangle(m, n)
