@@ -10,7 +10,6 @@ class Triangle {
     draw() {
         const rowLength = this.getRowsAmount(2, 3)
 
-        console.log(rowLength)
         if (rowLength === null) {
             return ''
         }
@@ -31,7 +30,9 @@ class Triangle {
             return rowsAmount
         }
 
-        return this.getRowsAmount(rowsAmount + 1, newRow + numbers)
+        const newRow = rowsAmount + 1
+
+        return this.getRowsAmount(newRow, newRow + numbers)
     }
 }
 
@@ -56,17 +57,17 @@ function test(m, n, expect) {
     const res = makeTriangle(m, n)
 
     if (res !== expect) {
-        console.error(`Failed! expect:\n${expect}\nbut got:\n${res}\n`)
+        console.error(`Failed! We expect:\n"${expect}"\nbut got:\n"${res}"\n`)
     } else {
         console.info('Success!')
     }
 }
 
-// test(1, 12, '')
-// test(1, 100, '')
+test(1, 12, '')
+test(1, 100, '')
 test(1, 3,
     ` 1
-    3 2`)
+3 2`)
 // test(1, 10,
 //     `   1
 //   9 2
