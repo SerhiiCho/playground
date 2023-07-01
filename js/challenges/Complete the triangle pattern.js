@@ -14,7 +14,36 @@ class Triangle {
             return ''
         }
 
+        const triangles = this.generateTriangles(this.m, rowLength)
+
+        console.log(triangles)
+
         return ''
+    }
+
+    generateTriangles(startFrom, rowLength) {
+        const result = []
+        let endWith = rowLength
+
+        for (let i = 0; i < 3; i++) {
+            result.push(this.addNumbers(startFrom, endWith))
+
+            rowLength -= 1
+            startFrom += rowLength + 1
+            endWith += rowLength
+        }
+
+        return result
+    }
+
+    addNumbers(from, to) {
+        const result = []
+
+        for (let i = from; i <= to; i++) {
+            result.push(i)
+        }
+
+        return result
     }
 
     getRowsAmount(rowsAmount, numbers) {
@@ -63,16 +92,16 @@ function test(m, n, expect) {
     }
 }
 
-test(1, 12, '')
-test(1, 100, '')
-test(1, 3,
-    ` 1
-3 2`)
-// test(1, 10,
-//     `   1
-//   9 2
-//  8 0 3
-// 7 6 5 4`)
+// test(1, 12, '')
+// test(1, 100, '')
+// test(1, 3,
+//     ` 1
+// 3 2`)
+test(1, 10,
+    `   1
+  9 2
+ 8 0 3
+7 6 5 4`)
 // test(6, 20,
 //     `    6
 //     7 7
