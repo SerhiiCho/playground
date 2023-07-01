@@ -23,14 +23,24 @@ class Triangle {
 
     generateTriangles(startFrom, rowLength) {
         const result = []
-        let endWith = rowLength
+        let endWith = startFrom + rowLength - 1
+
+        const triangle = []
 
         for (let i = 0; i < 3; i++) {
-            result.push(this.addNumbers(startFrom, endWith))
+            triangle.push(this.addNumbers(startFrom, endWith))
 
             rowLength -= 1
             startFrom += rowLength + 1
             endWith += rowLength
+        }
+
+        result.push(triangle)
+
+        if (rowLength === 1) {
+            result.push([[startFrom % 10]])
+        } else if (rowLength > 1) {
+            result.push(...this.generateTriangles(startFrom, rowLength))
         }
 
         return result
@@ -40,7 +50,7 @@ class Triangle {
         const result = []
 
         for (let i = from; i <= to; i++) {
-            result.push(i)
+            result.push(i % 10)
         }
 
         return result
@@ -97,14 +107,14 @@ function test(m, n, expect) {
 // test(1, 3,
 //     ` 1
 // 3 2`)
-test(1, 10,
-    `   1
-  9 2
- 8 0 3
-7 6 5 4`)
-// test(6, 20,
-//     `    6
-//     7 7
-//    6 8 8
-//   5 0 9 9
-//  4 3 2 1 0`)
+// test(1, 10,
+//     `   1
+//   9 2
+//  8 0 3
+// 7 6 5 4`)
+test(6, 20,
+    `    6
+   7 7
+  6 8 8
+ 5 0 9 9
+4 3 2 1 0`)
