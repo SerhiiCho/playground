@@ -17,9 +17,19 @@ class Triangle {
         }
 
         const triangles = this.generateTriangles(this.m, this.rowLength)
-        const toRows = this.toRows(triangles)
+        const rows = this.toRows(triangles)
 
-        return ''
+        return this.toString(rows)
+    }
+
+    toString(rows) {
+        let result = ''
+
+        for (let i = 0, spaces = this.rowLength - 1; i < rows.length; i++, spaces--) {
+            result += ' '.repeat(spaces) + rows[i].join(' ') + '\n'
+        }
+
+        return result.trimEnd()
     }
 
     toRows(triangles) {
@@ -42,8 +52,6 @@ class Triangle {
                 firstPart[item.pos].unshift(item.num)
             })
         })
-
-        console.log(firstPart)
 
         return firstPart
     }
@@ -152,29 +160,29 @@ function test(m, n, expect) {
 
 console.log('<-------- START -------->')
 
-// test(1, 12, '')
-// test(1, 100, '')
-// test(1, 3,
-//     ` 1
-// 3 2`)
-// test(1, 10,
-//     `   1
-//   9 2
-//  8 0 3
-// 7 6 5 4`)
-// test(6, 20,
-//     `    6
-//    7 7
-//   6 8 8
-//  5 0 9 9
-// 4 3 2 1 0`)
-// test(1, 21,
-//     `     1
-//     5 2
-//    4 6 3
-//   3 1 7 4
-//  2 0 9 8 5
-// 1 0 9 8 7 6`)
+test(1, 12, '')
+test(1, 100, '')
+test(1, 3,
+    ` 1
+3 2`)
+test(1, 10,
+    `   1
+  9 2
+ 8 0 3
+7 6 5 4`)
+test(6, 20,
+    `    6
+   7 7
+  6 8 8
+ 5 0 9 9
+4 3 2 1 0`)
+test(1, 21,
+    `     1
+    5 2
+   4 6 3
+  3 1 7 4
+ 2 0 9 8 5
+1 0 9 8 7 6`)
 test(1, 28,
     `      1
      8 2
@@ -183,24 +191,24 @@ test(1, 28,
   5 6 8 1 5
  4 5 4 3 2 6
 3 2 1 0 9 8 7`)
-// test(1, 36,
-//     `       1
-//       1 2
-//      0 2 3
-//     9 3 3 4
-//    8 2 4 4 5
-//   7 1 6 5 5 6
-//  6 0 9 8 7 6 7
-// 5 4 3 2 1 0 9 8`)
-// test(1, 45,
-//     `        1
-//        4 2
-//       3 5 3
-//      2 9 6 4
-//     1 8 0 7 5
-//    0 7 5 1 8 6
-//   9 6 4 3 2 9 7
-//  8 5 4 3 2 1 0 8
-// 7 6 5 4 3 2 1 0 9`)
+test(1, 36,
+    `       1
+      1 2
+     0 2 3
+    9 3 3 4
+   8 2 4 4 5
+  7 1 6 5 5 6
+ 6 0 9 8 7 6 7
+5 4 3 2 1 0 9 8`)
+test(1, 45,
+    `        1
+       4 2
+      3 5 3
+     2 9 6 4
+    1 8 0 7 5
+   0 7 5 1 8 6
+  9 6 4 3 2 9 7
+ 8 5 4 3 2 1 0 8
+7 6 5 4 3 2 1 0 9`)
 
 console.log('<-------- END -------->')
