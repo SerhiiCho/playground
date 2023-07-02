@@ -5,42 +5,68 @@ class Triangle {
         this.m = m
         this.n = n
         this.totalNums = n - m + 1
+        this.memory = []
+        this.rowLength = 0
     }
 
     draw() {
-        const rowLength = this.getRowsAmount(2, 3)
+        this.rowLength = this.getRowsAmount(2, 3)
 
-        if (rowLength === null) {
+        if (this.rowLength === null) {
             return ''
         }
 
-        const triangles = this.generateTriangles(this.m, rowLength)
+        const triangles = this.generateTriangles(this.m, this.rowLength)
         const toRows = this.toRows(triangles)
 
         return ''
     }
 
     toRows(triangles) {
-        const rows = []
+        const parts = []
 
-        const leftSideMemory = []
+        triangles.forEach((triangle, index) => {
+            parts.push(this.createPart(triangle, index))
+        })
 
-        for (let triangle of triangles) {
-            rows.push(this.createRow(triangle))
+        let firstPart = parts[0]
+
+        for (let i = 1; i < parts.length; i++) {
+            firstPart = this.addToFirstPart(firstPart, parts[i], firstPart.length - 2)
         }
 
-        return rows
+        console.log(firstPart)
+
+        return parts
     }
 
-    createRow(triangle) {
+    addToFirstPart(firstPart, part, index) {
+        part = part.reverse()
+
+        for (let row of part) {
+            firstPart[index].unshift(...row)
+            index--
+        }
+
+        return firstPart
+    }
+
+    createPart(triangle, index) {
         const result = []
         const right = triangle[0]
-        const bottom = triangle[1]
-        const left = triangle[2]
+        const bottom = triangle[1] || []
+        const left = triangle[2] || []
 
         right.forEach(r => result.push([r]))
         bottom.forEach(b => result[result.length - 1].unshift(b))
-        console.log(result)
+
+        const leftNums = []
+
+        for (let pos = this.rowLength - 2 - index, i = 0; i < left.length; pos--, i++) {
+            leftNums.push({ num: left[i], pos })
+        }
+
+        this.memory.push(leftNums)
 
         return result
     }
@@ -109,6 +135,8 @@ function test(m, n, expect) {
     }
 }
 
+console.log('<-------- START -------->')
+
 // test(1, 12, '')
 // test(1, 100, '')
 // test(1, 3,
@@ -125,3 +153,39 @@ test(6, 20,
   6 8 8
  5 0 9 9
 4 3 2 1 0`)
+// test(1, 21,
+//     `     1
+//     5 2
+//    4 6 3
+//   3 1 7 4
+//  2 0 9 8 5
+// 1 0 9 8 7 6`)
+// test(1, 28,
+//     `      1
+//      8 2
+//     7 9 3
+//    6 7 0 4
+//   5 6 8 1 5
+//  4 5 4 3 2 6
+// 3 2 1 0 9 8 7`)
+// test(1, 36,
+//     `       1
+//       1 2
+//      0 2 3
+//     9 3 3 4
+//    8 2 4 4 5
+//   7 1 6 5 5 6
+//  6 0 9 8 7 6 7
+// 5 4 3 2 1 0 9 8`)
+// test(1, 45,
+//     `        1
+//        4 2
+//       3 5 3
+//      2 9 6 4
+//     1 8 0 7 5
+//    0 7 5 1 8 6
+//   9 6 4 3 2 9 7
+//  8 5 4 3 2 1 0 8
+// 7 6 5 4 3 2 1 0 9`)
+
+console.log('<-------- END -------->')
