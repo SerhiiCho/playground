@@ -15,19 +15,33 @@ class Triangle {
         }
 
         const triangles = this.generateTriangles(this.m, rowLength)
-        const toRows = this.toRows(triangles, rowLength)
-
-        console.log(toRows)
+        const toRows = this.toRows(triangles)
 
         return ''
     }
 
-    toRows(triangles, rowsLength) {
+    toRows(triangles) {
         const rows = []
 
-        console.log(triangles)
+        const leftSideMemory = []
+
+        for (let triangle of triangles) {
+            rows.push(this.createRow(triangle))
+        }
 
         return rows
+    }
+
+    createRow(triangle) {
+        const result = []
+        const right = triangle[0]
+        const bottom = triangle[1]
+        const left = triangle[2]
+
+        right.forEach(r => result.push([r]))
+        bottom.forEach(b => result)
+
+        return result
     }
 
     generateTriangles(startFrom, rowLength) {
