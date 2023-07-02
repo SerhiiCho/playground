@@ -30,12 +30,15 @@ class Triangle {
         })
 
         let firstPart = parts[0]
+        let index = firstPart.length - 2
 
         for (let i = 1; i < parts.length; i++) {
-            firstPart = this.addToFirstPart(firstPart, parts[i], firstPart.length - 2)
+            const data = this.addToFirstPart(firstPart, parts[i], index)
+            firstPart = data.firstPart
+            index = data.index
         }
 
-        console.log(firstPart)
+        // todo: add from memory
 
         return parts
     }
@@ -48,7 +51,7 @@ class Triangle {
             index--
         }
 
-        return firstPart
+        return { firstPart, index }
     }
 
     createPart(triangle, index) {
@@ -147,12 +150,12 @@ console.log('<-------- START -------->')
 //   9 2
 //  8 0 3
 // 7 6 5 4`)
-test(6, 20,
-    `    6
-   7 7
-  6 8 8
- 5 0 9 9
-4 3 2 1 0`)
+// test(6, 20,
+//     `    6
+//    7 7
+//   6 8 8
+//  5 0 9 9
+// 4 3 2 1 0`)
 // test(1, 21,
 //     `     1
 //     5 2
@@ -160,14 +163,14 @@ test(6, 20,
 //   3 1 7 4
 //  2 0 9 8 5
 // 1 0 9 8 7 6`)
-// test(1, 28,
-//     `      1
-//      8 2
-//     7 9 3
-//    6 7 0 4
-//   5 6 8 1 5
-//  4 5 4 3 2 6
-// 3 2 1 0 9 8 7`)
+test(1, 28,
+    `      1
+     8 2
+    7 9 3
+   6 7 0 4
+  5 6 8 1 5
+ 4 5 4 3 2 6
+3 2 1 0 9 8 7`)
 // test(1, 36,
 //     `       1
 //       1 2
