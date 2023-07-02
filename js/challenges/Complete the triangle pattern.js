@@ -39,7 +39,8 @@ class Triangle {
         const left = triangle[2]
 
         right.forEach(r => result.push([r]))
-        bottom.forEach(b => result)
+        bottom.forEach(b => result[result.length - 1].unshift(b))
+        console.log(result)
 
         return result
     }
