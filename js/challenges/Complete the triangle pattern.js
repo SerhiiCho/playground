@@ -33,9 +33,8 @@ class Triangle {
         let index = firstPart.length - 2
 
         for (let i = 1; i < parts.length; i++) {
-            const data = this.addToFirstPart(firstPart, parts[i], index)
-            firstPart = data.firstPart
-            index = data.index
+            firstPart = this.addToFirstPart(firstPart, parts[i], index)
+            index--
         }
 
         this.memory.reverse().forEach(items => {
@@ -57,7 +56,7 @@ class Triangle {
             index--
         }
 
-        return { firstPart, index }
+        return firstPart
     }
 
     createPart(part, index) {
@@ -67,7 +66,14 @@ class Triangle {
         const left = part[2] || []
 
         right.forEach(r => result.push([r]))
-        bottom.forEach(b => result[result.length - 1].unshift(b))
+
+        bottom.forEach(b => {
+            if (result.length === 0) {
+                result.push([b])
+            } else {
+                result[result.length - 1].unshift(b)
+            }
+        })
 
         const memoryNums = []
 
@@ -97,7 +103,7 @@ class Triangle {
         result.push(triangle)
 
         if (rowLength === 1) {
-            result.push([[startFrom % 10], [], []])
+            result.push([[], [startFrom % 10], []])
         } else if (rowLength > 1) {
             result.push(...this.generateTriangles(startFrom, rowLength))
         }
