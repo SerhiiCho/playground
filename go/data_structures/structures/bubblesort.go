@@ -1,8 +1,10 @@
-package main
+package structures
 
 import "fmt"
 
-func main() {
+var Name = "Anna"
+
+func Bubblesort() {
 	nums := []int{24, 7, 6, 2342, 4, 5, 235, 3, 52324, 2, 0}
 
 	res := sort(nums, 0)
