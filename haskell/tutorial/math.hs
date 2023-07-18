@@ -1,3 +1,4 @@
+main :: IO ()
 main = do
     -- To the power of 2
     print (5 ** 2) -- will be 25.0

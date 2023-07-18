@@ -5,6 +5,7 @@ data Student = Student
     , gpa   :: Double
     } deriving Show
 
+main :: IO ()
 main = do
     let student1 = Student
             { name = "Anna"

@@ -4,7 +4,7 @@ travelToWork weather = do
     if weather == "sunny"
         then putStrLn "Walking to work"
         else if weather == "cloudy"
-            then putStrLn "Biking to work"
+        then putStrLn "Biking to work"
         else putStrLn "Driving to work"
 
 
