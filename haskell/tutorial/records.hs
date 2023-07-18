@@ -13,4 +13,4 @@ main = do
             , gpa = 3.6
             }
 
-    print student1
+    printStrLn (name student1)
