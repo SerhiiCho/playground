@@ -1,11 +1,10 @@
 -- List of Integers
-scores :: [Int]
-scores = [24, 25, 53, 92, 56, 74]
+scores = [24, 25, 53, 92, 56, 74] :: [Int]
 
 -- List of Strings
-names :: [String]
-names = ["Serhii", "Anna", "John", "Jane"]
+names = ["Serhii", "Anna", "John", "Jane"] :: [String]
 
+main :: IO ()
 main = do
     -- Print the first value of the list
     print (scores !! 0)
