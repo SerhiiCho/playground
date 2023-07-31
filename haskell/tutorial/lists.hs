@@ -4,7 +4,7 @@ scores = [24, 25, 53, 92, 56, 74] :: [Int]
 -- List of Strings
 names = ["Serhii", "Anna", "John", "Jane"] :: [String]
 
-nicknames = ["Serz", "An", "Jo", "Jai"]
+nicknames = ["Serz", "An", "Jo", "Jai"] :: [String]
 
 main :: IO ()
 main = do
@@ -21,7 +21,8 @@ main = do
     -- Print all except the first
     print (tail scores)
 
-    -- Concatenate two lists
-    let newList = names ++ nicknames
+    -- Concatenate two lists (plus plus operator)
+    print (names ++ nicknames)
 
-    print newList
+    -- Add element to the beginning of the list (colon operator)
+    print ("Nikel" : names)
