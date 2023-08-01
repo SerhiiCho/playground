@@ -1,6 +1,16 @@
 -- List of Integers
 scores = [24, 25, 53, 92, 56, 74] :: [Int]
 
+-- List ranges with .. operator (incremental)
+daysInYear = [1 .. 12] :: [Int]
+
+-- List ranges with .. operator (decremental)
+daysInTheWeek = [7, 6 .. 1] :: [Int]
+-- YOU HAVE TO PUT 2 NUMBERS instead of 1 to make it decremental. 6 .. 1 will not work
+
+-- Infinite amount of numbers
+allNumbers = [0 .. ] :: [Int]
+
 -- List of Strings
 names = ["Serhii", "Anna", "John", "Jane"] :: [String]
 
