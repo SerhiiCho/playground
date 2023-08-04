@@ -1,3 +1,5 @@
+module Loops where
+
 printTo100 :: Int -> IO ()
 printTo100 num = do
     if num <= 100

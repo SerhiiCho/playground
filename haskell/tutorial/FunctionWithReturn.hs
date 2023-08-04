@@ -1,3 +1,5 @@
+module FunctionWithReturn where
+
 -- In this example we use the return keyword
 getName :: IO String
 getName = do

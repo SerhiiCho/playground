@@ -1,3 +1,5 @@
+module BindOperator where
+
 getName :: IO String
 getName = putStrLn "What is your name?" >> getLine
 

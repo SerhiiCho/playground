@@ -1,3 +1,5 @@
+module Tuples where
+
 main :: IO ()
 main = do
     -- Tuple can have as many values as you want

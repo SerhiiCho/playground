@@ -1,3 +1,6 @@
+module Calc where
+
+main :: IO ()
 main = do
     putStrLn "Enter first number: "
     firstNumber <- getLine

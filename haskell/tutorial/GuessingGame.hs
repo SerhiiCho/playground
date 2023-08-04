@@ -1,3 +1,5 @@
+module GuessingGame where
+
 maxGuesses :: Int
 maxGuesses = 3
 

@@ -1,3 +1,5 @@
+module Records where
+
 data Student = Student
     { name  :: String
     , major :: String

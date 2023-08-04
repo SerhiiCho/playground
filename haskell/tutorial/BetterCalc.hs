@@ -1,3 +1,5 @@
+module BetterCalc where
+
 calculate :: Double -> Double -> String -> Double
 calculate num1 num2 operator =
     if operator == "+"

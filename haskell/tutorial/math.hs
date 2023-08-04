@@ -1,3 +1,5 @@
+module Math where
+
 main :: IO ()
 main = do
     -- To the power of 2

@@ -1,3 +1,5 @@
+module Types where
+
 name :: String
 name = "Serhii"
 

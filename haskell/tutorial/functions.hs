@@ -14,7 +14,7 @@ cube num = num * num * num
 createFullName :: String -> String -> String
 createFullName first last = first ++ " " ++ last
 
--- Pattern matching function
+-- Pattern matching function (guards)
 yourNameIs :: String -> String
 yourNameIs name
   | name == "Serhii" = "You like Anna"

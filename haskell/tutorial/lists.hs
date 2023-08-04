@@ -1,3 +1,5 @@
+module Lists where
+
 -- List of Integers
 scores = [24, 25, 53, 92, 56, 74] :: [Int]
 

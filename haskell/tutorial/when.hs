@@ -1,3 +1,5 @@
+module When where
+
 import Control.Monad (when)
 
 printWhenEqual :: Int -> Int -> IO ()

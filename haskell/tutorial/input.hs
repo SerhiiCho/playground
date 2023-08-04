@@ -1,3 +1,6 @@
+module Input where
+
+main :: IO ()
 main = do
     putStrLn "Enter your Age: "
     age <- getLine

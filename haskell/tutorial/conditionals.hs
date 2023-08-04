@@ -1,3 +1,5 @@
+module Conditionals where
+
 -- If statement
 travelToWork :: String -> IO ()
 travelToWork weather = do
