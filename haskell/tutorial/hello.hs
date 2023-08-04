@@ -1,3 +1,6 @@
+module Hello where
+
+main :: IO ()
 main = do
     let name = "Serhii"
     let numOfGifts = 36

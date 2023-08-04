@@ -1,3 +1,5 @@
+module Functions where
+
 import Data.List (intercalate)
 
 -- Function that prints out a string
