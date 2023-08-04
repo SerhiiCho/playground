@@ -1,3 +1,5 @@
+import Data.List (intercalate)
+
 -- Function that prints out a string
 sayHi :: String -> Int -> IO ()
 sayHi name age = putStrLn ("Hello " ++ name ++ "! You are " ++ show age ++ " years old!")
@@ -26,3 +28,8 @@ main = do
 
     putStrLn fullName
     putStrLn (yourNameIs "Serhii")
+
+    let prettyGirls = ["Anna", "Sasha", "Maria", "Kseniya"]
+    let joinedGirls = intercalate ", " prettyGirls
+
+    putStrLn ("Pretty girls are: " ++ joinedGirls)
