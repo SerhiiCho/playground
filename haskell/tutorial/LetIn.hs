@@ -14,4 +14,5 @@ sameThreeAround list =
 
 main :: IO ()
 main = do
+    print "nice"
     print (sameThreeAround [1, 2, 3, 9, 2, 0])
