@@ -16,8 +16,9 @@ appendLastTwos :: [Int] -> [Int] -> [Int]
 appendLastTwos list1 list2 = lastTwo list1 ++ lastTwo list2
     where
         lastTwo :: [Int] -> [Int]
-        lastTwo l = reverse(take 2 (reverse l))
+        lastTwo l = reverse (take 2 (reverse l))
 
 main :: IO ()
 main = do
     print (sameThreeAround [1, 2, 3, 9, 2, 0])
+    print (appendLastTwos [4, 5, 6] [8, 9, 10])
