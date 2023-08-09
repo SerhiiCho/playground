@@ -1,6 +1,6 @@
 module SquareSum where
 
-squareSum :: [Int] -> Int
+squareSum :: [Integer] -> Integer
 squareSum nums = sum (map (^ 2) nums
 
 main :: IO ()
