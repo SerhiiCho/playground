@@ -1,19 +1,27 @@
 package main
 
+import (
+	. "eventchannel/channel"
+	. "eventchannel/publisher"
+	. "eventchannel/subscriber"
+)
+
 func main() {
 	newsChannel := &EventChannel{}
 
 	// Create new publisher and give it an event channel
 	highgarderGroup := Publisher{
-		Topic:   "highgarden-news",
+		Topic:   "bbc-news",
 		Channel: newsChannel,
 	}
 
-	serhii := Subscriber{"Serhii"}
+	serhii := Subscriber{
+		Name: "Serhii",
+	}
 
-	newsChannel.Subscribe("highgarden-news", serhii)
+	newsChannel.Subscribe("bbc-news", serhii)
 
-	// Now if we highgarden publish something, subscriber
+	// Now if we BBC publish something, subscriber
 	// Serhii gets notified about this event.
-	highgarderGroup.Publish("New highgarder post")
+	highgarderGroup.Publish("New BBC post")
 }

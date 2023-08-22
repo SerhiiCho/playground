@@ -1,4 +1,4 @@
-package main
+package subscriber
 
 import "fmt"
 

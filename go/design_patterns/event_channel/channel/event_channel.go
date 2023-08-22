@@ -1,6 +1,9 @@
-package main
+package channel
 
-import "fmt"
+import (
+	. "eventchannel/subscriber"
+	"fmt"
+)
 
 // EventChannel is responsable for subscribing topic to a subscriber
 // and notifying the subscriber when topic has been published.
