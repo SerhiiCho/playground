@@ -19,7 +19,7 @@ yourNameIs :: String -> String
 yourNameIs name
   | name == "Serhii" = "You like Anna"
   | name == "Anna" = "You like Serhii"
-  | otherwise = "You like someone else"
+  | otherwise = "You like someone else" -- otherwise is just a global variable that equals to True
 
 main :: IO ()
 main = do
