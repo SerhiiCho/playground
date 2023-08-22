@@ -1,6 +1,7 @@
 package main
 
 import (
+	"abstractfactory/factory"
 	"errors"
 	"fmt"
 )
@@ -16,9 +17,9 @@ type AnimalFactoryInterface interface {
 func GetFactory(factoryType string) (AnimalFactoryInterface, error) {
 	switch factoryType {
 	case "cat":
-		return CatFactory{}, nil
+		return factory.CatFactory{}, nil
 	case "dog":
-		return DogFactory{}, nil
+		return factory.DogFactory{}, nil
 	default:
 		return nil, errors.New("The type of the factory is unknown")
 	}

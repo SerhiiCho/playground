@@ -1,4 +1,4 @@
-package main
+package factory
 
 // CatFactory is the family factory member
 type CatFactory struct{}

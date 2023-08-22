@@ -1,4 +1,4 @@
-package main
+package factory
 
 // DogFactory is the family factory member
 type DogFactory struct{}
