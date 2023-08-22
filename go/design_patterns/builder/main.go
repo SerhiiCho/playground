@@ -10,6 +10,7 @@ func main() {
 	bldr := builder.NewNotificationBuilder()
 
 	bldr.SetTitle("New Notification")
+	bldr.SetSubTitle("This is a subtitle")
 	bldr.SetIcon("icon.png")
 	bldr.SetImage("image.jpg")
 	bldr.SetPriority(10)
@@ -22,5 +23,5 @@ func main() {
 		log.Fatalln("Error building notification:", err)
 	}
 
-	fmt.Println(nofif)
+	fmt.Printf("%+v", nofif)
 }

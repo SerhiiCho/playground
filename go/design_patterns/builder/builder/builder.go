@@ -1,5 +1,7 @@
 package builder
 
+import "errors"
+
 type NotificationBuilder struct {
 	Title    string
 	SubTitle string
@@ -44,6 +46,12 @@ func (nb *NotificationBuilder) SetType(notType string) {
 
 // The builder method returns a fully finished Notification object
 func (nb *NotificationBuilder) Build() (*Notification, error) {
+
+	// We handle validation in the build method
+	if nb.Priority < 0 {
+		return nil, errors.New("Priority should be greater than 0")
+	}
+
 	notif := &Notification{
 		title:    nb.Title,
 		subtitle: nb.SubTitle,
