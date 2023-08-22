@@ -1,12 +1,13 @@
 package main
 
 import (
+	"abstractfactory/builder"
 	"fmt"
 	"log"
 )
 
 func main() {
-	bldr := newNotificationBuilder()
+	bldr := builder.NewNotificationBuilder()
 
 	bldr.SetTitle("New Notification")
 	bldr.SetIcon("icon.png")

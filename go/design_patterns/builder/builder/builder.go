@@ -1,4 +1,4 @@
-package main
+package builder
 
 type NotificationBuilder struct {
 	Title    string
@@ -10,7 +10,7 @@ type NotificationBuilder struct {
 	NotType  string
 }
 
-func newNotificationBuilder() *NotificationBuilder {
+func NewNotificationBuilder() *NotificationBuilder {
 	return &NotificationBuilder{}
 }
 

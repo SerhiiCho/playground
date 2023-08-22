@@ -1,4 +1,4 @@
-package main
+package builder
 
 // Finished product that is created by the builder
 type Notification struct {
