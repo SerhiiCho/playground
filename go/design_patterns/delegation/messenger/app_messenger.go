@@ -1,4 +1,8 @@
-package main
+package messenger
+
+import (
+	"delegation/sender"
+)
 
 // AppMessenger realization
 type AppMessenger struct {
@@ -7,13 +11,13 @@ type AppMessenger struct {
 
 // ToEmail sets messenger to email
 func (m *AppMessenger) ToEmail() *AppMessenger {
-	m.Messenger = &EmailMessenger{}
+	m.Messenger = &sender.EmailMessenger{}
 	return m
 }
 
 // ToSms sets messenger to sms
 func (m *AppMessenger) ToSms() *AppMessenger {
-	m.Messenger = &SmsMessenger{}
+	m.Messenger = &sender.SmsMessenger{}
 	return m
 }
 

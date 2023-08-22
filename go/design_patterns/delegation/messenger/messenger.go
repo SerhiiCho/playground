@@ -1,4 +1,4 @@
-package main
+package messenger
 
 // Messenger interface
 type Messenger interface {
