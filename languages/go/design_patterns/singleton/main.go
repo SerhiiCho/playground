@@ -1,20 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sync"
+)
 
 func main() {
-	log := getLoggerInstance()
+	for i := 1; i < 10; i++ {
+		go getLoggerInstance()
+	}
 
-	log.SetLogLevel(1)
-	log.Log("This is a log message")
-
-	log = getLoggerInstance()
-	log.SetLogLevel(2)
-	log.Log("This is a log message")
-
-	log = getLoggerInstance()
-	log.SetLogLevel(3)
-	log.Log("This is a log message")
+	fmt.Scanln()
 }
 
 type MyLogger struct {
@@ -31,11 +27,14 @@ func (l *MyLogger) SetLogLevel(level int) {
 
 var logger *MyLogger
 
+// Use the sync package to enforce goroutine safety
+var once sync.Once
+
 func getLoggerInstance() *MyLogger {
-	if logger == nil {
+	once.Do(func() {
 		fmt.Println("Creating logger instance")
 		logger = &MyLogger{}
-	}
+	})
 
 	fmt.Println("Returning logger instance")
 	return logger
