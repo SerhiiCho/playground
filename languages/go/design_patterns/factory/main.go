@@ -26,5 +26,4 @@ func pubDetails(pub IPublication) {
 	fmt.Printf("Name: %s\n", pub.GetName())
 	fmt.Printf("Pages: %d\n", pub.GetPages())
 	fmt.Printf("Publisher: %s\n", pub.GetPublisher())
-	fmt.Printf("----------------\n")
 }

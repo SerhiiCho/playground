@@ -11,5 +11,7 @@ func (n *newspaper) String() string {
 }
 
 func createNewspaper(name string, pages int, publisher string) IPublication {
-	return nil
+	return &newspaper{
+		publication: publication{name, pages, publisher},
+	}
 }
