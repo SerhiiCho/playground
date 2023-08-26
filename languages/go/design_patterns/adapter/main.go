@@ -2,17 +2,18 @@ package main
 
 import (
 	. "adapter/app"
+	. "adapter/tv"
 	"fmt"
 )
 
 func main() {
 	// Create instances of the two TV types with some default values
-	tv1 := &SammysangTV{
+	tv1 := &IctvTV{
 		CurrentChan:   13,
 		CurrentVolume: 35,
 		TvOn:          true,
 	}
-	tv2 := &SohneeTV{
+	tv2 := &BbcTV{
 		Vol:     20,
 		Channel: 9,
 		IsOn:    true,
@@ -31,7 +32,7 @@ func main() {
 
 	// We need to create a SammysangTV adapter for the SammysangTV class, however
 	// because it has an interface that's different from the one we want to use
-	ssAdapt := &SammysangAdapter{
+	ssAdapt := &IctvAdapter{
 		Sstv: tv1,
 	}
 	ssAdapt.TurnOn()
