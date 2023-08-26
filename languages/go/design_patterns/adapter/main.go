@@ -7,19 +7,19 @@ import (
 )
 
 func main() {
-	// Create instances of the two TV types with some default values
 	tv1 := &CnnTV{
 		CurrentChan:   13,
 		CurrentVolume: 35,
 		TvOn:          true,
 	}
+
 	tv2 := &BbcTV{
 		Vol:     20,
 		Channel: 9,
 		IsOn:    true,
 	}
 
-	// Because the SohneeTV implements the "television" interface, we don't need an adapter
+	// Because the BBV implements the "television" interface, we don't need an adapter
 	tv2.TurnOn()
 	tv2.VolumeUp()
 	tv2.VolumeDown()
@@ -30,10 +30,10 @@ func main() {
 
 	fmt.Println("--------------------")
 
-	// We need to create a SammysangTV adapter for the SammysangTV class, however
+	// We need to create a CNN adapter for the CNN class, however
 	// because it has an interface that's different from the one we want to use
 	ssAdapt := &CnnAdapter{
-		Sstv: tv1,
+		Cnntv: tv1,
 	}
 	ssAdapt.TurnOn()
 	ssAdapt.VolumeUp()

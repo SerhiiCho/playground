@@ -3,41 +3,42 @@ package app
 import . "adapter/tv"
 
 type CnnAdapter struct {
-	Sstv *CnnTV
+	// reference to original object
+	Cnntv *CnnTV
 }
 
 func (cnn *CnnAdapter) TurnOn() {
-	cnn.Sstv.SetOnState(true)
+	cnn.Cnntv.SetOnState(true)
 }
 
 func (cnn *CnnAdapter) TurnOff() {
-	cnn.Sstv.SetOnState(false)
+	cnn.Cnntv.SetOnState(false)
 }
 
 func (cnn *CnnAdapter) VolumeUp() int {
-	vol := cnn.Sstv.GetVolume() + 1
-	cnn.Sstv.SetVolume(vol)
+	vol := cnn.Cnntv.GetVolume() + 1
+	cnn.Cnntv.SetVolume(vol)
 	return vol
 }
 
 func (cnn *CnnAdapter) VolumeDown() int {
-	vol := cnn.Sstv.GetVolume() - 1
-	cnn.Sstv.SetVolume(vol)
+	vol := cnn.Cnntv.GetVolume() - 1
+	cnn.Cnntv.SetVolume(vol)
 	return vol
 }
 
 func (cnn *CnnAdapter) ChannelUp() int {
-	ch := cnn.Sstv.GetChannel() + 1
-	cnn.Sstv.SetChannel(ch)
+	ch := cnn.Cnntv.GetChannel() + 1
+	cnn.Cnntv.SetChannel(ch)
 	return ch
 }
 
 func (cnn *CnnAdapter) ChannelDown() int {
-	ch := cnn.Sstv.GetChannel() - 1
-	cnn.Sstv.SetChannel(ch)
+	ch := cnn.Cnntv.GetChannel() - 1
+	cnn.Cnntv.SetChannel(ch)
 	return ch
 }
 
 func (cnn *CnnAdapter) GoToChannel(ch int) {
-	cnn.Sstv.SetChannel(ch)
+	cnn.Cnntv.SetChannel(ch)
 }
