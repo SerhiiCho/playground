@@ -8,7 +8,7 @@ import (
 
 func main() {
 	// Create instances of the two TV types with some default values
-	tv1 := &IctvTV{
+	tv1 := &CnnTV{
 		CurrentChan:   13,
 		CurrentVolume: 35,
 		TvOn:          true,
@@ -32,7 +32,7 @@ func main() {
 
 	// We need to create a SammysangTV adapter for the SammysangTV class, however
 	// because it has an interface that's different from the one we want to use
-	ssAdapt := &IctvAdapter{
+	ssAdapt := &CnnAdapter{
 		Sstv: tv1,
 	}
 	ssAdapt.TurnOn()
