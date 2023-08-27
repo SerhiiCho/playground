@@ -1,8 +1,6 @@
 package main
 
-import (
-	. "facade/app"
-)
+import . "facade/app"
 
 func main() {
 	// Use the Facade Cafe API to create coffee drinks
