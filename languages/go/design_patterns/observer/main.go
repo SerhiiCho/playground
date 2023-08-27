@@ -14,10 +14,17 @@ func main() {
 
 	// Create the DataSubject that the listeners will observe
 	subj := &DataSubject{}
-	// TODO: Register each listener with the DataSubject
 
-	// TODO: Change the data in the DataSubject - this will cause the
+	// Register each listener with the DataSubject
+	subj.RegisterObserver(listener1)
+	subj.RegisterObserver(listener2)
+
+	// Change the data in the DataSubject - this will cause the
 	// onUpdate method of each listener to be called
+	subj.ChangeItem("Monday!")
+	subj.ChangeItem("Wednesday!")
 
-	// TODO: Try to unregister one of the observers
+	// Try to unregister one of the observers
+	subj.UnregisterObserver(listener2)
+	subj.ChangeItem("Friday!")
 }
