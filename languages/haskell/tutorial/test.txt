@@ -1,0 +1,5 @@
+let nice = 'great job man';
+
+function test(): str {
+    return 'nice';
+}
