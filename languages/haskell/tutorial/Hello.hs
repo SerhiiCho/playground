@@ -6,5 +6,5 @@ main = do
     let numOfGifts = 36
 
     -- This line prints Hello
-    putStrLn ("Hello " ++ name ++ "!")
+    putStrLn ("Hello " ++ name ++ "! Nice to meet you!")
     putStrLn ("He has " ++ show numOfGifts ++ " gifts!")
