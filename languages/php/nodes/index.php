@@ -14,8 +14,8 @@ $tree = new Tree(
         new Node(22,
             new Node(16),
             new Node(47),
-        )
-    )
+       ),
+    ),
 );
 ?>
 <!DOCTYPE html>
