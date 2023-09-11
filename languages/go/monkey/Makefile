@@ -1,5 +1,5 @@
 .PHONY: test
 test:
-	go test ./lexer
+	clear && go test ./lexer
 
 .DEFAULT_GOAL := test

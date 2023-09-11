@@ -18,21 +18,8 @@ func New(input string) *Lexer {
 	return l
 }
 
-// advanceChar gives us the next character and advances
-// our position in the input string
-func (l *Lexer) advanceChar() {
-	if l.nextPosition >= len(l.input) {
-		l.char = 0
-	} else {
-		l.char = l.input[l.nextPosition]
-	}
-
-	l.position = l.nextPosition
-	l.nextPosition += 1
-}
-
-// NextToken looks at current char and returns a token depending
-// on which character it is
+// NextToken looks at current char and returns a token
+// depending on which character it is
 func (l *Lexer) NextToken() token.Token {
 	var tok token.Token
 
@@ -40,33 +27,43 @@ func (l *Lexer) NextToken() token.Token {
 
 	switch l.char {
 	case '=':
-		tok = newToken(token.ASSIGN, l.char)
+		if l.peekChar() == '=' {
+			l.advanceChar()
+			tok = newToken(token.EQ, "==")
+		} else {
+			tok = newToken(token.ASSIGN, "=")
+		}
 	case '!':
-		tok = newToken(token.BANG, l.char)
+		if l.peekChar() == '=' {
+			l.advanceChar()
+			tok = newToken(token.NOT_EQ, "!=")
+		} else {
+			tok = newToken(token.BANG, "!")
+		}
 	case ';':
-		tok = newToken(token.SEMI, l.char)
+		tok = newToken(token.SEMI, ";")
 	case '/':
-		tok = newToken(token.SLASH, l.char)
+		tok = newToken(token.SLASH, "/")
 	case '*':
-		tok = newToken(token.ASTERISK, l.char)
+		tok = newToken(token.ASTERISK, "*")
 	case '<':
-		tok = newToken(token.LTHAN, l.char)
+		tok = newToken(token.LTHAN, "<")
 	case '>':
-		tok = newToken(token.GTHAN, l.char)
+		tok = newToken(token.GTHAN, ">")
 	case '(':
-		tok = newToken(token.LPAREN, l.char)
+		tok = newToken(token.LPAREN, "(")
 	case ')':
-		tok = newToken(token.RPAREN, l.char)
+		tok = newToken(token.RPAREN, ")")
 	case ',':
-		tok = newToken(token.COMMA, l.char)
+		tok = newToken(token.COMMA, ",")
 	case '+':
-		tok = newToken(token.PLUS, l.char)
+		tok = newToken(token.PLUS, "+")
 	case '-':
-		tok = newToken(token.MINUS, l.char)
+		tok = newToken(token.MINUS, "-")
 	case '{':
-		tok = newToken(token.LBRACE, l.char)
+		tok = newToken(token.LBRACE, "{")
 	case '}':
-		tok = newToken(token.RBRACE, l.char)
+		tok = newToken(token.RBRACE, "}")
 	case 0:
 		tok.Literal = ""
 		tok.Type = token.EOF
@@ -83,12 +80,35 @@ func (l *Lexer) NextToken() token.Token {
 			return tok
 		}
 
-		tok = newToken(token.ILLEGAL, l.char)
+		tok = newToken(token.ILLEGAL, string(l.char))
 	}
 
 	l.advanceChar()
 
 	return tok
+}
+
+// advanceChar gives us the next character and advances
+// our position in the input string
+func (l *Lexer) advanceChar() {
+	if l.nextPosition >= len(l.input) {
+		l.char = 0
+	} else {
+		l.char = l.input[l.nextPosition]
+	}
+
+	l.position = l.nextPosition
+	l.nextPosition += 1
+}
+
+// peekChar is the same as advanceChar except it doesn't
+// increment the position
+func (l *Lexer) peekChar() byte {
+	if l.nextPosition >= len(l.input) {
+		return 0
+	}
+
+	return l.input[l.nextPosition]
 }
 
 func (l *Lexer) skipWhitespace() {
@@ -126,9 +146,9 @@ func isLetter(char byte) bool {
 }
 
 // newToken creates a token based on the provided data
-func newToken(tokenType token.TokenType, char byte) token.Token {
+func newToken(tokenType token.TokenType, literal string) token.Token {
 	return token.Token{
 		Type:    tokenType,
-		Literal: string(char),
+		Literal: literal,
 	}
 }
