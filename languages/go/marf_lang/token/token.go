@@ -6,16 +6,27 @@ const (
 	ILLEGAL = "ILLEGAL"
 	EOF     = "EOF"
 	INT     = "INT"
+	IDENT   = "IDENT"
 
 	// Delimiters
-	SEMI = ";"
+	SEMI     = ";"
+	LBRACKET = "["
+	RBRACKET = "]"
+
+	// Operators
+	PLUS   = "+"
+	ASSIGN = "="
+
+	EQ = "=="
 
 	// Keywords
 	RETURN = "ret"
+	IF     = "if"
 )
 
 var keyword = map[string]TokenType{
 	"ret": RETURN,
+	"if":  IF,
 }
 
 type Token struct {
@@ -28,5 +39,5 @@ func LookupIdentifier(ident string) TokenType {
 		return tok
 	}
 
-	return ILLEGAL
+	return IDENT
 }

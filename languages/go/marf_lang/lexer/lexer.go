@@ -26,6 +26,19 @@ func (l *Lexer) NextToken() token.Token {
 	switch l.char {
 	case ';':
 		tok = newToken(token.SEMI, ";")
+	case '+':
+		tok = newToken(token.PLUS, "+")
+	case '[':
+		tok = newToken(token.LBRACKET, "[")
+	case ']':
+		tok = newToken(token.RBRACKET, "]")
+	case '=':
+		if l.peekChar() == '=' {
+			l.advanceChar()
+			tok = newToken(token.EQ, "==")
+		} else {
+			tok = newToken(token.ASSIGN, "=")
+		}
 	default:
 		if isLetter(l.char) {
 			tok.Literal = l.readIdentifier()
@@ -43,6 +56,14 @@ func (l *Lexer) NextToken() token.Token {
 	l.advanceChar()
 
 	return tok
+}
+
+func (l *Lexer) peekChar() byte {
+	if l.nextPosition >= len(l.input) {
+		return 0
+	}
+
+	return l.input[l.nextPosition]
 }
 
 func (l *Lexer) skipWhitespace() {

@@ -7,7 +7,14 @@ import (
 
 func TestLexer(t *testing.T) {
 	input := `
-	ret 55;
+	ret 56;
+	1289 + 247;
+
+	summerTime = 5;
+
+	if 23 == 2 [
+		ret 0;
+	]
 	`
 
 	tests := []struct {
@@ -15,8 +22,25 @@ func TestLexer(t *testing.T) {
 		expectLiteral string
 	}{
 		{token.RETURN, "ret"},
-		{token.INT, "55"},
+		{token.INT, "56"},
 		{token.SEMI, ";"},
+		{token.INT, "1289"},
+		{token.PLUS, "+"},
+		{token.INT, "247"},
+		{token.SEMI, ";"},
+		{token.IDENT, "summerTime"},
+		{token.ASSIGN, "="},
+		{token.INT, "5"},
+		{token.SEMI, ";"},
+		{token.IF, "if"},
+		{token.INT, "23"},
+		{token.EQ, "=="},
+		{token.INT, "2"},
+		{token.LBRACKET, "["},
+		{token.RETURN, "ret"},
+		{token.INT, "0"},
+		{token.SEMI, ";"},
+		{token.RBRACKET, "]"},
 	}
 
 	l := New(input)
