@@ -33,7 +33,11 @@ func (l *Lexer) NextToken() token.Token {
 			return tok
 		}
 
-		// is digit return parse digits
+		if isDigit(l.char) {
+			tok.Literal = l.readNumber()
+			tok.Type = token.INT
+			return tok
+		}
 	}
 
 	l.advanceChar()
@@ -51,6 +55,16 @@ func (l *Lexer) readIdentifier() string {
 	position := l.position
 
 	for isLetter(l.char) {
+		l.advanceChar()
+	}
+
+	return l.input[position:l.position]
+}
+
+func (l *Lexer) readNumber() string {
+	position := l.position
+
+	for isDigit(l.char) {
 		l.advanceChar()
 	}
 
