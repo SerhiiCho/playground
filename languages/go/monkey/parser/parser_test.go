@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"fmt"
 	"monkey/ast"
 	"monkey/lexer"
 	"testing"
@@ -215,6 +216,27 @@ func TestParsingPrefixExpressions(t *testing.T) {
 			return
 		}
 	}
+}
+
+func testIntegerLiteral(t *testing.T, il ast.Expression, value int64) bool {
+	integ, ok := il.(*ast.IntegerLiteral)
+
+	if !ok {
+		t.Fatalf("il not *ast.IntegerLiteral. Got=%T", il)
+		return false
+	}
+
+	if integ.Value != value {
+		t.Fatalf("integ.Value is %d, but must be %d", integ.Value, value)
+		return false
+	}
+
+	if integ.TokenLiteral() != fmt.Sprintf("%d", value) {
+		t.Fatalf("integ.TokenLIteral() is %q, but must be %q", integ.TokenLiteral(), value)
+		return false
+	}
+
+	return true
 }
 
 func checkParserErrors(t *testing.T, p *Parser) {
