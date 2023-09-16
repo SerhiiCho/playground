@@ -1,13 +1,13 @@
 const assert = require('assert')
 const Lexer = require('../src/Lexer')
+const lexerTests = require('./Lexer.test')
 
-const tests = [
-    require('./intTest'),
-]
+lexerTests.forEach(testCase => {
+    const lex = new Lexer(testCase.input)
 
-tests.forEach(test => {
-    const token = new Lexer(test.input).nextToken()
-    assert.deepEqual(token, test.expect)
+    testCase.expect.forEach(expectedToken => {
+        assert.deepEqual(lex.nextToken(), expectedToken)
+    })
 })
 
 console.log('All tests are passed!')
