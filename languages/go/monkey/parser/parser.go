@@ -51,17 +51,20 @@ func New(lex *lexer.Lexer) *Parser {
 		errors: []string{},
 	}
 
-	p.prefixParseFns = make(map[token.TokenType]prefixParseFn)
-	p.infixParseFns = make(map[token.TokenType]infixParseFn)
+	// Read two tokens, so curToken and peekToken are set
+	p.nextToken()
+	p.nextToken()
 
 	// We register a parsing function. If we encounter a token of
 	// certain type, the it will call a mapped function
+	p.prefixParseFns = make(map[token.TokenType]prefixParseFn)
 	p.registerPrefix(token.IDENT, p.parseIdentifier)
 	p.registerPrefix(token.INT, p.parseIntegerLiteral)
 	p.registerPrefix(token.BANG, p.parsePrefixExpression)
 	p.registerPrefix(token.MINUS, p.parsePrefixExpression)
 
 	// Infix
+	p.infixParseFns = make(map[token.TokenType]infixParseFn)
 	p.registerInfix(token.PLUS, p.parseInfixExpression)
 	p.registerInfix(token.MINUS, p.parseInfixExpression)
 	p.registerInfix(token.ASTERISK, p.parseInfixExpression)
@@ -70,10 +73,6 @@ func New(lex *lexer.Lexer) *Parser {
 	p.registerInfix(token.NOT_EQ, p.parseInfixExpression)
 	p.registerInfix(token.LTHAN, p.parseInfixExpression)
 	p.registerInfix(token.GTHAN, p.parseInfixExpression)
-
-	// Read two tokens, so curToken and peekToken are set
-	p.nextToken()
-	p.nextToken()
 
 	return p
 }
@@ -140,7 +139,7 @@ func (p *Parser) parseInfixExpression(left ast.Expression) ast.Expression {
 		Left:     left,
 	}
 
-	precedence := p.peekPrecedence()
+	precedence := p.curPrecedence()
 
 	p.nextToken()
 
