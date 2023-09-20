@@ -1,3 +1,5 @@
+// tokenTypes.js
+
 module.exports = {
     ILLIGAL: "ILLIGAL",
     EOF: "EOF",

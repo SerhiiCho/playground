@@ -1,5 +1,6 @@
-module.exports = class Token {
+// src/Token.js
 
+module.exports = class {
     /**
      * @param {string} type Token type (e.g. tokens.INT, tokens.PLUS)
      * @param {string} literal Token literal (e.g. '3', '+')

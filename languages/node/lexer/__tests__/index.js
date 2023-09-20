@@ -1,3 +1,5 @@
+// __tests__/index.js
+
 const assert = require('assert')
 const Lexer = require('../src/Lexer')
 const lexerTests = require('./Lexer.test')
@@ -10,4 +12,4 @@ lexerTests.forEach(testCase => {
     })
 })
 
-console.log('All tests are passed!')
+console.info('All tests are passed!')

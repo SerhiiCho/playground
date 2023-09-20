@@ -1,25 +1,23 @@
 const tokens = require('./tokenTypes')
 const Token = require('./Token')
 
-module.exports = class Lexer {
+// src/Lexer.js
+
+module.exports = class {
     constructor(input) {
         this.input = input
         this.position = 0
-        this.nextPosition = 0
-        this.char = ''
-        this.#advanceChar()
+        this.nextPosition = 1
+        this.char = input[0] || ''
     }
 
     nextToken() {
         let token = null
 
-        switch (this.char) {
-            case ';':
-                token = new Token(tokens.SEMI, ';')
-            default:
-                if (this.#charIsNumber()) {
-                    return new Token(tokens.INT, this.#readNumber())
-                }
+        if (this.char === ';') {
+            token = new Token(tokens.SEMI, this.char)
+        } else if (this.#charIsNumber()) {
+            return new Token(tokens.INT, this.#readNumber())
         }
 
         this.#advanceChar()
