@@ -302,6 +302,13 @@ func (p *Parser) parseFunctionParameters() []*ast.Identifier {
 	return params
 }
 
+// <expression>(<comma separated expressions>)
+func (p *Parser) parseCallExpressions() ast.Expression {
+	exp := &ast.CallExpression{Token: p.curToken}
+
+	return exp
+}
+
 func (p *Parser) peekError(tok token.TokenType) {
 	msg := fmt.Sprintf("expected next token to be %s, got %s instead", tok, p.peekToken.Type)
 	p.errors = append(p.errors, msg)
