@@ -46,7 +46,6 @@ module.exports = class Lexer {
         let start = this.position
 
         while (this.#charIsNumber()) {
-            console.log(this.position, this.nextPosition)
             this.#advanceChar()
         }
 
