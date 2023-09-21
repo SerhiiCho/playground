@@ -113,24 +113,6 @@ func (p *Parser) parseBoolean() ast.Expression {
 	}
 }
 
-// peekPrecedence checks the precedence of the next token
-func (p *Parser) peekPrecedence() int {
-	if prec, ok := precedences[p.peekToken.Type]; ok {
-		return prec
-	}
-
-	return LOWEST
-}
-
-// curPrecedence checks the precedence of the current token
-func (p *Parser) curPrecedence() int {
-	if prec, ok := precedences[p.curToken.Type]; ok {
-		return prec
-	}
-
-	return LOWEST
-}
-
 // if (<condition>) <consequence> else <alternative>
 func (p *Parser) parseIfExpression() ast.Expression {
 	exp := &ast.IfExpression{Token: p.curToken}
@@ -340,19 +322,6 @@ func (p *Parser) parseCallArguments() []ast.Expression {
 	return args
 }
 
-func (p *Parser) peekError(tok token.TokenType) {
-	msg := fmt.Sprintf("expected next token to be %s, got %s instead", tok, p.peekToken.Type)
-	p.errors = append(p.errors, msg)
-}
-
-func (p *Parser) registerPrefix(tokenType token.TokenType, fn prefixParseFn) {
-	p.prefixParseFns[tokenType] = fn
-}
-
-func (p *Parser) registerInfix(tokenType token.TokenType, fn infixParseFn) {
-	p.infixParseFns[tokenType] = fn
-}
-
 func (p *Parser) parseStatement() ast.Statement {
 	switch p.curToken.Type {
 	case token.LET:
@@ -393,11 +362,6 @@ func (p *Parser) parseExpressionStatement() *ast.ExpressionStatement {
 	}
 
 	return stmt
-}
-
-func (p *Parser) noPrefixParseFnError(t token.TokenType) {
-	msg := fmt.Sprintf("no prefix parse function for %s found", t)
-	p.errors = append(p.errors, msg)
 }
 
 func (p *Parser) parseExpression(precedence int) ast.Expression {
@@ -453,8 +417,26 @@ func (p *Parser) parseLetStatement() *ast.LetStatement {
 	return stmt
 }
 
+func (p *Parser) peekError(tok token.TokenType) {
+	msg := fmt.Sprintf("expected next token to be %s, got %s instead", tok, p.peekToken.Type)
+	p.errors = append(p.errors, msg)
+}
+
+func (p *Parser) registerPrefix(tokenType token.TokenType, fn prefixParseFn) {
+	p.prefixParseFns[tokenType] = fn
+}
+
+func (p *Parser) registerInfix(tokenType token.TokenType, fn infixParseFn) {
+	p.infixParseFns[tokenType] = fn
+}
+
 func (p *Parser) curTokenIs(tok token.TokenType) bool {
 	return p.curToken.Type == tok
+}
+
+func (p *Parser) noPrefixParseFnError(t token.TokenType) {
+	msg := fmt.Sprintf("no prefix parse function for %s found", t)
+	p.errors = append(p.errors, msg)
 }
 
 func (p *Parser) expectPeek(tok token.TokenType) bool {
@@ -470,4 +452,22 @@ func (p *Parser) expectPeek(tok token.TokenType) bool {
 
 func (p *Parser) peekTokenIs(tok token.TokenType) bool {
 	return p.peekToken.Type == tok
+}
+
+// peekPrecedence checks the precedence of the next token
+func (p *Parser) peekPrecedence() int {
+	if prec, ok := precedences[p.peekToken.Type]; ok {
+		return prec
+	}
+
+	return LOWEST
+}
+
+// curPrecedence checks the precedence of the current token
+func (p *Parser) curPrecedence() int {
+	if prec, ok := precedences[p.curToken.Type]; ok {
+		return prec
+	}
+
+	return LOWEST
 }
