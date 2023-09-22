@@ -10,12 +10,26 @@ module.exports = class {
         this.nextPosition = 1
         this.char = input[0] || ''
     }
+    // [...]
 
     nextToken() {
+        this.#removeWhitespace()
+
+        // [...]
         let token = null
 
         if (this.char === ';') {
             token = new Token(tokens.SEMI, this.char)
+        } else if (this.char === '+') {
+            token = new Token(tokens.PLUS, this.char)
+        } else if (this.char === '-') {
+            token = new Token(tokens.MINUS, this.char)
+        } else if (this.char === '*') {
+            token = new Token(tokens.MULTIPLY, this.char)
+        } else if (this.char === '/') {
+            token = new Token(tokens.DIVIDE, this.char)
+        } else if (this.char === '=') {
+            token = new Token(tokens.ASSIGN, this.char)
         } else if (this.#charIsNumber()) {
             return new Token(tokens.INT, this.#readNumber())
         }
@@ -23,6 +37,10 @@ module.exports = class {
         this.#advanceChar()
 
         return token
+    }
+
+    #removeWhitespace() {
+        // todo: implement
     }
 
     #charIsNumber() {

@@ -12,4 +12,4 @@ lexerTests.forEach(testCase => {
     })
 })
 
-console.info('All tests are passed!')
+console.info('\x1b[42m', 'All tests are passed!')

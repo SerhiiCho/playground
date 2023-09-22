@@ -23,12 +23,12 @@ module.exports = [
         ],
     },
     {
-        input: '13+12-5=20;',
+        input: '13 + 12 - 5 = 20;',
         expect: [
             new Token(tokens.INT, '13'),
             new Token(tokens.PLUS, '+'),
             new Token(tokens.INT, '12'),
-            new Token(tokens.PLUS, '-'),
+            new Token(tokens.MINUS, '-'),
             new Token(tokens.INT, '5'),
             new Token(tokens.ASSIGN, '='),
             new Token(tokens.INT, '20'),
@@ -36,7 +36,7 @@ module.exports = [
         ],
     },
     {
-        input: '2*3/2=3;',
+        input: '    2 * 3 / 2  =  3',
         expect: [
             new Token(tokens.INT, '2'),
             new Token(tokens.MULTIPLY, '*'),
