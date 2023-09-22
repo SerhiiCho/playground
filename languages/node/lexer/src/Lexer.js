@@ -12,7 +12,7 @@ module.exports = class {
     }
 
     nextToken() {
-        this.#removeWhitespace()
+        this.#skipWhitespace()
 
         let token = null
 
@@ -37,12 +37,14 @@ module.exports = class {
         return token
     }
 
-    #removeWhitespace() {
-        // todo: implement
+    #skipWhitespace() {
+        while (this.char === ' ' || this.char === '\t' || this.char === '\n' || this.char === '\r') {
+            this.#advanceChar()
+        }
     }
 
     #charIsNumber() {
-        return this.char && !isNaN(this.char)
+        return /^-?\d+$/.test(this.char)
     }
 
     #advanceChar() {
