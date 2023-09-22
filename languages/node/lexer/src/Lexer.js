@@ -10,12 +10,10 @@ module.exports = class {
         this.nextPosition = 1
         this.char = input[0] || ''
     }
-    // [...]
 
     nextToken() {
         this.#removeWhitespace()
 
-        // [...]
         let token = null
 
         if (this.char === ';') {
