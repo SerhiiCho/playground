@@ -9,6 +9,6 @@ const (
 type ObjectType string
 
 type Object interface {
-	Type() string
+	Type() ObjectType
 	Inspect() string
 }
