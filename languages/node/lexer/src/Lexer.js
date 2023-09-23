@@ -18,7 +18,6 @@ module.exports = class {
 
         if (this.char === ';') {
             token = new Token(tokens.SEMI, this.char)
-
         } else if (this.char === '+') {
             token = new Token(tokens.PLUS, this.char)
         } else if (this.char === '-') {
