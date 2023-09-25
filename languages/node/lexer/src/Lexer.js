@@ -75,7 +75,6 @@ module.exports = class {
 
         return this.input[this.nextPosition]
     }
-    // [...]
 
     #chooseEqualToken() {
         if (this.#peekChar() == '=') {
