@@ -27,7 +27,7 @@ module.exports = class {
         } else if (this.char === '/') {
             token = new Token(tokens.DIVIDE, this.char)
         } else if (this.char === '=') {
-            token = new Token(tokens.ASSIGN, this.char)
+            token = this.#chooseEqualToken()
         } else if (this.#charIsNumber()) {
             return new Token(tokens.INT, this.#readNumber())
         }
@@ -66,5 +66,23 @@ module.exports = class {
         }
 
         return this.input.substring(start, this.position)
+    }
+
+    #peekChar() {
+        if (this.nextPosition >= this.input.length) {
+            return null
+        }
+
+        return this.input[this.nextPosition]
+    }
+    // [...]
+
+    #chooseEqualToken() {
+        if (this.#peekChar() == '=') {
+            this.#advanceChar()
+            return new Token(tokens.EQUAL, "==")
+        }
+
+        return new Token(tokens.ASSIGN, "=")
     }
 }

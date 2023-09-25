@@ -48,4 +48,15 @@ module.exports = [
             new Token(tokens.SEMI, ';'),
         ],
     },
+    {
+        input: '23 + 23 == 46;',
+        expect: [
+            new Token(tokens.INT, '23'),
+            new Token(tokens.PLUS, '+'),
+            new Token(tokens.INT, '23'),
+            new Token(tokens.EQUAL, '=='),
+            new Token(tokens.INT, '46'),
+            new Token(tokens.SEMI, ';'),
+        ],
+    },
 ]

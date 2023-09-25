@@ -11,4 +11,5 @@ module.exports = {
     MULTIPLY: '*',
     DIVIDE: '/',
     ASSIGN: '=',
+    EQUAL: '==',
 }
