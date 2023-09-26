@@ -27,19 +27,9 @@ func (l *Lexer) NextToken() token.Token {
 
 	switch l.char {
 	case '=':
-		if l.peekChar() == '=' {
-			l.advanceChar()
-			tok = newToken(token.EQ, "==")
-		} else {
-			tok = newToken(token.ASSIGN, "=")
-		}
+		tok = l.chooseEqualToken()
 	case '!':
-		if l.peekChar() == '=' {
-			l.advanceChar()
-			tok = newToken(token.NOT_EQ, "!=")
-		} else {
-			tok = newToken(token.BANG, "!")
-		}
+		tok = l.chooseNotEqualToken()
 	case ';':
 		tok = newToken(token.SEMI, ";")
 	case '/':
@@ -86,6 +76,24 @@ func (l *Lexer) NextToken() token.Token {
 	l.advanceChar()
 
 	return tok
+}
+
+func (l *Lexer) chooseEqualToken() token.Token {
+	if l.peekChar() == '=' {
+		l.advanceChar()
+		return newToken(token.EQ, "==")
+	}
+
+	return newToken(token.ASSIGN, "=")
+}
+
+func (l *Lexer) chooseNotEqualToken() token.Token {
+	if l.peekChar() == '=' {
+		l.advanceChar()
+		return newToken(token.NOT_EQ, "!=")
+	}
+
+	return newToken(token.BANG, "!")
 }
 
 // advanceChar gives us the next character and advances
