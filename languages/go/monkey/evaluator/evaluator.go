@@ -127,6 +127,7 @@ func evalStatements(statements []ast.Statement) object.Object {
 	for _, st := range statements {
 		result = Eval(st)
 	}
+
 	return result
 }
 
