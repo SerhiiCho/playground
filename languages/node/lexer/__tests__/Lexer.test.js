@@ -77,4 +77,32 @@ module.exports = [
             new Token(tokens.SEMI, ';'),
         ],
     },
+    {
+        input: '!',
+        expect: [new Token(tokens.ILLEGAL, '!')],
+    },
+    // [...]
+    {
+        input: `
+            x = 42;
+            y = 3;
+            x + y == 45;
+        `,
+        expect: [
+            new Token(tokens.IDENT, 'x'),
+            new Token(tokens.ASSIGN, '='),
+            new Token(tokens.INT, '42'),
+            new Token(tokens.SEMI, ';'),
+            new Token(tokens.IDENT, 'y'),
+            new Token(tokens.ASSIGN, '='),
+            new Token(tokens.INT, '3'),
+            new Token(tokens.SEMI, ';'),
+            new Token(tokens.IDENT, 'x'),
+            new Token(tokens.PLUS, '+'),
+            new Token(tokens.IDENT, 'y'),
+            new Token(tokens.EQUAL, '=='),
+            new Token(tokens.INT, '45'),
+            new Token(tokens.SEMI, ';'),
+        ],
+    },
 ]
