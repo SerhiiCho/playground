@@ -30,6 +30,10 @@ module.exports = class {
             token = this.#chooseEqualToken()
         } else if (this.#charIsNumber()) {
             return new Token(tokens.INT, this.#readNumber())
+        } else if (this.#charIsLetter()) {
+            return new Token(tokens.IDENT, this.#readIdentifier())
+        } else {
+            token = new Token(tokens.ILLEGAL, this.char)
         }
 
         this.#advanceChar()
@@ -47,6 +51,10 @@ module.exports = class {
         return /^-?\d+$/.test(this.char)
     }
 
+    #charIsLetter() {
+        return /[a-z]/i.test(this.char)
+    }
+
     #advanceChar() {
         if (this.nextPosition >= this.input.length) {
             this.char = ''
@@ -62,6 +70,16 @@ module.exports = class {
         let start = this.position
 
         while (this.#charIsNumber()) {
+            this.#advanceChar()
+        }
+
+        return this.input.substring(start, this.position)
+    }
+
+    #readIdentifier() {
+        let start = this.position
+
+        while (this.#charIsLetter()) {
             this.#advanceChar()
         }
 

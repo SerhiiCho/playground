@@ -59,4 +59,22 @@ module.exports = [
             new Token(tokens.SEMI, ';'),
         ],
     },
+    {
+        input: 'num = 46;',
+        expect: [
+            new Token(tokens.IDENT, 'num'),
+            new Token(tokens.ASSIGN, '='),
+            new Token(tokens.INT, '46'),
+            new Token(tokens.SEMI, ';'),
+        ],
+    },
+    {
+        input: 'userAge = 22;',
+        expect: [
+            new Token(tokens.IDENT, 'userAge'),
+            new Token(tokens.ASSIGN, '='),
+            new Token(tokens.INT, '22'),
+            new Token(tokens.SEMI, ';'),
+        ],
+    },
 ]

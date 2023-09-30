@@ -1,7 +1,7 @@
 // tokenTypes.js
 
 module.exports = {
-    ILLIGAL: "ILLIGAL",
+    ILLEGAL: "ILLEGAL",
     EOF: "EOF",
     INT: 'INT',
     IDENT: 'IDENT',
