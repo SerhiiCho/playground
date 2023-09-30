@@ -81,7 +81,6 @@ module.exports = [
         input: '!',
         expect: [new Token(tokens.ILLEGAL, '!')],
     },
-    // [...]
     {
         input: `
             x = 42;
