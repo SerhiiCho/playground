@@ -1,6 +1,7 @@
 package evaluator
 
 import (
+	"fmt"
 	"monkey/ast"
 	"monkey/object"
 )
@@ -52,9 +53,13 @@ func evalInfixExpression(operator string, left, right object.Object) object.Obje
 		return nativeBoolToBooleanObject(left == right)
 	case operator == "!=":
 		return nativeBoolToBooleanObject(left != right)
+	case left.Type() != right.Type():
+		return newError("type mismatch: %s %s %s",
+			left.Type(), operator, right.Type())
 	}
 
-	return NULL
+	return newError("unknown operator: %s %s %s",
+		left.Type(), operator, right.Type())
 }
 
 func evalIntegerInfixExpression(operator string, left, right object.Object) object.Object {
@@ -80,7 +85,8 @@ func evalIntegerInfixExpression(operator string, left, right object.Object) obje
 		return nativeBoolToBooleanObject(leftVal != rightVal)
 	}
 
-	return NULL
+	return newError("unknown operator: %s %s %s",
+		left.Type(), operator, right.Type())
 }
 
 func evalPrefixExpression(operator string, right object.Object) object.Object {
@@ -89,9 +95,9 @@ func evalPrefixExpression(operator string, right object.Object) object.Object {
 		return evalBangOperatorExpression(right)
 	case "-":
 		return evalMinusPrefixOperatorExpression(right)
-	default:
-		return NULL
 	}
+
+	return newError("unknown operator: %s%s", operator, right.Type())
 }
 
 func evalBangOperatorExpression(right object.Object) object.Object {
@@ -102,9 +108,8 @@ func evalBangOperatorExpression(right object.Object) object.Object {
 		return TRUE
 	case NULL:
 		return TRUE
-	default:
-		return FALSE
 	}
+	return FALSE
 }
 
 func evalMinusPrefixOperatorExpression(right object.Object) object.Object {
@@ -177,4 +182,10 @@ func isTruthy(obj object.Object) bool {
 	}
 
 	return true
+}
+
+func newError(format string, a ...interface{}) *object.Error {
+	return &object.Error{
+		Message: fmt.Sprintf(format, a...),
+	}
 }
