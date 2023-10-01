@@ -114,7 +114,7 @@ func evalBangOperatorExpression(right object.Object) object.Object {
 
 func evalMinusPrefixOperatorExpression(right object.Object) object.Object {
 	if right.Type() != object.INTEGER_OBJ {
-		return NULL
+		return newError("unknown operator: -%s", right.Type())
 	}
 
 	value := right.(*object.Integer).Value
@@ -135,8 +135,11 @@ func evalProgram(program *ast.Program) object.Object {
 	for _, st := range program.Statements {
 		result = Eval(st)
 
-		if val, ok := result.(*object.ReturnValue); ok {
-			return val.Value
+		switch result := result.(type) {
+		case *object.ReturnValue:
+			return result.Value
+		case *object.Error:
+			return result
 		}
 	}
 
@@ -149,7 +152,13 @@ func evalBlockStatements(block *ast.BlockStatement) object.Object {
 	for _, st := range block.Statements {
 		result = Eval(st)
 
-		if result != nil && result.Type() == object.RETURN_VALUE_OBJ {
+		if result == nil {
+			continue
+		}
+
+		resultType := result.Type()
+
+		if resultType == object.RETURN_VALUE_OBJ || resultType == object.ERROR_OBJ {
 			return result
 		}
 	}
