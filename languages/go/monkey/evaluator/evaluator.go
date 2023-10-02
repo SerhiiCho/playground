@@ -199,7 +199,6 @@ func evalIfExpression(ie *ast.IfExpression) object.Object {
 	if ie.Alternative == nil {
 		return NULL
 	}
-
 	return Eval(ie.Alternative)
 }
 
