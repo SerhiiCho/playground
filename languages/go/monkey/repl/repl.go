@@ -38,10 +38,7 @@ func Start(in io.Reader, out io.Writer) {
 
 		evaluated := evaluator.Eval(program, env)
 
-		if evaluated == nil {
-			io.WriteString(out, "Cannot evaluate this code because I don't know how!")
-			io.WriteString(out, "\n")
-		} else {
+		if evaluated != nil {
 			io.WriteString(out, evaluated.Inspect())
 			io.WriteString(out, "\n")
 		}
@@ -49,9 +46,9 @@ func Start(in io.Reader, out io.Writer) {
 }
 
 func printParserErrors(out io.Writer, errors []string) {
-
 	io.WriteString(out, "Woops! We ran into some monkey business here!\n")
 	io.WriteString(out, " parser errors:\n")
+
 	for _, msg := range errors {
 		io.WriteString(out, "\t"+msg+"\n")
 	}
