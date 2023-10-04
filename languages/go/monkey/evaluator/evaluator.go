@@ -69,9 +69,44 @@ func Eval(node ast.Node, env *object.Environment) object.Object {
 		}
 
 		return evalPrefixExpression(node.Operator, right)
+	case *ast.FunctionLiteral:
+		return &object.Function{
+			Parameters: node.Parameters,
+			Env:        env,
+			Body:       node.Body,
+		}
+
+	case *ast.CallExpression:
+		function := Eval(node.Function, env)
+
+		if isError(function) {
+			return function
+		}
+
+		args := evalExpressions(node.Arguments, env)
+
+		if len(args) == 1 && isError(args[0]) {
+			return args[0]
+		}
 	}
 
 	return nil
+}
+
+func evalExpressions(exps []ast.Expression, env *object.Environment) []object.Object {
+	var result []object.Object
+
+	for _, e := range exps {
+		evaluated := Eval(e, env)
+
+		if isError(evaluated) {
+			return []object.Object{evaluated}
+		}
+
+		result = append(result, evaluated)
+	}
+
+	return result
 }
 
 func evalIdentifier(node *ast.Identifier, env *object.Environment) object.Object {
