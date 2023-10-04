@@ -249,6 +249,19 @@ func TestFunctionApplication(t *testing.T) {
 	}
 }
 
+func TestClosures(t *testing.T) {
+	input := `
+		let newAdded = fn(x) {
+			fn(y) { x + y; };
+		};
+
+		let addTwo = newAdded(2);
+		addTwo(2);
+	`
+
+	testIntegerObject(t, testEval(input), 4)
+}
+
 func testNullObject(t *testing.T, obj object.Object) bool {
 	if obj != NULL {
 		t.Errorf("object is not NULL. got=%T (%+v)", obj, obj)
