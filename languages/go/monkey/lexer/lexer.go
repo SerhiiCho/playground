@@ -26,6 +26,9 @@ func (l *Lexer) NextToken() token.Token {
 	l.skipWhitespace()
 
 	switch l.char {
+	case '"':
+		tok.Type = token.STRING
+		tok.Literal = l.readString()
 	case '=':
 		tok = l.chooseEqualToken()
 	case '!':
@@ -76,6 +79,22 @@ func (l *Lexer) NextToken() token.Token {
 	l.advanceChar()
 
 	return tok
+}
+
+func (l *Lexer) readString() string {
+	pos := l.position + 1
+
+	for {
+		prev := l.char
+
+		l.advanceChar()
+
+		if (l.char == '"' || l.char == 0) && prev != '\\' {
+			break
+		}
+	}
+
+	return l.input[pos:l.position]
 }
 
 func (l *Lexer) chooseEqualToken() token.Token {

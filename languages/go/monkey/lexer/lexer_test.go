@@ -28,6 +28,8 @@ func TestNextToken(t *testing.T) {
 
 	10 == 10;
 	11 != 9;
+
+	"Anna and Serhii are \"good\""
 	`
 
 	tests := []struct {
@@ -106,6 +108,7 @@ func TestNextToken(t *testing.T) {
 		{token.NOT_EQ, "!="},
 		{token.INT, "9"},
 		{token.SEMI, ";"},
+		{token.STRING, "Anna and Serhii are \\\"good\\\""},
 		{token.EOF, ""},
 	}
 
@@ -120,7 +123,7 @@ func TestNextToken(t *testing.T) {
 		}
 
 		if tok.Literal != tt.expectedLiteral {
-			t.Fatalf("tests[%d] - literal wrong. expected=%q, got=%q",
+			t.Fatalf("tests[%d] - literal wrong. expected=%s, got=%s",
 				i, tt.expectedLiteral, tok.Literal)
 		}
 	}
