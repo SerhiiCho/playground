@@ -109,6 +109,27 @@ func testLetStatement(t *testing.T, stmt ast.Statement, name string) bool {
 	return true
 }
 
+func TestStringLiteralExpressions(t *testing.T) {
+	input := `"hello world";`
+
+	l := lexer.New(input)
+	p := New(l)
+	program := p.ParseProgram()
+
+	checkParserErrors(t, p)
+
+	stmt := program.Statements[0].(*ast.ExpressionStatement)
+	literal, ok := stmt.Expression.(*ast.StringLiteral)
+
+	if !ok {
+		t.Fatalf("expression not *ast.StringLiteral. Got=%T", stmt.Expression)
+	}
+
+	if literal.Value != "hello world" {
+		t.Errorf(`literal.Value not "hello world". Got=%q`, literal.Value)
+	}
+}
+
 func TestIdentifierExpression(t *testing.T) {
 	input := "foobar;"
 

@@ -108,7 +108,7 @@ func TestNextToken(t *testing.T) {
 		{token.NOT_EQ, "!="},
 		{token.INT, "9"},
 		{token.SEMI, ";"},
-		{token.STRING, "Anna and Serhii are \\\"good\\\""},
+		{token.STRING, `Anna and Serhii are \"good\"`},
 		{token.EOF, ""},
 	}
 
