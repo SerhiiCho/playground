@@ -37,6 +37,10 @@ func (l *Lexer) NextToken() token.Token {
 		tok = newToken(token.SEMI, ";")
 	case '/':
 		tok = newToken(token.SLASH, "/")
+	case '[':
+		tok = newToken(token.LBRACKET, "[")
+	case ']':
+		tok = newToken(token.RBRACKET, "]")
 	case '*':
 		tok = newToken(token.ASTERISK, "*")
 	case '<':

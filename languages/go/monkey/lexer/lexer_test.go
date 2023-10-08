@@ -30,6 +30,8 @@ func TestNextToken(t *testing.T) {
 	11 != 9;
 
 	"Anna and Serhii are \"good\""
+
+	[1, 2];
 	`
 
 	tests := []struct {
@@ -109,6 +111,12 @@ func TestNextToken(t *testing.T) {
 		{token.INT, "9"},
 		{token.SEMI, ";"},
 		{token.STRING, `Anna and Serhii are \"good\"`},
+		{token.LBRACKET, "["},
+		{token.INT, "1"},
+		{token.COMMA, ","},
+		{token.INT, "2"},
+		{token.RBRACKET, "]"},
+		{token.SEMI, ";"},
 		{token.EOF, ""},
 	}
 
