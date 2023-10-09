@@ -46,6 +46,14 @@ func Eval(node ast.Node, env *object.Environment) object.Object {
 	// Expressions
 	case *ast.IntegerLiteral:
 		return &object.Integer{Value: node.Value}
+	case *ast.ArrayLiteral:
+		elems := evalExpressions(node.Elements, env)
+
+		if len(elems) == 1 && isError(elems[0]) {
+			return elems[0]
+		}
+
+		return &object.Array{Elements: elems}
 	case *ast.IfExpression:
 		return evalIfExpression(node, env)
 	case *ast.InfixExpression:
