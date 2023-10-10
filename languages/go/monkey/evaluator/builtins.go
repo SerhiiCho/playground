@@ -3,41 +3,88 @@ package evaluator
 import "monkey/object"
 
 var builtins = map[string]*object.Builtin{
-	"len": {
-		Fn: func(args ...object.Object) object.Object {
-			if len(args) != 1 {
-				return newError("wrong number of arguments. got=%d, want=1", len(args))
-			}
+	"len":   {Fn: lenBuiltinFunction},
+	"first": {Fn: firstBuiltinFunction},
+	"last":  {Fn: lastBuiltinFunction},
+	"rest":  {Fn: restBuiltinFunction},
+}
 
-			switch args := args[0].(type) {
-			case *object.String:
-				return &object.Integer{Value: int64(len(args.Value))}
-			case *object.Array:
-				return &object.Integer{Value: int64(len(args.Elements))}
-			}
+func lenBuiltinFunction(args ...object.Object) object.Object {
+	if len(args) != 1 {
+		return newError("wrong number of arguments. got=%d, want=1", len(args))
+	}
 
-			return newError("argument to `len` not supported, got %s", args[0].Type())
-		},
-	},
-	"first": {
-		Fn: func(args ...object.Object) object.Object {
-			if len(args) != 1 {
-				msg := "wrong number of arguments for a function 'first'. got=%d, want=1"
-				return newError(msg, len(args))
-			}
+	switch args := args[0].(type) {
+	case *object.String:
+		return &object.Integer{Value: int64(len(args.Value))}
+	case *object.Array:
+		return &object.Integer{Value: int64(len(args.Elements))}
+	}
 
-			if args[0].Type() != object.ARRAY_OBJ {
-				msg := "argument to a function 'first' must be ARRAY, got %s"
-				return newError(msg, args[0].Type())
-			}
+	return newError("argument to `len` not supported, got %s", args[0].Type())
+}
 
-			arr := args[0].(*object.Array)
+func firstBuiltinFunction(args ...object.Object) object.Object {
+	if len(args) != 1 {
+		msg := "wrong number of arguments for a function 'first'. got=%d, want=1"
+		return newError(msg, len(args))
+	}
 
-			if len(arr.Elements) <= 0 {
-				return NULL
-			}
+	if args[0].Type() != object.ARRAY_OBJ {
+		msg := "argument to a function 'first' must be ARRAY, got %s"
+		return newError(msg, args[0].Type())
+	}
 
-			return arr.Elements[0]
-		},
-	},
+	arr := args[0].(*object.Array)
+
+	if len(arr.Elements) <= 0 {
+		return NULL
+	}
+
+	return arr.Elements[0]
+}
+
+func lastBuiltinFunction(args ...object.Object) object.Object {
+	if len(args) != 1 {
+		msg := "wrong number of arguments for a function 'last'. got=%d, want=1"
+		return newError(msg, len(args))
+	}
+
+	if args[0].Type() != object.ARRAY_OBJ {
+		msg := "argument to a function 'last' must be ARRAY, got %s"
+		return newError(msg, args[0].Type())
+	}
+
+	arr := args[0].(*object.Array)
+	arrLength := len(arr.Elements)
+
+	if arrLength <= 0 {
+		return NULL
+	}
+
+	return arr.Elements[arrLength-1]
+}
+
+func restBuiltinFunction(args ...object.Object) object.Object {
+	if len(args) != 1 {
+		msg := "wrong number of arguments for a function 'rest'. got=%d, want=1"
+		return newError(msg, len(args))
+	}
+
+	if args[0].Type() != object.ARRAY_OBJ {
+		msg := "argument to a function 'rest' must be ARRAY, got %s"
+		return newError(msg, args[0].Type())
+	}
+
+	arr := args[0].(*object.Array)
+	arrLength := len(arr.Elements)
+
+	if arrLength <= 0 {
+		return NULL
+	}
+
+	newElems := make([]object.Object, arrLength-1, arrLength-1)
+	copy(newElems, arr.Elements[1:arrLength])
+
+	return &object.Array{Elements: newElems}
 }
