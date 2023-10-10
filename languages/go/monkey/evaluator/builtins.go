@@ -7,6 +7,7 @@ var builtins = map[string]*object.Builtin{
 	"first": {Fn: firstBuiltinFunction},
 	"last":  {Fn: lastBuiltinFunction},
 	"rest":  {Fn: restBuiltinFunction},
+	"push":  {Fn: pushBuiltinFunction},
 }
 
 func lenBuiltinFunction(args ...object.Object) object.Object {
@@ -85,6 +86,27 @@ func restBuiltinFunction(args ...object.Object) object.Object {
 
 	newElems := make([]object.Object, arrLength-1, arrLength-1)
 	copy(newElems, arr.Elements[1:arrLength])
+
+	return &object.Array{Elements: newElems}
+}
+
+func pushBuiltinFunction(args ...object.Object) object.Object {
+	if len(args) != 2 {
+		msg := "wrong number of arguments for a function 'push'. got=%d, want=2"
+		return newError(msg, len(args))
+	}
+
+	if args[0].Type() != object.ARRAY_OBJ {
+		msg := "the first argument to a function 'push' must be ARRAY, got %s"
+		return newError(msg, args[0].Type())
+	}
+
+	arr := args[0].(*object.Array)
+	arrLength := len(arr.Elements)
+
+	newElems := make([]object.Object, arrLength+1, arrLength+1)
+	copy(newElems, arr.Elements)
+	newElems[arrLength] = args[1]
 
 	return &object.Array{Elements: newElems}
 }
