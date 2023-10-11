@@ -32,6 +32,7 @@ func TestNextToken(t *testing.T) {
 	"Anna and Serhii are \"good\""
 
 	[1, 2];
+	{"ann": "serhii"};
 	`
 
 	tests := []struct {
@@ -116,6 +117,12 @@ func TestNextToken(t *testing.T) {
 		{token.COMMA, ","},
 		{token.INT, "2"},
 		{token.RBRACKET, "]"},
+		{token.SEMI, ";"},
+		{token.LBRACE, "{"},
+		{token.STRING, "ann"},
+		{token.COLON, ":"},
+		{token.STRING, "serhii"},
+		{token.RBRACE, "}"},
 		{token.SEMI, ";"},
 		{token.EOF, ""},
 	}

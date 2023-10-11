@@ -32,6 +32,7 @@ const (
 	STRING   = "STRING"
 	LBRACKET = "["
 	RBRACKET = "]"
+	COLON    = ":"
 
 	// Keywords
 	FUNC   = "FUNCTION"

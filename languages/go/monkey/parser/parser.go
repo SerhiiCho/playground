@@ -72,6 +72,7 @@ func New(lex *lexer.Lexer) *Parser {
 	p.registerPrefix(token.FUNC, p.parseFunctionLiteral)
 	p.registerPrefix(token.STRING, p.parseStringLiteral)
 	p.registerPrefix(token.LBRACKET, p.parseArrayLiteral)
+	p.registerPrefix(token.LBRACE, p.parseHashLiteral)
 
 	// Infix
 	p.infixParseFns = make(map[token.TokenType]infixParseFn)
@@ -341,6 +342,15 @@ func (p *Parser) parseCallExpression(function ast.Expression) ast.Expression {
 	}
 
 	exp.Arguments = p.parseExpressionList(token.RPAREN)
+
+	return exp
+}
+
+// {<expression>: <expression>, <expression>: <expression>, ...}
+func (p *Parser) parseHashLiteral() ast.Expression {
+	exp := &ast.HashLiteral{Token: p.curToken}
+
+	// todo: here
 
 	return exp
 }
