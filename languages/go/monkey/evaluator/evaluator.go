@@ -71,6 +71,8 @@ func Eval(node ast.Node, env *object.Environment) object.Object {
 		return &object.Array{Elements: elems}
 	case *ast.IfExpression:
 		return evalIfExpression(node, env)
+	case *ast.HashLiteral:
+		return evalHashLiteral(node, env)
 	case *ast.InfixExpression:
 		left := Eval(node.Left, env)
 		right := Eval(node.Right, env)
@@ -351,6 +353,35 @@ func evalIfExpression(ie *ast.IfExpression, env *object.Environment) object.Obje
 	}
 
 	return Eval(ie.Alternative, env)
+}
+
+func evalHashLiteral(node *ast.HashLiteral, env *object.Environment) object.Object {
+	pairs := make(map[object.HashKey]object.HashPair)
+
+	for keyNode, valueNode := range node.Pairs {
+		key := Eval(keyNode, env)
+
+		if isError(key) {
+			return key
+		}
+
+		hashKey, ok := key.(object.Hashable)
+
+		if !ok {
+			return newError("unusable as hash key: %s", key.Type())
+		}
+
+		value := Eval(valueNode, env)
+
+		if isError(value) {
+			return value
+		}
+
+		hashed := hashKey.HashKey()
+		pairs[hashed] = object.HashPair{Key: key, Value: value}
+	}
+
+	return &object.Hash{Pairs: pairs}
 }
 
 func isTruthy(obj object.Object) bool {
