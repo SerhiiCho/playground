@@ -348,11 +348,35 @@ func (p *Parser) parseCallExpression(function ast.Expression) ast.Expression {
 
 // {<expression>: <expression>, <expression>: <expression>, ...}
 func (p *Parser) parseHashLiteral() ast.Expression {
-	exp := &ast.HashLiteral{Token: p.curToken}
+	hash := &ast.HashLiteral{Token: p.curToken}
+	hash.Pairs = make(map[ast.Expression]ast.Expression)
 
-	// todo: here
+	for !p.peekTokenIs(token.RBRACE) {
+		p.nextToken()
 
-	return exp
+		key := p.parseExpression(LOWEST)
+
+		// next token must be ":"
+		if !p.expectPeek(token.COLON) {
+			return nil
+		}
+
+		p.nextToken()
+
+		hash.Pairs[key] = p.parseExpression(LOWEST)
+
+		// next token must be "," or "}"
+		if !p.peekTokenIs(token.RBRACE) && !p.expectPeek(token.COMMA) {
+			return nil
+		}
+	}
+
+	// advance to "}" token
+	if !p.expectPeek(token.RBRACE) {
+		return nil
+	}
+
+	return hash
 }
 
 // <expression>[<expression>]
