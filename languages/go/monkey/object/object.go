@@ -18,3 +18,8 @@ type Object interface {
 	Type() ObjectType
 	Inspect() string
 }
+
+type HashKey struct {
+	Type  ObjectType
+	Value uint64
+}
