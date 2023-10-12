@@ -337,6 +337,7 @@ func TestBuiltinFunctions(t *testing.T) {
 		{`push([1], 2)`, []int{1, 2}},
 		{`push([88, 11, 22], 33)`, []int{88, 11, 22, 33}},
 		{`push([], 4)`, []int{4}},
+		{`puts("hello", "world!")`, nil},
 	}
 
 	for _, tt := range tests {
