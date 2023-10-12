@@ -174,21 +174,40 @@ func evalIndexExpression(left, index object.Object) object.Object {
 	switch {
 	case left.Type() == object.ARRAY_OBJ && index.Type() == object.INTEGER_OBJ:
 		return evalArrayIndexExpression(left, index)
+	case left.Type() == object.HASH_OBJ:
+		return evalHashIndexExpression(left, index)
 	}
 
 	return newError("index operator not supported: %s", left.Type())
 }
 
-func evalArrayIndexExpression(array, index object.Object) object.Object {
-	arrObj := array.(*object.Array)
+func evalArrayIndexExpression(left, index object.Object) object.Object {
+	arr := left.(*object.Array)
 	idx := index.(*object.Integer).Value
-	max := int64(len(arrObj.Elements) - 1)
+	max := int64(len(arr.Elements) - 1)
 
 	if idx < 0 || idx > max {
 		return NULL
 	}
 
-	return arrObj.Elements[idx]
+	return arr.Elements[idx]
+}
+
+func evalHashIndexExpression(left, index object.Object) object.Object {
+	hash := left.(*object.Hash)
+	key, ok := index.(object.Hashable)
+
+	if !ok {
+		return newError("unusable as hash key: %s", index.Type())
+	}
+
+	pair, ok := hash.Pairs[key.HashKey()]
+
+	if !ok {
+		return NULL
+	}
+
+	return pair.Value
 }
 
 func evalIdentifier(node *ast.Identifier, env *object.Environment) object.Object {
