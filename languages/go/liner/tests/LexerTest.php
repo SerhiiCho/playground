@@ -14,18 +14,18 @@ final class LexerTest extends TestCase
     public function testLexerParsesTokens(): void
     {
         $input = '
-        name "Serhii"
-        age 44
+            "Serhii" -> name;
+            44 -> age;
         ';
 
         $tests = [
-            new Token(TokenType::IDENT, 'name'),
-            new Token(TokenType::ASSIGN, '='),
             new Token(TokenType::STR, 'Serhii'),
+            new Token(TokenType::ASSIGN, '->'),
+            new Token(TokenType::IDENT, 'name'),
             new Token(TokenType::SEMI, ';'),
-            new Token(TokenType::IDENT, 'age'),
-            new Token(TokenType::ASSIGN, '='),
             new Token(TokenType::INT, '44'),
+            new Token(TokenType::ASSIGN, '->'),
+            new Token(TokenType::IDENT, 'age'),
             new Token(TokenType::SEMI, ';'),
         ];
 
@@ -34,13 +34,13 @@ final class LexerTest extends TestCase
         foreach ($tests as $expectToken) {
             $actualToken = $lexer->nextToken();
 
-            if ($expectToken->type !== $actualToken->type) {
-                $this->fail("Token types are different, expect {$expectToken->type->value}, got={$actualToken->type->value}");
-            }
+            $msg = "Token types are different, expect {$expectToken->type->value}, got={$actualToken->type->value}";
+            $this->assertEquals($expectToken->type, $actualToken->type, $msg);
 
-            if ($expectToken->literal !== $actualToken->literal) {
-                $this->fail("Token literals are different, expect {$expectToken->literal}, got={$actualToken->literal}");
-            }
+            $msg = "Token literals are different, expect {$expectToken->literal}, got={$actualToken->literal}";
+            $this->assertSame($expectToken->literal, $actualToken->literal, $msg);
         }
+
+        $this->assertTrue(true);
     }
 }

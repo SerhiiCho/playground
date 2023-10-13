@@ -9,25 +9,48 @@ use Serhii\Liner\Token\TokenType;
 
 class Lexer
 {
-    private int $position;
-    private int $nextPosition;
+    private int $position = 0;
+    private int $nextPosition = 0;
     private string $input;
     private string $char;
 
     public function __construct(string $input)
     {
-        $this->position = 0;
-        $this->nextPosition = 1;
         $this->input = $input;
+        $this->advanceChar();
     }
 
     public function nextToken(): Token
     {
-        $this->advanceChar();
+        $this->skipWhitespace();
 
         $token = null;
 
-        return new Token(TokenType::ILLEGAL, $this->char);
+        if ($this->char === '"') {
+            $token = new Token(TokenType::STR, $this->readString());
+        } else if ($this->char === ';') {
+            $token = new Token(TokenType::SEMI, $this->char);
+        } else if ($this->isLetter()) {
+            return new Token(TokenType::IDENT, $this->readIdentifier());
+        } else if ($this->isNumber()) {
+            return new Token(TokenType::INT, $this->readNumber());
+        } else if ($this->char === '-' && $this->peekChar() === '>') {
+            $this->advanceChar();
+            $token = new Token(TokenType::ASSIGN, '->');
+        } else {
+            $token = new Token(TokenType::ILLEGAL, $this->char);
+        }
+
+        $this->advanceChar();
+
+        return $token;
+    }
+
+    private function skipWhitespace(): void
+    {
+        while ($this->char === ' ' || $this->char === "\n" || $this->char === "\t" || $this->char === "\r") {
+            $this->advanceChar();
+        }
     }
 
     private function advanceChar(): void
@@ -40,5 +63,63 @@ class Lexer
 
         $this->position = $this->nextPosition;
         $this->nextPosition += 1;
+    }
+
+    private function peekChar(): string
+    {
+        if ($this->nextPosition >= strlen($this->input)) {
+            return '';
+        }
+
+        return $this->input[$this->nextPosition];
+    }
+
+    private function isLetter(): bool
+    {
+        return ctype_alpha($this->char);
+    }
+
+    private function isNumber(): bool
+    {
+        return is_numeric($this->char);
+    }
+
+    private function readIdentifier(): string
+    {
+        $start = $this->position;
+
+        while ($this->isLetter()) {
+            $this->advanceChar();
+        }
+
+        return substr($this->input, $start, $this->position - $start);
+    }
+
+    private function readNumber(): string
+    {
+        $start = $this->position;
+
+        while ($this->isNumber()) {
+            $this->advanceChar();
+        }
+
+        return substr($this->input, $start, $this->position - $start);
+    }
+
+    private function readString(): string
+    {
+        $start = $this->position + 1;
+
+        while (true) {
+            $prev = $this->char;
+
+            $this->advanceChar();
+
+            if (($this->char === '"' || $this->char === '') && $prev != '\\') {
+                break;
+            }
+        }
+
+        return substr($this->input, $start, $this->position - $start);
     }
 }
