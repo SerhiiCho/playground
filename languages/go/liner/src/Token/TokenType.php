@@ -9,7 +9,10 @@ enum TokenType: string {
     case IDENT = 'IDENT';
     case INT = 'INTEGER';
     case STR = 'STRING';
+    case EOF = '';
 
     case SEMI = ';';
     case ASSIGN = '->';
+    case LBRACE = '(';
+    case RBRACE = ')';
 }

@@ -37,6 +37,12 @@ class Lexer
         } else if ($this->char === '-' && $this->peekChar() === '>') {
             $this->advanceChar();
             $token = new Token(TokenType::ASSIGN, '->');
+        } else if ($this->char === '(') {
+            $token = new Token(TokenType::LBRACE, $this->char);
+        } else if ($this->char === ')') {
+            $token = new Token(TokenType::RBRACE, $this->char);
+        } else if ($this->char === '') {
+            $token = new Token(TokenType::EOF, '');
         } else {
             $token = new Token(TokenType::ILLEGAL, $this->char);
         }

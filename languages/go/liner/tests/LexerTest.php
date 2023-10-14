@@ -16,6 +16,8 @@ final class LexerTest extends TestCase
         $input = '
             "Serhii" -> name;
             33 -> age;
+
+            say(name);
         ';
 
         $tests = [
@@ -23,10 +25,19 @@ final class LexerTest extends TestCase
             new Token(TokenType::ASSIGN, '->'),
             new Token(TokenType::IDENT, 'name'),
             new Token(TokenType::SEMI, ';'),
+
             new Token(TokenType::INT, '33'),
             new Token(TokenType::ASSIGN, '->'),
             new Token(TokenType::IDENT, 'age'),
             new Token(TokenType::SEMI, ';'),
+
+            new Token(TokenType::IDENT, 'say'),
+            new Token(TokenType::LBRACE, '('),
+            new Token(TokenType::IDENT, 'name'),
+            new Token(TokenType::RBRACE, ')'),
+            new Token(TokenType::SEMI, ';'),
+
+            new Token(TokenType::EOF, ''),
         ];
 
         $lexer = new Lexer($input);
