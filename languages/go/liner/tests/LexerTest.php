@@ -14,28 +14,30 @@ final class LexerTest extends TestCase
     public function testLexerParsesTokens(): void
     {
         $input = '
-            "Serhii" -> name;
-            33 -> age;
+            put "Serhii" in name.
+            put 33 in age.
 
-            say(name);
+            say(name).
         ';
 
         $tests = [
+            new Token(TokenType::PUT, 'put'),
             new Token(TokenType::STR, 'Serhii'),
-            new Token(TokenType::ASSIGN, '->'),
+            new Token(TokenType::IN, 'in'),
             new Token(TokenType::IDENT, 'name'),
-            new Token(TokenType::SEMI, ';'),
+            new Token(TokenType::PERIOD, '.'),
 
+            new Token(TokenType::PUT, 'put'),
             new Token(TokenType::INT, '33'),
-            new Token(TokenType::ASSIGN, '->'),
+            new Token(TokenType::IN, 'in'),
             new Token(TokenType::IDENT, 'age'),
-            new Token(TokenType::SEMI, ';'),
+            new Token(TokenType::PERIOD, '.'),
 
             new Token(TokenType::IDENT, 'say'),
             new Token(TokenType::LBRACE, '('),
             new Token(TokenType::IDENT, 'name'),
             new Token(TokenType::RBRACE, ')'),
-            new Token(TokenType::SEMI, ';'),
+            new Token(TokenType::PERIOD, '.'),
 
             new Token(TokenType::EOF, ''),
         ];

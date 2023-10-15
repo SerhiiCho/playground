@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Serhii\Liner\Parser;
 
+use Serhii\Liner\Ast\Program;
+use Serhii\Liner\Ast\Statement;
 use Serhii\Liner\Lexer\Lexer;
 use Serhii\Liner\Token\Token;
 
@@ -19,14 +21,23 @@ class Parser
         $this->nextToken();
     }
 
-    public function parseProgram()
+    public function parseProgram(): Program
     {
-        #
+        $statements = [];
+
+        //
+
+        return new Program($statements);
     }
 
     private function nextToken(): void
     {
         $this->curToken = $this->peekToken;
         $this->peekToken = $this->lexer->nextToken();
+    }
+
+    private function parseStatement(): Statement
+    {
+        return new Statement();
     }
 }

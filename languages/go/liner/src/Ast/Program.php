@@ -7,9 +7,11 @@ namespace Serhii\Liner\Ast;
 class Program implements Node
 {
     /**
-     * @var array<int, Statement>
+     * @var array<int, Statement> $statements
      */
-    public readonly array $statements;
+    public function __construct(public readonly array $statements)
+    {
+    }
 
     public function tokenLiteral(): string
     {

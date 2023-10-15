@@ -28,15 +28,13 @@ class Lexer
 
         if ($this->char === '"') {
             $token = new Token(TokenType::STR, $this->readString());
-        } else if ($this->char === ';') {
-            $token = new Token(TokenType::SEMI, $this->char);
+        } else if ($this->char === '.') {
+            $token = new Token(TokenType::PERIOD, $this->char);
         } else if ($this->isLetter()) {
-            return new Token(TokenType::IDENT, $this->readIdentifier());
+            $ident = $this->readIdentifier();
+            return new Token(TokenType::lookupIdentifier($ident), $ident);
         } else if ($this->isNumber()) {
             return new Token(TokenType::INT, $this->readNumber());
-        } else if ($this->char === '-' && $this->peekChar() === '>') {
-            $this->advanceChar();
-            $token = new Token(TokenType::ASSIGN, '->');
         } else if ($this->char === '(') {
             $token = new Token(TokenType::LBRACE, $this->char);
         } else if ($this->char === ')') {
@@ -127,5 +125,10 @@ class Lexer
         }
 
         return substr($this->input, $start, $this->position - $start);
+    }
+
+    private function lookupIdentifier(): TokenType
+    {
+        return '';
     }
 }

@@ -16,5 +16,8 @@
             "name": "SerhiiCho",
             "email": "serhiicho@protonmail.com"
         }
-    ]
+    ],
+    "scripts": {
+        "test": "clear && ./vendor/bin/phpunit"
+    }
 }
