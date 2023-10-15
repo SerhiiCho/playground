@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Serhii\Liner\Ast;
 
-class Program implements Node
+readonly class Program implements Node
 {
     /**
      * @var array<int, Statement> $statements
      */
-    public function __construct(public readonly array $statements)
+    public function __construct(public array $statements)
     {
     }
 
