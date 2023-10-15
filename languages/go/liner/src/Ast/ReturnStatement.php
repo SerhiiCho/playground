@@ -6,14 +6,10 @@ namespace Serhii\Liner\Ast;
 
 use Serhii\Liner\Token\Token;
 
-readonly class PutStatement implements Statement
+readonly class ReturnStatement implements Statement
 {
-    /**
-     * @var array<int, Statement> $statements
-     */
     public function __construct(
         public Token $token,
-        public Identifier $name,
         public Expression $value,
     ) {
     }
@@ -30,8 +26,6 @@ readonly class PutStatement implements Statement
     public function string(): string
     {
         $value = $this->value->string();
-        $ident = $this->name->string();
-
-        return "put {$value} in {$ident}.";
+        return "-> {$value}.";
     }
 }

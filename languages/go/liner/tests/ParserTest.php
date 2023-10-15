@@ -5,22 +5,34 @@ declare(strict_types=1);
 namespace Serhii\Liner\Tests;
 
 use PHPUnit\Framework\TestCase;
+use Serhii\Liner\Ast\ReturnStatement;
+use Serhii\Liner\Lexer\Lexer;
+use Serhii\Liner\Parser\Parser;
 
 final class ParserTest extends TestCase
 {
     /**
-     * @dataProvider providerForTestPutStatements
+     * @dataProvider providerForTestReturnStatements
      */
-    public function testPutStatements(): void
+    public function testReturnStatements(string $input, $expect): void
     {
-        //
+        $lexer = new Lexer($input);
+        $parser = new Parser($lexer);
+        $program = $parser->parseProgram();
+
+        $this->assertEmpty($parser->errors);
+        $this->assertSame(1, count($program->statements));
+
+        /** @var ReturnStatement $stmt */
+        $stmt = $program->statements[0];
+
+        $this->assertInstanceOf(ReturnStatement::class, $stmt);
     }
 
-    private static function providerForTestPutStatements(): array
+    public static function providerForTestReturnStatements(): array
     {
         return [
-            ['put 5 in x.', 'x', 5],
-            ['put "Anna and Serhii" in word.', 'word', "Anna and Serhii"],
+            ['-> 5.', 5],
         ];
     }
 }

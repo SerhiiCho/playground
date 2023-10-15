@@ -11,6 +11,7 @@ enum TokenType: string {
     case INT = 'INTEGER';
     case STR = 'STRING';
     case IN = 'IN';
+    case RETURN = '->';
     case EOF = '';
 
     case PERIOD = '.';

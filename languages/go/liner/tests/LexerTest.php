@@ -18,6 +18,8 @@ final class LexerTest extends TestCase
             put 33 in age.
 
             say(name).
+
+            -> 22.
         ';
 
         $tests = [
@@ -37,6 +39,10 @@ final class LexerTest extends TestCase
             new Token(TokenType::LBRACE, '('),
             new Token(TokenType::IDENT, 'name'),
             new Token(TokenType::RBRACE, ')'),
+            new Token(TokenType::PERIOD, '.'),
+
+            new Token(TokenType::RETURN, '->'),
+            new Token(TokenType::INT, '22'),
             new Token(TokenType::PERIOD, '.'),
 
             new Token(TokenType::EOF, ''),

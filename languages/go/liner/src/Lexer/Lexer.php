@@ -39,6 +39,9 @@ class Lexer
             $token = new Token(TokenType::LBRACE, $this->char);
         } else if ($this->char === ')') {
             $token = new Token(TokenType::RBRACE, $this->char);
+        } else if ($this->char === '-' && $this->peekChar() === '>') {
+            $this->advanceChar();
+            $token = new Token(TokenType::RETURN, '->');
         } else if ($this->char === '') {
             $token = new Token(TokenType::EOF, '');
         } else {
