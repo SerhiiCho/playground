@@ -126,9 +126,4 @@ class Lexer
 
         return substr($this->input, $start, $this->position - $start);
     }
-
-    private function lookupIdentifier(): TokenType
-    {
-        return '';
-    }
 }
