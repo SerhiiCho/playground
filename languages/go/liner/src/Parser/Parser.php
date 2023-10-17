@@ -7,9 +7,11 @@ namespace Serhii\Liner\Parser;
 use Closure;
 use Serhii\Liner\Ast\Expression;
 use Serhii\Liner\Ast\ExpressionStatement;
+use Serhii\Liner\Ast\Identifier;
 use Serhii\Liner\Ast\IntegerLiteral;
 use Serhii\Liner\Ast\Program;
 use Serhii\Liner\Ast\ReturnStatement;
+use Serhii\Liner\Ast\PutStatement;
 use Serhii\Liner\Ast\Statement;
 use Serhii\Liner\Lexer\Lexer;
 use Serhii\Liner\Token\Token;
@@ -36,7 +38,8 @@ class Parser
         $this->nextToken();
         $this->nextToken();
 
-        $this->registerPrefix(TokenType::INT, $this->parseIntegerLiteral());
+        $this->registerPrefix(TokenType::INT, fn() => $this->parseIntegerLiteral());
+        $this->registerPrefix(TokenType::IDENT, fn() => $this->parseIdentifier());
     }
 
     public function parseProgram(): Program
@@ -91,6 +94,7 @@ class Parser
     {
         return match($this->curToken->type) {
             TokenType::RETURN => $this->parseReturnStatement(),
+            TokenType::PUT => $this->parsePutStatement(),
             default => $this->parseExpressionStatement(),
         };
     }
@@ -102,6 +106,31 @@ class Parser
         $this->nextToken();
 
         $stmt = new ReturnStatement($token, $this->parseExpression());
+
+        if ($this->peekTokenIs(TokenType::PERIOD)) {
+            $this->nextToken();
+        }
+
+        return $stmt;
+    }
+
+    private function parsePutStatement(): ?PutStatement
+    {
+        $token = $this->curToken;
+
+        $this->nextToken();
+
+        $exp = $this->parseExpression();
+
+        if (!$this->expectPeek(TokenType::IN)) {
+            return null;
+        }
+
+        $this->nextToken();
+
+        $ident = $this->parseIdentifier();
+
+        $stmt = new PutStatement($token, $ident, $exp);
 
         if ($this->peekTokenIs(TokenType::PERIOD)) {
             $this->nextToken();
@@ -126,8 +155,11 @@ class Parser
         $prefix = $this->prefixParseFns[$this->curToken->type->value] ?? null;
 
         if ($prefix === null) {
-            $e = "no prefix parse function for token '{$this->curToken->type->value}' found";
-            $this->errors[] = $e;
+            $this->errors[] = sprintf(
+                'no prefix parse function for token "%s" found',
+                $this->curToken->type->value,
+            );
+
             return null;
         }
 
@@ -148,17 +180,36 @@ class Parser
         return $leftExp;
     }
 
-    private function parseIntegerLiteral(): Closure
+    private function parseIntegerLiteral(): ?Expression
     {
-        return function (): ?Expression {
-            $num = (int) $this->curToken->literal;
+        $num = (int) $this->curToken->literal;
 
-            if (!is_numeric($this->curToken->literal)) {
-                $this->errors[] = "'{$this->curToken->literal}' is not numeric";
-                return null;
-            }
+        if (!is_numeric($this->curToken->literal)) {
+            $this->errors[] = sprintf('"%s" is not numeric', $this->curToken->literal);
+            return null;
+        }
 
-            return new IntegerLiteral($this->curToken, $num);
-        };
+        return new IntegerLiteral($this->curToken, $num);
+    }
+
+    private function parseIdentifier(): ?Expression
+    {
+        return new Identifier($this->curToken, $this->curToken->literal);
+    }
+
+    private function expectPeek(TokenType $token): bool
+    {
+        if ($this->peekTokenIs($token)) {
+            $this->nextToken();
+            return true;
+        }
+
+        $this->errors[] = sprintf(
+            'expected next token to be %s, got %s instead',
+            $token->value,
+            $this->peekToken->type->value,
+        );
+
+        return false;
     }
 }
