@@ -20,7 +20,7 @@ final class ParserTest extends TestCase
         $parser = new Parser($lexer);
         $program = $parser->parseProgram();
 
-        $this->assertEmpty($parser->errors);
+        $this->assertEmpty($parser->errors(), "Failed asserting that that there are not errors. Errors: " . implode(' | ', $parser->errors()));
         $this->assertSame(1, count($program->statements));
 
         /** @var ReturnStatement $stmt */
@@ -33,6 +33,7 @@ final class ParserTest extends TestCase
     {
         return [
             ['-> 5.', 5],
+            ['-> 245.', 245],
         ];
     }
 }

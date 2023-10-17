@@ -6,6 +6,7 @@ namespace Serhii\Liner\Parser;
 
 use Closure;
 use Serhii\Liner\Ast\Expression;
+use Serhii\Liner\Ast\ExpressionStatement;
 use Serhii\Liner\Ast\IntegerLiteral;
 use Serhii\Liner\Ast\Program;
 use Serhii\Liner\Ast\ReturnStatement;
@@ -18,7 +19,7 @@ class Parser
 {
     private ?Token $curToken = null;
     private ?Token $peekToken = null;
-    public readonly array $errors;
+    private array $errors = [];
 
     /**
      * @var array<string, Closure>
@@ -43,10 +44,21 @@ class Parser
         $statements = [];
 
         while (!$this->curTokenIs(TokenType::EOF)) {
-            $statements[] = $this->parseStatement();
+            $stmt = $this->parseStatement();
+
+            if ($stmt !== null) {
+                $statements[] = $stmt;
+            }
+
+            $this->nextToken();
         }
 
         return new Program($statements);
+    }
+
+    public function errors(): array
+    {
+        return $this->errors;
     }
 
     private function registerPrefix(TokenType $tokenType, Closure $fn)
@@ -66,7 +78,7 @@ class Parser
 
     private function peekTokenIs(TokenType $tokenType): bool
     {
-        return $this->peekToken === $tokenType;
+        return $this->peekToken->type === $tokenType;
     }
 
     private function nextToken(): void
@@ -85,13 +97,28 @@ class Parser
 
     private function parseReturnStatement(): ?ReturnStatement
     {
+        $token = $this->curToken;
+
         $this->nextToken();
-        return new ReturnStatement($this->curToken, $this->parseExpression());
+
+        $stmt = new ReturnStatement($token, $this->parseExpression());
+
+        if ($this->peekTokenIs(TokenType::PERIOD)) {
+            $this->nextToken();
+        }
+
+        return $stmt;
     }
 
-    private function parseExpressionStatement()
+    private function parseExpressionStatement(): ExpressionStatement
     {
-        #
+        $stmt = new ExpressionStatement($this->curToken, $this->parseExpression());
+
+        if ($this->peekTokenIs(TokenType::PERIOD)) {
+            $this->nextToken();
+        }
+
+        return $stmt;
     }
 
     private function parseExpression(): ?Expression
@@ -99,7 +126,7 @@ class Parser
         $prefix = $this->prefixParseFns[$this->curToken->type->value] ?? null;
 
         if ($prefix === null) {
-            $e = "no prefix parse function for {$this->curToken->type} found";
+            $e = "no prefix parse function for token '{$this->curToken->type->value}' found";
             $this->errors[] = $e;
             return null;
         }
