@@ -40,7 +40,7 @@ final class ParserTest extends TestCase
     {
         return [
             ['-> 5.', 5],
-            ['-> 123.', 123],
+            ['-> 923.', 923],
         ];
     }
 
