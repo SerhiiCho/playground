@@ -6,6 +6,7 @@ namespace Serhii\Liner\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Serhii\Liner\Ast\ReturnStatement;
+use Serhii\Liner\Ast\StringLiteral;
 use Serhii\Liner\Ast\PutStatement;
 use Serhii\Liner\Ast\ExpressionStatement;
 use Serhii\Liner\Ast\Identifier;
@@ -99,5 +100,25 @@ final class ParserTest extends TestCase
     private function checkErrors(Parser $parser): void
     {
         $this->assertEmpty($parser->errors(), "Failed asserting that that there are not errors. Errors: " . implode(' | ', $parser->errors()));
+    }
+
+    public function testStringLiteralExpression(): void
+    {
+        $input = '"Hello world!".';
+
+        $parser = new Parser(new Lexer($input));
+        $program = $parser->parseProgram();
+
+        $this->checkErrors($parser);
+        $this->assertSame(1, count($program->statements));
+
+        /** @var ExpressionStatement $stmt */
+        $stmt = $program->statements[0];
+
+        /** @var StringLiteral $literal */
+        $literal = $stmt->expression;
+
+        $this->assertInstanceOf(StringLiteral::class, $literal);
+        $this->assertSame('Hello world!', $literal->value);
     }
 }

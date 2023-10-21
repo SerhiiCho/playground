@@ -9,6 +9,7 @@ use Serhii\Liner\Ast\Expression;
 use Serhii\Liner\Ast\ExpressionStatement;
 use Serhii\Liner\Ast\Identifier;
 use Serhii\Liner\Ast\IntegerLiteral;
+use Serhii\Liner\Ast\StringLiteral;
 use Serhii\Liner\Ast\Program;
 use Serhii\Liner\Ast\ReturnStatement;
 use Serhii\Liner\Ast\PutStatement;
@@ -40,6 +41,7 @@ class Parser
 
         $this->registerPrefix(TokenType::INT, fn() => $this->parseIntegerLiteral());
         $this->registerPrefix(TokenType::IDENT, fn() => $this->parseIdentifier());
+        $this->registerPrefix(TokenType::STR, fn() => $this->parseStringLiteral());
     }
 
     public function parseProgram(): Program
@@ -190,6 +192,11 @@ class Parser
         }
 
         return new IntegerLiteral($this->curToken, $num);
+    }
+
+    private function parseStringLiteral(): ?Expression
+    {
+        return new StringLiteral($this->curToken, $this->curToken->literal);
     }
 
     private function parseIdentifier(): ?Expression
