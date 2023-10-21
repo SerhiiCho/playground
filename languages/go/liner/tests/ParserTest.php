@@ -42,6 +42,7 @@ final class ParserTest extends TestCase
         return [
             ['-> 5.', 5],
             ['-> 923.', 923],
+            ['-> "Anna".', 'Anna'],
         ];
     }
 
