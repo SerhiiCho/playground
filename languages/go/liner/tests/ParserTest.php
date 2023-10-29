@@ -100,7 +100,12 @@ final class ParserTest extends TestCase
 
     private function checkErrors(Parser $parser): void
     {
-        $this->assertEmpty($parser->errors(), "Failed asserting that that there are not errors. Errors: " . implode(' | ', $parser->errors()));
+        $errors = implode(' | ', $parser->errors());
+
+        $this->assertEmpty(
+            $parser->errors(),
+            "Failed asserting that that there are not errors. Errors: {$errors}",
+        );
     }
 
     public function testStringLiteralExpression(): void
