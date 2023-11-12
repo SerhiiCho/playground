@@ -1,9 +1,19 @@
 <p>
     Her name is {{ $name }}. She is {{ $age }} years old.
     I've met her in {{ $city }} back in 2021 or so, I don't remember exactly.
-    She was {{ $isPretty ? 'a pretty' : 'an average' }} looking girl with a {{ loop 1, 3 }}very {{ end }} hypnotizing voice.
+    She was {{ $isPretty ? 'a pretty' : 'an average' }} looking girl with a
+    {{ loop 1, 3 }}very {{ end }} hypnotizing voice.
 </p>
 
 {{ if $tellAboutHerWork }}
-    <p>She worked as a fitness trainer and was very passionate about her job back then.</p>
+    <p>
+        She worked as a fitness trainer and was very passionate about her job back then.
+    </p>
 {{ end }}
+
+<p>
+    She was {{ loop $herQualities, $quality }}{{ $quality}}, {{ end }}.
+    I don't know her exact parameters, but I think she was about {{ $herHight }} meters tall,
+    which added to her athletic appearance. Her eye color is {{ if $herEyeColor }}{{ $herEyeColor }}{{ else }}unknown{{ end }}.
+    I wish I could recall more details about her, but I can't.
+</p>

@@ -16,6 +16,9 @@ class MainPage
             'isPretty' => true,
             'city' => 'Kharkiv',
             'tellAboutHerWork' => true,
+            'herHeight' => 170.5,
+            'herEyeColor' => null,
+            'herQualities' => ['kind', 'honest', 'hardworking', 'religious', 'beautiful'],
         ]);
 
         return $parser->parseHtml();
