@@ -14,11 +14,12 @@ class MainPage
             'name' => 'Anna Korotchaeva',
             'age' => 24,
             'isPretty' => true,
+            'isUgly' => false,
             'city' => 'Kharkiv',
             'tellAboutHerWork' => true,
             'herHeight' => 170.5,
             'herEyeColor' => null,
-            'herQualities' => ['kind', 'honest', 'hardworking', 'religious', 'beautiful'],
+            // 'herQualities' => ['kind', 'honest', 'hardworking', 'religious', 'beautiful'],
         ]);
 
         return $parser->parseHtml();

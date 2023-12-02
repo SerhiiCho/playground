@@ -12,8 +12,11 @@
 {{ end }}
 
 <p>
-    She was {{ loop $herQualities, $quality }}{{ $quality}}, {{ end }}.
-    I don't know her exact parameters, but I think she was about {{ $herHight }} meters tall,
+    I don't know her exact parameters, but I think she was about {{ $herHeight }} meters tall,
     which added to her athletic appearance. Her eye color is {{ if $herEyeColor }}{{ $herEyeColor }}{{ else }}unknown{{ end }}.
     I wish I could recall more details about her, but I can't.
+</p>
+
+<p>
+    She is a {{ !$isUgly ? 'pretty' : 'ugly' }} girl.
 </p>
