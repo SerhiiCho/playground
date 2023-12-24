@@ -18,5 +18,5 @@ let laravelEcho = new Echo({
 
 laravelEcho.channel('chat')
     .listen('NewMessage', (e) => {
-        alert(e.message)
+        console.log(e.message)
     })
