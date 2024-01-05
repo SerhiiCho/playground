@@ -8,23 +8,20 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/", home)
+	http.HandleFunc("/", homeView)
 	fmt.Println("Listening on http://localhost:8080")
 	http.ListenAndServe(":8080", nil)
 }
 
-func home(w http.ResponseWriter, r *http.Request) {
+func homeView(w http.ResponseWriter, r *http.Request) {
 	vars := map[string]interface{}{
 		"title": "Hello, World!",
 		"age":   23,
 	}
 
-	// res, err := textwire.ParseFile("templates/home", vars)
-	res, err := textwire.ParseText("<h1>{{ title }} and {{ age }}</h1>", vars)
+	err := textwire.PrintFile(w, "templates/home", vars)
 
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
 	}
-
-	fmt.Fprintf(w, res)
 }
