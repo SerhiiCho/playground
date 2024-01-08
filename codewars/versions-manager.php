@@ -5,7 +5,7 @@ class VersionManager
     private int $major = 0;
     private int $minor = 0;
     private int $patch = 0;
-    private string $prevVersion = 'none';
+    private array $versions = [];
 
     public function __construct(private ?string $input = null)
     {
@@ -19,7 +19,7 @@ class VersionManager
 
     public function major(): self
     {
-        $this->prevVersion = $this->getVersion();
+        $this->versions[] = $this->getVersion();
         $this->major++;
         $this->minor = 0;
         $this->patch = 0;
@@ -29,7 +29,7 @@ class VersionManager
 
     public function minor(): self
     {
-        $this->prevVersion = $this->getVersion();
+        $this->versions[] = $this->getVersion();
         $this->minor++;
         $this->patch = 0;
 
@@ -38,7 +38,7 @@ class VersionManager
 
     public function patch(): self
     {
-        $this->prevVersion = $this->getVersion();
+        $this->versions[] = $this->getVersion();
         $this->patch++;
 
         return $this;
@@ -46,11 +46,13 @@ class VersionManager
 
     public function rollback(): self
     {
-        if ($this->prevVersion === 'none') {
+        if (empty($this->versions)) {
             throw new Exception('Cannot rollback!');
         }
 
-        $this->setVersions($this->prevVersion);
+        $lastVersion = array_pop($this->versions);
+
+        $this->setVersions($lastVersion);
 
         if ($this->major < 0 || $this->minor < 0 || $this->patch < 0) {
             throw new Exception('Cannot rollback!');
@@ -100,51 +102,51 @@ function assertSame(string $input, string $result)
     echo "✅ Test passes!\n";
 }
 
-// assertSame("0.0.1", (new VersionManager())->release());
-// assertSame("0.0.1", (new VersionManager(""))->release());
-// assertSame("1.2.3", (new VersionManager("1.2.3"))->release());
-// assertSame("1.2.3", (new VersionManager("1.2.3.4"))->release());
-// assertSame("1.2.3", (new VersionManager("1.2.3.d"))->release());
-// assertSame("1.0.0", (new VersionManager("1"))->release());
-// assertSame("1.1.0", (new VersionManager("1.1"))->release());
+assertSame("0.0.1", (new VersionManager())->release());
+assertSame("0.0.1", (new VersionManager(""))->release());
+assertSame("1.2.3", (new VersionManager("1.2.3"))->release());
+assertSame("1.2.3", (new VersionManager("1.2.3.4"))->release());
+assertSame("1.2.3", (new VersionManager("1.2.3.d"))->release());
+assertSame("1.0.0", (new VersionManager("1"))->release());
+assertSame("1.1.0", (new VersionManager("1.1"))->release());
 
-// // Major
-// assertSame("1.0.0", (new VersionManager())->major()->release());
-// assertSame("2.0.0", (new VersionManager("1.2.3"))->major()->release());
-// assertSame("3.0.0", (new VersionManager("1.2.3"))->major()->major()->release());
+// Major
+assertSame("1.0.0", (new VersionManager())->major()->release());
+assertSame("2.0.0", (new VersionManager("1.2.3"))->major()->release());
+assertSame("3.0.0", (new VersionManager("1.2.3"))->major()->major()->release());
 
-// // Minor
-// assertSame("0.1.0", (new VersionManager())->minor()->release());
-// assertSame("1.3.0", (new VersionManager("1.2.3"))->minor()->release());
-// assertSame("1.1.0", (new VersionManager("1"))->minor()->release());
-// assertSame("4.2.0", (new VersionManager("4"))->minor()->minor()->release());
+// Minor
+assertSame("0.1.0", (new VersionManager())->minor()->release());
+assertSame("1.3.0", (new VersionManager("1.2.3"))->minor()->release());
+assertSame("1.1.0", (new VersionManager("1"))->minor()->release());
+assertSame("4.2.0", (new VersionManager("4"))->minor()->minor()->release());
 
-// // Patch
-// assertSame("0.0.2", (new VersionManager())->patch()->release());
-// assertSame("1.2.4", (new VersionManager("1.2.3"))->patch()->release());
-// assertSame("4.0.2", (new VersionManager("4"))->patch()->patch()->release());
+// Patch
+assertSame("0.0.2", (new VersionManager())->patch()->release());
+assertSame("1.2.4", (new VersionManager("1.2.3"))->patch()->release());
+assertSame("4.0.2", (new VersionManager("4"))->patch()->patch()->release());
 
-// // Rollback
-// assertSame("0.0.1", (new VersionManager())->major()->rollback()->release());
-// assertSame("0.0.1", (new VersionManager())->minor()->rollback()->release());
-// assertSame("0.0.1", (new VersionManager())->patch()->rollback()->release());
-// assertSame("1.0.0", (new VersionManager())->major()->patch()->rollback()->release());
-// assertSame("1.0.0", (new VersionManager())->major()->patch()->rollback()->major()->rollback()->release());
+// Rollback
+assertSame("0.0.1", (new VersionManager())->major()->rollback()->release());
+assertSame("0.0.1", (new VersionManager())->minor()->rollback()->release());
+assertSame("0.0.1", (new VersionManager())->patch()->rollback()->release());
+assertSame("1.0.0", (new VersionManager())->major()->patch()->rollback()->release());
+assertSame("1.0.0", (new VersionManager())->major()->patch()->rollback()->major()->rollback()->release());
 
-// try {
-//     new VersionManager("a.b.c");
-//     echo "❌ a.b.c test didn't pass!\n";
-// } catch (Exception $e) {
-//     assertSame('Error occured while parsing version!', $e->getMessage());
-//     echo "✅ Test passes!\n";
-// }
+try {
+    new VersionManager("a.b.c");
+    echo "❌ a.b.c test didn't pass!\n";
+} catch (Exception $e) {
+    assertSame('Error occured while parsing version!', $e->getMessage());
+    echo "✅ Test passes!\n";
+}
 
-// try {
-//     (new VersionManager())->rollback();
-//     echo "❌ rollback test didn't pass!\n";
-// } catch (Exception $e) {
-//     assertSame('Cannot rollback!', $e->getMessage());
-// }
+try {
+    (new VersionManager())->rollback();
+    echo "❌ rollback test didn't pass!\n";
+} catch (Exception $e) {
+    assertSame('Cannot rollback!', $e->getMessage());
+}
 
 try {
     (new VersionManager())->major()->rollback()->rollback()->release();
