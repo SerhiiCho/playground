@@ -1,7 +1,5 @@
 export default function Home() {
-  return (
-    <main>
-        <h1>Hello</h1>
-    </main>
-  )
+    return (
+        <h1 className="text-xl">Home page</h1>
+    )
 }
