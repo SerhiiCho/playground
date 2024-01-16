@@ -24,6 +24,7 @@ services:
             - sail
         depends_on:
             - mysql
+            - soketi
 
     soketi:
         image: 'quay.io/soketi/soketi:latest-16-alpine'
