@@ -5,19 +5,20 @@ import (
 	"net/http"
 
 	"github.com/textwire/textwire"
-	"github.com/textwire/textwire/fail"
 )
 
 var tpl *textwire.Template
 
 func main() {
-	var err *fail.Error
+	var err error
 
 	tpl, err = textwire.NewTemplate(&textwire.Config{
 		TemplateDir: "templates",
 	})
 
-	err.FatalOnError()
+	if err != nil {
+		fmt.Println(err)
+	}
 
 	http.HandleFunc("/", homeView)
 	fmt.Println("Listening on http://localhost:8080")
@@ -30,5 +31,9 @@ func homeView(w http.ResponseWriter, r *http.Request) {
 		"age":   23,
 	}
 
-	tpl.Response(w, "home", vars).PanicOnError()
+	err := tpl.Response(w, "home", vars)
+
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
 }
