@@ -1,0 +1,89 @@
+@use("layouts/main")
+
+@insert("content")
+    <div class="section">
+        <div class="center"><h4>Currency</h4></div>
+
+        <div class="section">
+            <div class="row">
+                @each(c in currency)
+                    <div class="col s12 m3">
+                        <div class="card">
+                            <div class="card-content" style="padding:10px 20px">
+                                <p class="card-title">{{ c.Title }}</p>
+                                <p>Buy: <b>{{ c.Buy }}</b></p>
+                                <p>Sail: <b>{{ c.Sale }}</b></p>
+                            </div>
+                        </div>
+                    </div>
+                @end
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="center"><h4>Books {{ books.len() }}</h4></div>
+
+        <div class="section">
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Isbn</th>
+                        <th>Author</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @each(book in books)
+                        <tr>
+                            <td>{{ book.Title }}</td>
+                            <td>{{ book.Isbn }}</td>
+                            <td>{{ book.Author.FirstName }} {{ book.Author.LastName }}</td>
+                            <td><a href="/books/{{ book.ID }}/edit" class="btn btn-small">Edit</a></td>
+                            <td>
+                                <form action="/books/delete" method="post">
+                                    <input type="hidden" name="book" value="{{ book.ID }}">
+                                    <button type="submit" class="btn red darken-2 btn-small">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @end
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="center"><h4>Authors {{ authors.len() }}</h4></div>
+
+        <div class="section">
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @each(a in authors)
+                        <tr>
+                            <td>{{ a.FirstName }}</td>
+                            <td>{{ a.LastName }}</td>
+                            <td><a href="/authors/{{ a.ID }}/edit" class="btn btn-small">Edit</a></td>
+                            <td>
+                                <form action="/authors/delete" method="post">
+                                    <input type="hidden" name="author" value="{{ a.ID }}">
+                                    <button type="submit" class="btn red darken-2 btn-small">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @end
+                </tbody>
+            </table>
+        </div>
+    </div>
+@end

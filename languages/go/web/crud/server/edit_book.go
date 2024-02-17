@@ -22,7 +22,7 @@ func (s *server) editBook() http.HandlerFunc {
 			log.Println("Finding book in database error. Message:", findErr)
 		}
 
-		err := tpl.ExecuteTemplate(w, "edit_book.html", map[string]interface{}{
+		err := tpl.Response(w, "books/edit_book", map[string]interface{}{
 			"book":    book,
 			"authors": authors,
 		})

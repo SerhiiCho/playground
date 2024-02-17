@@ -13,7 +13,10 @@ func (s *server) createBook() http.HandlerFunc {
 			log.Println("Getting authors query error.", authorsErr)
 		}
 
-		err := tpl.ExecuteTemplate(w, "create_book.html", authors)
+		err := tpl.Response(w, "books/create_book", map[string]interface{}{
+			"authors": authors,
+		})
+
 		log.Println("Executing template error.", err)
 	}
 }

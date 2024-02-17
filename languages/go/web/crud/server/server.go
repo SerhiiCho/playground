@@ -4,17 +4,14 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"os"
-	"path/filepath"
-	"strings"
-	"text/template"
 
 	"github.com/SerhiiCho/crud/store"
 	"github.com/SerhiiCho/crud/store/sqlstore"
 	"github.com/gorilla/mux"
+	"github.com/textwire/textwire"
 )
 
-var tpl *template.Template
+var tpl *textwire.Template
 
 const (
 	port             = "8080"
@@ -23,27 +20,15 @@ const (
 )
 
 func init() {
-	tpl = template.Must(ParseTemplates(), nil)
-}
+	var err error
 
-func ParseTemplates() *template.Template {
-	templ := template.New("")
-	err := filepath.Walk("./templates", func(path string, info os.FileInfo, err error) error {
-		if strings.Contains(path, ".html") {
-			_, err = templ.ParseFiles(path)
-			if err != nil {
-				log.Println(err)
-			}
-		}
-
-		return err
+	tpl, err = textwire.NewTemplate(&textwire.Config{
+		TemplateDir: "../templates",
 	})
 
 	if err != nil {
-		panic(err)
+		log.Fatalln(err)
 	}
-
-	return templ
 }
 
 type server struct {

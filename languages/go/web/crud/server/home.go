@@ -30,7 +30,7 @@ func (s *server) home() http.HandlerFunc {
 			log.Fatalln("Can't get currency data.", Cerr)
 		}
 
-		errTpl := tpl.ExecuteTemplate(w, "home.html", map[string]interface{}{
+		errTpl := tpl.Response(w, "home", map[string]interface{}{
 			"books":    books,
 			"authors":  authors,
 			"currency": currency,

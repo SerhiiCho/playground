@@ -1,0 +1,33 @@
+@use("layouts/main")
+
+@insert("content")
+    <div class="center"><h4>Edit book</h4></div>
+
+    <div class="row">
+        <div class="col l8 offset-l2">
+            <form method="post" action="/books/update">
+                <input type="hidden" name="book" value="{{ book.ID }}">
+                <div class="col s12 input-field">
+                    <input id="title" name="title" value="{{ book.Title }}" type="text" class="validate" maxlength="255" minlength="2" required>
+                    <label for="title">Title</label>
+                </div>
+                <div class="col s12 m6 input-field">
+                    <input id="isbn" name="isbn" value="{{ book.Isbn }}" type="text" class="validate" maxlength="255" minlength="2" required>
+                    <label for="isbn">Isbn</label>
+                </div>
+                <div class="col s12 m6 input-field">
+                    <select name="author" id="authors" class="browser-default">
+                        @each(a in authors)
+                            <option value="{{ a.ID }}">
+                                {{ a.FirstName }} {{ a.LastName }}
+                            </option>
+                        @end
+                    </select>
+                </div>
+                <div style="margin-top: 20px" class="col s12">
+                    <button type="submit" class="btn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+@end
