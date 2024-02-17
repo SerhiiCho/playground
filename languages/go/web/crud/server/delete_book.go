@@ -8,7 +8,7 @@ import (
 func (s *server) deleteBook() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != "POST" || r.URL.Path != "/books/delete" {
-			http.Redirect(w, r, "/", 301)
+			http.Redirect(w, r, "/", http.StatusMovedPermanently)
 		}
 
 		err := s.store.DeleteBook(r.FormValue("book"))
@@ -17,6 +17,6 @@ func (s *server) deleteBook() http.HandlerFunc {
 			log.Fatalf("Deleting book error. Message: %s", err)
 		}
 
-		http.Redirect(w, r, "/", 301)
+		http.Redirect(w, r, "/", http.StatusMovedPermanently)
 	}
 }

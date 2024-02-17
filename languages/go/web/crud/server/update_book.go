@@ -12,7 +12,7 @@ import (
 func (s *server) updateBook() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != "POST" || r.URL.Path != "/books/update" {
-			http.Redirect(w, r, "/", 301)
+			http.Redirect(w, r, "/", http.StatusMovedPermanently)
 		}
 
 		bookID, Berr := strconv.Atoi(r.FormValue("book"))
@@ -37,6 +37,6 @@ func (s *server) updateBook() http.HandlerFunc {
 			fmt.Println("Error updating the book.", updateErr)
 		}
 
-		http.Redirect(w, r, "/", 301)
+		http.Redirect(w, r, "/", http.StatusMovedPermanently)
 	}
 }
