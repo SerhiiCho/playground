@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"../entities"
+	"github.com/SerhiiCho/crud/entities"
 )
 
 // insertBook creates a book record in database

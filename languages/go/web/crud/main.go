@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"./server"
+	"github.com/SerhiiCho/crud/server"
 	_ "github.com/go-sql-driver/mysql"
 )
 

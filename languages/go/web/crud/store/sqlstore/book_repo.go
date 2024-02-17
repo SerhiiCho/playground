@@ -3,7 +3,7 @@ package sqlstore
 import (
 	"fmt"
 
-	"../../entities"
+	"github.com/SerhiiCho/crud/entities"
 )
 
 // InsertBook inserts book into a database

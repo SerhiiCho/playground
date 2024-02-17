@@ -1,6 +1,6 @@
 package store
 
-import "../entities"
+import "github.com/SerhiiCho/crud/entities"
 
 // Store is the common interface for all stores
 type Store interface {

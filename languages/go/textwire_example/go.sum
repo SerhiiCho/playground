@@ -8,3 +8,5 @@ github.com/textwire/textwire v0.0.4 h1:m9K76BjrCSZ/fgLkJ9TR7+BgaRTkLIFzpFALkfTIb
 github.com/textwire/textwire v0.0.4/go.mod h1:HZy/lqRTgOrr+aiCYvLXlIOzze6R01MX4bLUyJyczao=
 github.com/textwire/textwire v0.0.5 h1:JpA2ORL7/67IxZ1WsrJHYGTxztpo9uPCvb9OR5zmmJE=
 github.com/textwire/textwire v0.0.5/go.mod h1:HZy/lqRTgOrr+aiCYvLXlIOzze6R01MX4bLUyJyczao=
+github.com/textwire/textwire v0.0.7 h1:ad7PhB8pcgu7L2H9eEBugsFgHLMkXB1XVjEIoRd9d1s=
+github.com/textwire/textwire v0.0.7/go.mod h1:dHuWbkLWabvSH/nxF934qsP1fUwPqpeCzuQowiD6eW0=

@@ -1,7 +1,7 @@
 package sqlstore
 
 import (
-	"../../entities"
+	"github.com/SerhiiCho/crud/entities"
 )
 
 // GetAuthors returns the slice of authors

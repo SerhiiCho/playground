@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"../entities"
+	"github.com/SerhiiCho/crud/entities"
 )
 
 func (s *server) updateBook() http.HandlerFunc {

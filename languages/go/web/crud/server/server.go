@@ -9,8 +9,8 @@ import (
 	"strings"
 	"text/template"
 
-	"../store"
-	"../store/sqlstore"
+	"github.com/SerhiiCho/crud/store"
+	"github.com/SerhiiCho/crud/store/sqlstore"
 	"github.com/gorilla/mux"
 )
 
@@ -19,7 +19,7 @@ var tpl *template.Template
 const (
 	port             = "8080"
 	getCurrencyURL   = "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5"
-	mysqlCredentials = "serhii:111111@/crud"
+	mysqlCredentials = "root:@/crud"
 )
 
 func init() {

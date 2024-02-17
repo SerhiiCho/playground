@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 
-	"../entities"
+	"github.com/SerhiiCho/crud/entities"
 )
 
 // home handler is responsible for the home page view
