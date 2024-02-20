@@ -4,7 +4,6 @@
 
 @insert("content")
     <h1>Home</h1>
-    <p>Welcome to the home page.</p>
+    {{ user = {"name": "Serhii"} }}
+    <p>Welcome to the home page {{ user.name }}.</p>
 @end
-
-<h1>THIS TEXT IS NOT VISIBLE?</h1>
