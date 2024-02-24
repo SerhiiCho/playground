@@ -17,6 +17,8 @@ func (s *server) createBook() http.HandlerFunc {
 			"authors": authors,
 		})
 
-		log.Println("Executing template error.", err)
+		if err != nil {
+			log.Println("Executing template error.", err)
+		}
 	}
 }

@@ -36,7 +36,9 @@ func (s *server) home() http.HandlerFunc {
 			"currency": currency,
 		})
 
-		log.Println("Executing template error.", errTpl)
+		if errTpl != nil {
+			log.Println("Executing template error.", errTpl)
+		}
 	}
 }
 

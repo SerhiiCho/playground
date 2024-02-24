@@ -7,4 +7,4 @@ require (
 	github.com/gorilla/mux v1.8.1
 )
 
-require github.com/textwire/textwire v0.1.0
+require github.com/textwire/textwire v0.1.1
