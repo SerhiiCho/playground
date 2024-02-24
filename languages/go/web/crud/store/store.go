@@ -10,7 +10,6 @@ type Store interface {
 	DeleteBook(string) error
 	UpdateBook(*entities.Book) error
 	FindBook(string) (*entities.Book, error)
-
 	// authors
 	GetAuthors() ([]entities.Author, error)
 }

@@ -23,7 +23,7 @@ func init() {
 	var err error
 
 	tpl, err = textwire.NewTemplate(&textwire.Config{
-		TemplateDir: "../templates",
+		TemplateDir: "templates",
 	})
 
 	if err != nil {

@@ -4,3 +4,5 @@ github.com/gorilla/mux v1.8.1 h1:TuBL49tXwgrFYWhqrNgrUNEY92u81SPhu7sTdzQEiWY=
 github.com/gorilla/mux v1.8.1/go.mod h1:AKf9I4AEqPTmMytcMc0KkNouC66V3BtZ4qD5fmWSiMQ=
 github.com/textwire/textwire v0.0.7 h1:ad7PhB8pcgu7L2H9eEBugsFgHLMkXB1XVjEIoRd9d1s=
 github.com/textwire/textwire v0.0.7/go.mod h1:dHuWbkLWabvSH/nxF934qsP1fUwPqpeCzuQowiD6eW0=
+github.com/textwire/textwire v0.1.0 h1:U7kOKQIXMcSq3ZYIOwtrkx33+mWCzVOQKb0V3Y153L0=
+github.com/textwire/textwire v0.1.0/go.mod h1:dHuWbkLWabvSH/nxF934qsP1fUwPqpeCzuQowiD6eW0=

@@ -10,9 +10,9 @@
                     <div class="col s12 m3">
                         <div class="card">
                             <div class="card-content" style="padding:10px 20px">
-                                <p class="card-title">{{ c.Title }}</p>
-                                <p>Buy: <b>{{ c.Buy }}</b></p>
-                                <p>Sail: <b>{{ c.Sale }}</b></p>
+                                <p class="card-title">{{ c.title }}</p>
+                                <p>Buy: <b>{{ c.buy }}</b></p>
+                                <p>Sail: <b>{{ c.sale }}</b></p>
                             </div>
                         </div>
                     </div>
@@ -36,15 +36,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @each(book in books)
+                    @each(b in books)
                         <tr>
-                            <td>{{ book.Title }}</td>
-                            <td>{{ book.Isbn }}</td>
-                            <td>{{ book.Author.FirstName }} {{ book.Author.LastName }}</td>
-                            <td><a href="/books/{{ book.ID }}/edit" class="btn btn-small">Edit</a></td>
+                            <td>{{ b.title }}</td>
+                            <td>{{ b.isbn }}</td>
+                            <td>{{ b.author.firstName }} {{ b.author.lastName }}</td>
+                            <td><a href="/books/{{ b.ID }}/edit" class="btn btn-small">Edit</a></td>
                             <td>
                                 <form action="/books/delete" method="post">
-                                    <input type="hidden" name="book" value="{{ book.ID }}">
+                                    <input type="hidden" name="book" value="{{ b.ID }}">
                                     <button type="submit" class="btn red darken-2 btn-small">Delete</button>
                                 </form>
                             </td>
@@ -71,8 +71,8 @@
                 <tbody>
                     @each(a in authors)
                         <tr>
-                            <td>{{ a.FirstName }}</td>
-                            <td>{{ a.LastName }}</td>
+                            <td>{{ a.firstName }}</td>
+                            <td>{{ a.lastName }}</td>
                             <td><a href="/authors/{{ a.ID }}/edit" class="btn btn-small">Edit</a></td>
                             <td>
                                 <form action="/authors/delete" method="post">

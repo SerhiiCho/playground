@@ -18,7 +18,7 @@
                     <select name="author" id="authors" class="browser-default">
                         @each(book in books)
                             <option value="{{ book.ID }}">
-                                {{ book.FirstName }} {{ book.LastName }}
+                                {{ book.firstName }} {{ book.lastName }}
                             </option>
                         @end
                     </select>
