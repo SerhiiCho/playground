@@ -1,0 +1,12 @@
+<tr>
+    <td>{{ b.title }}</td>
+    <td>{{ b.isbn }}</td>
+    <td>{{ b.author.firstName }} {{ b.author.lastName }}</td>
+    <td><a href="/books/{{ b.ID }}/edit" class="btn btn-small">Edit</a></td>
+    <td>
+        <form action="/books/delete" method="post">
+            <input type="hidden" name="book" value="{{ b.ID }}">
+            <button type="submit" class="btn red darken-2 btn-small">Delete</button>
+        </form>
+    </td>
+</tr>

@@ -37,18 +37,7 @@
                 </thead>
                 <tbody>
                     @each(b in books)
-                        <tr>
-                            <td>{{ b.title }}</td>
-                            <td>{{ b.isbn }}</td>
-                            <td>{{ b.author.firstName }} {{ b.author.lastName }}</td>
-                            <td><a href="/books/{{ b.ID }}/edit" class="btn btn-small">Edit</a></td>
-                            <td>
-                                <form action="/books/delete" method="post">
-                                    <input type="hidden" name="book" value="{{ b.ID }}">
-                                    <button type="submit" class="btn red darken-2 btn-small">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
+                        @component("components/book", { b })
                     @end
                 </tbody>
             </table>
@@ -70,17 +59,7 @@
                 </thead>
                 <tbody>
                     @each(a in authors)
-                        <tr>
-                            <td>{{ a.firstName }}</td>
-                            <td>{{ a.lastName }}</td>
-                            <td><a href="/authors/{{ a.ID }}/edit" class="btn btn-small">Edit</a></td>
-                            <td>
-                                <form action="/authors/delete" method="post">
-                                    <input type="hidden" name="author" value="{{ a.ID }}">
-                                    <button type="submit" class="btn red darken-2 btn-small">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
+                        @component("components/author", { a })
                     @end
                 </tbody>
             </table>
