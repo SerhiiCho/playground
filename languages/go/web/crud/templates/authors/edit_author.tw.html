@@ -1,0 +1,27 @@
+@use("layouts/main")
+
+@insert("content")
+    <div class="center"><h4>Edit author</h4></div>
+
+    <div class="row">
+        <div class="col l8 offset-l2">
+            <form method="post" action="/authors/update">
+                <input type="hidden" name="author" value="{{ author.ID }}">
+
+                <div class="col s6 input-field">
+                    <input id="title" name="first" value="{{ author.firstName }}" type="text" class="validate" maxlength="255" minlength="2" required>
+                    <label for="title">First name</label>
+                </div>
+
+                <div class="col s6 input-field">
+                    <input id="title" name="last" value="{{ author.lastName }}" type="text" class="validate" maxlength="255" minlength="2" required>
+                    <label for="title">Last name</label>
+                </div>
+
+                <div style="margin-top: 20px" class="col s12">
+                    <button type="submit" class="btn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+@end

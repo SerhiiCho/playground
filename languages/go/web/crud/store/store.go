@@ -12,4 +12,5 @@ type Store interface {
 	FindBook(string) (*entities.Book, error)
 	// authors
 	GetAuthors() ([]entities.Author, error)
+	FindAuthor(string) (*entities.Author, error)
 }
