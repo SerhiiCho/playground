@@ -30,9 +30,9 @@ func (store *Store) GetAuthors() ([]entities.Author, error) {
 }
 
 // FindAuthor returns the author with provided id
-func (store *Store) FindAuthor(authorID string) (*entities.Author, error) {
+func (store *Store) FindAuthor(id string) (*entities.Author, error) {
 	q := `SELECT * FROM authors WHERE id = ?`
-	row, err := store.db.Query(q, authorID)
+	row, err := store.db.Query(q, id)
 
 	if err != nil {
 		return nil, err
@@ -49,4 +49,16 @@ func (store *Store) FindAuthor(authorID string) (*entities.Author, error) {
 	}
 
 	return &a, nil
+}
+
+// UpdateAuthor updates author in the database 'authors' table
+func (store *Store) UpdateAuthor(author *entities.Author) error {
+	query := `UPDATE authors SET first_name = ?, last_name = ? WHERE id = ?`
+	_, err := store.db.Query(query, author.FirstName, author.LastName, author.ID)
+
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

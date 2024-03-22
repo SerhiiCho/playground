@@ -61,6 +61,7 @@ func (s server) configureRouter() {
 	s.router.HandleFunc("/books/update", s.updateBook()).Methods("POST")
 	s.router.HandleFunc("/books/delete", s.deleteBook()).Methods("POST")
 	s.router.HandleFunc("/authors/{id}/edit", s.editAuthor()).Methods("Get")
+	s.router.HandleFunc("/authors/update", s.updateAuthor()).Methods("POST")
 }
 
 // Start starts the server

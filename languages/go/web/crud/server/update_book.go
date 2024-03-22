@@ -15,22 +15,22 @@ func (s *server) updateBook() http.HandlerFunc {
 			http.Redirect(w, r, "/", http.StatusMovedPermanently)
 		}
 
-		bookID, Berr := strconv.Atoi(r.FormValue("book"))
-		authourID, Aerr := strconv.Atoi(r.FormValue("author"))
+		bookID, bErr := strconv.Atoi(r.FormValue("book"))
+		authorID, aErr := strconv.Atoi(r.FormValue("author"))
 
-		if Berr != nil {
-			log.Fatalf("Error converting book id to int in updateBook method. Message: %s\n", Berr)
+		if bErr != nil {
+			log.Fatalf("Error converting book id to int in updateBook method. Message: %s\n", bErr)
 		}
 
-		if Aerr != nil {
-			log.Fatalf("Error converting author id to int in updateBook method. Message: %s\n", Aerr)
+		if aErr != nil {
+			log.Fatalf("Error converting author id to int in updateBook method. Message: %s\n", aErr)
 		}
 
 		updateErr := s.store.UpdateBook(&entities.Book{
 			ID:     bookID,
 			Title:  r.FormValue("title"),
 			Isbn:   r.FormValue("isbn"),
-			Author: &entities.Author{ID: authourID},
+			Author: &entities.Author{ID: authorID},
 		})
 
 		if updateErr != nil {
