@@ -16,9 +16,9 @@
                 </div>
                 <div class="col s12 m6 input-field">
                     <select name="author" id="authors" class="browser-default">
-                        @each(book in books)
-                            <option value="{{ book.ID }}">
-                                {{ book.firstName }} {{ book.lastName }}
+                        @each(a in authors)
+                            <option value="{{ a.ID }}">
+                                {{ a.firstName }} {{ a.lastName }}
                             </option>
                         @end
                     </select>
