@@ -140,7 +140,7 @@ esbuild@^0.17.5:
     "@esbuild/win32-ia32" "0.17.18"
     "@esbuild/win32-x64" "0.17.18"
 
-eventemitter3@^5.0.0:
+eventemitter3@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-5.0.1.tgz#53f5ffd0a492ac800721bb42c66b841de96423c4"
   integrity sha512-GWkBvjiSZK87ELrYOSESUYeVIc9mvLLf/nXalMOS5dYrgZq9o5OVkbZAVM06CVxYsCwH9BDZFPlQTlPA1j4ahA==
@@ -168,12 +168,12 @@ path@^0.12.7:
     process "^0.11.1"
     util "^0.10.3"
 
-phaser@^3.60.0:
-  version "3.60.0"
-  resolved "https://registry.yarnpkg.com/phaser/-/phaser-3.60.0.tgz#8a555623e64c707482e6321485b4bda84604590d"
-  integrity sha512-IKUy35EnoEVcl2EmJ8WOyK4X8OoxHYdlhZLgRGpNrvD1fEagYffhVmwHcapE/tGiLgyrnezmXIo5RrH2NcrTHw==
+phaser@^3.80.1:
+  version "3.80.1"
+  resolved "https://registry.yarnpkg.com/phaser/-/phaser-3.80.1.tgz#d387d7e04042218f74b9d22e261f437e54464440"
+  integrity sha512-VQGAWoDOkEpAWYkI+PUADv5Ql+SM0xpLuAMBJHz9tBcOLqjJ2wd8bUhxJgOqclQlLTg97NmMd9MhS75w16x1Cw==
   dependencies:
-    eventemitter3 "^5.0.0"
+    eventemitter3 "^5.0.1"
 
 picocolors@^1.0.0:
   version "1.0.0"
