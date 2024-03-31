@@ -1,10 +1,12 @@
 import Phaser from 'phaser'
 import PlayScene from '@/Scenes/PlayScene'
 
+// @todo: resize canvas when window is resized
+
 export const gameConfig = {
     type: Phaser.AUTO,
-    width: 800,
-    height: 600,
+    width: window.innerWidth,
+    height: window.innerHeight,
     version: '0.0.1',
     banner: false,
     title: 'Castle Fight',
@@ -29,8 +31,8 @@ export const config = {
         height: mapHeight,
         edge: {
             right: mapWidth - gameConfig.width,
-            bottom: mapHeight - gameConfig.height - 260,
-            top: -240,
+            bottom: mapHeight - gameConfig.height,
+            top: 0,
             left: 0,
         },
         scrollSpeed: 20,

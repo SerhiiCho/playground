@@ -24,7 +24,8 @@ export default class PlayScene extends Phaser.Scene {
     // Creating game objects
     public create(): void {
         this.detectEdgeScrollingEvents()
-        this.add.image(0, -250, mapImageName).setOrigin(0, 0)
+
+        this.add.image(0, 0, mapImageName).setOrigin(0, 0)
     }
 
     public update(): void {
@@ -71,7 +72,7 @@ export default class PlayScene extends Phaser.Scene {
     }
 
     private handleMapScroll(): void {
-        console.log(this.cameras.main.scrollY)
+        console.log(this.cameras.main.scrollX)
         if (this.scroll.right && this.cameras.main.scrollX < config.map.edge.right) {
             this.cameras.main.scrollX += config.map.scrollSpeed
         }
@@ -80,11 +81,11 @@ export default class PlayScene extends Phaser.Scene {
             this.cameras.main.scrollY += config.map.scrollSpeed
         }
 
-        if (this.scroll.left && this.cameras.main.scrollX > config.map.edge.left) {
+        if (this.scroll.left && this.cameras.main.scrollX > 0) {
             this.cameras.main.scrollX -= config.map.scrollSpeed
         }
 
-        if (this.scroll.top && this.cameras.main.scrollY > config.map.edge.top) {
+        if (this.scroll.top && this.cameras.main.scrollY > 0) {
             this.cameras.main.scrollY -= config.map.scrollSpeed
         }
     }
