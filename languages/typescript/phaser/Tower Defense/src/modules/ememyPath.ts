@@ -29,5 +29,5 @@ export default (rand: number) => [
     { x: 1000, y: 880, look: 'l' },
     { x: 800, y: 870, look: 'l' },
     { x: 440, y: 860, look: 'l' },
-    { x: 450 - rand, y: 820, look: 'l' },
+    { x: 480 - rand, y: 820, look: 'l' },
 ]

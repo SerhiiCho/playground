@@ -5,6 +5,8 @@ import zombieWalk from '@/assets/enemies/1.zombie/walk.png'
 import zombieDie from '@/assets/enemies/1.zombie/die.png'
 import zombieAttack from '@/assets/enemies/1.zombie/attack.png'
 
+const distance = 120
+
 export default class ZombieEnemy extends Enemy {
     public static anims: Animations = {
         walk: 'zombieWalk',
@@ -12,7 +14,7 @@ export default class ZombieEnemy extends Enemy {
         attack: 'zombieAttack',
     }
 
-    public constructor(
+    private constructor(
         public sprite: Phaser.GameObjects.Sprite,
         public zIndex: number,
     ) {
@@ -34,5 +36,22 @@ export default class ZombieEnemy extends Enemy {
             frameWidth: 104,
             frameHeight: 130,
         })
+    }
+
+    public static spawn(amount: number, factory: Phaser.GameObjects.GameObjectFactory): ZombieEnemy[] {
+        const result = []
+
+        for (let i = 1; i < amount; i++) {
+            const x = -(i * distance)
+            const y = 150
+
+            const sprite = factory.sprite(x, y, ZombieEnemy.anims.walk)
+            const zombie = new ZombieEnemy(sprite, i)
+
+            zombie.create(x, y)
+            result.push(zombie)
+        }
+
+        return result
     }
 }

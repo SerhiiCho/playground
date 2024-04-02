@@ -8,14 +8,13 @@ export default class Enemy {
     private path
 
     public constructor(
-        public sprite: Phaser.GameObjects.Sprite,
-        public zIndex: number,
+        protected sprite: Phaser.GameObjects.Sprite,
+        protected zIndex: number,
         protected readonly animations: Animations,
     ) {
-        this.rand = Math.floor(Math.random() * 150)
+        this.rand = Math.floor(Math.random() * 200)
         this.path = enemyPath(this.rand)
     }
-
 
     public create(x: number, y: number): void {
         this.sprite.setPosition(x, y)

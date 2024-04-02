@@ -28,21 +28,10 @@ export default class extends Phaser.Scene {
         this.add.image(220, 450, 'castle')
             .setOrigin(0, 0)
 
-        this.spawnZombies()
+        this.enemies = ZombieEnemy.spawn(10, this.add)
     }
 
     public update(): void {
         this.enemies.forEach(enemy => enemy.update())
-    }
-
-    private spawnZombies(): void {
-        for (let i = 1, z = 99999; i < 11; i++, z--) {
-            const x = -(i * 70)
-            const y = 150
-
-            const enemy = new ZombieEnemy(this.add.sprite(x, y, 'zombieWalk'), z)
-            enemy.create(x, y)
-            this.enemies.push(enemy)
-        }
     }
 }
