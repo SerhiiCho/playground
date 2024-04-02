@@ -1,20 +1,16 @@
+import type { Animations } from '@/types'
 import Phaser from 'phaser'
 import enemyPath from '@/modules/ememyPath'
 
-export default class {
+export default class Enemy {
     private currPathIndex = 0
     private rand: number
     private path
 
-    private readonly animations = {
-        walk: '1.zombie',
-        die: 'enemyDie',
-        attack: 'enemyAttack',
-    }
-
     public constructor(
         public sprite: Phaser.GameObjects.Sprite,
         public zIndex: number,
+        protected readonly animations: Animations,
     ) {
         this.rand = Math.floor(Math.random() * 150)
         this.path = enemyPath(this.rand)
@@ -34,6 +30,7 @@ export default class {
 
     private move(): void {
         if (!this.path[this.currPathIndex]) {
+            this.attackCastle()
             return
         }
 
@@ -73,5 +70,27 @@ export default class {
             }),
             frameRate: 12,
         })
+
+        this.sprite.anims.create({
+            key: this.animations.die,
+            frames: this.sprite.anims.generateFrameNumbers(this.animations.die, {
+                start: 0,
+                end: 11,
+            }),
+            frameRate: 12,
+        })
+
+        this.sprite.anims.create({
+            key: this.animations.attack,
+            frames: this.sprite.anims.generateFrameNumbers(this.animations.attack, {
+                start: 0,
+                end: 7,
+            }),
+            frameRate: 12,
+        })
+    }
+
+    private attackCastle(): void {
+        this.sprite.anims.play(this.animations.attack, true)
     }
 }

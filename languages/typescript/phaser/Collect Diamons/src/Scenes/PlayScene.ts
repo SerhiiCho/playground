@@ -76,7 +76,7 @@ export default class PlayScene extends Phaser.Scene {
         this.player = new Player(this.add.sprite(0, 0, 'playerIdle'))
         this.player.create(new Position(45, this.canvasHeight / 2))
 
-        this.enemy = new Enemy(this.add.sprite(0, 0, 'enemyIdle'))
+        this.enemy = new Enemy(this.add.sprite(0, 0, 'zombieWalk'))
         this.enemy.create(new Position(this.canvasWidth - 90, this.canvasHeight / 2))
     }
 

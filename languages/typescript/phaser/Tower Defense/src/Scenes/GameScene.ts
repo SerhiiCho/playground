@@ -1,8 +1,9 @@
 import { config } from '@/config'
+import spritesPreloader from '@/modules/spritesPreloader'
 import mapImage from '@/assets/map.png'
 import castleImage from '@/assets/castle.png'
-import enemy1Image from '@/assets/enemies/1.zombie.png'
 import Enemy from '@/Models/Enemy'
+import ZombieEnemy from '@/Models/ZombieEnemy'
 
 export default class extends Phaser.Scene {
     private enemies: Enemy[]
@@ -17,10 +18,7 @@ export default class extends Phaser.Scene {
             .image('map', mapImage)
             .image('castle', castleImage)
 
-        this.load.spritesheet('1.zombie', enemy1Image, {
-            frameWidth: 107.5,
-            frameHeight: 129.75,
-        })
+        spritesPreloader(this.load)
     }
 
     public create(): void {
@@ -31,17 +29,21 @@ export default class extends Phaser.Scene {
         this.add.image(220, 450, 'castle')
             .setOrigin(0, 0)
 
-        for (let i = 1, z = 99999; i < 11; i++, z--) {
-            const x = -(i * 70)
-            const y = 150
-
-            const enemy = new Enemy(this.add.sprite(x, y, '1.zombie'), z)
-            enemy.create(x, y)
-            this.enemies.push(enemy)
-        }
+        this.spawnZombies()
     }
 
     public update(): void {
         this.enemies.forEach(enemy => enemy.update())
+    }
+
+    private spawnZombies(): void {
+        for (let i = 1, z = 99999; i < 11; i++, z--) {
+            const x = -(i * 70)
+            const y = 150
+
+            const enemy = new ZombieEnemy(this.add.sprite(x, y, 'zombieWalk'), z)
+            enemy.create(x, y)
+            this.enemies.push(enemy)
+        }
     }
 }
