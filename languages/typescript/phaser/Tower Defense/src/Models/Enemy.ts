@@ -16,6 +16,7 @@ export default class Enemy {
         this.path = enemyPath(this.rand)
     }
 
+
     public create(x: number, y: number): void {
         this.sprite.setPosition(x, y)
         this.sprite.setInteractive()

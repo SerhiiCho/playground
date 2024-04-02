@@ -1,5 +1,4 @@
 import { config } from '@/config'
-import spritesPreloader from '@/modules/spritesPreloader'
 import mapImage from '@/assets/map.png'
 import castleImage from '@/assets/castle.png'
 import Enemy from '@/Models/Enemy'
@@ -18,7 +17,7 @@ export default class extends Phaser.Scene {
             .image('map', mapImage)
             .image('castle', castleImage)
 
-        spritesPreloader(this.load)
+        ZombieEnemy.loadSprites(this.load)
     }
 
     public create(): void {
