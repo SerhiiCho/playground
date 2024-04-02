@@ -5,7 +5,7 @@ import zombieWalk from '@/assets/enemies/1.zombie/walk.png'
 import zombieDie from '@/assets/enemies/1.zombie/die.png'
 import zombieAttack from '@/assets/enemies/1.zombie/attack.png'
 
-const distance = 120
+const distance = 130
 
 export default class ZombieEnemy extends Enemy {
     public static anims: Animations = {
