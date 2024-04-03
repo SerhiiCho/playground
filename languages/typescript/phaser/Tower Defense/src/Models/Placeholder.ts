@@ -1,6 +1,6 @@
 import Phaser from 'phaser'
 import placeholderImage from '@/assets/towers/tower-placeholder.png'
-import arrowTowerIdle from '@/assets/towers/arrow-tower.png'
+import placeholderPoints from '@/modules/placeholderPoints'
 
 const imageKey = 'spawner'
 
@@ -22,6 +22,16 @@ export default class Placeholder {
         placeholder.create()
 
         return placeholder
+    }
+
+    public static spawnAll(factory: Phaser.GameObjects.GameObjectFactory): Placeholder[] {
+        const result = []
+
+        for (const point of placeholderPoints) {
+            result.push(Placeholder.spawn(point.x, point.y, factory))
+        }
+
+        return result
     }
 
     public create(): void {

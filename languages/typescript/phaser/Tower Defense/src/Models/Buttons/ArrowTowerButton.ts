@@ -15,8 +15,8 @@ export default class ArrowTowerButton extends Button {
     }
 
     public static spawn(factory: Phaser.GameObjects.GameObjectFactory): ArrowTowerButton {
-        const x = config.width - 100
-        const y = config.height - 100
+        const x = 80
+        const y = config.height - 80
 
         const image = factory.image(x, y, imageKey)
 
