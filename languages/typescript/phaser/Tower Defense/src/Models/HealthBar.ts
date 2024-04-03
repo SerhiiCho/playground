@@ -1,11 +1,7 @@
 import Phaser from 'phaser'
+import colors from '@/modules/colors'
 
 export default class HealthBar {
-    public static colors = {
-        red: 0xff0000,
-        green: 0x00ff00,
-    }
-
     private healthBar: Phaser.GameObjects.Graphics | undefined
 
     public constructor(private parentSprite: Phaser.GameObjects.Sprite) {
@@ -24,10 +20,18 @@ export default class HealthBar {
         const radius = 4
 
         this.healthBar = this.parentSprite.scene.add.graphics()
-        this.healthBar.fillStyle(0x000000, 1)
+        this.healthBar.fillStyle(colors.black, 1)
         this.healthBar.fillRoundedRect(x, y, barWidth, barHeight, radius)
 
-        this.healthBar.fillStyle(0xff0000, 1)
+        this.healthBar.fillStyle(this.activeColor(health), 1)
         this.healthBar.fillRoundedRect(x, y + 1, healthWidth - 2, barHeight - 2, radius)
+    }
+
+    private activeColor(health: number): number {
+        if (health > 60) {
+            return colors.green
+        }
+
+        return health > 30 ? colors.orange : colors.red
     }
 }
