@@ -1,5 +1,5 @@
 export default class Button {
-    constructor(public image: Phaser.GameObjects.Image) {
+    constructor(public readonly image: Phaser.GameObjects.Image) {
     }
 
     public create(x: number, y: number): void {
