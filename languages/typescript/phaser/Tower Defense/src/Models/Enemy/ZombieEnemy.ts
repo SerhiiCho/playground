@@ -21,7 +21,7 @@ export default class ZombieEnemy extends Enemy {
         super(sprite, zIndex, ZombieEnemy.anims)
     }
 
-    public static loadSprites(loader: Phaser.Loader.LoaderPlugin): void {
+    public static preload(loader: Phaser.Loader.LoaderPlugin): void {
         loader.spritesheet(ZombieEnemy.anims.walk, zombieWalk, {
             frameWidth: 107.5,
             frameHeight: 130,

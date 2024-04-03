@@ -5,14 +5,16 @@ import Enemy from '@/Models/Enemy/Enemy'
 import ZombieEnemy from '@/Models/Enemy/ZombieEnemy'
 import ArrowTower from '@/Models/Tower/ArrowTower'
 import Tower from '@/Models/Tower/Tower'
+import Button from '@/Models/Buttons/Button'
+import ArrowTowerButton from '@/Models/Buttons/ArrowTowerButton'
 
 export default class extends Phaser.Scene {
-    private enemies: Enemy[]
+    private enemies: Enemy[] = []
     private towers: Tower[] = []
+    private buttons: Button[] = []
 
     public constructor() {
         super('GameScene')
-        this.enemies = []
     }
 
     public preload(): void {
@@ -20,8 +22,9 @@ export default class extends Phaser.Scene {
             .image('map', mapImage)
             .image('castle', castleImage)
 
-        ZombieEnemy.loadSprites(this.load)
-        ArrowTower.loadSprites(this.load)
+        ArrowTowerButton.preload(this.load)
+        ArrowTower.preload(this.load)
+        ZombieEnemy.preload(this.load)
     }
 
     public create(): void {
@@ -32,14 +35,20 @@ export default class extends Phaser.Scene {
         this.add.image(220, 450, 'castle')
             .setOrigin(0, 0)
 
-        this.enemies = ZombieEnemy.spawn(10, this.add)
+        const arrowTowerBtn = ArrowTowerButton.spawn(this.add)
 
-        // @todo temporary code for spawning a tower
-        this.towers.push(ArrowTower.spawn(this.add))
+        arrowTowerBtn.onClick((pointer: Phaser.Input.Pointer) => {
+            //
+        })
+
+        this.buttons.push(arrowTowerBtn)
+
+        this.enemies = ZombieEnemy.spawn(10, this.add)
     }
 
     public update(): void {
         this.enemies.forEach(enemy => enemy.update())
         this.towers.forEach(tower => tower.update())
+        this.buttons.forEach(button => button.update())
     }
 }
