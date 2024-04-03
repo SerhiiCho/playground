@@ -1,6 +1,6 @@
 import type { Animations } from '@/types'
 import Phaser from 'phaser'
-import Enemy from '@/Models/Enemy'
+import Enemy from '@/Models/Enemy/Enemy'
 import zombieWalk from '@/assets/enemies/1.zombie/walk.png'
 import zombieDie from '@/assets/enemies/1.zombie/die.png'
 import zombieAttack from '@/assets/enemies/1.zombie/attack.png'

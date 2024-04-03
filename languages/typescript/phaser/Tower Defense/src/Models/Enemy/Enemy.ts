@@ -1,12 +1,13 @@
 import type { Animations } from '@/types'
 import Phaser from 'phaser'
 import enemyPath from '@/modules/ememyPath'
+import HealthBar from '@/Models/HealthBar'
 
 export default class Enemy {
     private currPathIndex = 0
     private rand: number
     private health: number = 100
-    private healthBar: Phaser.GameObjects.Graphics | undefined
+    private healthBar: HealthBar
     private path
 
     public constructor(
@@ -16,6 +17,7 @@ export default class Enemy {
     ) {
         this.rand = Math.floor(Math.random() * 200)
         this.path = enemyPath(this.rand)
+        this.healthBar = new HealthBar(sprite)
     }
 
     public create(x: number, y: number): void {
@@ -28,7 +30,7 @@ export default class Enemy {
 
     public update(): void {
         this.move()
-        this.drawHealthBar()
+        this.healthBar.draw(this.health)
     }
 
     private move(): void {
@@ -95,25 +97,5 @@ export default class Enemy {
 
     private attackCastle(): void {
         this.sprite.anims.play(this.animations.attack, true)
-    }
-
-    private drawHealthBar(): void {
-        if (this.healthBar) {
-            this.healthBar.clear()
-        }
-
-        const x = this.sprite.x - 25
-        const y = this.sprite.y - 70
-        const barWidth = 60
-        const barHeight = 8
-        const healthWidth = barWidth * (this.health / 100)
-        const radius = 4
-
-        this.healthBar = this.sprite.scene.add.graphics()
-        this.healthBar.fillStyle(0x000000, 1)
-        this.healthBar.fillRoundedRect(x, y, barWidth, barHeight, radius)
-
-        this.healthBar.fillStyle(0xff0000, 1)
-        this.healthBar.fillRoundedRect(x, y + 1, healthWidth - 2, barHeight - 2, radius)
     }
 }
