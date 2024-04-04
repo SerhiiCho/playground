@@ -41,6 +41,8 @@ export default class ZombieEnemy extends Enemy {
     public static spawn(amount: number, factory: Phaser.GameObjects.GameObjectFactory): ZombieEnemy[] {
         const result = []
 
+        amount += 1
+
         for (let i = 1; i < amount; i++) {
             const x = -(i * distance)
             const y = 150

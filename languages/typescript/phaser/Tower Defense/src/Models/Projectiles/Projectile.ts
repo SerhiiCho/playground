@@ -3,6 +3,9 @@ import Tower from '@/Models/Tower/Tower'
 
 export default class Projectile {
     private isShooting: boolean = false
+    private lastShotTime: number = 0
+    private shotDelay: number = 1000
+    private damage: number = 5
 
     public constructor(private image: Phaser.GameObjects.Image) {
     }
@@ -19,24 +22,31 @@ export default class Projectile {
     }
 
     public shoot(enemy: Enemy, tower: Tower): void {
-        if (this.isShooting || !enemy.isAlive()) {
+        const currentTime = this.image.scene.time.now
+        const timeDiff = currentTime - this.lastShotTime
+        const canShoot = timeDiff >= this.shotDelay
+
+        if (this.isShooting || !enemy.isAlive() || !canShoot) {
             return
         }
+
+        console.log('shooting')
+        this.lastShotTime = currentTime
 
         this.image.setPosition(tower.sprite.x, tower.sprite.y)
         this.image.setVisible(true)
         this.image.scene.physics.moveToObject(this.image, enemy.sprite, 1000)
         this.isShooting = true
 
-        // check if collided with enemy
-        this.image.scene.physics.add.overlap(this.image, enemy.sprite, () => {
+        const overlap = this.image.scene.physics.add.overlap(this.image, enemy.sprite, () => {
             if (!enemy.isAlive()) {
                 return
             }
 
-            enemy.hitEnemy(10)
+            enemy.hitEnemy(this.damage)
             this.image.setVisible(false)
             this.isShooting = false
+            overlap.destroy()
         })
     }
 
