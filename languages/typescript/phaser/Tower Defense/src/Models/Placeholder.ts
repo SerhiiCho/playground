@@ -4,7 +4,7 @@ import placeholderPoints from '@/modules/placeholderPoints'
 import listenEvent from '@/modules/listenEvent'
 import { events } from '@/config'
 
-const imageKey = 'spawner'
+const IMAGE_KEY = 'spawner'
 
 export default class Placeholder {
     public constructor(
@@ -14,11 +14,11 @@ export default class Placeholder {
     ) { }
 
     public static preload(loader: Phaser.Loader.LoaderPlugin): void {
-        loader.image(imageKey, placeholderImage)
+        loader.image(IMAGE_KEY, placeholderImage)
     }
 
     public static spawn(x: number, y: number, factory: Phaser.GameObjects.GameObjectFactory): Placeholder {
-        const image = factory.image(x, y, imageKey)
+        const image = factory.image(x, y, IMAGE_KEY)
 
         const placeholder = new Placeholder(image, x, y)
         placeholder.create()

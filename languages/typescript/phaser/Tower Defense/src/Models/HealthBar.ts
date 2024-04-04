@@ -27,6 +27,12 @@ export default class HealthBar {
         this.healthBar.fillRoundedRect(x, y + 1, healthWidth - 2, barHeight - 2, radius)
     }
 
+    public destroy(): void {
+        if (this.healthBar) {
+            this.healthBar.destroy()
+        }
+    }
+
     private activeColor(health: number): number {
         if (health > 60) {
             return colors.green

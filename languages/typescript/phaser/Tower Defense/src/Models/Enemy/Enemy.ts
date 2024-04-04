@@ -3,6 +3,8 @@ import Phaser from 'phaser'
 import enemyPath from '@/modules/ememyPath'
 import HealthBar from '@/Models/HealthBar'
 
+const HIDE_CORPSE_DELAY = 5000
+
 export default class Enemy extends Phaser.GameObjects.Sprite {
     private currPathIndex = 0
     private rand: number
@@ -36,6 +38,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
         if (this.health <= 0) {
             this.health = 0
             this.sprite.anims.play(this.animations.die, true)
+            this.hideEnemyAfterDelay()
         }
     }
 
@@ -44,8 +47,17 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
     }
 
     public update(): void {
+        if (!this.isAlive()) {
+            this.healthBar.destroy()
+            return
+        }
+
         this.move()
         this.healthBar.draw(this.health)
+    }
+
+    private hideEnemyAfterDelay(): void {
+        setTimeout(() => this.sprite.destroy(), HIDE_CORPSE_DELAY)
     }
 
     private move(): void {

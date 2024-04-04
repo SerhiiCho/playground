@@ -5,7 +5,7 @@ import zombieWalk from '@/assets/enemies/1.zombie/walk.png'
 import zombieDie from '@/assets/enemies/1.zombie/die.png'
 import zombieAttack from '@/assets/enemies/1.zombie/attack.png'
 
-const distance = 135
+const DISTANCE = 135
 
 export default class ZombieEnemy extends Enemy {
     public static anims: Animations = {
@@ -44,7 +44,7 @@ export default class ZombieEnemy extends Enemy {
         amount += 1
 
         for (let i = 1; i < amount; i++) {
-            const x = -(i * distance)
+            const x = -(i * DISTANCE)
             const y = 150
 
             const sprite = factory.sprite(x, y, ZombieEnemy.anims.walk)
