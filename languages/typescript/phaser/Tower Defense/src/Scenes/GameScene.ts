@@ -64,7 +64,8 @@ export default class extends Phaser.Scene {
     private handlePlaceholderClicks(): void {
         this.placeholders.forEach(placeholder => {
             placeholder.onClick((pointer: Phaser.Input.Pointer) => {
-                this.towers.push(ArrowTower.spawn(placeholder.x, placeholder.y, this.add))
+                const tower = ArrowTower.spawn(placeholder.x, placeholder.y, this.add, this.enemies)
+                this.towers.push(tower)
             })
         })
     }

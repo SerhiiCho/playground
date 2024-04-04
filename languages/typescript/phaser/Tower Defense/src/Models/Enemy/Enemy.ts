@@ -11,7 +11,7 @@ export default class Enemy {
     private path
 
     public constructor(
-        protected sprite: Phaser.GameObjects.Sprite,
+        public sprite: Phaser.GameObjects.Sprite,
         protected zIndex: number,
         protected readonly animations: Animations,
     ) {
