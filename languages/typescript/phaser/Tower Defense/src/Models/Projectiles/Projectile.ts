@@ -4,10 +4,12 @@ import Tower from '@/Models/Tower/Tower'
 export default class Projectile {
     private isShooting: boolean = false
     private lastShotTime: number = 0
-    private shotDelay: number = 1000
-    private damage: number = 5
 
-    public constructor(private image: Phaser.GameObjects.Image) {
+    public constructor(
+        private image: Phaser.GameObjects.Image,
+        private shotDelay: number,
+        private damage: number,
+    ) {
     }
 
     public create(x: number, y: number): void {

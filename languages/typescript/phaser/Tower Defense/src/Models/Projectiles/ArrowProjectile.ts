@@ -5,7 +5,7 @@ const imageKey = 'arrowProjectile'
 
 export default class ArrowProjectile extends Projectile {
     public constructor(image: Phaser.GameObjects.Image) {
-        super(image)
+        super(image, 1000, 25)
     }
 
     public static preload(loader: Phaser.Loader.LoaderPlugin): void {
