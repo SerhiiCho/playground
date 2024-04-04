@@ -27,12 +27,12 @@ export default class Projectile {
         const timeDiff = currentTime - this.lastShotTime
         const canShoot = timeDiff >= this.shotDelay
 
-        this.alignProjectile(enemy, tower)
-
         if (this.isShooting || !enemy.isAlive() || !canShoot) {
             return
         }
 
+        this.alignProjectile(enemy)
+        this.image.scene.sound.play('arrowFlySound', { volume: 0.1 })
         this.lastShotTime = currentTime
 
         this.image.setPosition(tower.sprite.x, tower.sprite.y - tower.sprite.height / 3)
@@ -45,6 +45,7 @@ export default class Projectile {
                 return
             }
 
+            this.image.scene.sound.play('arrowHitSound', { volume: 1.1 })
             enemy.hitEnemy(this.damage)
             this.image.setVisible(false)
             this.isShooting = false
@@ -52,7 +53,7 @@ export default class Projectile {
         })
     }
 
-    private alignProjectile(enemy: Enemy, tower: Tower): void {
+    private alignProjectile(enemy: Enemy): void {
         const angle = Phaser.Math.Angle.Between(this.image.x, this.image.y, enemy.sprite.x, enemy.sprite.y)
         this.image.setRotation(angle + 44.7)
     }

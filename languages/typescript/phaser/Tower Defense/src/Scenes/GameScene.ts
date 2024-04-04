@@ -9,8 +9,11 @@ import Tower from '@/Models/Tower/Tower'
 import Button from '@/Models/Buttons/Button'
 import ArrowTowerButton from '@/Models/Buttons/ArrowTowerButton'
 import Placeholder from '@/Models/Placeholder'
+import actionMusic from '@/assets/sounds/music/action.mp3'
+import arrowFlySound from '@/assets/sounds/arrow-fly.mp3'
+import arrowHitSound from '@/assets/sounds/arrow-hit.mp3'
 
-export default class extends Phaser.Scene {
+export default class GameScene extends Phaser.Scene {
     private enemies: Enemy[] = []
     private towers: Tower[] = []
     private buttons: Button[] = []
@@ -25,6 +28,11 @@ export default class extends Phaser.Scene {
             .image('map', mapImage)
             .image('castle', castleImage)
 
+        this.load
+            .audio('actionMusic', actionMusic)
+            .audio('arrowFlySound', arrowFlySound)
+            .audio('arrowHitSound', arrowHitSound)
+
         ArrowTowerButton.preload(this.load)
         ArrowTower.preload(this.load)
         ZombieEnemy.preload(this.load)
@@ -35,6 +43,8 @@ export default class extends Phaser.Scene {
         this.add.image(0, 0, 'map')
             .setOrigin(0, 0)
             .setDisplaySize(config.width, config.height)
+
+        this.sound.play('actionMusic', { loop: true, volume: 0.5 })
 
         this.add.image(220, 450, 'castle')
             .setOrigin(0, 0)
