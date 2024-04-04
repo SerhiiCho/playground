@@ -1,4 +1,5 @@
-import { config } from '@/config'
+import { config, events } from '@/config'
+import dispatchEvent from '@/modules/dispatchEvent'
 import mapImage from '@/assets/map.png'
 import castleImage from '@/assets/castle.png'
 import Enemy from '@/Models/Enemy/Enemy'
@@ -38,22 +39,33 @@ export default class extends Phaser.Scene {
         this.add.image(220, 450, 'castle')
             .setOrigin(0, 0)
 
-        const arrowTowerBtn = ArrowTowerButton.spawn(this.add)
-
-        // arrowTowerBtn.onClick((pointer: Phaser.Input.Pointer) => {
-        //     //
-        // })
-
-        this.buttons.push(arrowTowerBtn)
-
+        this.buttons.push(ArrowTowerButton.spawn(this.add))
         this.placeholders = Placeholder.spawnAll(this.add)
-
         this.enemies = ZombieEnemy.spawn(10, this.add)
+
+        this.handleButtonClicks()
+        this.handlePlaceholderClicks()
     }
 
     public update(): void {
         this.enemies.forEach(enemy => enemy.update())
         this.towers.forEach(tower => tower.update())
         this.buttons.forEach(button => button.update())
+    }
+
+    private handleButtonClicks(): void {
+        this.buttons.forEach(button => {
+            button.onClick((pointer: Phaser.Input.Pointer) => {
+                dispatchEvent(events.togglePlaceholderVisibility)
+            })
+        })
+    }
+
+    private handlePlaceholderClicks(): void {
+        this.placeholders.forEach(placeholder => {
+            placeholder.onClick((pointer: Phaser.Input.Pointer) => {
+                this.towers.push(ArrowTower.spawn(placeholder.x, placeholder.y, this.add))
+            })
+        })
     }
 }

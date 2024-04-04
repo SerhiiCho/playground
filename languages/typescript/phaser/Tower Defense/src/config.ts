@@ -19,3 +19,7 @@ export const config = {
         GameScene,
     ]
 }
+
+export const events = {
+    togglePlaceholderVisibility: 'toggleplaceholdervisibility',
+}
