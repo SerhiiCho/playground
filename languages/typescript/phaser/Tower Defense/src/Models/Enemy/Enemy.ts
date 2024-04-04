@@ -3,7 +3,7 @@ import Phaser from 'phaser'
 import enemyPath from '@/modules/ememyPath'
 import HealthBar from '@/Models/HealthBar'
 
-export default class Enemy extends Phaser.GameObjects.GameObject {
+export default class Enemy extends Phaser.GameObjects.Sprite {
     private currPathIndex = 0
     private rand: number
     private health: number = 100
@@ -15,7 +15,7 @@ export default class Enemy extends Phaser.GameObjects.GameObject {
         protected zIndex: number,
         protected readonly animations: Animations,
     ) {
-        super(sprite.scene, 'sprite')
+        super(sprite.scene, 0, 0, 'sprite')
         this.rand = Math.floor(Math.random() * 200)
         this.path = enemyPath(this.rand)
         this.healthBar = new HealthBar(sprite)
@@ -25,8 +25,22 @@ export default class Enemy extends Phaser.GameObjects.GameObject {
         this.sprite.setPosition(x, y)
         this.sprite.setInteractive()
         this.sprite.setDepth(this.zIndex)
+        this.sprite.scene.physics.add.existing(this.sprite)
 
         this.createAnimations()
+    }
+
+    public hitEnemy(damage: number): void {
+        this.health -= damage
+
+        if (this.health <= 0) {
+            this.health = 0
+            this.sprite.anims.play(this.animations.die, true)
+        }
+    }
+
+    public isAlive(): boolean {
+        return this.health > 0
     }
 
     public update(): void {
@@ -35,6 +49,10 @@ export default class Enemy extends Phaser.GameObjects.GameObject {
     }
 
     private move(): void {
+        if (this.health <= 0) {
+            return
+        }
+
         if (!this.path[this.currPathIndex]) {
             this.attackCastle()
             return
@@ -84,6 +102,7 @@ export default class Enemy extends Phaser.GameObjects.GameObject {
                 end: 11,
             }),
             frameRate: 12,
+            repeat: 0,
         })
 
         this.sprite.anims.create({

@@ -4,7 +4,7 @@ import Projectile from '@/Models/Projectiles/Projectile'
 
 export default class Tower {
     constructor(
-        private sprite: Phaser.GameObjects.Sprite,
+        public sprite: Phaser.GameObjects.Sprite,
         private range: number,
         private enemies: Enemy[],
         private projectile: Projectile
@@ -28,8 +28,9 @@ export default class Tower {
             return
         }
 
-        this.projectile.shoot(targetEnemy, this.sprite.x, this.sprite.y)
-        console.log('shoot!!!')
+        if (targetEnemy.isAlive()) {
+            this.projectile.shoot(targetEnemy, this)
+        }
 
         // if enemy is dead, do nothing
 
