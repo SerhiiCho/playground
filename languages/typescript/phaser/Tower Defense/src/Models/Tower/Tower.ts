@@ -17,15 +17,18 @@ export default class Tower {
     }
 
     public update(): void {
+        this.projectile.update()
         this.shoot()
     }
 
     private shoot(): void {
-        if (!this.isEnemyInRange()) {
+        const targetEnemy = this.getTargetEnemy()
+
+        if (!targetEnemy) {
             return
         }
 
-        // shoot
+        this.projectile.shoot(targetEnemy, this.sprite.x, this.sprite.y)
         console.log('shoot!!!')
 
         // if enemy is dead, do nothing
@@ -33,7 +36,7 @@ export default class Tower {
         // if enemy is alive, shoot
     }
 
-    private isEnemyInRange(): boolean {
+    private getTargetEnemy(): Enemy | null {
         for (const enemy of this.enemies) {
             const distance = Phaser.Math.Distance.Between(
                 this.sprite.x,
@@ -43,10 +46,10 @@ export default class Tower {
             )
 
             if (distance <= this.range) {
-                return true
+                return enemy
             }
         }
 
-        return false
+        return null
     }
 }

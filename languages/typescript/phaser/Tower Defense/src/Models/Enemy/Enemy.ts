@@ -3,7 +3,7 @@ import Phaser from 'phaser'
 import enemyPath from '@/modules/ememyPath'
 import HealthBar from '@/Models/HealthBar'
 
-export default class Enemy {
+export default class Enemy extends Phaser.GameObjects.GameObject {
     private currPathIndex = 0
     private rand: number
     private health: number = 100
@@ -15,6 +15,7 @@ export default class Enemy {
         protected zIndex: number,
         protected readonly animations: Animations,
     ) {
+        super(sprite.scene, 'sprite')
         this.rand = Math.floor(Math.random() * 200)
         this.path = enemyPath(this.rand)
         this.healthBar = new HealthBar(sprite)
