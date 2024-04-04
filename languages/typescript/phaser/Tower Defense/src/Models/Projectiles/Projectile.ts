@@ -19,7 +19,7 @@ export default class Projectile {
     }
 
     public shoot(enemy: Enemy, tower: Tower): void {
-        if (this.isShooting) {
+        if (this.isShooting || !enemy.isAlive()) {
             return
         }
 
@@ -30,6 +30,10 @@ export default class Projectile {
 
         // check if collided with enemy
         this.image.scene.physics.add.overlap(this.image, enemy.sprite, () => {
+            if (!enemy.isAlive()) {
+                return
+            }
+
             enemy.hitEnemy(10)
             this.image.setVisible(false)
             this.isShooting = false
