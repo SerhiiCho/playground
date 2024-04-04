@@ -20,7 +20,6 @@ export default class Projectile {
     }
 
     public update(): void {
-        this.drawShooting()
     }
 
     public shoot(enemy: Enemy, tower: Tower): void {
@@ -28,15 +27,17 @@ export default class Projectile {
         const timeDiff = currentTime - this.lastShotTime
         const canShoot = timeDiff >= this.shotDelay
 
+        this.alignProjectile(enemy, tower)
+
         if (this.isShooting || !enemy.isAlive() || !canShoot) {
             return
         }
 
         this.lastShotTime = currentTime
 
-        this.image.setPosition(tower.sprite.x, tower.sprite.y)
+        this.image.setPosition(tower.sprite.x, tower.sprite.y - tower.sprite.height / 3)
         this.image.setVisible(true)
-        this.image.scene.physics.moveToObject(this.image, enemy.sprite, 1000)
+        this.image.scene.physics.moveToObject(this.image, enemy.sprite, 800)
         this.isShooting = true
 
         const overlap = this.image.scene.physics.add.overlap(this.image, enemy.sprite, () => {
@@ -51,7 +52,8 @@ export default class Projectile {
         })
     }
 
-    private drawShooting(): void {
-        //
+    private alignProjectile(enemy: Enemy, tower: Tower): void {
+        const angle = Phaser.Math.Angle.Between(this.image.x, this.image.y, enemy.sprite.x, enemy.sprite.y)
+        this.image.setRotation(angle + 44.7)
     }
 }

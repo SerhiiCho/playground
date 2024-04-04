@@ -8,7 +8,7 @@ const IMAGE_KEY = 'spawner'
 
 export default class Placeholder {
     public constructor(
-        private readonly image: Phaser.GameObjects.Image,
+        public readonly image: Phaser.GameObjects.Image,
         public readonly x: number,
         public readonly y: number,
     ) { }
@@ -34,6 +34,10 @@ export default class Placeholder {
         }
 
         return result
+    }
+
+    public destroy(): void {
+        this.image.destroy()
     }
 
     public onClick(callback: Function): void {
