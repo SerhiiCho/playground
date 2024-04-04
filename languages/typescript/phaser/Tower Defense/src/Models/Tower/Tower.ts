@@ -1,11 +1,13 @@
 import Phaser from 'phaser'
 import Enemy from '@/Models/Enemy/Enemy'
+import Projectile from '@/Models/Projectiles/Projectile'
 
 export default class Tower {
     constructor(
         private sprite: Phaser.GameObjects.Sprite,
         private range: number,
         private enemies: Enemy[],
+        private projectile: Projectile
     ) {
     }
 
