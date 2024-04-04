@@ -1,3 +1,4 @@
+import type { SoundKey } from '@/types'
 import Enemy from '@/Models/Enemy/Enemy'
 import Tower from '@/Models/Tower/Tower'
 
@@ -9,6 +10,8 @@ export default class Projectile {
         private image: Phaser.GameObjects.Image,
         private shotDelay: number,
         private damage: number,
+        private flySound: SoundKey,
+        private hitSound: SoundKey,
     ) {
     }
 
@@ -32,7 +35,7 @@ export default class Projectile {
         }
 
         this.alignProjectile(enemy)
-        this.image.scene.sound.play('arrowFlySound', { volume: 0.1 })
+        this.image.scene.sound.play(this.flySound, { volume: 0.1 })
         this.lastShotTime = currentTime
 
         this.image.setPosition(tower.sprite.x, tower.sprite.y - tower.sprite.height / 3)
@@ -45,10 +48,11 @@ export default class Projectile {
                 return
             }
 
-            this.image.scene.sound.play('arrowHitSound', { volume: 1.1 })
-            enemy.hitEnemy(this.damage)
+            this.image.scene.sound.play(this.hitSound, { volume: 1.1 })
             this.image.setVisible(false)
             this.isShooting = false
+
+            enemy.hitEnemy(this.damage)
             overlap.destroy()
         })
     }

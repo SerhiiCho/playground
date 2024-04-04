@@ -4,10 +4,11 @@ import Projectile from '@/Models/Projectiles/Projectile'
 
 export default class Tower {
     constructor(
-        public sprite: Phaser.GameObjects.Sprite,
-        private range: number,
-        private enemies: Enemy[],
-        private projectile: Projectile
+        public readonly sprite: Phaser.GameObjects.Sprite,
+        public readonly range: number,
+        public readonly enemies: Enemy[],
+        public readonly projectile: Projectile,
+        public readonly price: number,
     ) {
     }
 

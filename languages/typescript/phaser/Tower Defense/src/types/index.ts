@@ -3,3 +3,8 @@ export type Animations = {
     die: string
     attack: string
 }
+
+export type SoundKey
+    = 'actionMusic'
+    | 'arrowFlySound'
+    | 'arrowHitSound'

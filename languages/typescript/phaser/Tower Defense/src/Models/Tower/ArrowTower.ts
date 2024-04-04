@@ -5,8 +5,10 @@ import arrowTowerIdle from '@/assets/towers/arrow-tower.png'
 import ArrowProjectile from '@/Models/Projectiles/ArrowProjectile'
 
 export default class ArrowTower extends Tower {
+    public static readonly price = 20
+
     constructor(sprite: Phaser.GameObjects.Sprite, enemies: Enemy[], projectile: ArrowProjectile) {
-        super(sprite, 380, enemies, projectile)
+        super(sprite, 380, enemies, projectile, ArrowTower.price)
     }
 
     public static preload(loader: Phaser.Loader.LoaderPlugin): void {
