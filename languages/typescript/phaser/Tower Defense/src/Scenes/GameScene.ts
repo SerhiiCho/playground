@@ -12,6 +12,7 @@ import Placeholder from '@/Models/Placeholder'
 import actionMusic from '@/assets/sounds/music/action.mp3'
 import arrowFlySound from '@/assets/sounds/arrow-fly.mp3'
 import arrowHitSound from '@/assets/sounds/arrow-hit.mp3'
+import buildingCompletedSound from '@/assets/sounds/building-completed.mp3'
 
 export default class GameScene extends Phaser.Scene {
     private enemies: Enemy[] = []
@@ -32,6 +33,7 @@ export default class GameScene extends Phaser.Scene {
             .audio('actionMusic', actionMusic)
             .audio('arrowFlySound', arrowFlySound)
             .audio('arrowHitSound', arrowHitSound)
+            .audio('buildingCompletedSound', buildingCompletedSound)
 
         ArrowTowerButton.preload(this.load)
         ArrowTower.preload(this.load)
@@ -74,6 +76,7 @@ export default class GameScene extends Phaser.Scene {
     private handlePlaceholderClicks(): void {
         this.placeholders.forEach(placeholder => {
             placeholder.onClick((pointer: Phaser.Input.Pointer) => {
+                this.sound.play('buildingCompletedSound', { volume: 0.5 })
                 dispatchEvent(events.togglePlaceholderVisibility)
                 const tower = ArrowTower.spawn(placeholder.x, placeholder.y, this.add, this.enemies)
                 this.towers.push(tower)

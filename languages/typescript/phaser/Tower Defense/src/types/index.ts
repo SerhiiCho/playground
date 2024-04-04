@@ -8,3 +8,4 @@ export type SoundKey
     = 'actionMusic'
     | 'arrowFlySound'
     | 'arrowHitSound'
+    | 'buildingCompletedSound'
