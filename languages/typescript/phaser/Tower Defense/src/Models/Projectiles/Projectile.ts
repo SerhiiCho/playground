@@ -32,7 +32,6 @@ export default class Projectile {
             return
         }
 
-        console.log('shooting')
         this.lastShotTime = currentTime
 
         this.image.setPosition(tower.sprite.x, tower.sprite.y)
