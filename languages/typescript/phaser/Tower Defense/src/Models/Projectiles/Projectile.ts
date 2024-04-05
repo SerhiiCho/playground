@@ -1,65 +1,71 @@
-import type { SoundKey } from '@/types'
+import type { ImageKey, SoundKey } from '@/types'
 import Enemy from '@/Models/Enemy/Enemy'
 import Tower from '@/Models/Tower/Tower'
+import GameScene from '@/Scenes/GameScene'
 
-export default class Projectile {
+export default class Projectile extends Phaser.GameObjects.Image {
     public isShooting: boolean = false
     private lastShotTime: number = 0
 
     public constructor(
-        private image: Phaser.GameObjects.Image,
-        private shotDelay: number,
-        private damage: number,
-        private flySound: SoundKey,
-        private hitSound: SoundKey,
+        public readonly scene: GameScene,
+        public readonly x: number,
+        public readonly y: number,
+        public readonly imageKey: ImageKey,
+        public readonly shotDelay: number,
+        public readonly damage: number,
+        public readonly flySound: SoundKey,
+        public readonly hitSound: SoundKey,
     ) {
+        super(scene, x, y, imageKey)
     }
 
-    public create(x: number, y: number): void {
-        this.image.setPosition(x, y)
-        this.image.setInteractive()
-        this.image.setVisible(false)
-        this.image.scene.physics.add.existing(this.image)
-    }
+    public create(): void {
+        this.setPosition(this.x, this.y)
+        this.setInteractive()
+        this.setVisible(false)
 
-    public update(): void {
+        this.scene.add.image(this.x, this.y, this.imageKey)
+        this.scene.physics.add.existing(this)
     }
 
     public shoot(enemy: Enemy, tower: Tower): void {
-        const currentTime = this.image.scene.time.now
+        const currentTime = this.scene.time.now
         const timeDiff = currentTime - this.lastShotTime
         const canShoot = timeDiff >= this.shotDelay
 
         this.alignProjectile(enemy)
+        this.setVisible(true)
 
         if (this.isOutOfBound()) {
             this.isShooting = false
-            this.image.setVisible(false)
+            this.setVisible(false)
+            return
         }
 
         if (this.isShooting || !enemy.isAlive() || !canShoot) {
             return
         }
 
-        this.image.scene.sound.play(this.flySound, { volume: 0.1 })
+        this.scene.sound.play(this.flySound, { volume: 0.1 })
         this.lastShotTime = currentTime
 
-        this.image.setPosition(tower.sprite.x, tower.sprite.y - tower.sprite.height / 3)
-        this.image.setVisible(true)
-        this.image.scene.physics.moveToObject(this.image, enemy, 800)
+        this.setPosition(tower.x, tower.y - tower.height / 3)
+
+        this.scene.physics.moveToObject(this, enemy, 800)
         this.isShooting = true
 
-        const overlap = this.image.scene.physics.add.overlap(this.image, enemy, () => {
+        const overlap = this.scene.physics.add.overlap(this, enemy, () => {
             if (!enemy.isAlive()) {
                 return
             }
 
-            this.image.scene.sound.play(this.hitSound, { volume: 1.1 })
+            this.scene.sound.play(this.hitSound, { volume: 1.1 })
             this.isShooting = false
-            this.image.setVisible(false)
+            this.setVisible(false)
 
             // stop the projectile
-            this.image.scene.physics.moveToObject(this.image, enemy, 0)
+            this.scene.physics.moveToObject(this, enemy, 0)
 
             enemy.hitEnemy(this.damage)
 
@@ -68,8 +74,8 @@ export default class Projectile {
     }
 
     private isOutOfBound(): boolean {
-        const { width, height } = this.image.scene.game.canvas
-        return this.image.y < 0 || this.image.y > height || this.image.x < 0 || this.image.x > width
+        const { width, height } = this.scene.game.canvas
+        return this.y < 0 || this.y > height || this.x < 0 || this.x > width
     }
 
     private alignProjectile(enemy: Enemy): void {
@@ -77,7 +83,7 @@ export default class Projectile {
             return
         }
 
-        const angle = Phaser.Math.Angle.Between(this.image.x, this.image.y, enemy.x, enemy.y)
-        this.image.setRotation(angle + 44.7)
+        const angle = Phaser.Math.Angle.Between(this.x, this.y, enemy.x, enemy.y)
+        this.setRotation(angle + 44.7)
     }
 }

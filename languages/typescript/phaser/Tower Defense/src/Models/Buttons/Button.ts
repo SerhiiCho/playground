@@ -11,13 +11,14 @@ export default class Button extends Phaser.GameObjects.Image {
         public readonly imageKey: ImageKey,
     ) {
         super(scene, x, y, imageKey)
-        scene.add.image(x, y, imageKey)
     }
 
     public create(): void {
         this.setPosition(this.x, this.y)
         this.setInteractive()
         this.createHoverEffect()
+
+        this.scene.add.image(this.x, this.y, this.imageKey)
 
         this.scene.add.text(this.x - 18, this.y + 60, String(this.price), {
             color: '#ffffff',

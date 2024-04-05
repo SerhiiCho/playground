@@ -8,9 +8,12 @@ export default class ArrowProjectile extends Projectile {
     public static readonly damage = 35
     public static readonly shotDelay = 1000
 
-    public constructor(image: Phaser.GameObjects.Image) {
+    public constructor(scene: GameScene, x: number, y: number) {
         super(
-            image,
+            scene,
+            x,
+            y,
+            imageKey,
             ArrowProjectile.shotDelay,
             ArrowProjectile.damage,
             'arrowFlySound',
@@ -18,16 +21,13 @@ export default class ArrowProjectile extends Projectile {
         )
     }
 
-
     public static preload(scene: GameScene): void {
         scene.load.image(imageKey, arrowImage)
     }
 
-    public static spawn(x: number, y: number, factory: Phaser.GameObjects.GameObjectFactory): ArrowProjectile {
-        const image = factory.image(x, y, imageKey)
-
-        const projectile = new ArrowProjectile(image)
-        projectile.create(x, y)
+    public static spawn(scene: GameScene, x: number, y: number): ArrowProjectile {
+        const projectile = new ArrowProjectile(scene, x, y)
+        projectile.create()
 
         return projectile
     }

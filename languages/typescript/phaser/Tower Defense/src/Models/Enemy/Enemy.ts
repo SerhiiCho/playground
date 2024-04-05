@@ -15,10 +15,10 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
 
     public constructor(
         public readonly scene: GameScene,
-        public readonly zIndex: number,
-        public readonly animations: Animations,
         public x: number,
         public y: number,
+        public readonly zIndex: number,
+        public readonly animations: Animations,
     ) {
         super(scene, 0, 0, animations.walk)
 
@@ -33,12 +33,11 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
         this.setInteractive()
         this.setDepth(this.zIndex)
         this.setVisible(true)
-        this.scene.add.existing(this)
-
-        this.scene.physics.world.enable(this)
-
 
         this.createAnimations()
+
+        this.scene.add.existing(this)
+        this.scene.physics.world.enable(this)
     }
 
     public hitEnemy(damage: number): void {

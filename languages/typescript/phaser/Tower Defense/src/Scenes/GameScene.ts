@@ -78,7 +78,7 @@ export default class GameScene extends Phaser.Scene {
             placeholder.onClick(() => {
                 this.sound.play('buildingCompletedSound', { volume: 0.5 })
                 dispatchEvent(events.togglePlaceholderVisibility)
-                const tower = ArrowTower.spawn(placeholder.x, placeholder.y, this.add, this.enemies)
+                const tower = ArrowTower.spawn(this, placeholder.x, placeholder.y, this.enemies)
                 this.towers.push(tower)
                 placeholder.destroy()
             })

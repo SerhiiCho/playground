@@ -20,7 +20,7 @@ export default class ZombieEnemy extends Enemy {
         public readonly x: number,
         public readonly y: number,
     ) {
-        super(scene, zIndex, ZombieEnemy.anims, x, y)
+        super(scene, x, y, zIndex, ZombieEnemy.anims)
     }
 
     public static preload(scene: GameScene): void {

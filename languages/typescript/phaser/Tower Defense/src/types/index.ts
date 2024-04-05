@@ -9,11 +9,13 @@ export type ImageKey
     | 'spawner'
     | 'map'
     | 'castle'
+    | 'arrowProjectile'
 
 export type SpriteKey
     = 'zombieWalk'
     | 'zombieDie'
     | 'zombieAttack'
+    | 'arrowTowerIdle'
 
 export type Animations = {
     walk: SpriteKey

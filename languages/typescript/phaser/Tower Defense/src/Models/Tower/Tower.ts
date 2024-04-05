@@ -1,24 +1,30 @@
 import Phaser from 'phaser'
 import Enemy from '@/Models/Enemy/Enemy'
 import Projectile from '@/Models/Projectiles/Projectile'
+import GameScene from '@/Scenes/GameScene'
+import { SpriteKey } from '@/types'
 
-export default class Tower {
+export default class Tower extends Phaser.GameObjects.Sprite {
     constructor(
-        public readonly sprite: Phaser.GameObjects.Sprite,
-        public readonly range: number,
+        public readonly scene: GameScene,
+        public readonly x: number,
+        public readonly y: number,
+        public readonly spriteKey: SpriteKey,
         public readonly enemies: Enemy[],
         public readonly projectile: Projectile,
+        public readonly range: number,
         public readonly price: number,
     ) {
+        super(scene, x, y, spriteKey)
     }
 
-    public create(x: number, y: number): void {
-        this.sprite.setPosition(x, y)
-        this.sprite.setInteractive()
+    public create(): void {
+        this.setPosition(this.x, this.y)
+        this.setInteractive()
+        this.scene.add.sprite(this.x, this.y, this.spriteKey)
     }
 
     public update(): void {
-        this.projectile.update()
         this.shoot()
     }
 
@@ -38,12 +44,7 @@ export default class Tower {
                 continue
             }
 
-            const distance = Phaser.Math.Distance.Between(
-                this.sprite.x,
-                this.sprite.y,
-                enemy.x,
-                enemy.y,
-            )
+            const distance = Phaser.Math.Distance.Between(this.x, this.y, enemy.x, enemy.y)
 
             if (distance <= this.range) {
                 return enemy
