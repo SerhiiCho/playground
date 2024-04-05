@@ -6,7 +6,7 @@ import GameScene from '@/Scenes/GameScene'
 
 const hideCorpseDelay = 5000
 
-const animationKeys: EnemyAnimationKeys = {
+const animationKey: EnemyAnimationKeys = {
     walk: 'enemyWalk',
     die: 'enemyDie',
     attack: 'enemyAttack',
@@ -51,7 +51,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
 
         if (this.health <= 0) {
             this.health = 0
-            this.anims.play(this.spriteKeys.die, true)
+            this.anims.play(animationKey.die, true)
             this.hideEnemyAfterDelay()
         }
     }
@@ -84,7 +84,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
             return
         }
 
-        this.anims.play(this.spriteKeys.walk, true)
+        this.anims.play(animationKey.walk, true)
 
         const { x, y, look } = this.path[this.currPathIndex]
 
@@ -112,38 +112,44 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
     }
 
     private createAnimations(): void {
-        this.scene.anims.create({
-            key: animationKeys.walk,
-            frames: this.scene.anims.generateFrameNumbers(this.spriteKeys.walk, {
-                start: 0,
-                end: 9,
-            }),
-            frameRate: 12,
-            repeat: -1,
-        })
+        if (!this.scene.anims.exists(animationKey.walk)) {
+            this.scene.anims.create({
+                key: animationKey.walk,
+                frames: this.scene.anims.generateFrameNumbers(this.spriteKeys.walk, {
+                    start: 0,
+                    end: 9,
+                }),
+                frameRate: 12,
+                repeat: -1,
+            })
+        }
 
-        this.scene.anims.create({
-            key: animationKeys.die,
-            frames: this.scene.anims.generateFrameNumbers(this.spriteKeys.die, {
-                start: 0,
-                end: 11,
-            }),
-            frameRate: 12,
-            repeat: 0,
-        })
+        if (!this.scene.anims.exists(animationKey.die)) {
+            this.scene.anims.create({
+                key: animationKey.die,
+                frames: this.scene.anims.generateFrameNumbers(this.spriteKeys.die, {
+                    start: 0,
+                    end: 11,
+                }),
+                frameRate: 12,
+                repeat: 0,
+            })
+        }
 
-        this.scene.anims.create({
-            key: animationKeys.attack,
-            frames: this.scene.anims.generateFrameNumbers(this.spriteKeys.attack, {
-                start: 0,
-                end: 7,
-            }),
-            frameRate: 12,
-            repeat: -1,
-        })
+        if (!this.scene.anims.exists(animationKey.attack)) {
+            this.scene.anims.create({
+                key: animationKey.attack,
+                frames: this.scene.anims.generateFrameNumbers(this.spriteKeys.attack, {
+                    start: 0,
+                    end: 7,
+                }),
+                frameRate: 12,
+                repeat: -1,
+            })
+        }
     }
 
     private attackCastle(): void {
-        this.anims.play(this.spriteKeys.attack, true)
+        this.anims.play(animationKey.attack, true)
     }
 }
