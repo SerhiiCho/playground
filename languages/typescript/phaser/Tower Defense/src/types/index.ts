@@ -17,8 +17,14 @@ export type SpriteKey
     | 'zombieAttack'
     | 'arrowTowerIdle'
 
-export type Animations = {
+export type EnemySpriteKeys = {
     walk: SpriteKey
     die: SpriteKey
     attack: SpriteKey
+}
+
+export type EnemyAnimationKeys = {
+    walk: 'enemyWalk',
+    die: 'enemyDie',
+    attack: 'enemyAttack',
 }
