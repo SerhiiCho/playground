@@ -1,9 +1,3 @@
-export type Animations = {
-    walk: string
-    die: string
-    attack: string
-}
-
 export type SoundKey
     = 'actionMusic'
     | 'arrowFlySound'
@@ -12,3 +6,17 @@ export type SoundKey
 
 export type ImageKey
     = 'arrowTowerButton'
+    | 'spawner'
+    | 'map'
+    | 'castle'
+
+export type SpriteKey
+    = 'zombieWalk'
+    | 'zombieDie'
+    | 'zombieAttack'
+
+export type Animations = {
+    walk: SpriteKey
+    die: SpriteKey
+    attack: SpriteKey
+}

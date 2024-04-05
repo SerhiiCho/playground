@@ -35,10 +35,10 @@ export default class GameScene extends Phaser.Scene {
             .audio('arrowHitSound', arrowHitSound)
             .audio('buildingCompletedSound', buildingCompletedSound)
 
-        ArrowTowerButton.preload(this.load)
-        ArrowTower.preload(this.load)
-        ZombieEnemy.preload(this.load)
-        Placeholder.preload(this.load)
+        ArrowTowerButton.preload(this)
+        ArrowTower.preload(this)
+        ZombieEnemy.preload(this)
+        Placeholder.preload(this)
     }
 
     public create(): void {
@@ -52,8 +52,8 @@ export default class GameScene extends Phaser.Scene {
             .setOrigin(0, 0)
 
         this.buttons.push(ArrowTowerButton.spawn(this))
-        this.placeholders = Placeholder.spawnAll(this.add)
-        this.enemies = ZombieEnemy.spawn(10, this.add)
+        this.placeholders = Placeholder.spawnAll(this)
+        this.enemies = ZombieEnemy.spawn(10, this)
 
         this.handleButtonClicks()
         this.handlePlaceholderClicks()
@@ -67,7 +67,7 @@ export default class GameScene extends Phaser.Scene {
 
     private handleButtonClicks(): void {
         this.buttons.forEach(button => {
-            button.onClick((pointer: Phaser.Input.Pointer) => {
+            button.onClick(() => {
                 dispatchEvent(events.togglePlaceholderVisibility)
             })
         })
@@ -75,7 +75,7 @@ export default class GameScene extends Phaser.Scene {
 
     private handlePlaceholderClicks(): void {
         this.placeholders.forEach(placeholder => {
-            placeholder.onClick((pointer: Phaser.Input.Pointer) => {
+            placeholder.onClick(() => {
                 this.sound.play('buildingCompletedSound', { volume: 0.5 })
                 dispatchEvent(events.togglePlaceholderVisibility)
                 const tower = ArrowTower.spawn(placeholder.x, placeholder.y, this.add, this.enemies)

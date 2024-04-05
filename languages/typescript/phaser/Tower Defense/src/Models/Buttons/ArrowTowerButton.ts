@@ -1,4 +1,3 @@
-import Phaser from 'phaser'
 import Button from '@/Models/Buttons/Button'
 import arrowTowerButtonImage from '@/assets/towers/arrow-icon.png'
 import { config } from '@/config'
@@ -15,8 +14,8 @@ export default class ArrowTowerButton extends Button {
         super(scene, ArrowTower.price, x, y, imageKey)
     }
 
-    public static preload(loader: Phaser.Loader.LoaderPlugin): void {
-        loader.image(imageKey, arrowTowerButtonImage)
+    public static preload(scene: GameScene): void {
+        scene.load.image(imageKey, arrowTowerButtonImage)
     }
 
     public static spawn(scene: GameScene): ArrowTowerButton {

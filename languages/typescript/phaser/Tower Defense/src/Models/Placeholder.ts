@@ -3,8 +3,9 @@ import placeholderImage from '@/assets/towers/tower-placeholder.png'
 import placeholderPoints from '@/modules/placeholderPoints'
 import listenEvent from '@/modules/listenEvent'
 import { events } from '@/config'
+import GameScene from '@/Scenes/GameScene'
 
-const IMAGE_KEY = 'spawner'
+const imageKey = 'spawner' as const
 
 export default class Placeholder {
     public constructor(
@@ -13,12 +14,12 @@ export default class Placeholder {
         public readonly y: number,
     ) { }
 
-    public static preload(loader: Phaser.Loader.LoaderPlugin): void {
-        loader.image(IMAGE_KEY, placeholderImage)
+    public static preload(scene: GameScene): void {
+        scene.load.image(imageKey, placeholderImage)
     }
 
-    public static spawn(x: number, y: number, factory: Phaser.GameObjects.GameObjectFactory): Placeholder {
-        const image = factory.image(x, y, IMAGE_KEY)
+    public static spawn(scene: GameScene, x: number, y: number): Placeholder {
+        const image = scene.add.image(x, y, imageKey)
 
         const placeholder = new Placeholder(image, x, y)
         placeholder.create()
@@ -26,11 +27,11 @@ export default class Placeholder {
         return placeholder
     }
 
-    public static spawnAll(factory: Phaser.GameObjects.GameObjectFactory): Placeholder[] {
+    public static spawnAll(scene: GameScene): Placeholder[] {
         const result = []
 
         for (const point of placeholderPoints) {
-            result.push(Placeholder.spawn(point.x, point.y, factory))
+            result.push(Placeholder.spawn(scene, point.x, point.y))
         }
 
         return result

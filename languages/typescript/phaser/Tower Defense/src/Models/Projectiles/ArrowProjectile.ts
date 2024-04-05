@@ -1,7 +1,8 @@
 import Projectile from '@/Models/Projectiles/Projectile'
+import GameScene from '@/Scenes/GameScene'
 import arrowImage from '@/assets/towers/projectiles/arrow.png'
 
-const IMAGE_KEY = 'arrowProjectile'
+const imageKey = 'arrowProjectile' as const
 
 export default class ArrowProjectile extends Projectile {
     public static readonly damage = 35
@@ -18,12 +19,12 @@ export default class ArrowProjectile extends Projectile {
     }
 
 
-    public static preload(loader: Phaser.Loader.LoaderPlugin): void {
-        loader.image(IMAGE_KEY, arrowImage)
+    public static preload(scene: GameScene): void {
+        scene.load.image(imageKey, arrowImage)
     }
 
     public static spawn(x: number, y: number, factory: Phaser.GameObjects.GameObjectFactory): ArrowProjectile {
-        const image = factory.image(x, y, IMAGE_KEY)
+        const image = factory.image(x, y, imageKey)
 
         const projectile = new ArrowProjectile(image)
         projectile.create(x, y)

@@ -46,10 +46,10 @@ export default class Projectile {
 
         this.image.setPosition(tower.sprite.x, tower.sprite.y - tower.sprite.height / 3)
         this.image.setVisible(true)
-        this.image.scene.physics.moveToObject(this.image, enemy.sprite, 800)
+        this.image.scene.physics.moveToObject(this.image, enemy, 800)
         this.isShooting = true
 
-        const overlap = this.image.scene.physics.add.overlap(this.image, enemy.sprite, () => {
+        const overlap = this.image.scene.physics.add.overlap(this.image, enemy, () => {
             if (!enemy.isAlive()) {
                 return
             }
@@ -59,7 +59,7 @@ export default class Projectile {
             this.image.setVisible(false)
 
             // stop the projectile
-            this.image.scene.physics.moveToObject(this.image, enemy.sprite, 0)
+            this.image.scene.physics.moveToObject(this.image, enemy, 0)
 
             enemy.hitEnemy(this.damage)
 
@@ -77,7 +77,7 @@ export default class Projectile {
             return
         }
 
-        const angle = Phaser.Math.Angle.Between(this.image.x, this.image.y, enemy.sprite.x, enemy.sprite.y)
+        const angle = Phaser.Math.Angle.Between(this.image.x, this.image.y, enemy.x, enemy.y)
         this.image.setRotation(angle + 44.7)
     }
 }

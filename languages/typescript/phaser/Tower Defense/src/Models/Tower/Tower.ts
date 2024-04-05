@@ -30,10 +30,6 @@ export default class Tower {
         }
 
         this.projectile.shoot(targetEnemy, this)
-
-        // if enemy is dead, do nothing
-
-        // if enemy is alive, shoot
     }
 
     private getTargetEnemy(): Enemy | null {
@@ -45,8 +41,8 @@ export default class Tower {
             const distance = Phaser.Math.Distance.Between(
                 this.sprite.x,
                 this.sprite.y,
-                enemy.sprite.x,
-                enemy.sprite.y,
+                enemy.x,
+                enemy.y,
             )
 
             if (distance <= this.range) {

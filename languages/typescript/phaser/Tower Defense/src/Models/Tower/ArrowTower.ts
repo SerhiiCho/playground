@@ -3,6 +3,7 @@ import Tower from '@/Models/Tower/Tower'
 import Enemy from '@/Models/Enemy/Enemy'
 import arrowTowerIdle from '@/assets/towers/arrow-tower.png'
 import ArrowProjectile from '@/Models/Projectiles/ArrowProjectile'
+import GameScene from '@/Scenes/GameScene'
 
 export default class ArrowTower extends Tower {
     public static readonly price = 20
@@ -12,13 +13,13 @@ export default class ArrowTower extends Tower {
         super(sprite, ArrowTower.range, enemies, projectile, ArrowTower.price)
     }
 
-    public static preload(loader: Phaser.Loader.LoaderPlugin): void {
-        loader.spritesheet('arrowTowerIdle', arrowTowerIdle, {
+    public static preload(scene: GameScene): void {
+        scene.load.spritesheet('arrowTowerIdle', arrowTowerIdle, {
             frameWidth: 125,
             frameHeight: 150,
         })
 
-        ArrowProjectile.preload(loader)
+        ArrowProjectile.preload(scene)
     }
 
     public static spawn(
