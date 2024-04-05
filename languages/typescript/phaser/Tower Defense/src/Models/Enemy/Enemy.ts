@@ -1,29 +1,34 @@
-import type { Animations } from '@/types'
+import type { EnemySpriteKeys, SpriteKey, EnemyAnimationKeys } from '@/types'
 import Phaser from 'phaser'
-import enemyPath from '@/modules/ememyPath'
+import ememyPathLines from '@/modules/ememyPathLines'
 import HealthBar from '@/Models/HealthBar'
 import GameScene from '@/Scenes/GameScene'
 
-const HIDE_CORPSE_DELAY = 5000
+const hideCorpseDelay = 5000
+
+const animationKeys: EnemyAnimationKeys = {
+    walk: 'enemyWalk',
+    die: 'enemyDie',
+    attack: 'enemyAttack',
+}
 
 export default class Enemy extends Phaser.GameObjects.Sprite {
-    private currPathIndex = 0
     private rand: number
     private health: number = 100
     private healthBar: HealthBar
-    private path
+    private follower: Phaser.GameObjects.PathFollower | undefined
+    private path: Phaser.Curves.Path | undefined
 
     public constructor(
         public readonly scene: GameScene,
         public x: number,
         public y: number,
         public readonly zIndex: number,
-        public readonly animations: Animations,
+        public readonly spriteKeys: EnemySpriteKeys,
     ) {
-        super(scene, x, y, animations.walk)
+        super(scene, x, y, spriteKeys.walk)
 
         this.rand = Math.floor(Math.random() * 200)
-        this.path = enemyPath(this.rand)
 
         this.healthBar = new HealthBar(this)
     }
@@ -38,6 +43,25 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
 
         this.scene.add.existing(this)
         this.scene.physics.world.enable(this)
+
+        this.follower = this.createFollower()
+        this.follower.startFollow(40000)
+        this.follower.anims.play(animationKeys.walk, true)
+
+        this.follower.setPath(this.path!).on('pathupdate', (t: number) => {
+            const vec = this.path!.getPoint(t)
+            console.log(vec.x, vec.y)
+        })
+    }
+
+    private createFollower(): Phaser.GameObjects.PathFollower {
+        this.path = this.scene.add.path(this.x, this.y)
+
+        for (const point of ememyPathLines(this.rand)) {
+            this.path.lineTo(point.x, point.y)
+        }
+
+        return this.scene.add.follower(this.path, this.x, this.y, this.spriteKeys.walk)
     }
 
     public hitEnemy(damage: number): void {
@@ -45,7 +69,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
 
         if (this.health <= 0) {
             this.health = 0
-            this.anims.play(this.animations.die, true)
+            this.anims.play(this.spriteKeys.die, true)
             this.hideEnemyAfterDelay()
         }
     }
@@ -60,64 +84,27 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
             return
         }
 
-        this.move()
         this.healthBar.draw(this.health)
     }
 
     private hideEnemyAfterDelay(): void {
-        setTimeout(() => this.destroy(), HIDE_CORPSE_DELAY)
-    }
-
-    private move(): void {
-        if (this.health <= 0) {
-            return
-        }
-
-        if (!this.path[this.currPathIndex]) {
-            this.attackCastle()
-            return
-        }
-
-        this.anims.play(this.animations.walk, true)
-
-        const { x, y, look } = this.path[this.currPathIndex]
-
-        if (x > this.x) {
-            this.x++
-        } else if (x < this.x) {
-            this.x--
-        }
-
-        if (y > this.y) {
-            this.y++
-        } else if (y < this.y) {
-            this.y--
-        }
-
-        if (look === 'l') {
-            this.setFlipX(true)
-        } else if (look === 'r') {
-            this.setFlipX(false)
-        }
-
-        if (x === this.x && y === this.y) {
-            this.currPathIndex++
-        }
+        setTimeout(() => this.destroy(), hideCorpseDelay)
     }
 
     private createAnimations(): void {
-        this.anims.create({
-            key: this.animations.walk,
-            frames: this.anims.generateFrameNumbers(this.animations.walk, {
+        this.scene.anims.create({
+            key: animationKeys.walk,
+            frames: this.scene.anims.generateFrameNumbers(this.spriteKeys.walk, {
                 start: 0,
                 end: 9,
             }),
             frameRate: 12,
+            repeat: -1,
         })
 
-        this.anims.create({
-            key: this.animations.die,
-            frames: this.anims.generateFrameNumbers(this.animations.die, {
+        this.scene.anims.create({
+            key: animationKeys.die,
+            frames: this.scene.anims.generateFrameNumbers(this.spriteKeys.die, {
                 start: 0,
                 end: 11,
             }),
@@ -125,17 +112,14 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
             repeat: 0,
         })
 
-        this.anims.create({
-            key: this.animations.attack,
-            frames: this.anims.generateFrameNumbers(this.animations.attack, {
+        this.scene.anims.create({
+            key: animationKeys.attack,
+            frames: this.scene.anims.generateFrameNumbers(this.spriteKeys.attack, {
                 start: 0,
                 end: 7,
             }),
             frameRate: 12,
+            repeat: -1,
         })
-    }
-
-    private attackCastle(): void {
-        this.anims.play(this.animations.attack, true)
     }
 }

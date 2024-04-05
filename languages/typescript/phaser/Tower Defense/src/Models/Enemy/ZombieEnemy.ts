@@ -1,4 +1,4 @@
-import type { Animations } from '@/types'
+import type { EnemySpriteKeys } from '@/types'
 import Enemy from '@/Models/Enemy/Enemy'
 import zombieWalk from '@/assets/enemies/1.zombie/walk.png'
 import zombieDie from '@/assets/enemies/1.zombie/die.png'
@@ -8,7 +8,7 @@ import GameScene from '@/Scenes/GameScene'
 const distance = 135
 
 export default class ZombieEnemy extends Enemy {
-    public static anims: Animations = {
+    public static spriteKeys: EnemySpriteKeys = {
         walk: 'zombieWalk',
         die: 'zombieDie',
         attack: 'zombieAttack',
@@ -20,21 +20,21 @@ export default class ZombieEnemy extends Enemy {
         public readonly x: number,
         public readonly y: number,
     ) {
-        super(scene, x, y, zIndex, ZombieEnemy.anims)
+        super(scene, x, y, zIndex, ZombieEnemy.spriteKeys)
     }
 
     public static preload(scene: GameScene): void {
-        scene.load.spritesheet(ZombieEnemy.anims.walk, zombieWalk, {
+        scene.load.spritesheet(ZombieEnemy.spriteKeys.walk, zombieWalk, {
             frameWidth: 107.5,
             frameHeight: 130,
         })
 
-        scene.load.spritesheet(ZombieEnemy.anims.die, zombieDie, {
+        scene.load.spritesheet(ZombieEnemy.spriteKeys.die, zombieDie, {
             frameWidth: 165.5,
             frameHeight: 130,
         })
 
-        scene.load.spritesheet(ZombieEnemy.anims.attack, zombieAttack, {
+        scene.load.spritesheet(ZombieEnemy.spriteKeys.attack, zombieAttack, {
             frameWidth: 104,
             frameHeight: 130,
         })
