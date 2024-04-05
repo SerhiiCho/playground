@@ -119,6 +119,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
                 end: 9,
             }),
             frameRate: 12,
+            repeat: -1,
         })
 
         this.scene.anims.create({
@@ -138,6 +139,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
                 end: 7,
             }),
             frameRate: 12,
+            repeat: -1,
         })
     }
 

@@ -46,7 +46,7 @@ export default class GameScene extends Phaser.Scene {
             .setOrigin(0, 0)
             .setDisplaySize(config.width, config.height)
 
-        this.sound.play('actionMusic', { loop: true, volume: 0.5 })
+        // this.sound.play('actionMusic', { loop: true, volume: 0.5 })
 
         this.add.image(220, 450, 'castle')
             .setOrigin(0, 0)

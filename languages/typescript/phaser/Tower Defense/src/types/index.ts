@@ -24,7 +24,13 @@ export type EnemySpriteKeys = {
 }
 
 export type EnemyAnimationKeys = {
+<<<<<<< HEAD
     walk: 'enemyWalk',
     die: 'enemyDie',
     attack: 'enemyAttack',
+=======
+    walk: 'enemyWalk'
+    die: 'enemyDie'
+    attack: 'enemyAttack'
+>>>>>>> origin/main
 }
