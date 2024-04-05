@@ -20,7 +20,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
         public readonly zIndex: number,
         public readonly animations: Animations,
     ) {
-        super(scene, 0, 0, animations.walk)
+        super(scene, x, y, animations.walk)
 
         this.rand = Math.floor(Math.random() * 200)
         this.path = enemyPath(this.rand)

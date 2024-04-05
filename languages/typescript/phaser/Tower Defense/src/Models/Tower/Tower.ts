@@ -21,7 +21,7 @@ export default class Tower extends Phaser.GameObjects.Sprite {
     public create(): void {
         this.setPosition(this.x, this.y)
         this.setInteractive()
-        this.scene.add.sprite(this.x, this.y, this.spriteKey)
+        this.scene.add.existing(this)
     }
 
     public update(): void {

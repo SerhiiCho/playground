@@ -40,8 +40,8 @@ export default class ArrowTower extends Tower {
 
     public static spawn(scene: GameScene, x: number, y: number, enemies: Enemy[]): ArrowTower {
         const projectile = ArrowProjectile.spawn(scene, x, y)
-
         const tower = new ArrowTower(scene, x, y, enemies, projectile)
+
         tower.create()
 
         return tower

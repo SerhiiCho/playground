@@ -9,8 +9,8 @@ export default class Projectile extends Phaser.GameObjects.Image {
 
     public constructor(
         public readonly scene: GameScene,
-        public readonly x: number,
-        public readonly y: number,
+        public x: number,
+        public y: number,
         public readonly imageKey: ImageKey,
         public readonly shotDelay: number,
         public readonly damage: number,
@@ -23,10 +23,11 @@ export default class Projectile extends Phaser.GameObjects.Image {
     public create(): void {
         this.setPosition(this.x, this.y)
         this.setInteractive()
+        this.setDepth(1)
         this.setVisible(false)
 
-        this.scene.add.image(this.x, this.y, this.imageKey)
-        this.scene.physics.add.existing(this)
+        this.scene.physics.world.enable(this)
+        this.scene.add.existing(this)
     }
 
     public shoot(enemy: Enemy, tower: Tower): void {
@@ -35,7 +36,6 @@ export default class Projectile extends Phaser.GameObjects.Image {
         const canShoot = timeDiff >= this.shotDelay
 
         this.alignProjectile(enemy)
-        this.setVisible(true)
 
         if (this.isOutOfBound()) {
             this.isShooting = false
@@ -47,6 +47,7 @@ export default class Projectile extends Phaser.GameObjects.Image {
             return
         }
 
+        this.setVisible(true)
         this.scene.sound.play(this.flySound, { volume: 0.1 })
         this.lastShotTime = currentTime
 
@@ -62,10 +63,10 @@ export default class Projectile extends Phaser.GameObjects.Image {
 
             this.scene.sound.play(this.hitSound, { volume: 1.1 })
             this.isShooting = false
-            this.setVisible(false)
 
             // stop the projectile
             this.scene.physics.moveToObject(this, enemy, 0)
+            this.setVisible(false)
 
             enemy.hitEnemy(this.damage)
 
