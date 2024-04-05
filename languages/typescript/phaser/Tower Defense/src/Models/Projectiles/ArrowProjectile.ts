@@ -4,9 +4,19 @@ import arrowImage from '@/assets/towers/projectiles/arrow.png'
 const IMAGE_KEY = 'arrowProjectile'
 
 export default class ArrowProjectile extends Projectile {
+    public static readonly damage = 35
+    public static readonly shotDelay = 1000
+
     public constructor(image: Phaser.GameObjects.Image) {
-        super(image, 1000, 25, 'arrowFlySound', 'arrowHitSound')
+        super(
+            image,
+            ArrowProjectile.shotDelay,
+            ArrowProjectile.damage,
+            'arrowFlySound',
+            'arrowHitSound',
+        )
     }
+
 
     public static preload(loader: Phaser.Loader.LoaderPlugin): void {
         loader.image(IMAGE_KEY, arrowImage)

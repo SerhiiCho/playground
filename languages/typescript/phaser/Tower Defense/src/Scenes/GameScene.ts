@@ -53,7 +53,7 @@ export default class GameScene extends Phaser.Scene {
 
         this.buttons.push(ArrowTowerButton.spawn(this.add))
         this.placeholders = Placeholder.spawnAll(this.add)
-        this.enemies = ZombieEnemy.spawn(20, this.add)
+        this.enemies = ZombieEnemy.spawn(10, this.add)
 
         this.handleButtonClicks()
         this.handlePlaceholderClicks()
