@@ -3,26 +3,25 @@ import Button from '@/Models/Buttons/Button'
 import arrowTowerButtonImage from '@/assets/towers/arrow-icon.png'
 import { config } from '@/config'
 import ArrowTower from '@/Models/Tower/ArrowTower'
+import GameScene from '@/Scenes/GameScene'
 
-const IMAGE_KEY = 'arrowTowerButton'
+const imageKey = 'arrowTowerButton' as const
 
 export default class ArrowTowerButton extends Button {
-    public constructor(image: Phaser.GameObjects.Image) {
-        super(image, ArrowTower.price)
-    }
-
-    public static preload(loader: Phaser.Loader.LoaderPlugin): void {
-        loader.image(IMAGE_KEY, arrowTowerButtonImage)
-    }
-
-    public static spawn(factory: Phaser.GameObjects.GameObjectFactory): ArrowTowerButton {
+    public constructor(scene: GameScene) {
         const x = 80
         const y = config.height - 100
 
-        const image = factory.image(x, y, IMAGE_KEY)
+        super(scene, ArrowTower.price, x, y, imageKey)
+    }
 
-        const button = new ArrowTowerButton(image)
-        button.create(x, y)
+    public static preload(loader: Phaser.Loader.LoaderPlugin): void {
+        loader.image(imageKey, arrowTowerButtonImage)
+    }
+
+    public static spawn(scene: GameScene): ArrowTowerButton {
+        const button = new ArrowTowerButton(scene)
+        button.create()
 
         return button
     }

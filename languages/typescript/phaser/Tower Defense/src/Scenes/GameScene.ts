@@ -51,7 +51,7 @@ export default class GameScene extends Phaser.Scene {
         this.add.image(220, 450, 'castle')
             .setOrigin(0, 0)
 
-        this.buttons.push(ArrowTowerButton.spawn(this.add))
+        this.buttons.push(ArrowTowerButton.spawn(this))
         this.placeholders = Placeholder.spawnAll(this.add)
         this.enemies = ZombieEnemy.spawn(10, this.add)
 

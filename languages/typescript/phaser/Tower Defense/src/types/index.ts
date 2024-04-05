@@ -9,3 +9,6 @@ export type SoundKey
     | 'arrowFlySound'
     | 'arrowHitSound'
     | 'buildingCompletedSound'
+
+export type ImageKey
+    = 'arrowTowerButton'
