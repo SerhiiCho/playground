@@ -3,6 +3,8 @@ import Phaser from 'phaser'
 import ememyPathLines from '@/modules/ememyPathLines'
 import HealthBar from '@/Models/HealthBar'
 import GameScene from '@/Scenes/GameScene'
+import { events } from '@/config'
+import dispatchEvent from '@/modules/dispatchEvent'
 
 const hideCorpseDelay = 5000
 
@@ -26,6 +28,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
         public y: number,
         public readonly zIndex: number,
         public readonly spriteKeys: EnemySpriteKeys,
+        public readonly price: number
     ) {
         super(scene, x, y, spriteKeys.walk)
 
@@ -54,6 +57,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
             this.health = 0
             this.anims.play(animationKey.die, true)
             this.hideEnemyAfterDelay()
+            dispatchEvent(events.enemyKilled, this.price)
         }
     }
 

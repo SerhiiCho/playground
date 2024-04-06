@@ -22,4 +22,6 @@ export const config = {
 
 export const events = {
     togglePlaceholderVisibility: 'toggleplaceholdervisibility',
+    towerIsPlaced: 'towerisplaced',
+    enemyKilled: 'enemykilled',
 }

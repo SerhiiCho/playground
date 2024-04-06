@@ -14,12 +14,15 @@ import arrowFlySound from '@/assets/sounds/arrow-fly.mp3'
 import arrowHitSound from '@/assets/sounds/arrow-hit.mp3'
 import buildingHitSound from '@/assets/sounds/building-hit.mp3'
 import buildingCompletedSound from '@/assets/sounds/building-completed.mp3'
+import listenEvent from '@/modules/listenEvent'
 
 export default class GameScene extends Phaser.Scene {
     private enemies: Enemy[] = []
     private towers: Tower[] = []
     private buttons: Button[] = []
     private placeholders: Placeholder[] = []
+    private goldText: Phaser.GameObjects.Text | undefined
+    private gold: number = 30
 
     public constructor() {
         super('GameScene')
@@ -59,9 +62,13 @@ export default class GameScene extends Phaser.Scene {
 
         this.handleButtonClicks()
         this.handlePlaceholderClicks()
+        this.listenForGoldEvents()
+        this.displayGold()
     }
 
     public update(): void {
+        this.goldText!.setText(`Gold: ${this.gold}`)
+
         this.enemies.forEach(enemy => enemy.update())
         this.towers.forEach(tower => tower.update())
         this.buttons.forEach(button => button.update())
@@ -77,13 +84,38 @@ export default class GameScene extends Phaser.Scene {
 
     private handlePlaceholderClicks(): void {
         this.placeholders.forEach(placeholder => {
-            placeholder.onClick(() => {
-                this.sound.play('buildingCompletedSound', { volume: 0.5 })
-                dispatchEvent(events.togglePlaceholderVisibility)
-                const tower = ArrowTower.spawn(this, placeholder.x, placeholder.y, this.enemies)
-                this.towers.push(tower)
-                placeholder.destroy()
-            })
+            placeholder.onClick(() => this.buildTower(placeholder))
         })
+    }
+
+    private buildTower(placeholder: Placeholder): void {
+        if (this.gold < ArrowTower.price) {
+            return
+        }
+
+        this.sound.play('buildingCompletedSound', { volume: 0.5 })
+
+        const tower = ArrowTower.spawn(this, placeholder.x, placeholder.y, this.enemies)
+        this.towers.push(tower)
+
+        dispatchEvent(events.togglePlaceholderVisibility)
+        dispatchEvent(events.towerIsPlaced, tower.price)
+
+        placeholder.destroy()
+    }
+
+    private displayGold(): void {
+        this.add.rectangle(115, 35, 220, 60, 0x000000, 0.5)
+
+        this.goldText = this.add.text(20, 18, `Gold: ${this.gold}`, {
+            color: '#fff',
+            fontSize: '33px',
+        })
+            .setDepth(1)
+    }
+
+    private listenForGoldEvents(): void {
+        listenEvent(events.enemyKilled, (amount: number) => this.gold += amount)
+        listenEvent(events.towerIsPlaced, (price: number) => this.gold -= price)
     }
 }

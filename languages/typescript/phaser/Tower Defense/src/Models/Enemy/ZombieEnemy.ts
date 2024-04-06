@@ -6,6 +6,7 @@ import zombieAttack from '@/assets/enemies/1.zombie/attack.png'
 import GameScene from '@/Scenes/GameScene'
 
 const distance = 135
+const price = 3
 
 export default class ZombieEnemy extends Enemy {
     public static spriteKeys: EnemySpriteKeys = {
@@ -20,7 +21,7 @@ export default class ZombieEnemy extends Enemy {
         public readonly x: number,
         public readonly y: number,
     ) {
-        super(scene, x, y, zIndex, ZombieEnemy.spriteKeys)
+        super(scene, x, y, zIndex, ZombieEnemy.spriteKeys, price)
     }
 
     public static preload(scene: GameScene): void {
