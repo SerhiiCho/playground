@@ -17,6 +17,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
     private rand: number
     private health: number = 100
     private healthBar: HealthBar
+    private isAttacking: boolean = false
     private path
 
     public constructor(
@@ -74,13 +75,36 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
         setTimeout(() => this.destroy(), hideCorpseDelay)
     }
 
+    private playHitCastleSound(): void {
+        this.scene.sound.play('buildingHitSound', { volume: .1 })
+
+        const intervalId = setInterval(() => {
+            if (!this.isAlive()) {
+                clearInterval(intervalId)
+                return
+            }
+
+            this.scene.sound.play('buildingHitSound', { volume: .1 })
+        }, 700)
+    }
+
+    private attackTheCastle(): void {
+        if (this.isAttacking) {
+            return
+        }
+
+        this.isAttacking = true
+        this.anims.play(animationKey.attack, true)
+        this.playHitCastleSound()
+    }
+
     private move(): void {
         if (this.health <= 0) {
             return
         }
 
         if (!this.path[this.currPathIndex]) {
-            this.attackCastle()
+            this.attackTheCastle()
             return
         }
 
@@ -147,9 +171,5 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
                 repeat: -1,
             })
         }
-    }
-
-    private attackCastle(): void {
-        this.anims.play(animationKey.attack, true)
     }
 }

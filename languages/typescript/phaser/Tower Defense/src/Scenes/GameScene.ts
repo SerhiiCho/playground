@@ -12,6 +12,7 @@ import Placeholder from '@/Models/Placeholder'
 import actionMusic from '@/assets/sounds/music/action.mp3'
 import arrowFlySound from '@/assets/sounds/arrow-fly.mp3'
 import arrowHitSound from '@/assets/sounds/arrow-hit.mp3'
+import buildingHitSound from '@/assets/sounds/building-hit.mp3'
 import buildingCompletedSound from '@/assets/sounds/building-completed.mp3'
 
 export default class GameScene extends Phaser.Scene {
@@ -34,6 +35,7 @@ export default class GameScene extends Phaser.Scene {
             .audio('arrowFlySound', arrowFlySound)
             .audio('arrowHitSound', arrowHitSound)
             .audio('buildingCompletedSound', buildingCompletedSound)
+            .audio('buildingHitSound', buildingHitSound)
 
         ArrowTowerButton.preload(this)
         ArrowTower.preload(this)
@@ -46,7 +48,7 @@ export default class GameScene extends Phaser.Scene {
             .setOrigin(0, 0)
             .setDisplaySize(config.width, config.height)
 
-        // this.sound.play('actionMusic', { loop: true, volume: 0.5 })
+        this.sound.play('actionMusic', { loop: true, volume: 0.5 })
 
         this.add.image(220, 450, 'castle')
             .setOrigin(0, 0)
