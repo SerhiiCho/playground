@@ -16,8 +16,8 @@ export default class MagicBallProjectile extends Projectile {
             imageKey,
             MagicBallProjectile.shotDelay,
             MagicBallProjectile.damage,
-            'arrowFlySound',
-            'arrowHitSound',
+            'magicFlySound',
+            'magicHitSound',
         )
     }
 

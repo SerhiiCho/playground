@@ -23,7 +23,7 @@ export default class Projectile extends Phaser.GameObjects.Image {
     public create(): void {
         this.setPosition(this.x, this.y)
         this.setInteractive()
-        this.setDepth(1)
+        this.setDepth(99999)
         this.setVisible(false)
 
         this.scene.physics.world.enable(this)

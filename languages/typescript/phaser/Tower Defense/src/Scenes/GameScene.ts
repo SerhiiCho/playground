@@ -12,6 +12,8 @@ import Placeholder from '@/Models/Placeholder'
 import actionMusic from '@/assets/sounds/music/action.mp3'
 import arrowFlySound from '@/assets/sounds/arrow-fly.mp3'
 import arrowHitSound from '@/assets/sounds/arrow-hit.mp3'
+import magicFlySound from '@/assets/sounds/magic-fly.mp3'
+import magicHitSound from '@/assets/sounds/magic-hit.mp3'
 import buildingHitSound from '@/assets/sounds/building-hit.mp3'
 import buildingCompletedSound from '@/assets/sounds/building-completed.mp3'
 import listenEvent from '@/modules/listenEvent'
@@ -40,6 +42,8 @@ export default class GameScene extends Phaser.Scene {
             .audio('actionMusic', actionMusic)
             .audio('arrowFlySound', arrowFlySound)
             .audio('arrowHitSound', arrowHitSound)
+            .audio('magicFlySound', magicFlySound)
+            .audio('magicHitSound', magicHitSound)
             .audio('buildingCompletedSound', buildingCompletedSound)
             .audio('buildingHitSound', buildingHitSound)
 
