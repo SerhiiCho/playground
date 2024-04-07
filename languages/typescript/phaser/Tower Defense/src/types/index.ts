@@ -11,12 +11,15 @@ export type ImageKey
     | 'map'
     | 'castle'
     | 'arrowProjectile'
+    | 'magicBallProjectile'
+    | 'magicTowerButton'
 
 export type SpriteKey
     = 'zombieWalk'
     | 'zombieDie'
     | 'zombieAttack'
     | 'arrowTowerIdle'
+    | 'magicTowerIdle'
 
 export type EnemySpriteKeys = {
     walk: SpriteKey

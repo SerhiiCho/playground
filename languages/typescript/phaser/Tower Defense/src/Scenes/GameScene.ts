@@ -15,11 +15,14 @@ import arrowHitSound from '@/assets/sounds/arrow-hit.mp3'
 import buildingHitSound from '@/assets/sounds/building-hit.mp3'
 import buildingCompletedSound from '@/assets/sounds/building-completed.mp3'
 import listenEvent from '@/modules/listenEvent'
+import MagicTowerButton from '@/Models/Buttons/MagicTowerButton'
+import MagicTower from '@/Models/Tower/MagicTower'
 
 export default class GameScene extends Phaser.Scene {
     private enemies: Enemy[] = []
     private towers: Tower[] = []
     private buttons: Button[] = []
+    private selectedTower: 'arrow' | 'magic' | undefined
     private placeholders: Placeholder[] = []
     private goldText: Phaser.GameObjects.Text | undefined
     private gold: number = 30
@@ -41,7 +44,9 @@ export default class GameScene extends Phaser.Scene {
             .audio('buildingHitSound', buildingHitSound)
 
         ArrowTowerButton.preload(this)
+        MagicTowerButton.preload(this)
         ArrowTower.preload(this)
+        MagicTower.preload(this)
         ZombieEnemy.preload(this)
         Placeholder.preload(this)
     }
@@ -56,7 +61,11 @@ export default class GameScene extends Phaser.Scene {
         this.add.image(220, 450, 'castle')
             .setOrigin(0, 0)
 
-        this.buttons.push(ArrowTowerButton.spawn(this))
+        this.buttons = [
+            ArrowTowerButton.spawn(this),
+            MagicTowerButton.spawn(this),
+        ]
+
         this.placeholders = Placeholder.spawnAll(this)
         this.enemies = ZombieEnemy.spawn(10, this)
 
@@ -75,8 +84,9 @@ export default class GameScene extends Phaser.Scene {
     }
 
     private handleButtonClicks(): void {
-        this.buttons.forEach(button => {
-            button.onClick(() => {
+        this.buttons.forEach(btn => {
+            btn.onClick(() => {
+                this.selectedTower = btn instanceof ArrowTowerButton ? 'arrow' : 'magic'
                 dispatchEvent(events.togglePlaceholderVisibility)
             })
         })
@@ -95,7 +105,18 @@ export default class GameScene extends Phaser.Scene {
 
         this.sound.play('buildingCompletedSound', { volume: 0.5 })
 
-        const tower = ArrowTower.spawn(this, placeholder.x, placeholder.y, this.enemies)
+        let tower: Tower | undefined
+
+        if (this.selectedTower === 'arrow') {
+            tower = ArrowTower.spawn(this, placeholder.x, placeholder.y, this.enemies)
+        } else if (this.selectedTower === 'magic') {
+            tower = MagicTower.spawn(this, placeholder.x, placeholder.y, this.enemies)
+        }
+
+        if (!tower) {
+            return
+        }
+
         this.towers.push(tower)
 
         dispatchEvent(events.togglePlaceholderVisibility)

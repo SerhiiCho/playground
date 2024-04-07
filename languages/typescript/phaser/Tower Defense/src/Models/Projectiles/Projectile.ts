@@ -51,7 +51,7 @@ export default class Projectile extends Phaser.GameObjects.Image {
         this.scene.sound.play(this.flySound, { volume: 0.1 })
         this.lastShotTime = currentTime
 
-        this.setPosition(tower.x, tower.y - tower.height / 3)
+        this.setPosition(tower.x, tower.y - 60)
 
         this.scene.physics.moveToObject(this, enemy, 800)
         this.isShooting = true
