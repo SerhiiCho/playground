@@ -3,14 +3,12 @@ package server
 import (
 	"log"
 	"net/http"
-
-	"github.com/gorilla/mux"
 )
 
 // editAuthor handler is responsible for the single author page view
 func (s *server) editAuthor() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		authorID := mux.Vars(r)["id"]
+		authorID := r.PathValue("id")
 		author, findErr := s.store.FindAuthor(authorID)
 
 		if findErr != nil {

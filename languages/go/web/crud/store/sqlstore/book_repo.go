@@ -1,17 +1,13 @@
 package sqlstore
 
 import (
-	"fmt"
-
 	"github.com/SerhiiCho/crud/entities"
 )
 
 // InsertBook inserts book into a database
 func (store *Store) InsertBook(book *entities.Book) error {
 	query := `INSERT INTO books (title, isbn, author_id) VALUES (?, ?, ?)`
-	res, err := store.db.Exec(query, book.Title, book.Isbn, 1)
-
-	fmt.Printf("%#v\n", res)
+	_, err := store.db.Exec(query, book.Title, book.Isbn, 1)
 
 	if err != nil {
 		return err

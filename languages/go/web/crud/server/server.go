@@ -7,7 +7,6 @@ import (
 
 	"github.com/SerhiiCho/crud/store"
 	"github.com/SerhiiCho/crud/store/sqlstore"
-	"github.com/gorilla/mux"
 	"github.com/textwire/textwire"
 )
 
@@ -32,14 +31,14 @@ func init() {
 }
 
 type server struct {
-	router *mux.Router
+	router *http.ServeMux
 	store  store.Store
 }
 
 // newServer configures router and returns pointer to a server struct
 func newServer(store store.Store) *server {
 	s := &server{
-		router: mux.NewRouter(),
+		router: http.NewServeMux(),
 		store:  store,
 	}
 
@@ -54,14 +53,14 @@ func (s server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s server) configureRouter() {
-	s.router.HandleFunc("/", s.home()).Methods("GET")
-	s.router.HandleFunc("/books", s.insertBook()).Methods("POST")
-	s.router.HandleFunc("/books/{id}/edit", s.editBook()).Methods("GET")
-	s.router.HandleFunc("/books/create", s.createBook()).Methods("GET")
-	s.router.HandleFunc("/books/update", s.updateBook()).Methods("POST")
-	s.router.HandleFunc("/books/delete", s.deleteBook()).Methods("POST")
-	s.router.HandleFunc("/authors/{id}/edit", s.editAuthor()).Methods("Get")
-	s.router.HandleFunc("/authors/update", s.updateAuthor()).Methods("POST")
+	s.router.HandleFunc("/", s.home())
+	s.router.HandleFunc("POST /books", s.insertBook())
+	s.router.HandleFunc("/books/{id}/edit", s.editBook())
+	s.router.HandleFunc("/books/create", s.createBook())
+	s.router.HandleFunc("POST /books/update", s.updateBook())
+	s.router.HandleFunc("POST /books/delete", s.deleteBook())
+	s.router.HandleFunc("/authors/{id}/edit", s.editAuthor())
+	s.router.HandleFunc("POST /authors/update", s.updateAuthor())
 }
 
 // Start starts the server

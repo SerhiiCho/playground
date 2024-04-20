@@ -3,14 +3,12 @@ package server
 import (
 	"log"
 	"net/http"
-
-	"github.com/gorilla/mux"
 )
 
 // editBook handler is responsible for the single book page view
 func (s *server) editBook() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		bookID := mux.Vars(r)["id"]
+		bookID := r.PathValue("id")
 		book, findErr := s.store.FindBook(bookID)
 		authors, authorsErr := s.store.GetAuthors()
 
