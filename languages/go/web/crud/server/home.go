@@ -2,7 +2,7 @@ package server
 
 import (
 	"encoding/json"
-	"io/ioutil"
+	"io"
 	"log"
 	"net/http"
 
@@ -48,7 +48,7 @@ func getCurrencyData() ([]entities.Currency, error) {
 
 	defer resp.Body.Close()
 
-	body, ioErr := ioutil.ReadAll(resp.Body)
+	body, ioErr := io.ReadAll(resp.Body)
 
 	if ioErr != nil {
 		return nil, ioErr
