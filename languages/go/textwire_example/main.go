@@ -27,8 +27,13 @@ func main() {
 
 func homeView(w http.ResponseWriter, r *http.Request) {
 	vars := map[string]interface{}{
-		"title": "Hello, World!",
-		"age":   23,
+		"books": []struct{ Title, Author string }{
+			{"The Great Gatsby", "F. Scott Fitzgerald"},
+			{"To Kill a Mockingbird", "Harper Lee"},
+			{"1984", "George Orwell"},
+			{"Pride and Prejudice", "Jane Austen"},
+			{"The Catcher in the Rye", "J.D. Salinger"},
+		},
 	}
 
 	err := tpl.Response(w, "home", vars)
