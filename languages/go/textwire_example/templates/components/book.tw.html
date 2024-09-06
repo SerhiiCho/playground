@@ -1,8 +1,15 @@
-<li>
+<div style="
+    border: 1px solid #eee;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+">
+    @slot
+
     <ul>
         <li>Title: {{ book.title }}</li>
         <li>Author: {{ book.author }}</li>
     </ul>
-
-    @slot
-</li>
+</div>
