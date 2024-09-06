@@ -4,12 +4,21 @@
     border-radius: 10px;
     margin-bottom: 10px;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 10px;
 ">
-    @slot
+    <div style="
+        display: flex;
+        gap: 10px;
+    ">
+        @slot
 
-    <ul>
-        <li>Title: {{ book.title }}</li>
-        <li>Author: {{ book.author }}</li>
-    </ul>
+        <ul>
+            <li>Title: {{ book.title }}</li>
+            <li>Author: {{ book.author }}</li>
+        </ul>
+    </div>
+
+    @slot('footer')
 </div>
