@@ -6,11 +6,15 @@
     <h1>Welcome to Home Page</h1>
     <p>This is the home page content</p>
 
-    <ul>
+    <div>
         @each(book in books)
-            <li>{{ book.title }} by {{ book.author }}</li>
+            @component('components/book', { book })
+                @slot
+                    <img src="{{ book.image }}" alt="{{ book.title }}" style="width: 100px; height: 100px;">
+                @end
+            @end
         @else
-            <li>No books found</li>
+            <h2>No books found</h2>
         @end
-    </ul>
+    </div>
 @end
