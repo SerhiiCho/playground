@@ -3,14 +3,18 @@
 @insert('title', 'Welcome to Home Page')
 
 @insert('content')
-    <h1>Welcome to Home Page</h1>
+    <h1>Home Page</h1>
     <p>This is the home page content</p>
 
-    <div >
+    <div>
         @each(book in books)
             @component('components/book', { book })
                 @slot
-                    <img src="{{ book.image }}" alt="{{ book.title }}" style="width: 100px; height: 100px;">
+                    <img
+                        src="{{ book.image }}"
+                        alt="{{ book.title }}"
+                        style="width: 100px; height: 100px;"
+                    >
                 @end
 
                 @slot('footer')

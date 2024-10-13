@@ -21,6 +21,8 @@ func main() {
 	}
 
 	http.HandleFunc("/", homeView)
+	http.HandleFunc("/about", aboutView)
+
 	fmt.Println("Listening on http://localhost:8080")
 	http.ListenAndServe(":8080", nil)
 }
@@ -37,6 +39,14 @@ func homeView(w http.ResponseWriter, r *http.Request) {
 	}
 
 	err := tpl.Response(w, "home", vars)
+
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
+
+func aboutView(w http.ResponseWriter, r *http.Request) {
+	err := tpl.Response(w, "about", nil)
 
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
