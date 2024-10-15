@@ -3,20 +3,18 @@ package main
 import (
 	"fmt"
 
-	"github.com/SerhiiCho/timeago"
+	"github.com/SerhiiCho/timeago/v2"
 )
 
-// Some date. It might come from anywhere, but the
-// format must be year-month-day hour-minutes-seconds
-const serhiiBirthday = "2020-02-27 10:00:00"
-
 func init() {
-	timeago.Set("location", "Europe/Kiev")
-	timeago.Set("language", "en")
+	timeago.SetConfig(timeago.Config{
+		Language: "en",
+		Location: "Europe/Kiev",
+	})
 }
 
 func main() {
-	res := timeago.Take(serhiiBirthday)
+	res := timeago.Parse("2024-02-27 10:00:00")
 
 	fmt.Println(res)
 }
