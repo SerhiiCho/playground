@@ -5,7 +5,6 @@ import (
 	"net/http"
 
 	"github.com/textwire/textwire/v2"
-	"github.com/textwire/textwire/v2/config"
 )
 
 var tpl *textwire.Template
@@ -13,9 +12,7 @@ var tpl *textwire.Template
 func main() {
 	var err error
 
-	tpl, err = textwire.NewTemplate(&config.Config{
-		TemplateDir: "templates",
-	})
+	tpl, err = textwire.NewTemplate(nil)
 
 	if err != nil {
 		fmt.Println(err)

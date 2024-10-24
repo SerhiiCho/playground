@@ -1,2 +1,6 @@
 github.com/textwire/textwire/v2 v2.0.0 h1:2JMUOl+gBdPaPS6NSJac9S0xZYCIDrfvIm3h4LzVYaw=
 github.com/textwire/textwire/v2 v2.0.0/go.mod h1:PsTRC+NwNOeLYu78HEV5litY+ROSpdS1z2JaXj915lI=
+github.com/textwire/textwire/v2 v2.1.0 h1:joxSM7Bxuwo28hf8iWJq2+lQoO8n9qlrj4dmQOs9x5s=
+github.com/textwire/textwire/v2 v2.1.0/go.mod h1:PsTRC+NwNOeLYu78HEV5litY+ROSpdS1z2JaXj915lI=
+github.com/textwire/textwire/v2 v2.1.1 h1:VuJhzTHwH4Cy4wTAuvpuqpj5x4JkxR13IhnUVqWZhAU=
+github.com/textwire/textwire/v2 v2.1.1/go.mod h1:PsTRC+NwNOeLYu78HEV5litY+ROSpdS1z2JaXj915lI=
