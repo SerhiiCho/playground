@@ -2,19 +2,24 @@ package main
 
 import (
 	"fmt"
+	"log"
 
-	"github.com/SerhiiCho/timeago/v2"
+	"github.com/SerhiiCho/timeago/v3"
 )
 
 func init() {
-	timeago.SetConfig(timeago.Config{
+	timeago.Configure(timeago.Config{
 		Language: "en",
 		Location: "Europe/Kiev",
 	})
 }
 
 func main() {
-	res := timeago.Parse("2024-02-27 10:00:00")
+	out, err := timeago.Parse("2024-02-27 10:00:00")
 
-	fmt.Println(res)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	fmt.Println(out)
 }
