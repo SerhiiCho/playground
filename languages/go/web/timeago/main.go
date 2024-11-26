@@ -2,24 +2,24 @@ package main
 
 import (
 	"fmt"
-	"log"
+	"time"
 
-	"github.com/SerhiiCho/timeago/v3"
+	ago "github.com/SerhiiCho/timeago/v3"
 )
 
 func init() {
-	timeago.Configure(timeago.Config{
-		Language: "en",
-		Location: "Europe/Kiev",
+	ago.Configure(ago.Config{
+		OnlineThreshold: 30,
 	})
 }
 
 func main() {
-	out, err := timeago.Parse("2024-02-27 10:00:00")
+	_25secondsAgo := time.Now().Add(-25 * time.Second)
+	_35secondsAgo := time.Now().Add(-35 * time.Second)
 
-	if err != nil {
-		log.Fatalln(err)
-	}
+	out25, _ := ago.Parse(_25secondsAgo, ago.OptOnline)
+	out35, _ := ago.Parse(_35secondsAgo, ago.OptOnline)
 
-	fmt.Println(out)
+	fmt.Println(out25) // Output: "Online"
+	fmt.Println(out35) // Output: "35 seconds ago"
 }
