@@ -1,0 +1,19 @@
+{
+    "name": "serhiichornenkyi/short-number",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "SerhiiCho",
+            "email": "serhiicho@protonmail.com"
+        }
+    ],
+    "require": {
+        "serhii/short-number": "^4.0"
+    }
+}
