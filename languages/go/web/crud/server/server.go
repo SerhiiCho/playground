@@ -15,7 +15,7 @@ var tpl *textwire.Template
 const (
 	port             = "8080"
 	getCurrencyURL   = "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5"
-	mysqlCredentials = "root:password@tcp(db:3306)/crud?charset=utf8"
+	mysqlCredentials = "mysql://root:password@tcp(db:3306)/crud?charset=utf8"
 )
 
 func init() {
