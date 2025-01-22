@@ -1,5 +1,1 @@
-CREATE TABLE IF NOT EXISTS authors {
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(100) NOT NULL,
-    last_name VARCHAR(100) NOT NULL,
-};
+DROP TABLE IF EXISTS authors;

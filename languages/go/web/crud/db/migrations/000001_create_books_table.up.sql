@@ -1,1 +1,8 @@
-DROP TABLE IF EXISTS books;
+CREATE TABLE IF NOT EXISTS books {
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    author_id INT NOT NULL,
+    isbn VARCHAR(100) NOT NULL,
+    title VARCHAR(100) NOT NULL,
+
+    FOREIGN KEY (author_id) REFERENCES authors(id)
+};
