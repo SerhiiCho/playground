@@ -61,6 +61,7 @@ func (s server) configureRouter() {
 	s.router.HandleFunc("POST /books/update", s.updateBook())
 	s.router.HandleFunc("POST /books/delete", s.deleteBook())
 	s.router.HandleFunc("/authors/{id}/edit", s.editAuthor())
+	s.router.HandleFunc("POST /authors/create", s.createAuthor())
 	s.router.HandleFunc("POST /authors/update", s.updateAuthor())
 }
 
