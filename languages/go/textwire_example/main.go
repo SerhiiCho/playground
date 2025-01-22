@@ -28,6 +28,8 @@ func main() {
 func homeView(w http.ResponseWriter, r *http.Request) {
 	vars := map[string]interface{}{
 		"books": []struct{ Title, Author, Image string }{
+			{"Harry Potter and the Prisoner of Azkaban", "J.K. Rowling", "https://m.media-amazon.com/images/I/71c4ZAHvjmL.jpg"},
+			{"Harry Potter and the Goblet of Fire", "J.K. Rowling", "https://4.bp.blogspot.com/-NyL2B_0ERCU/WvHOB9iqOnI/AAAAAAAALpU/uB_yxsLWiewbH5WHTg6rmNpU4OkFxS8vQCLcBGAs/s1600/GobletofFire.jpg"},
 			{"The Great Gatsby", "F. Scott Fitzgerald", "https://placehold.co/400"},
 			{"To Kill a Mockingbird", "Harper Lee", "https://placehold.co/400"},
 			{"1984", "George Orwell", "https://placehold.co/400"},

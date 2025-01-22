@@ -7,27 +7,25 @@
     <p>This is the home page content</p>
 
     <div>
-        @each(book in books)
-            @component('components/book', { book })
-                @slot
-                    <img
-                        src="{{ book.image }}"
-                        alt="{{ book.title }}"
-                        style="width: 100px; height: 100px;"
-                    >
-                @end
+        @eachComponent(book in books, '~book', { book })
+            @slot
+                <img
+                    src="{{ book.image }}"
+                    alt="{{ book.title }}"
+                    style="width: 100px"
+                >
+            @end
 
-                @slot('footer')
-                    <div>
-                        <button style="
-                            padding: 10px 20px;
-                            background-color: #5d80a6;
-                            color: #fff;
-                            border: none;
-                            border-radius: 5px;
-                        ">BUY</button>
-                    </div>
-                @end
+            @slot('footer')
+                <div>
+                    <button style="
+                        padding: 10px 20px;
+                        background-color: #5d80a6;
+                        color: #fff;
+                        border: none;
+                        border-radius: 5px;
+                    ">BUY</button>
+                </div>
             @end
         @else
             <h2>No books found</h2>
