@@ -8,7 +8,7 @@ import (
 func (store *Store) GetAuthors() ([]entities.Author, error) {
 	var authors []entities.Author
 
-	row, err := store.db.Query("select * from authors")
+	row, err := store.db.Query("SELECT * FROM authors")
 
 	if err != nil {
 		return nil, err

@@ -21,8 +21,8 @@ func (store *Store) GetBooks() ([]entities.Book, error) {
 	var books []entities.Book
 
 	q := `
-		select b.id, b.isbn, b.title, a.id, a.first_name, a.last_name
-			from books b left join authors a on b.author_id = a.id
+		SELECT b.id, b.isbn, b.title, a.id, a.first_name, a.last_name
+			FROM books b LEFT JOIN authors a ON b.author_id = a.id
 	`
 	row, err := store.db.Query(q)
 

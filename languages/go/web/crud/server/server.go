@@ -7,7 +7,8 @@ import (
 
 	"github.com/SerhiiCho/crud/store"
 	"github.com/SerhiiCho/crud/store/sqlstore"
-	"github.com/textwire/textwire"
+	"github.com/textwire/textwire/v2"
+	"github.com/textwire/textwire/v2/config"
 )
 
 var tpl *textwire.Template
@@ -15,13 +16,13 @@ var tpl *textwire.Template
 const (
 	port             = "8080"
 	getCurrencyURL   = "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5"
-	mysqlCredentials = "mysql://root:password@tcp(db:3306)/crud?charset=utf8"
+	mysqlCredentials = "root:password@tcp(db:3306)/crud?charset=utf8"
 )
 
 func init() {
 	var err error
 
-	tpl, err = textwire.NewTemplate(&textwire.Config{
+	tpl, err = textwire.NewTemplate(&config.Config{
 		TemplateDir: "templates",
 	})
 
