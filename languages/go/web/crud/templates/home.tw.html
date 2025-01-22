@@ -39,7 +39,7 @@
                 </thead>
                 <tbody>
                     @each(b in books)
-                        @component("components/book", { b })
+                        @component("~book", { b })
                     @end
                 </tbody>
             </table>
@@ -61,7 +61,7 @@
                 </thead>
                 <tbody>
                     @each(a in authors)
-                        @component("components/author", { a })
+                        @component("~author", { a })
                     @end
                 </tbody>
             </table>
