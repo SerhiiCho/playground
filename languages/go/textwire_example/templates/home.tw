@@ -1,0 +1,36 @@
+@use('~main')
+
+@insert('title', 'Home Page')
+
+@insert('content')
+    <h1>Home Page</h1>
+    <p>This is the home page content</p>
+
+    <div>
+        @each(book in books)
+            @component('~book', { book })
+                @slot
+                    <img
+                        src="{{ book.image }}"
+                        alt="{{ book.title }}"
+                        style="width: 100px"
+                    >
+                @end
+
+                @slot('footer')
+                    <div>
+                        <button style="
+                            padding: 10px 20px;
+                            background-color: #5d80a6;
+                            color: #fff;
+                            border: none;
+                            border-radius: 5px;
+                        ">BUY</button>
+                    </div>
+                @end
+            @end
+        @else
+            <h2>No books found</h2>
+        @end
+    </div>
+@end

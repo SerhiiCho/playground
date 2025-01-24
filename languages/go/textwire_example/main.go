@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/textwire/textwire/v2"
+	"github.com/textwire/textwire/v2/config"
 )
 
 var tpl *textwire.Template
@@ -12,7 +13,9 @@ var tpl *textwire.Template
 func main() {
 	var err error
 
-	tpl, err = textwire.NewTemplate(nil)
+	tpl, err = textwire.NewTemplate(&config.Config{
+		TemplateExt: ".tw",
+	})
 
 	if err != nil {
 		fmt.Println(err)
@@ -22,7 +25,10 @@ func main() {
 	http.HandleFunc("/about", aboutView)
 
 	fmt.Println("Listening on http://localhost:8080")
-	http.ListenAndServe(":8080", nil)
+
+	if err := http.ListenAndServe(":8080", nil); err != nil {
+		fmt.Println(err)
+	}
 }
 
 func homeView(w http.ResponseWriter, r *http.Request) {

@@ -1,0 +1,12 @@
+@use('~main')
+
+@insert('title', `About Us`)
+
+@insert('content')
+    @component('~header', {
+        title: `About Us`,
+        description: `We have %n potatoes`.prepare({ n: 123 }),
+    })
+
+    <h2>{{ `Our Team` }}</h2>
+@end
