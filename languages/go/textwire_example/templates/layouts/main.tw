@@ -9,7 +9,6 @@
     <nav style="padding: 10px; display: flex; gap: 15px;">
         <a href="/">Home</a>
         <a href="/about">About</a>
-        <a href="/contact">Contact</a>
     </nav>
 
     <div style="padding: 10px;">

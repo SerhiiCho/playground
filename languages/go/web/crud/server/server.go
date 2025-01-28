@@ -24,6 +24,8 @@ func init() {
 
 	tpl, err = textwire.NewTemplate(&config.Config{
 		TemplateDir: "templates",
+		TemplateExt: ".tw",
+		DebugMode:   true,
 	})
 
 	if err != nil {
