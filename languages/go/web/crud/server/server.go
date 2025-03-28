@@ -56,13 +56,13 @@ func (s server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s server) configureRouter() {
-	s.router.HandleFunc("/", s.home())
+	s.router.HandleFunc("GET /", s.home())
 	s.router.HandleFunc("POST /books", s.insertBook())
-	s.router.HandleFunc("/books/{id}/edit", s.editBook())
-	s.router.HandleFunc("/books/create", s.createBook())
+	s.router.HandleFunc("GET /books/{id}/edit", s.editBook())
+	s.router.HandleFunc("GET /books/create", s.createBook())
 	s.router.HandleFunc("POST /books/update", s.updateBook())
 	s.router.HandleFunc("POST /books/delete", s.deleteBook())
-	s.router.HandleFunc("/authors/{id}/edit", s.editAuthor())
+	s.router.HandleFunc("GET /authors/{id}/edit", s.editAuthor())
 	s.router.HandleFunc("POST /authors/create", s.createAuthor())
 	s.router.HandleFunc("POST /authors/update", s.updateAuthor())
 }

@@ -5,6 +5,12 @@
 @insert('content')
     <div class="center"><h4>Create a Book</h4></div>
 
+    @component('~message')
+        @slot
+        @end
+        @
+    @end
+
     <div class="row">
         <div class="col l8 offset-l2">
             <form method="post" action="/books" class="row">
