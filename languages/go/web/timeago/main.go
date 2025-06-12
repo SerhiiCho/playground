@@ -13,6 +13,11 @@ func init() {
 }
 
 func main() {
-	out, _ := ago.Parse("2024-11-27 12:43:00")
+	out, err := ago.Parse("2024-11-27 12:43:00")
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+
 	fmt.Println(out)
 }

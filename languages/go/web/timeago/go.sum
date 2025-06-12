@@ -4,3 +4,5 @@ github.com/SerhiiCho/timeago/v3 v3.1.0 h1:9g/mg0cmPud73ezJGpJAenK84IyiZzruDCH0xX
 github.com/SerhiiCho/timeago/v3 v3.1.0/go.mod h1:XIS/HBnwbdb7NugaUr/+SPa33Z4YP6/4J+LsNiGzyqE=
 github.com/SerhiiCho/timeago/v3 v3.2.1 h1:cdfzUD0n6i/aZDPqRRuOrrv6aTJaNczXaxPnL/QKaRI=
 github.com/SerhiiCho/timeago/v3 v3.2.1/go.mod h1:XIS/HBnwbdb7NugaUr/+SPa33Z4YP6/4J+LsNiGzyqE=
+github.com/SerhiiCho/timeago/v3 v3.2.2 h1:GGQEtZo0OCZYt6zf9nzY/yyyN7LwqCDsabXYgzKDSYo=
+github.com/SerhiiCho/timeago/v3 v3.2.2/go.mod h1:HFQYMDzCP7MbGSljJvtyxn/Ui+8uljUG9XcF/qGQrLI=
