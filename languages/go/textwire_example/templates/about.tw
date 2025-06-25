@@ -8,11 +8,5 @@
         description: "We have %n potatoes",
     })
 
-    @each(name in names)
-        {{ loop.iter }}
-
-        @dump(loop.iter)
-    @end
-
     <h2>{{ "Our Team" }}</h2>
 @end

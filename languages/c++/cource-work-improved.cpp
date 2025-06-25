@@ -1,4 +1,3 @@
-#include <string.h>
 #include <iostream>
 
 using namespace std;
@@ -31,16 +30,16 @@ struct Product
 int main()
 {
     Product phone = {
-        .amount = 10,
-        .companyProvider = "монітори",
-        .countryProvider = "Ukraine",
-        .price = 10.5,
-        .hasProduct = 1,
         .arriveDate = {
             .Day = 4,
             .Month = "березень",
             .Year = 2015,
         },
+        .amount = 10,
+        .companyProvider = "монітори",
+        .countryProvider = "Ukraine",
+        .price = 10.5,
+        .hasProduct = 1,
     };
 
     cout << phone.filter();

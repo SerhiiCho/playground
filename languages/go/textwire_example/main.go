@@ -15,6 +15,7 @@ func main() {
 
 	tpl, err = textwire.NewTemplate(&config.Config{
 		TemplateExt: ".tw",
+		DebugMode:   true,
 	})
 
 	if err != nil {
@@ -55,6 +56,6 @@ func aboutView(w http.ResponseWriter, r *http.Request) {
 	err := tpl.Response(w, "about", nil)
 
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		fmt.Println(err.Error())
 	}
 }
