@@ -1,0 +1,15 @@
+FROM ubuntu:25.04
+
+RUN apt-get update && \
+    apt-get install \
+        git \
+        php \
+        libapache2-mod-php \
+        && \
+    rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+COPY . .
+
+RUN ["bash"]

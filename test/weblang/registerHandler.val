@@ -1,0 +1,8 @@
+:handler "requests/register"
+
+use self/db/mysql
+
+:v query = 'INSERT INTO users (name, age) VALUES (?, ?);'
+:v res = mysql.run(query)
+
+"User {name} has been saved"

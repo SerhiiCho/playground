@@ -1,0 +1,37 @@
+:request '/register'
+
+:params {
+    name str<1>
+    age int<0,100>
+}
+
+:f makePretty(name str<2>, age int<18,130>) {
+    //
+}
+
+:v result = makePretty('John', 20)
+
+
+:class User {
+    -name str<1>
+    -age int<0,100>
+
+    User(name str<1>, age int<0,100>) {
+        its.name = name
+        its.age = age
+    }
+
+    getName() str<1> {
+        its.name
+    }
+
+    setName(name str<1>) {
+        its.name = its.modifyName(name)
+    }
+
+    modifyName(name str<1>) {
+        name.capitalize.trim
+    }
+}
+
+:v user = new User('John', 20)

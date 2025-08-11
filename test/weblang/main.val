@@ -1,0 +1,38 @@
+:use {
+    registerRequest,
+    loginRequest,
+}.catch(msg) {
+    print(msg)
+}
+
+# Inline a function
+:f sum (a int, b int) int { a + b }
+
+# Multiline function
+:f makePretty(name str<2>, age int<2>) str<1> {
+    :v newAge: age + 1
+    :v newName: name.capitalize.trim
+
+    "Hello, %s! You are %d years old.".format(newName, newAge)
+}
+
+:v result = makePretty('John', 20)
+
+# Combines multiple wrods into a single string
+:f throwsException(name str<1>) str<1>|never {
+    :if str == 'John' {
+        :throw ValidationError('The name cannot be John')
+    }
+
+    return name.upper()
+}
+
+{
+    throwsException()
+}.catch(msg) {
+    print(msg)
+}
+
+throwsException().catch(msg) {
+    print(msg)
+}
