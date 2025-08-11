@@ -1,0 +1,13 @@
+name: ago-example
+
+services:
+    app:
+        build:
+            context: .
+            dockerfile: Containerfile
+        image: ago-example
+        container_name: ago-example
+        ports:
+            - 8080:80
+        volumes:
+            - .:/var/www/html:z

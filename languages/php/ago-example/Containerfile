@@ -1,0 +1,16 @@
+FROM php:8.4-apache
+
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+RUN apt-get update && \
+    apt-get install -y git zip && \
+    rm -rf /var/lib/apt/lists/*
+
+WORKDIR /var/www/html
+
+COPY composer.* .
+
+RUN composer install --no-interaction --prefer-dist --no-progress && \
+    composer clear-cache
+
+COPY . .
