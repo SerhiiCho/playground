@@ -1,23 +1,24 @@
 ## Playground of different programming languages
 
-Feel free to fork and play around with any of those
+Feel free to fork and play around with any of those projects.
 
 Includes languages like:
 - c++
-- c
+- c 👑
 - go
 - php
-- python
+- python 🐍
 - haskell
-- java
+- java ☕
 - swift
-- javascript and node.js
+- javascript
+- node.js
 - typescript
 
 Includes frameworks like:
-- vue.js
-- react.js
-- svelte.js
+- vue
+- react
+- svelte
 - react native
 - laravel
 - nuxt
