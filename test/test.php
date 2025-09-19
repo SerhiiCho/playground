@@ -1,19 +1,16 @@
 <?php
 
-class User
-{
-    public function __construct(public string $name, public bool $isAdmin)
-    {
-    }
-}
+$text = 'Emma Stone is the greatest actress';
+$algo = 'aes-256-cbc';
+$passphrase = 'my-passphrase';
 
-function isAdmin(User $user): bool {
-    return $user->isAdmin;
-}
+/* $encrypted = openssl_encrypt($text, $algo, $passphrase); */
+/* var_dump($encrypted); */
 
-$users = [
-    new User('serhii', isAdmin: true),
-    new User('anna', isAdmin: false),
-];
+$algo = 'aes-256-cbc';
+$passphrase = 'my-passphrase';
+$encrypted = 'j+7Si0X86xhS96RCZCSXYVQUyv6/irmmSTPMJYkep9You1+rj3bT4XX3FTR8xGKX';
 
-var_dump(array_filter($users, isAdmin(...)));
+$text = openssl_decrypt($encrypted, $algo, $passphrase);
+
+var_dump($text);
