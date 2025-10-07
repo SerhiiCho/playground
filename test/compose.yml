@@ -8,6 +8,6 @@ services:
         image: test-project
         container_name: test-project
         volumes:
-            .:/app:z
+            - .:/app:z
         tty: true
         stdin_open: true
