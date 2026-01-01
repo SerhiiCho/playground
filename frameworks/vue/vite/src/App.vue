@@ -1,5 +1,14 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue'
+
+const errors = ref({})
+const errorsFromServer = { name: 'Name is incorrect' }
+
+errors.value = errorsFromServer
+errors.value.name = 'Override error message'
+
+console.log(errors.value.name) // prints 'Override error message'
 </script>
 
 <template>
