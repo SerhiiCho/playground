@@ -8,6 +8,7 @@ def stopping_criteria_factory(tokenizer):
         
         # Minimum word count check
         word_count = len(text.split())
+
         if word_count < 20:  # Don't stop too early
             return False
         

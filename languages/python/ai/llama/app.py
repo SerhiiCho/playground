@@ -2,7 +2,7 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline, StoppingCriteriaList
 from stopping_criteria import stopping_criteria_factory
 
-model_path = "/home/serhii/Downloads/Llama-3.2-1B"
+model_path = "/model"
 
 model = AutoModelForCausalLM.from_pretrained(
     model_path,
