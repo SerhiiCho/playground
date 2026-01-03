@@ -2,12 +2,9 @@ name: test-project
 
 services:
     app:
-        build:
-            context: .
-            dockerfile: Containerfile
+        build: .
         image: test-project
         container_name: test-project
         volumes:
             - .:/app:z
         tty: true
-        stdin_open: true
