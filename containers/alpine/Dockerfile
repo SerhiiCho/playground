@@ -1,7 +1,7 @@
-FROM golang:1-alpine
+FROM golang:1.25-alpine3.23
 
-RUN apk add vim
+WORKDIR /app
 
-VOLUME ${PWD}/src /src
+COPY app .
 
-WORKDIR /src
+CMD ["sh"]
