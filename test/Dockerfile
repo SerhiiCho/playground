@@ -1,7 +1,9 @@
 FROM debian:13.2
 
-RUN apt-get update && \
-    apt-get install -y \
+WORKDIR /app
+
+RUN apt-get update \
+    && apt-get install -y \
         git \
         php \
         python3 \
@@ -9,8 +11,6 @@ RUN apt-get update && \
         libapache2-mod-php \
     && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /app
-
 COPY . .
 
-CMD [ "/bin/bash" ]
+CMD ["/bin/bash"]
