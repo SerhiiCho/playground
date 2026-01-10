@@ -19,3 +19,11 @@ js:
 .PHONY: go
 go:
 	$(PODMAN_COMMAND) go run test.go
+
+.PHONY: c
+c:
+	$(PODMAN_COMMAND) gcc test.c && ./a.out && rm a.out
+
+.PHONY: bash
+bash:
+	$(PODMAN_COMMAND) bash ./test.sh
