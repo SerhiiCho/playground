@@ -1,1 +1,5 @@
-/bin/bash: line 1: goimports: command not found
+package main
+
+func main() {
+	println("Hello World")
+}

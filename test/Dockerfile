@@ -11,6 +11,11 @@ RUN apt-get update \
         libapache2-mod-php \
         curl \
         ghc \
+        nodejs
+
+# Install Go
+RUN curl -O https://dl.google.com/go/go1.25.5.linux-amd64.tar.gz \
+    && tar -C /usr/local -xzf go1.25.5.linux-amd64.tar.gz
 
 COPY . .
 

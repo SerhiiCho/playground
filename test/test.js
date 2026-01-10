@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-const baseURL = 'https://api.sampleapis.com/countries'
-
-async function fetchData() {
-    const resp = await fetch(baseURL)
-    const json = await resp.json()
-    const msg = json.message
-
-    console.log(`The message is: ${msg}`)
-}
-
-fetchData()
-=======
 /**
  * new TextEncoder().encode()    Converts a UTF-8 string to bytes
  * new TextDecoder().decode()    Converts a UTF-8 array of bytes to a string
@@ -31,10 +18,11 @@ fetchData()
 // Or: Converts bytes to Base64 encoded string.
 // Use new TextEncoder().encode() to turn a string to a UTF-8
 // array of bytes.
-function toBase64(arr) { // -> string
+function toBase64(arr) {
+    // -> string
     // Latin-1 encoding covers the 0-255 range
     const latin1String = Array.from(arr)
-        .map(byte => String.fromCharCode(byte))
+        .map((byte) => String.fromCharCode(byte))
         .join('')
 
     return btoa(latin1String)
@@ -42,8 +30,9 @@ function toBase64(arr) { // -> string
 
 // Decodes Base64 string back to bytes.
 // Use new TextDecoder().decode() to turn it to a UTF-8 string
-function fromBase64(str) { // -> Uint8Array
-    return Uint8Array.from(atob(str), c => c.charCodeAt(0))
+function fromBase64(str) {
+    // -> Uint8Array
+    return Uint8Array.from(atob(str), (c) => c.charCodeAt(0))
 }
 
 const string = 'Привет, мир 👋!'
@@ -61,4 +50,3 @@ const originalBytes = fromBase64(base64)
 const originalString = new TextDecoder().decode(originalBytes)
 
 console.log({ string, bytes, base64, originalBytes, originalString })
->>>>>>> refs/remotes/origin/master

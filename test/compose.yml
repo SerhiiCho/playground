@@ -8,3 +8,5 @@ services:
         volumes:
             - .:/app:z
         tty: true
+        environment:
+            - PATH=/usr/local/go/bin:${PATH}

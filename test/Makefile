@@ -1,7 +1,7 @@
 PODMAN_COMMAND=podman-compose exec app
 
-.PHONY: hs
-hs:
+.PHONY: ghc
+ghc:
 	$(PODMAN_COMMAND) ghc test.hs && ./test && rm test test.o
 
 .PHONY: py
@@ -15,3 +15,7 @@ php:
 .PHONY: js
 js:
 	$(PODMAN_COMMAND) node test.js
+
+.PHONY: go
+go:
+	$(PODMAN_COMMAND) go run test.go
