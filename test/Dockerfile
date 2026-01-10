@@ -9,7 +9,8 @@ RUN apt-get update \
         python3 \
         python-is-python3 \
         libapache2-mod-php \
-    && rm -rf /var/lib/apt/lists/*
+        curl \
+        ghc \
 
 COPY . .
 
