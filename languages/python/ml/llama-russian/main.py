@@ -11,14 +11,14 @@ llm = Llama(
     n_gpu_layers=0,
     n_batch=512,
     chat_format="chatml",  # ✅ SambaLingo uses ChatML format
+    seed=-1,
     verbose=False,
 )
 
 prompt = """Текст поздравления.
 
 Сергей — опытный программист, который много лет работает с современными технологиями, ценит качество кода и постоянно развивается.
-
-Сегодня у него день рождения.
+Сегодня у него день рождения. Ты хочешь его поздравить с упоминанием его професии.
 
 Поздравляем Сергея тёплыми словами:
 """
@@ -26,10 +26,10 @@ prompt = """Текст поздравления.
 result = llm.create_completion(
     prompt=prompt,
     max_tokens=300,
-    temperature=0.8,
+    temperature=1.3,
+    top_k=200,
     top_p=0.9,
     repeat_penalty=1.2,
-    stop=["\n\n"],
 )
 
 print(result["choices"][0]["text"])

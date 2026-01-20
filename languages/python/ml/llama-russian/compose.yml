@@ -5,6 +5,6 @@ services:
         build: .
         volumes:
             - .:/app:z
-            - /home/serhii/models/sambanovasystems-SambaLingo-Russian-Base-GGUF-smashed:/model:z
+            - /home/serhii/models/SambaLingo-Russian-Base.Q8_0.gguf:/model/SambaLingo-Russian-Base.Q8_0.gguf:z
         tty: true
         restart: unless-stopped

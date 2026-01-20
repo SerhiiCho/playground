@@ -1,4 +1,4 @@
-FROM python:3.6.8
+FROM python:3.14.2
 
 WORKDIR /app
 
@@ -7,4 +7,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD ["/bin/bash"]
+CMD ["bash"]
