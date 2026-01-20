@@ -6,7 +6,7 @@ model_path = "/model/SambaLingo-Russian-Base.Q8_0.gguf"
 # Set gpu_layers to the number of layers to offload to GPU. Set to 0 if no GPU acceleration is available on your system.
 llm = Llama(
     model_path=model_path,
-    n_ctx=8192,
+    n_ctx=4096,
     n_threads=multiprocessing.cpu_count() - 1,
     n_gpu_layers=0,
     n_batch=512,
@@ -33,3 +33,5 @@ result = llm.create_completion(
 )
 
 print(result["choices"][0]["text"])
+
+llm.close()

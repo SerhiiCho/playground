@@ -8,5 +8,9 @@
         description: "We have %n potatoes",
     })
 
-    <h2>{{ "Our Team" }}</h2>
+    <h2>Our Team</h2>
+
+    @each(var in [1, 2])
+        {{ loop.last }} {{ var }}
+    @end
 @end
