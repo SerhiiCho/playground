@@ -1,36 +1,18 @@
-@use('~main')
+@use ('layouts/base')
 
-@insert('title', 'Home Page')
+@insert ('title', 'Book Store')
 
-@insert('content')
-    <h1>Home Page</h1>
-    <p>This is the home page content</p>
+@insert ('content')
+    <h1 class="text-2xl font-bold">Welcome to the Book Store</h1>
+    <p class="opacity-70 mb-5">See the list of our books</p>
 
-    <div>
-        @each(book in books)
-            @component('~book', { book })
-                @slot
-                    <img
-                        src="{{ book.image }}"
-                        alt="{{ book.title }}"
-                        style="width: 100px"
-                    >
-                @end
-
-                @slot('footer')
-                    <div>
-                        <button style="
-                            padding: 10px 20px;
-                            background-color: #5d80a6;
-                            color: #fff;
-                            border: none;
-                            border-radius: 5px;
-                        ">BUY</button>
-                    </div>
-                @end
+    @if (books.len() > 0)
+        <div>
+            @each (book in books)
+                @component ('components/book', { book })
             @end
-        @else
-            <h2>No books found</h2>
-        @end
-    </div>
+        </div>
+    @else
+        <p>No books found</p>
+    @end
 @end

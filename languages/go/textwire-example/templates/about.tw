@@ -1,16 +1,16 @@
-@use('~main')
+@use ('layouts/base')
 
-@insert('title', "About Us")
+@insert ('title', "About Us")
 
-@insert('content')
-    @component('~header', {
+@insert ('content')
+    @component ('components/header', {
         title: "About Us",
         description: "We have %n potatoes",
     })
 
     <h2>Our Team</h2>
 
-    @each(var in [1, 2])
+    @each (var in [1, 2])
         {{ loop.last }} {{ var }}
     @end
 @end

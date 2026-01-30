@@ -12,7 +12,6 @@ var tpl *textwire.Template
 
 func main() {
 	var err error
-
 	tpl, err = textwire.NewTemplate(&config.Config{
 		TemplateExt: ".tw",
 		DebugMode:   true,
@@ -33,7 +32,7 @@ func main() {
 }
 
 func homeView(w http.ResponseWriter, r *http.Request) {
-	vars := map[string]interface{}{
+	vars := map[string]any{
 		"books": []struct{ Title, Author, Image string }{
 			{"Harry Potter and the Prisoner of Azkaban", "J.K. Rowling", "https://m.media-amazon.com/images/I/71c4ZAHvjmL.jpg"},
 			{"Harry Potter and the Goblet of Fire", "J.K. Rowling", "https://4.bp.blogspot.com/-NyL2B_0ERCU/WvHOB9iqOnI/AAAAAAAALpU/uB_yxsLWiewbH5WHTg6rmNpU4OkFxS8vQCLcBGAs/s1600/GobletofFire.jpg"},
@@ -46,7 +45,6 @@ func homeView(w http.ResponseWriter, r *http.Request) {
 	}
 
 	err := tpl.Response(w, "home", vars)
-
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
@@ -54,7 +52,6 @@ func homeView(w http.ResponseWriter, r *http.Request) {
 
 func aboutView(w http.ResponseWriter, r *http.Request) {
 	err := tpl.Response(w, "about", nil)
-
 	if err != nil {
 		fmt.Println(err.Error())
 	}
