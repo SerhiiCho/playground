@@ -1,7 +1,5 @@
 module github.com/SerhiiCho/textwire-example
 
-go 1.22.0
+go 1.25.0
 
-toolchain go1.23.3
-
-require github.com/textwire/textwire/v2 v2.7.1
+require github.com/textwire/textwire/v3 v3.0.0

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/textwire/textwire/v2"
-	"github.com/textwire/textwire/v2/config"
+	"github.com/textwire/textwire/v3"
+	"github.com/textwire/textwire/v3/config"
 )
 
 var tpl *textwire.Template
@@ -13,8 +13,7 @@ var tpl *textwire.Template
 func main() {
 	var err error
 	tpl, err = textwire.NewTemplate(&config.Config{
-		TemplateExt: ".tw",
-		DebugMode:   true,
+		DebugMode: true,
 	})
 
 	if err != nil {
@@ -22,10 +21,8 @@ func main() {
 	}
 
 	http.HandleFunc("/", homeView)
-	http.HandleFunc("/about", aboutView)
 
-	fmt.Println("Listening on http://localhost:8080")
-
+	fmt.Println("Visit http://localhost:8080")
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		fmt.Println(err)
 	}
@@ -47,12 +44,5 @@ func homeView(w http.ResponseWriter, r *http.Request) {
 	err := tpl.Response(w, "home", vars)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
-	}
-}
-
-func aboutView(w http.ResponseWriter, r *http.Request) {
-	err := tpl.Response(w, "about", nil)
-	if err != nil {
-		fmt.Println(err.Error())
 	}
 }

@@ -1,16 +1,30 @@
 package main
 
-import "fmt"
-
-type Test struct {
-	Falsy bool
+type Expression interface {
+	expressionStmt()
 }
 
-func (t *Test) call() bool {
-	return true
-}
+type IllegalNode struct{}
+
+func (ln *IllegalNode) expressionStmt() {}
 
 func main() {
-	obj := Test{Falsy: false}
-	fmt.Println(!obj.Falsy)
+	example1()
+}
+
+func example1() {
+	var slice []Expression
+
+	illegal := &IllegalNode{}
+
+	slice = append(slice, illegal)
+}
+
+func example2() {
+	var slice []*Expression
+
+	illegal := &IllegalNode{}
+	var expr Expression = illegal // Wrap in interface type
+
+	slice = append(slice, &expr) // Store pointer to interface
 }
