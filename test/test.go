@@ -1,30 +1,24 @@
 package main
 
-type Expression interface {
-	expressionStmt()
+import "fmt"
+
+type User struct {
+	Name string
+	Age  uint8
 }
-
-type IllegalNode struct{}
-
-func (ln *IllegalNode) expressionStmt() {}
 
 func main() {
-	example1()
-}
+	user1 := &User{}
+	var user2 *User
 
-func example1() {
-	var slice []Expression
+	fmt.Printf("-------> user1 %#v\n", user1)
+	fmt.Printf("-------> user2 %#v\n", user2)
+	fmt.Println("----------------")
 
-	illegal := &IllegalNode{}
+	count1 := 0
+	var count2 int
 
-	slice = append(slice, illegal)
-}
-
-func example2() {
-	var slice []*Expression
-
-	illegal := &IllegalNode{}
-	var expr Expression = illegal // Wrap in interface type
-
-	slice = append(slice, &expr) // Store pointer to interface
+	fmt.Printf("-------> count1 %#v\n", count1)
+	fmt.Printf("-------> count2 %#v\n", count2)
+	fmt.Println("----------------")
 }
