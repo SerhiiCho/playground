@@ -1,0 +1,22 @@
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: .docker/nginx/Dockerfile
+    volumes:
+      - ./src:/var/www/html:z
+    ports:
+      - 8080:80
+    networks:
+      - internal
+
+  php:
+    image: php:fpm-alpine
+    volumes:
+      - ./src:/var/www/html:z
+    networks:
+      - internal
+
+networks:
+  internal:
+    driver: bridge
