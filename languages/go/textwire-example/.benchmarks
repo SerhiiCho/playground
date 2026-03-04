@@ -1,0 +1,4 @@
+## 13.02.2026 16:24 v3.1.0
+BenchmarkTestProject-14    	    1030	   1144006 ns/op	  721231 B/op	    6757 allocs/op
+## 04.03.2026 13:09 v3.4.0
+BenchmarkTestProject-14    	    2541	    462408 ns/op	  722007 B/op	    6823 allocs/op

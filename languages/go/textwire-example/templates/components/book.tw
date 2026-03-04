@@ -1,18 +1,6 @@
-<div class="flex justify-between items-center gap-3 p-5 odd:bg-gray-100 rounded-md">
-    <div class="flex items-center gap-5">
-        <img
-            src="{{ book.image }}"
-            alt="{{ book.title }}"
-            class="w-20 rounded-md shadow-md"
-        >
-
-        <div>
-            <h3 class="text-xl">{{ book.title }}</h3>
-            <p class="opacity-70">{{ book.author }}</p>
-        </div>
-    </div>
-
-    <button class="bg-green-600 text-white px-5 py-2 rounded-md shadow-md cursor-pointer">
-        Order
-    </button>
+<div class="bg-gray-100 p-4 rounded-md">
+    <h4><strong>ID:</strong> {{ book.ID }}</h4>
+    <h4><strong>Title:</strong> {{ book.title.upper() }}</h4>
+    <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+    <p><strong>Author:</strong> {{ book.author.firstName }} {{ book.author.lastName }}</p>
 </div>

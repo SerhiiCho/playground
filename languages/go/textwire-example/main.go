@@ -1,48 +1,151 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"log"
 	"net/http"
+	"os"
+	"strings"
 
 	"github.com/textwire/textwire/v3"
 	"github.com/textwire/textwire/v3/config"
 )
 
-var tpl *textwire.Template
+type Book struct {
+	ID     int     `json:"id,omitempty"`
+	Isbn   string  `json:"isbn,omitempty"`
+	Title  string  `json:"title,omitempty"`
+	Author *Author `json:"author,omitempty"`
+}
+
+type Author struct {
+	ID        int    `json:"id,omitempty"`
+	FirstName string `json:"first_name,omitempty"`
+	LastName  string `json:"last_name,omitempty"`
+}
+
+var names = generateStrings(100)
+var books = generateBooks(100)
 
 func main() {
-	var err error
-	tpl, err = textwire.NewTemplate(&config.Config{
-		DebugMode: true,
-	})
-
-	if err != nil {
-		fmt.Println(err)
+	if err := loadEnv(); err != nil {
+		log.Println("No .env file found")
 	}
 
-	http.HandleFunc("/", homeView)
+	lowerFn := func(s string, args ...any) any {
+		return strings.ToLower(s)
+	}
 
-	fmt.Println("Visit http://localhost:8080")
-	if err := http.ListenAndServe(":8080", nil); err != nil {
-		fmt.Println(err)
+	if err := textwire.RegisterStrFunc("_lower", lowerFn); err != nil {
+		log.Fatal(err)
+	}
+
+	tpl := startTextwire()
+
+	http.HandleFunc("/", homeHandler(tpl))
+	http.HandleFunc("/about", aboutHandler(tpl))
+
+	fmt.Println("Listening on http://localhost:8080")
+
+	log.Fatalln(http.ListenAndServe(":8080", nil))
+}
+
+func startTextwire() *textwire.Template {
+	isDev := os.Getenv("APP_ENV") == "development"
+
+	tpl, err := textwire.NewTemplate(&config.Config{
+		ErrorPagePath: "error-page",
+		FileWatcher:   isDev,
+		DebugMode:     isDev,
+		GlobalData: map[string]any{
+			"env":  "development",
+			"year": "2020",
+		},
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	return tpl
+}
+
+func homeHandler(tpl *textwire.Template) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/" {
+			return
+		}
+
+		err := tpl.Response(w, "views/home", map[string]any{
+			"names":     names,
+			"showNames": true,
+			"books":     books,
+		})
+		if err != nil {
+			log.Printf("Template error: %v", err)
+		}
 	}
 }
 
-func homeView(w http.ResponseWriter, r *http.Request) {
-	vars := map[string]any{
-		"books": []struct{ Title, Author, Image string }{
-			{"Harry Potter and the Prisoner of Azkaban", "J.K. Rowling", "https://m.media-amazon.com/images/I/71c4ZAHvjmL.jpg"},
-			{"Harry Potter and the Goblet of Fire", "J.K. Rowling", "https://4.bp.blogspot.com/-NyL2B_0ERCU/WvHOB9iqOnI/AAAAAAAALpU/uB_yxsLWiewbH5WHTg6rmNpU4OkFxS8vQCLcBGAs/s1600/GobletofFire.jpg"},
-			{"The Great Gatsby", "F. Scott Fitzgerald", "https://placehold.co/400"},
-			{"To Kill a Mockingbird", "Harper Lee", "https://placehold.co/400"},
-			{"1984", "George Orwell", "https://placehold.co/400"},
-			{"Pride and Prejudice", "Jane Austen", "https://placehold.co/400"},
-			{"The Catcher in the Rye", "J.D. Salinger", "https://placehold.co/400"},
-		},
+func aboutHandler(tpl *textwire.Template) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/about" {
+			return
+		}
+
+		if err := tpl.Response(w, "views/about", map[string]any{}); err != nil {
+			log.Printf("Template error: %v", err)
+		}
+	}
+}
+
+func generateBooks(count int) []Book {
+	books := make([]Book, count)
+
+	for i := range count {
+		books[i] = Book{
+			ID:    i + 1,
+			Isbn:  fmt.Sprintf("978-3-16-148410-%d", i),
+			Title: fmt.Sprintf("Book %d", i+1),
+			Author: &Author{
+				ID:        i + 1,
+				FirstName: fmt.Sprintf("Author%d", i+1),
+				LastName:  "Smith",
+			},
+		}
+	}
+	return books
+}
+
+func generateStrings(count int) []string {
+	strs := make([]string, count)
+
+	for i := range count {
+		strs[i] = fmt.Sprintf("978-3-16-148410-%d", i)
+	}
+	return strs
+}
+
+func loadEnv() error {
+	file, err := os.Open(".env")
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		line := strings.TrimSpace(scanner.Text())
+		if line == "" || strings.HasPrefix(line, "#") {
+			continue
+		}
+
+		parts := strings.SplitN(line, "=", 2)
+		if len(parts) == 2 {
+			key := strings.TrimSpace(parts[0])
+			value := strings.TrimSpace(parts[1])
+			os.Setenv(key, value)
+		}
 	}
 
-	err := tpl.Response(w, "home", vars)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-	}
+	return scanner.Err()
 }
