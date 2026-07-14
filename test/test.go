@@ -1,11 +1,19 @@
 package main
 
-import "fmt"
+import (
+	"log"
+	"time"
+)
 
 type Tag struct{}
 
 func main() {
-	for i := 0; i < 10; i += 1 {
-		fmt.Println(i)
+	parsed, err := time.Parse("15:04:05", "10:00:09")
+	if err != nil {
+		log.Fatal(err)
 	}
+
+	res := parsed.Format("2006-01-02")
+
+	println(res)
 }

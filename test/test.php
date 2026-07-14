@@ -1,6 +1,5 @@
 <?php
 
-for ($i = 0; $i < 5; $i++) {
-    echo $i . "\n";
-    sleep(1);
-}
+$result = str_repeat('a', 1480);
+
+echo $result . "\n";
