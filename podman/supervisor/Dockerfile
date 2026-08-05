@@ -7,6 +7,6 @@ RUN apk update && \
         vim && \
     echo 'alias vi="vim"' >> ~/.bashrc
 
-COPY supervisord.conf /etc/supervisord.conf
+COPY supervisord.conf /etc/
 
 CMD [ "/usr/bin/supervisord", "-n" ]
