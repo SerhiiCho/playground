@@ -1,2 +1,1 @@
-> [!IMPORTANT]
-> Moved to [https://codeberg.org/SerhiiCho/playground](https://codeberg.org/SerhiiCho/playground)
+Moved to [https://codeberg.org/SerhiiCho/playground](https://codeberg.org/SerhiiCho/playground)
