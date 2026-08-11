@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	ago "github.com/SerhiiCho/timeago/v3"
+	ago "codeberg.org/timeago/timeago/v3"
 )
 
 func init() {

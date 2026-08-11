@@ -1,0 +1,9 @@
+services:
+  app:
+    image: timeago-test
+    build:
+      context: .
+    volumes:
+      - "./app:/app:z"
+    tty: true
+    stdin_open: true
