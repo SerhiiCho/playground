@@ -6,11 +6,13 @@ RUN apt update && \
         php \
         net-tools \
         vim && \
-    echo 'alias vi="vim"' >> ~/.bashrc
+    echo 'alias vi="vim"' >> ~/.bashrc && \
+    echo 'alias ll="ls -hlaF"' >> ~/.bashrc
 
 RUN mkdir -p /app
 
 COPY entrypoint /
+COPY default.conf /etc/nginx/conf.d/
 COPY index.php /app
 
 ENTRYPOINT [ "/entrypoint" ]
