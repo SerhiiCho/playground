@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+php -S 0.0.0.0:3000 -t /app &
+
+exec nginx -g 'daemon off;'

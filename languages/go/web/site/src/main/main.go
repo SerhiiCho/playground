@@ -30,7 +30,7 @@ func (handler *MyHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	} else if strings.HasSuffix(path, ".html") {
 		contentType = "text/html"
 	} else if strings.HasSuffix(path, ".png") {
-		contentType = "image/png"
+		contentType = "image/jpeg"
 	} else if strings.HasSuffix(path, ".js") {
 		contentType = "application/javascript"
 	} else if strings.HasSuffix(path, ".svg") {
