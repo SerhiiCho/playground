@@ -14,7 +14,7 @@ rm:
 	podman rm $(IMAGE)
 
 .PHONY: run
-run: rm build
+run:
 	mkdir -p web
 	podman run -d \
 		--name $(IMAGE) \
