@@ -1,16 +1,8 @@
-@use('~main')
-
-@insert('title', "About Us")
-
-@insert('content')
-    @component('~header', {
-        title: "About Us",
-        description: "We have %n potatoes",
-    })
-
-    @each(name in names)
-        Iteration number is {{ loop.iter }}
+@for(i = 0; i < 3; i++)
+    @for(j = 0; j < 2; j++)
+        @continueif(j == 0)
+        {{ i }}{{ j }}
     @end
-
-    <h2>{{ "Our Team" }}</h2>
+    ;
 @end
+00;10;20;

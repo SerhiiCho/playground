@@ -1,12 +1,13 @@
 name: test-project
 
 services:
-    app:
-        build: .
-        image: test-project
-        container_name: test-project
-        volumes:
-            - .:/app:z
-        tty: true
-        environment:
-            - PATH=/usr/local/go/bin:${PATH}
+  app:
+    build: .
+    image: test-project
+    container_name: test-project
+    volumes:
+      - .:/app:z
+    tty: true
+    stop_grace_period: 1s
+    environment:
+      - PATH=/usr/local/go/bin:${PATH}
