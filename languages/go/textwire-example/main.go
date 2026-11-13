@@ -8,8 +8,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/textwire/textwire/v3"
-	"github.com/textwire/textwire/v3/config"
+	"codeberg.org/textwire/textwire/v6"
+	"codeberg.org/textwire/textwire/v6/config"
 )
 
 type Book struct {

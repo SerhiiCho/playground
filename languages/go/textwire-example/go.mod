@@ -2,6 +2,6 @@ module textwire-example
 
 go 1.25.0
 
-require github.com/textwire/textwire/v3 v3.1.2
+require codeberg.org/textwire/textwire/v6 v6.0.0
 
-replace github.com/textwire/textwire/v3 => /home/serhii/www/open/textwire/textwire
+replace codeberg.org/textwire/textwire/v6 => /home/serhii/www/codeberg/textwire/textwire
